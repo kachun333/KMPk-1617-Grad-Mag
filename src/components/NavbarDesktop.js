@@ -53,11 +53,9 @@ function NavbarDesktop() {
   const handleOpenLanguageSelector = e => {
     setSelectedLanguage(e.currentTarget);
   };
-
   const handleCloseLanguageSelector = () => {
     setAnchor(null);
   };
-
   const handleLanguageChange = language => {
     setAnchor(null);
     // i18n.changeLanguage(language);

@@ -17,13 +17,13 @@ import {
   Translate,
   ArrowDropDown
 } from "@material-ui/icons";
+import { makeStyles } from "@material-ui/styles";
 import { NavLink } from "react-router-dom";
 import i18n from "../i18n";
 import { withTranslation } from "react-i18next";
-import Logo from "../resources/Images/e3tLogo.svg";
 
 // component level styling using withStyles
-const styles = {
+const useStyles = makeStyles({
   fill: {
     width: "100%",
     height: "100%"
@@ -57,53 +57,32 @@ const styles = {
     width: "100%",
     maxWidth: "100vw"
   }
-};
-export class NavbarMobile extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpen: false,
-      selectedLanguage: null,
-      anchor: null
-    };
-    this.handleOpenMenu = this.handleOpenMenu.bind(this);
-    this.handleCloseMenu = this.handleCloseMenu.bind(this);
-    this.handleOpenLanguageSelector = this.handleOpenLanguageSelector.bind(
-      this
-    );
-    this.handleCloseLanguageSelector = this.handleCloseLanguageSelector.bind(
-      this
-    );
-    this.handleLanguageChange = this.handleLanguageChange.bind(this);
-  }
-  handleOpenMenu = () => {
-    this.setState({
-      isOpen: true
-    });
+});
+
+function NavbarMobile() {
+  
+  const [isOpen, setIsOpen] = useState(null);
+  const [selectedLanguage, setSelectedLanguage] = useState(null);
+  const [anchor, setAnchor] = useState(null);
+  // const [t, i18n] = useTranslation();
+  
+  const handleOpenMenu = () => {
+    setIsOpen(true)
   };
-  handleCloseMenu = () => {
-    this.setState({
-      isOpen: false
-    });
+  const handleCloseMenu = () => {
+    setIsOpen(false)
   };
   handleOpenLanguageSelector = e => {
-    this.setState({
-      anchor: e.currentTarget
-    });
+    setAnchor(e.currentTarget);
   };
   handleCloseLanguageSelector = () => {
-    this.setState({
-      anchor: null
-    });
+    setAnchor(null);
   };
   handleLanguageChange = language => {
-    this.setState({
-      anchor: null
-    });
-    i18n.changeLanguage(language);
+    setAnchor(null);
+    // i18n.changeLanguage(language);
   };
-  render() {
-    const [ t, classes ] = this.props;
+  
     return (
       <Fragment>
         <Toolbar className={classes.float}>
@@ -117,7 +96,7 @@ export class NavbarMobile extends Component {
           >
             {/* the logo */}
             <IconButton className={classes.logo} component={NavLink} to="/">
-              <img className={classes.fill} alt="" src={Logo} />
+              <img className={classes.fill} alt="" src="#" />
             </IconButton>
             {/* the menu icon */}
             <IconButton onClick={this.handleOpenMenu}>
@@ -177,67 +156,10 @@ export class NavbarMobile extends Component {
               activeClassName={classes.active}
               onClick={this.handleCloseMenu}
             />
-            {/* TODO bring back tabs for mobile */}
-            {/* <Tab
-                label="Events"
-                component={NavLink}
-                to="/events"
-                activeClassName={classes.active}
-                onClick={this.handleCloseMenu}
-              /> */}
-            {/* <Tab
-                label="Incubator"
-                component={NavLink}
-                to="/incubator"
-                activeClassName={classes.active}
-                onClick={this.handleCloseMenu}
-              /> */}
-            <Tab
-              label={t("ecosystem")}
-              component={NavLink}
-              to="/ecosystem"
-              activeClassName={classes.active}
-              onClick={this.handleCloseMenu}
-            />
-            <Tab
-              label={t("blockchain")}
-              component={NavLink}
-              to="/blockchain"
-              activeClassName={classes.active}
-              onClick={this.handleCloseMenu}
-            />
-            {/* <Tab
-                label="Media"
-                component={NavLink}
-                to="/media"
-                activeClassName={classes.active}
-                onClick={this.handleCloseMenu}
-              /> */}
-            <Tab
-              label={t("our team")}
-              component={NavLink}
-              to="/ourteam"
-              activeClassName={classes.active}
-              onClick={this.handleCloseMenu}
-            />
-            {/*<Tab*/}
-              {/*label={t("event")}*/}
-              {/*component={NavLink}*/}
-              {/*to="/events"*/}
-              {/*activeClassName={classes.active}*/}
-              {/*onClick={this.handleCloseMenu}*/}
-            {/*/>*/}
             <Tab
               label={t("media")}
               component={NavLink}
               to="/media"
-              activeClassName={classes.active}
-              onClick={this.handleCloseMenu}
-            />
-            <Tab
-              label={t("contact us")}
-              component={NavLink}
-              to="/contactus"
               activeClassName={classes.active}
               onClick={this.handleCloseMenu}
             />
@@ -246,6 +168,5 @@ export class NavbarMobile extends Component {
       </Fragment>
     );
   }
-}
 
-export default withStyles(styles)(withTranslation()(NavbarMobile));
+export default NavbarMobile;
