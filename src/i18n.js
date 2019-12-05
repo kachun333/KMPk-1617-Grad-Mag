@@ -48,26 +48,6 @@ const options = {
   checkWhitelist: true
 };
 
-// i18n
-// .use(detector)
-// .use(backend)
-// .use(initReactI18next)
-// .init({
-//   resources: resources,
-//   fallbackLng: 'en',
-//   // debug only when not in production
-//   debug: true,
-//   ns: ['translations'],
-//   defaultNS: 'translations',
-//   keySeparator: false,
-//   interpolation: {
-//     escapeValue: false,
-//     formatSeparator: ',',
-//   },
-//   react: {
-//     wait: true,
-//   },
-// });
 i18n
   // load translation using xhr -> see /public/locales
   // learn more: https://github.com/i18next/i18next-xhr-backend
@@ -80,6 +60,8 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
+    resources,
+    options,
     fallbackLng: 'en',
     // debug only when not in production
     debug: true,

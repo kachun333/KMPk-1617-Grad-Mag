@@ -11,16 +11,10 @@ const useStyles = makeStyles({
     width: "100%",
     maxWidth: "100vw"
   },
-  center: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center"
-  },
   logo: {
     width: "10vh",
     height: "10vh"
   },
-  // TODO make tabs get border color from theme
   active: {
     borderBottom: "3px solid #aa00ff"
   },
@@ -36,18 +30,11 @@ const useStyles = makeStyles({
   tab: {
     minWidth: "60px"
   },
-  float: {
-    position: "absolute",
-    zIndex: 2,
-    width: "100%",
-    maxWidth: "100vw"
-  }
 });
-
 function NavbarDesktop() {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [anchor, setAnchor] = useState(null);
-  const [t, i18n] = useTranslation();
+  // const [t, i18n] = useTranslation();
   const classes = useStyles();
 
   const handleOpenLanguageSelector = e => {
@@ -62,7 +49,7 @@ function NavbarDesktop() {
   };
 
   return (
-    <Toolbar className={classes.float}>
+    <Toolbar>
       <Box
         className={classes.fitWidth}
         display="flex"

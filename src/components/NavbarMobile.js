@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import {
   Drawer,
   Tabs,
@@ -19,8 +19,7 @@ import {
 } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/styles";
 import { NavLink } from "react-router-dom";
-import i18n from "../i18n";
-import { withTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 // component level styling using withStyles
 const useStyles = makeStyles({
@@ -64,6 +63,7 @@ function NavbarMobile() {
   const [isOpen, setIsOpen] = useState(null);
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [anchor, setAnchor] = useState(null);
+  const classes = useStyles();
   // const [t, i18n] = useTranslation();
   
   const handleOpenMenu = () => {
@@ -72,13 +72,13 @@ function NavbarMobile() {
   const handleCloseMenu = () => {
     setIsOpen(false)
   };
-  handleOpenLanguageSelector = e => {
+  const handleOpenLanguageSelector = e => {
     setAnchor(e.currentTarget);
   };
-  handleCloseLanguageSelector = () => {
+  const handleCloseLanguageSelector = () => {
     setAnchor(null);
   };
-  handleLanguageChange = language => {
+  const handleLanguageChange = language => {
     setAnchor(null);
     // i18n.changeLanguage(language);
   };
@@ -99,7 +99,7 @@ function NavbarMobile() {
               <img className={classes.fill} alt="" src="#" />
             </IconButton>
             {/* the menu icon */}
-            <IconButton onClick={this.handleOpenMenu}>
+            <IconButton onClick={handleOpenMenu}>
               <MenuIcon />
             </IconButton>
           </Box>
@@ -107,8 +107,8 @@ function NavbarMobile() {
         {/* the side navigavtion menu */}
         <Drawer
           anchor="right"
-          open={this.state.isOpen}
-          onClose={this.handleCloseMenu}
+          open={isOpen}
+          onClose={handleCloseMenu}
         >
           <Box
             display="flex"
@@ -119,28 +119,28 @@ function NavbarMobile() {
             mb={2}
             mt={2}
           >
-            <IconButton onClick={this.handleCloseMenu}>
+            <IconButton onClick={handleCloseMenu}>
               <ArrowForward />
             </IconButton>
 
-            <Button onClick={this.handleOpenLanguageSelector}>
+            <Button onClick={handleOpenLanguageSelector}>
               <Translate />
               <ArrowDropDown />
             </Button>
             <Menu
-              anchorEl={this.state.anchor}
-              open={Boolean(this.state.anchor)}
-              onClose={this.handleCloseLanguageSelector}
+              anchorEl={anchor}
+              open={Boolean(anchor)}
+              onClose={handleCloseLanguageSelector}
             >
               <MenuItem
                 component={Button}
-                onClick={() => this.handleLanguageChange("en")}
+                onClick={() => handleLanguageChange("en")}
               >
                 English
               </MenuItem>
               <MenuItem
                 component={Button}
-                onClick={() => this.handleLanguageChange("ch")}
+                onClick={() => handleLanguageChange("ch")}
                 className={classes.fillWidth}
               >
                 中文
@@ -149,19 +149,21 @@ function NavbarMobile() {
           </Box>
           <Tabs orientation="vertical" className={classes.menu}>
             <Tab
-              label={t("home")}
+            label = "home"
+              // label={t("home")}
               component={NavLink}
               exact
               to="/"
               activeClassName={classes.active}
-              onClick={this.handleCloseMenu}
+              onClick={handleCloseMenu}
             />
             <Tab
-              label={t("media")}
+            label="media"
+              // label={t("media")}
               component={NavLink}
               to="/media"
               activeClassName={classes.active}
-              onClick={this.handleCloseMenu}
+              onClick={handleCloseMenu}
             />
           </Tabs>
         </Drawer>

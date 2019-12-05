@@ -9,14 +9,16 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from '@material-ui/styles';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import Home from "./components/pages/Home";
+import Home from "./components/pages/Home";
 // import Media from "./components/pages/Media";
 // import Article from "./components/pages/Article";
 // import ContactUs from "./components/pages/ContactUs";
 import NavbarDesktop from "./components/NavbarDesktop";
-// import NavbarMobile from "./components/NavbarMobile";
+import NavbarMobile from "./components/NavbarMobile";
+import { flexbox } from '@material-ui/system';
 // import Footer from "./components/Footer";
-import i18n from "./i18n"; 
+// import "./i18n"; 
+
 const theme = createMuiTheme({
   palette: {
     type: "dark",
@@ -53,10 +55,12 @@ const theme = createMuiTheme({
 });
 //component level styling
 const useStyles = makeStyles({
-  fitWidth: {
+  container: {
+    display: "flex",
+    flexDirection: "column",
     width: "100%",
     maxWidth: "100vw",
-    overflow: "hidden"
+    height: "100%",
   }
 });
 
@@ -71,25 +75,23 @@ function App() {
         <Suspense fallback={null}>
           {/* to reset the CSS across all browsers  */}
           <CssBaseline />
-          <Box className={classes.fitWidth}>
+          <Box className={classes.container}>
             {/* desktop navigation menu */}
             {/* hides the menu on small screens
        and any screen smaller than that  */}
-       hello world
-       <NavbarDesktop />
-            {/* <Hidden smDown>
+            <Hidden smDown>
               <NavbarDesktop />
-            </Hidden> */}
+            </Hidden>
             {/* mobile navigation menu */}
             {/* hides the menu on medium screens
        and any screen bigger than that */}
-            {/* <Hidden mdUp>
+            <Hidden mdUp>
               <NavbarMobile />
-            </Hidden> */}
+            </Hidden>
             {/* react router routes */}
             <Switch>
-              {/* <Route path="/" exact component={Home} />
-              <Route path="/media" exact component={Media} />
+              <Route path="/" exact component={Home} />
+              {/* <Route path="/media" exact component={Media} />
               <Route path="/media/:mediaId" exact component={Article} />
               <Route path="/contactus" exact component={ContactUs} /> */}
             </Switch>
