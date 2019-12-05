@@ -16,7 +16,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavbarDesktop from "./components/NavbarDesktop";
 // import NavbarMobile from "./components/NavbarMobile";
 // import Footer from "./components/Footer";
-
+import i18n from "./i18n"; 
 const theme = createMuiTheme({
   palette: {
     type: "dark",
@@ -75,7 +75,8 @@ function App() {
             {/* desktop navigation menu */}
             {/* hides the menu on small screens
        and any screen smaller than that  */}
-       hello world<NavbarDesktop />
+       hello world
+       <NavbarDesktop />
             {/* <Hidden smDown>
               <NavbarDesktop />
             </Hidden> */}

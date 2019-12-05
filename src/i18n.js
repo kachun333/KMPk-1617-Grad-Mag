@@ -48,25 +48,50 @@ const options = {
   checkWhitelist: true
 };
 
+// i18n
+// .use(detector)
+// .use(backend)
+// .use(initReactI18next)
+// .init({
+//   resources: resources,
+//   fallbackLng: 'en',
+//   // debug only when not in production
+//   debug: true,
+//   ns: ['translations'],
+//   defaultNS: 'translations',
+//   keySeparator: false,
+//   interpolation: {
+//     escapeValue: false,
+//     formatSeparator: ',',
+//   },
+//   react: {
+//     wait: true,
+//   },
+// });
 i18n
-.use(detector)
-.use(backend)
-.use(initReactI18next)
-.init({
-  resources: resources,
-  fallbackLng: 'en',
-  // debug only when not in production
-  debug: true,
-  ns: ['translations'],
-  defaultNS: 'translations',
-  keySeparator: false,
-  interpolation: {
-    escapeValue: false,
-    formatSeparator: ',',
-  },
-  react: {
-    wait: true,
-  },
-});
-
+  // load translation using xhr -> see /public/locales
+  // learn more: https://github.com/i18next/i18next-xhr-backend
+  .use(backend)
+  // detect user language
+  // learn more: https://github.com/i18next/i18next-browser-languageDetector
+  .use(detector)
+  // pass the i18n instance to react-i18next.
+  .use(initReactI18next)
+  // init i18next
+  // for all options read: https://www.i18next.com/overview/configuration-options
+  .init({
+    fallbackLng: 'en',
+    // debug only when not in production
+    debug: true,
+    ns: ['translations'],
+    defaultNS: 'translations',
+    keySeparator: false,
+    interpolation: {
+      escapeValue: false,
+      formatSeparator: ',',
+    },
+    react: {
+      wait: true,
+    },
+  });
 export default i18n;

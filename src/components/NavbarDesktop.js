@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/styles";
 import { Translate, ArrowDropDown } from "@material-ui/icons";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import "../i18n"; 
+
 // component level styling using withStyles
 const useStyles = makeStyles({
   fitWidth: {
@@ -47,11 +47,11 @@ const useStyles = makeStyles({
 function NavbarDesktop() {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [anchor, setAnchor] = useState(null);
-  // const [t, i18n] = useTranslation();
+  const [t, i18n] = useTranslation();
   const classes = useStyles();
 
   const handleOpenLanguageSelector = e => {
-    setSelectedLanguage(e.currentTarget);
+    setAnchor(e.currentTarget);
   };
   const handleCloseLanguageSelector = () => {
     setAnchor(null);
