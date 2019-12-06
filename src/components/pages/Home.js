@@ -10,6 +10,7 @@ import {
 import { makeStyles } from "@material-ui/styles";
 import { useTranslation } from 'react-i18next';
 import Background from '../../assets/images/home.jpg';
+import Banner from '../common/Banner';
 // import axios from 'axios';
 // import { withTranslation } from "react-i18next";
 // import "../../i18n";
@@ -61,54 +62,14 @@ const useStyles = makeStyles(theme => ({
   img: {
     width: "100vw"
   },
-  banner: {
-    maxWidth: "100vw",
-    backgroundImage: `url(${Background})`,
-    backgroundPositionX: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    minHeight: "40vh",
-    [theme.breakpoints.up('md')]: {
-      minHeight: "calc(100vh - 75px)",
-    }
-  },
 }));
-function Banner() {
-  // const [t, i18n] = useTranslation();
-  const classes = useStyles();
-  return (
-    <>
-      <Hidden smDown>
-        <Box id="desktopBanner" className={classes.banner}>
-          <Typography variant="h1" style={{ fontWeight: "bold" }}>
-            三年之约
-          </Typography>
-          <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
-            青涩的约定
-          </Typography>
-        </Box>
-      </Hidden>
-      <Hidden mdUp>
-        <Box id="mobileBanner" className={classes.banner}>
-          <Typography variant="h3" style={{ fontWeight: "bold" }}>
-            E3T WALLET
-              </Typography>
-          <Typography variant="h3" style={{ fontWeight: "bold" }}>
-            IS NOW LIVE
-              </Typography>
-          <img alt="" src="#" />
-        </Box>
-      </Hidden>
-    </>
-  );
-}
 
 function Home() {
   // const [t, i18n] = useTranslation();
   const classes = useStyles();
   return (
     <Fragment className={classes.container}>
-      <Banner />
+      <Banner name="hello world" background={Background} />
       <Container className={classes.section}>
         <Box className={classes.center} mb={3}>
           <Typography variant="h4" align="center">

@@ -85,7 +85,7 @@ function NavbarMobile() {
   
     return (
       <Fragment>
-        <Toolbar className={classes.float}>
+        <Toolbar>
           <Box
             className={classes.fitWidth}
             display="flex"
