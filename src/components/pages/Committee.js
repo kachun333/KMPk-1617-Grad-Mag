@@ -2,11 +2,6 @@ import React, { Fragment } from "react";
 import {
   Box,
   withStyles,
-  Grid,
-  Card,
-  CardActionArea,
-  CardMedia,
-  CardContent,
   Typography,
   Button,
   Container,
@@ -14,7 +9,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { useTranslation } from 'react-i18next';
-import Background from '../../assets/images/home.jpg';
+import Background from '../../assets/images/committee.png';
 import FullpageBanner from '../common/FullpageBanner';
 // import axios from 'axios';
 // import { withTranslation } from "react-i18next";
@@ -33,8 +28,9 @@ const useStyles = makeStyles(theme => ({
     maxWidth: "100vw"
   },
   section: {
-    marginTop: "32px",
-    marginBottom: "32px",
+    display: "block",
+    marginBottom: "50px",
+    maxWidth: "100vw"
   },
   center: {
     display: "flex",
@@ -66,50 +62,16 @@ const useStyles = makeStyles(theme => ({
   img: {
     width: "100vw"
   },
-  card: {
-    // maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
 }));
-const cards = [1,2,3,4];
 
-function Home() {
+function Committee() {
   // const [t, i18n] = useTranslation();
   const classes = useStyles();
   return (
     <Fragment className={classes.container}>
       <FullpageBanner caption="hello world" background={Background} />
-      
-      <Container className={classes.section}>
-      <Grid container spacing={4}>
-        {cards.map((card, i) => (
-          <Grid item key={i} xs={12} md={6}>
-            <Card className={classes.card}>
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image="#"
-                  title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5">
-                    Lizard
-                    </Typography>
-                  <Typography variant="body2">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                    across all continents except Antarctica
-                    </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-      </Container>
     </Fragment>
   );
 }
 
-export default Home;
+export default Committee;

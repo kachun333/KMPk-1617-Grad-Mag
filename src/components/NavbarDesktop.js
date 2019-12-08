@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/styles";
 import { Translate, ArrowDropDown } from "@material-ui/icons";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { Logo } from '../assets/images/logo.png';
 
 // component level styling using withStyles
 const useStyles = makeStyles((theme) => ({
@@ -12,8 +13,6 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "100vw"
   },
   logo: {
-    width: "10vh",
-    height: "10vh",
     marginRight: theme.spacing(2),
   },
   title: {
@@ -41,7 +40,7 @@ function NavbarDesktop({ onToggleDark }) {
   // const [t, i18n] = useTranslation();
   const classes = useStyles();
 
-  
+
   const handleOpenLanguageSelector = e => {
     setAnchor(e.currentTarget);
   };
@@ -63,9 +62,8 @@ function NavbarDesktop({ onToggleDark }) {
         alignItems="center"
         justifyContent="space-between"
       >
-        {/* the logo */}
-        <IconButton className={classes.logo} component={NavLink} to="/">
-          <img alt="" src="#" className={classes.fitWidth} />
+        <IconButton id="logo" className={classes.logo} component={NavLink} to="/">
+          <img alt="logo" src={Logo} className={classes.fitWidth} />
         </IconButton>
         <Typography variant="h5" className={classes.title}>
           News
@@ -82,7 +80,7 @@ function NavbarDesktop({ onToggleDark }) {
               <Tab
                 label="home"
                 // label={t("home")}
-                component={NavLink}
+                component={Button}
                 to="/"
                 exact
                 activeClassName={classes.active}
@@ -91,7 +89,7 @@ function NavbarDesktop({ onToggleDark }) {
               <Tab
                 label="media"
                 // label={t("media")}
-                component={NavLink}
+                component={Button}
                 to="/media"
                 activeClassName={classes.active}
                 className={classes.tab}
@@ -101,9 +99,9 @@ function NavbarDesktop({ onToggleDark }) {
           {/* language switch button */}
           <Box ml={4}>
 
-            <Button onClick={onToggleDark}>
-              Toggle Theme Type
-              </Button>
+            <Button>
+              <Translate />
+            </Button>
             <Button onClick={handleOpenLanguageSelector}>
               <Translate />
               <ArrowDropDown />
