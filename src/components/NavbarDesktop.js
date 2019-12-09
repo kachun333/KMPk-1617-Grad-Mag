@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/styles";
 import { Translate, ArrowDropDown } from "@material-ui/icons";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import { Logo } from '../assets/images/logo.png';
+import { Logo } from '../assets/images/home.jpg';
 
 // component level styling using withStyles
 const useStyles = makeStyles((theme) => ({
@@ -63,7 +63,7 @@ function NavbarDesktop({ onToggleDark }) {
         justifyContent="space-between"
       >
         <IconButton id="logo" className={classes.logo} component={NavLink} to="/">
-          <img alt="logo" src={Logo} className={classes.fitWidth} />
+          <img alt="logo" src='../assets/images/home.jpg' />
         </IconButton>
         <Typography variant="h5" className={classes.title}>
           News
@@ -76,21 +76,33 @@ function NavbarDesktop({ onToggleDark }) {
           justifyContent="flex-end"
         >
           <Box mr={4}>
-            <Tabs>
+            <Tabs
+              value={0}
+              indicatorColor="primary"
+              textColor="primary"
+              // onChange={handleChange}
+            >
               <Tab
-                label="home"
+                label="graduates"
                 // label={t("home")}
-                component={Button}
-                to="/"
-                exact
+                component={NavLink}
+                to="/graduates"
                 activeClassName={classes.active}
                 className={classes.tab}
               />
               <Tab
-                label="media"
+                label="Be A Committee"
                 // label={t("media")}
-                component={Button}
-                to="/media"
+                component={NavLink}
+                to="/committee"
+                activeClassName={classes.active}
+                className={classes.tab}
+              />
+              <Tab
+                label="About"
+                // label={t("media")}
+                component={NavLink}
+                to="/about"
                 activeClassName={classes.active}
                 className={classes.tab}
               />

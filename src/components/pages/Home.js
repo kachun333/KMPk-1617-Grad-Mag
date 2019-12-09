@@ -12,9 +12,12 @@ import {
   Container,
   Hidden
 } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
 import { useTranslation } from 'react-i18next';
-import Background from '../../assets/images/home.jpg';
+import Banner from '../../assets/images/home.jpg';
+import About from '../../assets/images/about.jpg';
+import Background from '../../assets/images/about.jpg';
 import FullpageBanner from '../common/FullpageBanner';
 // import axios from 'axios';
 // import { withTranslation } from "react-i18next";
@@ -67,48 +70,78 @@ const useStyles = makeStyles(theme => ({
     width: "100vw"
   },
   card: {
-    // maxWidth: 345,
+    position: "relative",
   },
-  media: {
-    height: 140,
+  cardMedia: {
+    height: "240px"
+  },
+  cardContent: {
+    position: "absolute",
+    bottom: 0,
+    margin: "0 32px",
+    marginBottom: "8px",
+    color: "white",
+  },
+  overlay: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    left: 0,
+    paddingBottom: "100px",
+    backgroundImage: 'linear-gradient(to bottom, transparent, #AFAFAFAF)',
   },
 }));
-const cards = [1,2,3,4];
+const cards = [{
+  image: "#",
+  title: "Graduates",
+  link: "/graduates",
+  caption: "Are you guys still in contact?",
+},{
+  image: "../../assets/images/committee.jpg",
+  title: "Be A Committee",
+  link: "/committee",
+  caption: "Learn more about 'Our Promise' & register now to get involve in the event preparation",
+},{
+  image: "#",
+  title: "About",
+  link: "/about",
+  caption: "Learn more about the story & motivation behind 'Our Promise'",
+},
+  ];
 
 function Home() {
   // const [t, i18n] = useTranslation();
   const classes = useStyles();
   return (
-    <Fragment className={classes.container}>
-      <FullpageBanner caption="hello world" background={Background} />
-      
+    <div className={classes.container}>
+      <FullpageBanner caption="" background={Banner} />
+
       <Container className={classes.section}>
-      <Grid container spacing={4}>
-        {cards.map((card, i) => (
-          <Grid item key={i} xs={12} md={6}>
-            <Card className={classes.card}>
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image="#"
-                  title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5">
-                    Lizard
+        <Grid container spacing={4}>
+          {cards.map((card, i) => (
+            <Grid item key={i} xs={12} md={6}>
+              <Card>
+                <CardActionArea className={classes.card}>
+                <Link to={card.link}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image={About}
+                    title={card.title}
+                  />
+                  <div className={classes.overlay}></div>
+                  <div className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5">
+                      {card.title}
                     </Typography>
-                  <Typography variant="body2">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                    across all continents except Antarctica
-                    </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+                  </div>
+                </Link>
+                </CardActionArea>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
       </Container>
-    </Fragment>
+    </div>
   );
 }
 

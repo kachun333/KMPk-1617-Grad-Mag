@@ -37,7 +37,6 @@ function FullpageBanner(props) {
            {props.caption}
          </Typography>
          <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
-           青涩的约定
          </Typography>
        </Box>
      </Hidden>

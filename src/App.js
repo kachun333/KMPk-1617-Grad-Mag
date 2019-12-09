@@ -22,7 +22,7 @@ import { flexbox } from '@material-ui/system';
 import Verify from './components/pages/Verify';
 import Committee from './components/pages/Committee';
 import CommitteeRegister from './components/pages/CommitteeRegister';
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 // import "./i18n"; 
 
 //component level styling
@@ -38,11 +38,11 @@ function HideOnScroll(props) {
 }
 
 function App(props) {
-  
+
   const [theme, setTheme] = useState({
     palette: {
       type: "light",
-      primary: { main: "#aa00ff" },
+      primary: { main: "#673ab7" },
       secondary: { main: "#f50057" }
     },
     typography: {
@@ -85,37 +85,37 @@ function App(props) {
         <Suspense fallback={null}>
           {/* to reset the CSS across all browsers  */}
           <CssBaseline />
-            {/* desktop navigation menu */}
-            {/* hides the menu on small screens
+          {/* desktop navigation menu */}
+          {/* hides the menu on small screens
        and any screen smaller than that  */}
 
-            <HideOnScroll {...props}>
-              <AppBar 
-              color = "inherit"
-              // style={{ background: 'transparent', boxShadow: 'none'}}
-              >
-                <Hidden smDown>
-                  <NavbarDesktop />
-                </Hidden>
-                {/* mobile navigation menu */}
-                {/* hides the menu on medium screens and any screen bigger than that */}
-                <Hidden mdUp>
-                  <NavbarMobile />
-                </Hidden>
-              </AppBar>
-            </HideOnScroll>
-            <Toolbar />
-            {/* react router routes */}
-            <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/verify" exact component={Verify} />
-              <Route path="/committee" exact component={Committee} />
-              <Route path="/committee/register" exact component={CommitteeRegister} />
-              {/* <Route path="/media" exact component={Media} />
+          <HideOnScroll {...props}>
+            <AppBar
+              color="inherit"
+            // style={{ background: 'transparent', boxShadow: 'none'}}
+            >
+              <Hidden smDown>
+                <NavbarDesktop />
+              </Hidden>
+              {/* mobile navigation menu */}
+              {/* hides the menu on medium screens and any screen bigger than that */}
+              <Hidden mdUp>
+                <NavbarMobile />
+              </Hidden>
+            </AppBar>
+          </HideOnScroll>
+          <Toolbar />
+          {/* react router routes */}
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/verify" exact component={Verify} />
+            <Route path="/committee" exact component={Committee} />
+            <Route path="/committee/register" exact component={CommitteeRegister} />
+            {/* <Route path="/media" exact component={Media} />
               <Route path="/media/:mediaId" exact component={Article} />
               <Route path="/contactus" exact component={ContactUs} /> */}
-            </Switch>
-            {/* <Footer /> */}
+          </Switch>
+          <Footer />
         </Suspense>
       </MuiThemeProvider>
     </Router>

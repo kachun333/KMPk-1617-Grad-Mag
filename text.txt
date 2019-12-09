@@ -1,0 +1,91 @@
+[Home]
+How Are You, XXX?
+
+6th June 2016. Guess what date 
+
+2016年6月6日， 猜猜看那是什么日子。 没错， 那天是故事的开章，是我们第一次背井离乡，来到了霹雳州务边国立大学预科学院。踏入校园时的心情
+still remember all those little moments?
+
+This is the reason the theme of the grad mag is 醇憶。 It's our human natural that we are forgetful. Those little moments, those feelings and 
+realization wanted to preserve it. As it like the good old wine.
+
+Now it's the time. The year of 2020 is the year where we shall reunited. Escape from the current reality, travel back to the past
+share some moments together.
+
+As the initiator of 'Our Promise', I'm hereby announcing that the recruiment of 'Our Promise' event organizing team is opening! I really encourage
+everyone to have a look (here, url link to the page) and apply. This event shall be a light and fun event, It shall not consume too much of your time
+
+P.s. This website serves as a platform to unite everyone. I'm currently migrating our physical graduation magazine to this website. Stay tune for more 
+content and interesting features!
+
+
+What's new!
+- github repo
+- login
+- register to be a committee
+- graduates photo
+- dark theme
+- localization
+
+[Be a committee]
+Hello World! 
+While you are reading this, I assume it's a good sign that you are interested to be part of the committee! I'm glad that you did.
+
+To organize an event we need a team. but unfortunately we have to overcome geographical challenges
+- time commitment is low, after exam only start
+
+- How will 'our promise' be? The answer is 'I don't know!' Really! Cause it can be anything, it's full of possibility, it's depends on you,
+the organizing team (if you were involved, hehe). The organizing team will have full control of how interesting this event can be.
+
+However, as the initiator of this event, I have little wishes and some brief vague direction of how this event should be. 
+It's with the focus of 
+- reconnecting relationship
+- throwback of memories
+- giving back to society
+
+Reconnecting relationship
+We have gone through different life journey in the past 3 years. Get updated with how everyone's is doing. Building lifelong friendship
+
+Throwback of memories
+This event shall bring the participants back to old time, reflect back how far have we grown.
+
+Giving back to society
+As a student we enjoyed a lot of priviledges, we been treated so well and kindly by all individuals. I hope that this event can allocate 
+a small amount of time, use the strength of us being youthful, creative & diversity. Collective we can give back to the society. Again
+this is highly depend on the organizing team on how it will goes.
+
+
+That's it. 
+
+If you are aligned with the focus of this event and ready to make it happen, choose a department below and fill up the register form
+
+I can't wait to work with you. To go fast, go alone, to go far, go as a team. 
+
+regards,
+Ka Chun
+
+
+[Register now!]
+"department": "Treasury"
+"jd": ["Budgeting. Ensure the efficient use of resources while organizing the event", "Accounting. Track Expenses and record down for future references"]
+"requirement": ["stingy", "good in dealing money", "won't involve in corruption"]
+
+"department":"Marketing"
+"jd": ["Invite KMPKians to attend this event", "engage & deliver information to participants", "produce digital media
+"requirement": ["Good at jio-ing people", "creative", "computer literate, able to design poster and create videos"]
+
+"department": "Program"
+"jd": ["Budgeting. Ensure the efficient use of resources while organizing the event", "Accounting. Track Expenses and record down for future references"]
+"requirement": [
+"consolidate KMPKians interest"
+"Crazy minded, can come out with the most interesting program in the world",
+ "realistic. Know the limit the resources, won't give up and make the event successful",
+ "resourceful. able the react to sudden change of event"]
+
+"department": "Operation
+"jd": [
+"Ensure food & transportation is well arranged", "prepare venue"]
+"prepare tools and equipments"]
+
+
+

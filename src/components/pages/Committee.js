@@ -68,9 +68,9 @@ function Committee() {
   // const [t, i18n] = useTranslation();
   const classes = useStyles();
   return (
-    <Fragment className={classes.container}>
+    <div className={classes.container}>
       <FullpageBanner caption="hello world" background={Background} />
-    </Fragment>
+    </div>
   );
 }
 
