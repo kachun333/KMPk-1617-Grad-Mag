@@ -19,7 +19,8 @@ import Home from "./components/pages/Home";
 import NavbarDesktop from "./components/NavbarDesktop";
 import NavbarMobile from "./components/NavbarMobile";
 import { flexbox } from '@material-ui/system';
-import Verify from './components/pages/Verify';
+import Login from './components/pages/Login';
+import Graduates from './components/pages/Graduates';
 import Committee from './components/pages/Committee';
 import CommitteeRegister from './components/pages/CommitteeRegister';
 import Footer from "./components/Footer";
@@ -108,12 +109,10 @@ function App(props) {
           {/* react router routes */}
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/verify" exact component={Verify} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/graduates" exact component={Graduates} />
             <Route path="/committee" exact component={Committee} />
             <Route path="/committee/register" exact component={CommitteeRegister} />
-            {/* <Route path="/media" exact component={Media} />
-              <Route path="/media/:mediaId" exact component={Article} />
-              <Route path="/contactus" exact component={ContactUs} /> */}
           </Switch>
           <Footer />
         </Suspense>

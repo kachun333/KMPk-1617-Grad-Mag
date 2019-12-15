@@ -6,6 +6,7 @@ import {
   Link,
 } from "@material-ui/core";
 import { makeStyles, createStyles } from "@material-ui/styles";
+import { GitHub, Email } from "@material-ui/icons";
 import Bottle from '../assets/images/bottle.png';
 import FooterImg from '../assets/images/footer.png';
 
@@ -23,14 +24,14 @@ const useStyles = makeStyles((theme) => createStyles({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   },
-  footerContent: {
-    position: "absolute",
-    top: "60px",
-    left: "50%",
-    transform: "translateX(-50%)",
-    display: "flex",
-    flexDirection: "column",
-    textAlign: "center",
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    backgroundColor: theme.palette.background.paper,
+    opacity: 0.3,
   },
   bottle: {
     position: "absolute",
@@ -39,6 +40,23 @@ const useStyles = makeStyles((theme) => createStyles({
     height: "120px",
     width: "260px",
   },
+  box: {
+    position: "absolute",
+    top: "60px",
+    left: "50%",
+    transform: "translateX(-50%)",
+    display: "flex",
+    flexDirection: "column",
+    textAlign: "center",
+  },
+  boxItem: {
+    display: "flex",
+    alignContent: "center",
+    justifyContent: "center",
+  },
+  icon: {
+    margin: theme.spacing(0.5),
+  }
 }));
 
 function Footer() {
@@ -50,18 +68,21 @@ function Footer() {
     <footer id="footer" className={classes.footer}>
 
       <img className={classes.bottle} src={Bottle}></img>
-      <Box id="footer-content" className={classes.footerContent}>
-      <Typography variant="h6" gutterBottom>三年之约</Typography>
-        <Link href="#" onClick={handleClick} color="inherit">
+      <div className={classes.overlay}></div>
+      <Box id="footer-content" className={classes.box}>
+        <Typography variant="h6" gutterBottom>lectus sed eros</Typography>
+        <Link href="mailto: gmagazinekmpk@gmail.com" className={classes.boxItem} color="inherit">
+          <Email className={classes.icon} />
           <Typography variant="overline">Email</Typography>
         </Link>
-        <Link href="#" onClick={handleClick} color="inherit">
+        <Link href="https://github.com/1998chun/OurPromise" className={classes.boxItem} color="inherit">
+          <GitHub className={classes.icon} />
           <Typography variant="overline">Github</Typography>
         </Link>
-        <Link href="#" onClick={handleClick} color="inherit">
+        <Link onClick={handleClick} className={classes.boxItem} color="inherit">
           <Typography variant="overline">Privacy Policy</Typography>
         </Link>
-        <Link href="#" onClick={handleClick} color="inherit">
+        <Link onClick={handleClick} className={classes.boxItem} color="inherit">
           <Typography variant="overline">Terms of Service</Typography>
         </Link>
       </Box>

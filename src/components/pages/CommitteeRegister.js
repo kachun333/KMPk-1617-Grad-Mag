@@ -107,7 +107,7 @@ function CommitteeRegister() {
        label="Name"
        variant="outlined"
        required
-       helperText="Please enter your English name only"
+       helperText="Kindly enter your English name"
       />
       <FormControl required variant="outlined" className={classes.textfield}>
         <InputLabel id="university">University</InputLabel>

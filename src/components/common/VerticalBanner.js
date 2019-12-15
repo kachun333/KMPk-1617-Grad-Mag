@@ -13,7 +13,7 @@ import Background from '../../assets/images/home.jpg';
 
 
 const useStyles = makeStyles((theme) => createStyles({
- banner: {
+ verticalBanner: {
    maxWidth: "100vw",
    backgroundImage: props => `url(${props.background})`,
    backgroundPositionX: "center",
@@ -26,10 +26,6 @@ const useStyles = makeStyles((theme) => createStyles({
      height: "100%",
    },
  },
- caption: {
-   width: "100%",
-   height: "100%",
- }
 }));
 
 function VerticalBanner(props) {
@@ -37,14 +33,8 @@ function VerticalBanner(props) {
  const classes = useStyles(props);
  return (
    <>
-     <Hidden smDown>
-       <Box id="desktopBanner" className={classes.banner}>
+       <Box id="vertical-banner" className={classes.verticalBanner}>
        </Box>
-     </Hidden>
-     <Hidden mdUp>
-       <Box id="mobileBanner" className={classes.banner}>
-       </Box>
-     </Hidden>
    </>
  );
 }
