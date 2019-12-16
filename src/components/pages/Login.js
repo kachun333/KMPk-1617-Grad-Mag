@@ -26,7 +26,6 @@ const useStyles = makeStyles(theme => ({
     flex: 1,
     [theme.breakpoints.up('md')]: {
       flexDirection: "row",
-      height: "calc(100vh - 64px)",
     }
   },
   banner: {
@@ -39,7 +38,8 @@ const useStyles = makeStyles(theme => ({
     height: "40vh",
     [theme.breakpoints.up('md')]: {
       width: "60vw",
-      height: "100%",
+      height: "auto",
+      minHeight: "calc(100vh - 64px)",
     },
   },
   sidebox: {
@@ -47,9 +47,6 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     alignItems: "center",
     flex: 1,
-  },
-  overflow: {
-    overflow: "auto",
   },
   form: {
     marginBottom: "48px"
@@ -84,7 +81,7 @@ function Login() {
 
         <Box id="desktopBanner" className={classes.banner}></Box>
         {/* <VerticalBanner background={Background} /> */}
-        <Box className={`${classes.sidebox} ${classes.overflow}`}>
+        <Box className={classes.sidebox}>
           <Box id="title" className={classes.title}>
             <Typography variant="overline">
               Step 1

@@ -23,6 +23,7 @@ import {
 import { makeStyles } from "@material-ui/styles";
 import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux'
 import Logo from '../assets/images/logo.png';
 
 // component level styling using withStyles
@@ -74,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
 
 function NavbarMobile() {
 
-  const [title, setTitle] = useState(useLocation().pathname);
+  const { title } = useSelector(state => state.app)
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [isOpen, setIsOpen] = useState(null);
   const [selectedLanguage, setSelectedLanguage] = useState(null);

@@ -17,6 +17,7 @@ import { People, Restore, Favorite } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/styles";
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux'
 import Background from '../../assets/images/committee.jpg';
 
 // component level styling
@@ -87,62 +88,9 @@ function ObjectiveIcon(title) {
 
 const objectives = [1, 2, 3];
 
-const cards = [{
-  image: "#",
-  title: "Treasury",
-  link: "/committee/register?dept=treasury",
-  caption: "Are you guys still in contact?",
-  jd: [
-    "Budgeting. Ensure the efficient use of resources while organizing the event",
-    "Accounting. Track Expenses and record down for future references"
-  ],
-  preference: [
-    "stingy",
-    "good in dealing money",
-    "won't involve in corruption"
-  ]
-}, {
-  image: "../../assets/images/committee.jpg",
-  title: "Marketing",
-  link: "/committee/register?dept=marketing",
-  caption: "Learn more about 'Our Promise' & register now to get involve in the event preparation",
-  jd: [
-    "Invite KMPKians to attend this event",
-    "engage & deliver information to participants",
-    "produce digital media"],
-  preference: [
-    "Good at jio-ing people",
-    "creative",
-    "computer literate, able to design poster and create videos"
-  ]
-}, {
-  image: "../../assets/images/committee.jpg",
-  title: "Program",
-  link: "/committee/register?dept=program",
-  caption: "Learn more about 'Our Promise' & register now to get involve in the event preparation",
-  jd: [
-    "Budgeting. Ensure the efficient use of resources while organizing the event",
-    "Accounting. Track Expenses and record down for future references",
-  ],
-  preference: [
-    "consolidate KMPKians interest",
-    "Crazy minded, can come out with the most interesting program in the world",
-    "realistic. Know the limit the resources, won't give up and make the event successful",
-    "resourceful. able the react to sudden change of event"]
-}, {
-  image: "#",
-  title: "Operation",
-  link: "/committee/register?dept=operation",
-  caption: "Learn more about the story & motivation behind 'Our Promise'",
-  jd: [
-    "Ensure food & transportation is well arranged",
-    "prepare venue",
-    "prepare tools and equipments"
-  ],
-  preference: [],
-},
-];
 function Committee() {
+  const { departments } = useSelector(state => state.committee)
+  console.log(departments);
   // const [t, i18n] = useTranslation();
   const classes = useStyles();
   return (
@@ -193,20 +141,20 @@ function Committee() {
         </Box>
         <Box id="committee-positions" className={classes.section}>
           <Grid container spacing={4}>
-            {cards.map((card, i) => (
+            {departments.map((dept, i) => (
               <Grid item key={i} xs={12} md={6}>
                 <Card className={classes.card}>
                   <CardActionArea className={classes.card}>
-                    <Link to={card.link} className={classes.link}>
+                    <Link to={dept.link} className={classes.link}>
                       <CardContent className={classes.card}>
                         <Typography gutterBottom variant="h4" color="primary">
-                          {card.title} Department
+                          {dept.title} Department
                         </Typography>
                         <Typography gutterBottom variant="subtitle2">
                           Roles & Responsibilities
                         </Typography>
                         <ul>
-                          {card.jd.map((role, i) => (
+                          {dept.jd.map((role, i) => (
                             <li key={i} ><Typography variant="body">
                               {role}</Typography></li>
                           ))}
@@ -215,7 +163,7 @@ function Committee() {
                           Preferences
                         </Typography>
                         <ul>
-                          {card.preference.map((pref, i) => (
+                          {dept.preference.map((pref, i) => (
                             <li key={i} ><Typography variant="body">
                               {pref}</Typography></li>
                           ))}

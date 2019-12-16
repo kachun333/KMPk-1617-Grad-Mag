@@ -61,9 +61,12 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
     maxWidth: "100vw"
   },
-  button: {
+  buttonBox: {
     width: "fit-content",
     margin: "auto",
+  },
+  button: {
+    padding: `${theme.spacing(1.5)}px ${theme.spacing(2.5)}px`
   },
   float: {
     position: "relative",
@@ -148,8 +151,8 @@ function Home() {
           <Typography variant="body1" className={classes.paragraph}>
             Nam ut lectus sed eros interdum consequat a ac nulla. Etiam in purus quam. Nulla eget odio faucibus, gravida tortor quis, lobortis tellus. Aliquam feugiat, erat sed facilisis feugiat, leo est tincidunt augue, eget malesuada metus nulla et magna. Curabitur sed ullamcorper tellus, ut pharetra nunc. Morbi sed velit finibus, rhoncus lacus at, efficitur sapien. Nullam porta orci vel dolor consequat, id commodo est bibendum. Pellentesque semper lobortis eros eu egestas. Fusce porta venenatis justo. Proin ullamcorper scelerisque velit a vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In tincidunt ipsum ac dapibus laoreet. Proin eu porttitor neque. Phasellus ut cursus ante, eu ultrices lectus.
           </Typography>
-          <div className={classes.button}>
-            <Button variant="contained" color="primary">
+          <div className={classes.buttonBox}>
+            <Button className={classes.button} variant="contained" color="primary">
               Be A Committee
             </Button>
           </div>

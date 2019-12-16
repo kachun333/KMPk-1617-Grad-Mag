@@ -79,34 +79,18 @@ function App(props) {
   let muiTheme = createMuiTheme(theme);
 
   return (
-    // react router
     <Router>
-      {/* material ui thenme provider */}
       <MuiThemeProvider theme={muiTheme}>
         <Suspense fallback={null}>
-          {/* to reset the CSS across all browsers  */}
           <CssBaseline />
-          {/* desktop navigation menu */}
-          {/* hides the menu on small screens
-       and any screen smaller than that  */}
-
           <HideOnScroll {...props}>
-            <AppBar
-              color="inherit"
-            // style={{ background: 'transparent', boxShadow: 'none'}}
-            >
-              <Hidden smDown>
-                <NavbarDesktop />
-              </Hidden>
-              {/* mobile navigation menu */}
-              {/* hides the menu on medium screens and any screen bigger than that */}
-              <Hidden mdUp>
-                <NavbarMobile />
-              </Hidden>
+            <AppBar color="inherit">
+              <Hidden smDown><NavbarDesktop /></Hidden>
+              <Hidden mdUp><NavbarMobile /></Hidden>
             </AppBar>
           </HideOnScroll>
+          {/* blank space under appbar & above banner */}
           <Toolbar />
-          {/* react router routes */}
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/login" exact component={Login} />

@@ -73,7 +73,7 @@ function Footer() {
         <Typography variant="h6" gutterBottom>lectus sed eros</Typography>
         <Link href="mailto: gmagazinekmpk@gmail.com" className={classes.boxItem} color="inherit">
           <Email className={classes.icon} />
-          <Typography variant="overline">Email</Typography>
+          <Typography variant="overline">gmagazinekmpk@gmail.com</Typography>
         </Link>
         <Link href="https://github.com/1998chun/OurPromise" className={classes.boxItem} color="inherit">
           <GitHub className={classes.icon} />
