@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import {
   Slide,
   Box,
-  Tooltip,
+  TextField,
   Grid,
   CardMedia,
   withStyles,
@@ -45,6 +45,10 @@ const useStyles = makeStyles(theme => ({
   },
   section: {
     margin: `${theme.spacing(2)}px 0px`,
+    textAlign: "center",
+  },
+  searchBar: {
+    width: "72%",
   },
   gridList: {
     width: "100%",
@@ -66,69 +70,138 @@ const useStyles = makeStyles(theme => ({
     color: "#FFF",
   },
 }));
-const tileData = [
-  {
-    img: image,
-    title: 'Image',
-    author: 'author',
-    cols: 1,
-  },
-  {
-    img: image,
-    title: 'Image',
-    author: 'author',
-    cols: 1,
-  },
-  {
-    img: image,
-    title: 'Image',
-    author: 'author',
-    cols: 1,
-  },
-  {
-    img: image,
-    title: 'Image',
-    author: 'author',
-  },
-  {
-    img: image,
-    title: 'Image',
-    author: 'author',
-  },
-  {
-    img: image,
-    title: 'Image',
-    author: 'author',
-  },
-]
 const graduates = [
   {
     id: "1",
-    name: "Edmund Ung Eng Soon",
-    name_ch: "洪永顺",
-    birthday: "07/01/1998",
+    name: "Edasdfon",
+    name_ch: "洪永",
+    birthday: "07/10/1998",
     phone: "017-5610386",
-    email: "edmundues@yahoo.com",
-    one_liner: "So……Do you like bread?",
+    email: "edmsdfndues@yaasdfo.com",
+    one_liner: "So……Doasdfad?",
     gender: "male",
     lecture: "M1",
     tutorial: "M1T1a",
-    describe_me: ["老是被老师呼唤，算是一个不错的班长吧！好像从来不担心明天要交的功课或平时的小测验，但是到了大考他绝对是ampia型。",
-      "矮矮的胖胖的香蕉人。有时候真的很kapsiao哈哈！很会讨讲师的心。真的真的很喜欢吃面包。他的口头禅已说明了一切^^",
-      "刚认识时觉得很可爱xia XD but没讲到话只是在lecture偶尔kapsiao，过后才变熟。自从中秋晚会帮我换蜡烛后就觉得他是一个好人。",
+    describe_me: ["asdfasdf",
+      "qwerqwer",
+      "qwerqwer",
     ],
-    message: "首次到此，遇到一群同甘共苦，同舟共济的损友。说真的他们改变了我，愿我们在此的一切回忆永恒! 祝大家前程似锦! YOLO"
+    message: "qwerqwer"
+  },
+  {
+    id: "2",
+    name: "Casdf",
+    name_ch: "曾楷",
+    birthday: "1/08/1548",
+    phone: "012-4062712",
+    email: "chasdfhe@hosdfmail.com",
+    one_liner: "qwerqwer",
+    gender: "male",
+    lecture: "M1",
+    tutorial: "M1T1b",
+    describe_me: ["asdfasdf",
+      "qwerqwer",
+      "qwerqwer",
+    ],
+    message: "qwerqwer"
+  },
+  {
+    id: "3",
+    name: "Lxcbin",
+    name_ch: "林盈",
+    birthday: "11/11/1238",
+    phone: "017-4702669",
+    email: "sicvbim92@yahoo.com",
+    one_liner: "sasdasdf",
+    gender: "female",
+    lecture: "M1",
+    tutorial: "M1T1a",
+    describe_me: ["rtyurtyu",
+      "rtyurtyu",
+      "tyrtyurtyu",
+    ],
+    message: "rtyurtyu"
+  },
+  {
+    id: "4",
+    name: "Goertybf in",
+    name_ch: "吴瑾",
+    birthday: "1/06/1238",
+    phone: "017-5610386",
+    email: "edmundues@yahoo.com",
+    one_liner: "Sasdf?",
+    gender: "male",
+    lecture: "M1",
+    tutorial: "M1T1a",
+    describe_me: ["rtyurtyu",
+      "rtyurtyu",
+      "tyrtyurtyu",
+    ],
+    message: "rtyurtyu"
+  },
+  {
+    id: "5",
+    name: "Goertybf in",
+    name_ch: "吴瑾",
+    birthday: "1/06/1238",
+    phone: "017-5610386",
+    email: "edmundues@yahoo.com",
+    one_liner: "Sasdf?",
+    gender: "male",
+    lecture: "M1",
+    tutorial: "M1T1a",
+    describe_me: ["rtyurtyu",
+      "rtyurtyu",
+      "tyrtyurtyu",
+    ],
+    message: "rtyurtyu"
   },
 ]
+
+function filterItem(item, searchOptions) {
+  if (
+    Object.values(item).some(values =>
+      values
+        .toString()
+        .toLowerCase()
+        .includes(searchOptions.searchTerm.toLowerCase())
+    )
+  ) {
+    return item;
+  } else {
+    return undefined;
+  }
+}
+
+function filterItems(items, searchOptions) {
+  return items.reduce((accumulator, currentItem) => {
+    const foundItem = filterItem(currentItem, searchOptions);
+    if (foundItem) {
+      accumulator.push(foundItem);
+    }
+    return accumulator;
+  }, []);
+}
+
+
 function Graduates() {
   // const [t, i18n] = useTranslation();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleFullScreenOpen = () => {
     setOpen(true);
   };
   const handleFullScreenClose = () => {
     setOpen(false);
+  };
+
+  
+  const [datasource, setDatasource] = useState(graduates);
+  const handleChange = (e) => {
+    const searchOptions = {
+      searchTerm: e.target.value,
+    };
+    setDatasource(filterItems(graduates, searchOptions));
   };
 
   const Transition = React.forwardRef(function Transition(props, ref) {
@@ -143,18 +216,18 @@ function Graduates() {
       <Box id="graduates-banner" className={classes.banner}>
       </Box>
       <Container className={classes.container} >
-        <Box id="home-introduction" className={classes.section}>
-          Search
+        <Box id="gradautes-filterOption" className={classes.section}>
+          <TextField className={classes.searchBar} label="Search" margin="normal" variant="outlined" onChange={handleChange} />
         </Box>
-        <Box id="home-introduction" className={classes.section}>
+        <Box id="gradautes-images" className={classes.section}>
           <GridList
             cellHeight={matches ? 200 : 120}
             className={classes.gridList}
             cols={matches ? 4 : 2}
           >
-            {tileData.map(tile => (
-              <GridListTile key={tile.img} cols={1} onClick={handleFullScreenOpen}>
-                <img src={tile.img} alt={tile.title} />
+            {datasource.map(graduate => (
+              <GridListTile key={graduate.id} cols={1} onClick={handleFullScreenOpen}>
+                <img src={image} alt={graduate.name} />
               </GridListTile>
             ))}
           </GridList>

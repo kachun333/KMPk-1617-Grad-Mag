@@ -79,10 +79,10 @@ function Footer() {
           <GitHub className={classes.icon} />
           <Typography variant="overline">Github</Typography>
         </Link>
-        <Link onClick={handleClick} className={classes.boxItem} color="inherit">
+        <Link href="https://www.privacypolicygenerator.info/live.php?token=12TSXce3RJFkpRpBfiN3kOLlK0Jz1kWt" className={classes.boxItem} color="inherit">
           <Typography variant="overline">Privacy Policy</Typography>
         </Link>
-        <Link onClick={handleClick} className={classes.boxItem} color="inherit">
+        <Link href="https://www.termsandconditionsgenerator.com/live.php?token=CRsPFRs0oVlHD9hs1EYvWE0KEnQdLph9" className={classes.boxItem} color="inherit">
           <Typography variant="overline">Terms of Service</Typography>
         </Link>
       </Box>

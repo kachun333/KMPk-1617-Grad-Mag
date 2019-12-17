@@ -1,4 +1,4 @@
-import React, { useState, useCallback  } from "react";
+import React, { useState, useCallback, useEffect  } from "react";
 import { Toolbar, Tabs, Tab, Avatar, Button, IconButton, Box, Typography, MenuItem, Menu } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { Translate, ArrowDropDown, Brightness4, Brightness7 } from "@material-ui/icons";
@@ -37,13 +37,24 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function NavbarDesktop() {
-  const dispatch = useDispatch();
-  const incrementCounter = useCallback(
-    () => dispatch(setTitle("asdf")),
-    [dispatch]
-  );
-  const { title } = useSelector(state => state.app)
+  // const { title } = useSelector(state => state.app)
+  // const dispatch = useDispatch();
+  // const incrementCounter = useCallback(
+  //   () => dispatch(setTitle("asdf")),
+  //   [dispatch]
+  // );
+  const [title, setTitle] = useState("Our Promise");
+  const location = useLocation();
+  useEffect(() => {
+    let newTitle = capitalizeFirstLetter(location.pathname.split("/")[1]);
+    setTitle(newTitle);
+  }, [location])
+
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [anchor, setAnchor] = useState(null);
   const [isLoggedin, setIsLoggedin] = useState(false);
