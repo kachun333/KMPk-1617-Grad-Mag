@@ -42,12 +42,7 @@ function capitalizeFirstLetter(string) {
 }
 
 function NavbarDesktop() {
-  // const { title } = useSelector(state => state.app)
-  // const dispatch = useDispatch();
-  // const incrementCounter = useCallback(
-  //   () => dispatch(setTitle("asdf")),
-  //   [dispatch]
-  // );
+  //set AppBar Title
   const [title, setTitle] = useState("Our Promise");
   const location = useLocation();
   useEffect(() => {
@@ -80,7 +75,7 @@ function NavbarDesktop() {
           <img alt="logo" src={Logo} className={classes.logo} />
         </Button>
         <Typography variant="h5" className={classes.title}>
-          {title? title: 'Our Promise'}
+          {title}
         </Typography>
         <Box
           display="flex"

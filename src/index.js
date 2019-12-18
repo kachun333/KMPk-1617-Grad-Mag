@@ -7,23 +7,50 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import rootReducer from './store/reducers/rootReducer'
 import thunk from 'redux-thunk'
-import { reduxFirestore, getFirestore } from 'redux-firestore';
-import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
-import firebaseConfig from './config/firebase';
+import { createFirestoreInstance, getFirestore } from 'redux-firestore';
+import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase';
+import firebase from 'firebase';
+import 'firebase/firestore';
+import 'firebase/functions';
+import 'firebase/storage';
+import 'firebase/auth';
 
-// const store = createStore(rootReducer,
-//   compose(
-//     applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
-//     reactReduxFirebase(firebaseConfig), // redux binding for firebase
-//     reduxFirestore(firebaseConfig) // redux bindings for firestore
-//   )
-// );
+const firebaseConfig = {
+  apiKey: "AIzaSyB6X85xsX2Ka357ePsdqE2dvi6InReQ3AY",
+  authDomain: "ourpromise.firebaseapp.com",
+  databaseURL: "https://ourpromise.firebaseio.com",
+  projectId: "ourpromise",
+  storageBucket: "ourpromise.appspot.com",
+  messagingSenderId: "4329458298",
+  appId: "1:4329458298:web:036c73c2ee5d52ea92c9c3",
+  measurementId: "G-92BR9NT688"
+};
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+firebase.initializeApp(firebaseConfig);
+firebase.firestore();
+// firebase.functions();
+// firebase.storage();
+
+const initialState = {}
+const store = createStore(rootReducer, initialState, applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})));
+
+const rrfConfig = {
+  userProfile: 'users',
+  useFirestoreForProfile: true
+}
+
+const rrfProps = {
+  firebase,
+  config: rrfConfig,
+  dispatch: store.dispatch,
+  createFirestoreInstance
+}
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ReactReduxFirebaseProvider {...rrfProps}>
+      <App />
+    </ReactReduxFirebaseProvider>
   </Provider>,
   document.getElementById('root')
 )

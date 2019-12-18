@@ -141,7 +141,7 @@ function CommitteeRegister() {
               </Select>
             </FormControl>
 
-            <Typography id="commitment" gutterBottom>
+            <Typography variant="body1" id="commitment" gutterBottom>
               Rate Your commitment
       </Typography>
             <Slider

@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import {
   Drawer,
   Avatar,
@@ -73,13 +73,21 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function NavbarMobile() {
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
-  const { title } = useSelector(state => state.app)
+function NavbarMobile() {
+  //set AppBar Title
+  const [title, setTitle] = useState("Our Promise");
+  const location = useLocation();
+  useEffect(() => {
+    let newTitle = capitalizeFirstLetter(location.pathname.split("/")[1]);
+    setTitle(newTitle);
+  }, [location])
+
   const [isLoggedin, setIsLoggedin] = useState(false);
-  const [isOpen, setIsOpen] = useState(null);
-  const [selectedLanguage, setSelectedLanguage] = useState(null);
-  const [anchor, setAnchor] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   const classes = useStyles();
   // const [t, i18n] = useTranslation();
 
@@ -89,14 +97,7 @@ function NavbarMobile() {
   const handleCloseMenu = () => {
     setIsOpen(false)
   };
-  const handleOpenLanguageSelector = e => {
-    setAnchor(e.currentTarget);
-  };
-  const handleCloseLanguageSelector = () => {
-    setAnchor(null);
-  };
   const handleLanguageChange = language => {
-    setAnchor(null);
     // i18n.changeLanguage(language);
   };
 
@@ -107,7 +108,7 @@ function NavbarMobile() {
             <img alt="logo" src={Logo} className={classes.logo} />
           </IconButton>
           <Typography variant="h5" className={classes.title}>
-            {title ? title : 'Our Promise'}
+            {title}
           </Typography>
           <IconButton id="sidenav-btn" onClick={handleOpenMenu}>
             <MenuIcon />

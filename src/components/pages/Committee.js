@@ -17,7 +17,9 @@ import { People, Restore, Favorite } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/styles";
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { compose } from 'redux'
 import { useSelector } from 'react-redux'
+import { useFirestoreConnect } from 'react-redux-firebase'
 import Background from '../../assets/images/committee.jpg';
 
 // component level styling
@@ -88,9 +90,17 @@ function ObjectiveIcon(title) {
 
 const objectives = [1, 2, 3];
 
-function Committee() {
-  const { departments } = useSelector(state => state.committee)
-  console.log(departments);
+function Committee(props) {
+  // const { departments } = useSelector(state => state.committee)
+useFirestoreConnect('committee_depts');
+// console.log(s);
+  let departments = [];
+  // let asdf = useSelector(state => state);
+  let asdf = useSelector(state => state.firestore.ordered.committee_depts);
+  if (asdf){
+    departments = asdf;
+  }
+  console.log(asdf);
   // const [t, i18n] = useTranslation();
   const classes = useStyles();
   return (
@@ -117,7 +127,7 @@ function Committee() {
                       <Typography gutterBottom variant="h4" color="primary">
                         Lorem ipsum dolor sit amet
                         </Typography>
-                      <Typography variant="body">
+                      <Typography variant="body1">
                         Our dreams set us apart. We were in different university and each of us has gone through different life journeys in the past 3 years. Let’s get updated with how everyone is doing & maintain our life-long friendship.
                         </Typography>
                     </CardContent>
@@ -145,10 +155,10 @@ function Committee() {
               <Grid item key={i} xs={12} md={6}>
                 <Card className={classes.card}>
                   <CardActionArea className={classes.card}>
-                    <Link to={dept.link} className={classes.link}>
+                    <Link to={`/committee/register?dept=${dept.name.toLowerCase()}`} className={classes.link}>
                       <CardContent className={classes.card}>
                         <Typography gutterBottom variant="h4" color="primary">
-                          {dept.title} Department
+                          {dept.name} Department
                         </Typography>
                         <Typography gutterBottom variant="subtitle2">
                           Roles & Responsibilities

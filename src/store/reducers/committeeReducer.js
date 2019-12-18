@@ -1,7 +1,7 @@
 const initState = {
   departments: [{
     image: "#",
-    title: "Treasury",
+    name: "Treasury",
     link: "/committee/register?dept=treasury",
     caption: "Are you guys still in contact?",
     jd: [
@@ -15,7 +15,7 @@ const initState = {
     ]
   }, {
     image: "../../assets/images/committee.jpg",
-    title: "Marketing",
+    name: "Marketing",
     link: "/committee/register?dept=marketing",
     caption: "Learn more about 'Our Promise' & register now to get involve in the event preparation",
     jd: [
@@ -29,7 +29,7 @@ const initState = {
     ]
   }, {
     image: "../../assets/images/committee.jpg",
-    title: "Program",
+    name: "Program",
     link: "/committee/register?dept=program",
     caption: "Learn more about 'Our Promise' & register now to get involve in the event preparation",
     jd: [
@@ -43,7 +43,7 @@ const initState = {
       "resourceful. able the react to sudden change of event"]
   }, {
     image: "#",
-    title: "Operation",
+    name: "Operation",
     link: "/committee/register?dept=operation",
     caption: "Learn more about the story & motivation behind 'Our Promise'",
     jd: [
