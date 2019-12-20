@@ -3,8 +3,10 @@ import {
   Slide,
   Box,
   TextField,
-  Grid,
+  Card,
+  CardActionArea,
   CardMedia,
+  CardContent,
   withStyles,
   Typography,
   Button,
@@ -44,11 +46,28 @@ const useStyles = makeStyles(theme => ({
     flex: 1,
   },
   section: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
     margin: `${theme.spacing(2)}px 0px`,
-    textAlign: "center",
   },
   searchBar: {
-    width: "72%",
+    width: "96%",
+    [theme.breakpoints.up('md')]: {
+      width: "72%",
+    }
+  },
+  card: {
+    width: "120px",
+    [theme.breakpoints.up('md')]: {
+      width: "300px",
+    }
+  },
+  cardMedia: {
+    height: "100%",
+    [theme.breakpoints.up('md')]: {
+      height: "200px",
+    }
   },
   gridList: {
     width: "100%",
@@ -195,7 +214,7 @@ function Graduates() {
     setOpen(false);
   };
 
-  
+
   const [datasource, setDatasource] = useState(graduates);
   const handleChange = (e) => {
     const searchOptions = {
@@ -220,17 +239,22 @@ function Graduates() {
           <TextField className={classes.searchBar} label="Search" margin="normal" variant="outlined" onChange={handleChange} />
         </Box>
         <Box id="gradautes-images" className={classes.section}>
-          <GridList
-            cellHeight={matches ? 200 : 120}
-            className={classes.gridList}
-            cols={matches ? 4 : 2}
-          >
             {datasource.map(graduate => (
-              <GridListTile key={graduate.id} cols={1} onClick={handleFullScreenOpen}>
-                <img src={image} alt={graduate.name} />
-              </GridListTile>
+              <Card key={graduate.id} className={classes.card}>
+                <CardActionArea onClick={handleFullScreenOpen}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image={image}
+                    title={graduate.name}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Lizard
+                      </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
             ))}
-          </GridList>
         </Box>
       </Container>
       <GraduateDetails

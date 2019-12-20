@@ -2,10 +2,9 @@ import React, { useState, Fragment } from "react";
 import VerticalBanner from "../common/VerticalBanner";
 import {
   Hidden,
-  CssBaseline,
-  createMuiTheme,
+  useTheme,
+  useMediaQuery,
   MuiThemeProvider,
-  Slider,
   Box,
   TextField,
   Typography,
@@ -13,14 +12,10 @@ import {
   AppBar,
   Toolbar,
   Slide,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
   useScrollTrigger,
 } from "@material-ui/core";
 import { makeStyles } from '@material-ui/styles';
-import Background from '../../assets/images/committee-register.jpg';
+import Background from '../../assets/images/login.jpg';
 
 
 // component level styling
@@ -35,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
   banner: {
     maxWidth: "100vw",
-    backgroundImage: `url(${Background})`,
+    backgroundImage: props => `url(${Background})`,
     backgroundPositionX: "center",
     backgroundPositionY: "center",
     backgroundRepeat: "no-repeat",
@@ -71,81 +66,46 @@ const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(2),
   },
+  caption: {
+    width: "100%",
+    height: "100%",
+  }
 }));
-function CommitteeRegister() {
+function Verify() {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
-  const handleChange = event => {
-    setAge(event.target.value);
-  };
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
   const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("heandleing");
     console.log(e);
   }
   return (
     <Fragment>
-      <Box id="generator" className={classes.container}>
+      <Box id="verify" className={classes.container}>
+
+        <Box id="desktopBanner" className={classes.banner}></Box>
+        {/* <VerticalBanner background={Background} /> */}
+        <Box className={classes.sidebox}>
           <Box id="title" className={classes.title}>
-            <Hidden smDown>
-              <Typography variant="h2" color="inherit">
-                Hey there, thank you for helping me
-          </Typography>
-            </Hidden>
-            <Hidden mdUp>
-              <Typography variant="h5" color="inherit">
-                Hey there, thank you for helping me
-          </Typography>
-            </Hidden>
+            <Typography variant={matches ? "h3" : "h5"} color="inherit">
+              Verify That You Are A KMPKian
+            </Typography>
           </Box>
           <form onSubmit={handleSubmit} className={`${classes.sidebox} ${classes.form}`}>
             <TextField
-              id="name"
+              id="culturalEvent"
               className={classes.textfield}
-              label="Name"
+              label="Cultural Event Name"
               variant="outlined"
-              required
+              helperText="e.g. BeautyAndTheBeast"
             />
             <TextField
-              id="name_ch"
+              id="cnyEvent"
               className={classes.textfield}
-              label="name_ch"
+              label="CNY Event Name"
               variant="outlined"
-              required
-            />
-            <TextField
-              id="phone"
-              className={classes.textfield}
-              label="phone"
-              variant="outlined"
-              required
-            />
-            <TextField
-              id="email"
-              type="email"
-              className={classes.textfield}
-              label="email"
-              variant="outlined"
-              required
-            />
-            <TextField
-              id="one_liner"
-              className={classes.textfield}
-              label="one_liner"
-              variant="outlined"
-              required
-            />
-            <TextField
-              id="tutorial"
-              className={classes.textfield}
-              label="tutorial"
-              variant="outlined"
-              required
-            />
-            <TextField
-              id="message"
-              className={classes.textfield}
-              label="message"
-              variant="outlined"
-              required
+              helperText="e.g. Springtown"
             />
             <Button
               className={classes.button}
@@ -154,12 +114,13 @@ function CommitteeRegister() {
               color="primary"
               type="submit"
             >
-              Submit
-          </Button>
+              Verify
+            </Button>
           </form>
         </Box>
+      </Box>
     </Fragment>
   );
 }
 
-export default CommitteeRegister;
+export default Verify;

@@ -20,6 +20,8 @@ import NavbarDesktop from "./components/NavbarDesktop";
 import NavbarMobile from "./components/NavbarMobile";
 import { flexbox } from '@material-ui/system';
 import Login from './components/pages/Login';
+import Verify from './components/pages/Verify';
+import PageNotFound from './components/pages/PageNotFound';
 import Graduates from './components/pages/Graduates';
 import Committee from './components/pages/Committee';
 import CommitteeRegister from './components/pages/CommitteeRegister';
@@ -94,9 +96,11 @@ function App(props) {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/login" exact component={Login} />
+            <Route path="/verify" exact component={Verify} />
             <Route path="/graduates" exact component={Graduates} />
             <Route path="/committee" exact component={Committee} />
             <Route path="/committee/register" exact component={CommitteeRegister} />
+            <Route component={PageNotFound} />
           </Switch>
           <Footer />
         </Suspense>

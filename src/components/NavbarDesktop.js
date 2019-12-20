@@ -47,7 +47,9 @@ function NavbarDesktop() {
   const location = useLocation();
   useEffect(() => {
     let newTitle = capitalizeFirstLetter(location.pathname.split("/")[1]);
-    setTitle(newTitle);
+    if (newTitle){
+      setTitle(newTitle);
+    }
   }, [location])
 
   const [selectedLanguage, setSelectedLanguage] = useState(null);
