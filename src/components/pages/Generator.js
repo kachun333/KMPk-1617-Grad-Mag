@@ -1,8 +1,12 @@
 import React, { useState, Fragment } from "react";
 import VerticalBanner from "../common/VerticalBanner";
 import {
-  Hidden,
-  CssBaseline,
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
+import {
+  Container,
+  Switch,
   createMuiTheme,
   MuiThemeProvider,
   Slider,
@@ -10,16 +14,10 @@ import {
   TextField,
   Typography,
   Button,
-  AppBar,
-  Toolbar,
-  Slide,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  useScrollTrigger,
 } from "@material-ui/core";
 import { makeStyles } from '@material-ui/styles';
+import { useFirestore } from 'react-redux-firebase'
+import DateFnsUtils from '@date-io/date-fns';
 import Background from '../../assets/images/committee-register.jpg';
 
 
@@ -69,37 +67,80 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
   },
 }));
-function CommitteeRegister() {
+
+function Generator() {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
-  const handleChange = event => {
-    setAge(event.target.value);
-  };
+  
+  const firestore = useFirestore();
+  console.log(firestore);
   const handleSubmit = (e) => {
-    console.log(e);
+    console.log("been to submit button");
+    let data = {
+      name: gForm.name,
+      name_ch: gForm.name_ch,
+      birthday: gForm.birthday,
+      phone: gForm.phone,
+      email: gForm.email,
+      one_liner: gForm.one_liner,
+      gender: gForm.gender? "male" : "female",
+      lecture: gForm.lecture,
+      tutorial: gForm.tutorial,
+      describe_me: [gForm.describe1, gForm.describe2, gForm.describe3],
+      message: gForm.message,
+    }
   }
+  //   console.log("the final data is ", data);
+  //   const result = firestore.collection('gradautes').doc(`${gForm.id}`).add(data).then(() => {
+  //     console.log("firebase success");
+  //   }).catch(err => {
+  //     console.log("firebase fails", err);
+  //   });;
+  //   console.log(result);
+  // }
+
+  const [gForm, setGForm] = React.useState({
+    id: 0,
+    name: "",
+    name_ch: "",
+    birthday: new Date('1998-01-01T00:00:00'),
+    phone: "",
+    email: "",
+    one_liner: "",
+    gender: false, //female
+    lecture: "",
+    tutorial: "",
+    describe1: "",
+    describe2: "",
+    describe3: "",
+    message: "",
+  });
+
   return (
-    <Fragment>
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Box id="generator" className={classes.container}>
-          <Box id="title" className={classes.title}>
-            <Hidden smDown>
-              <Typography variant="h2" color="inherit">
-                Hey there, thank you for helping me
-          </Typography>
-            </Hidden>
-            <Hidden mdUp>
-              <Typography variant="h5" color="inherit">
-                Hey there, thank you for helping me
-          </Typography>
-            </Hidden>
-          </Box>
+        <Container maxWidth="sm" >
           <form onSubmit={handleSubmit} className={`${classes.sidebox} ${classes.form}`}>
+            <Typography variant="h5" color="inherit">
+              Hey there, thank you for helping me
+          </Typography>
+            <TextField
+              id="id"
+              className={classes.textfield}
+              label="Id"
+              type="number"
+              variant="outlined"
+              required
+              value={gForm.id}
+              onChange={e => setGForm({...gForm, id: e.target.value})}
+            />
             <TextField
               id="name"
               className={classes.textfield}
               label="Name"
               variant="outlined"
               required
+              value={gForm.name}
+              onChange={e => setGForm({...gForm, name: e.target.value})}
             />
             <TextField
               id="name_ch"
@@ -107,6 +148,16 @@ function CommitteeRegister() {
               label="name_ch"
               variant="outlined"
               required
+              value={gForm.name_ch}
+              onChange={e => setGForm({...gForm, name_ch: e.target.value})}
+            />
+            <KeyboardDatePicker
+              margin="normal"
+              id="birthday"
+              label="Birthday"
+              format="dd/MM/yyyy"
+              value={gForm.birthday}
+              onChange={date => setGForm({...gForm, birthday: date})}
             />
             <TextField
               id="phone"
@@ -114,6 +165,8 @@ function CommitteeRegister() {
               label="phone"
               variant="outlined"
               required
+              value={gForm.phone}
+              onChange={e => setGForm({...gForm, phone: e.target.value})}
             />
             <TextField
               id="email"
@@ -122,6 +175,8 @@ function CommitteeRegister() {
               label="email"
               variant="outlined"
               required
+              value={gForm.email}
+              onChange={e => setGForm({...gForm, email: e.target.value})}
             />
             <TextField
               id="one_liner"
@@ -129,6 +184,27 @@ function CommitteeRegister() {
               label="one_liner"
               variant="outlined"
               required
+              value={gForm.one_liner}
+              onChange={e => setGForm({...gForm, one_liner: e.target.value})}
+            />
+            <div>
+              <span>Female</span>
+              <Switch
+                id="gender"
+                checked={gForm.gender}
+                onChange={e => setGForm({...gForm, gender: !gForm.gender})}
+                value="gender"
+              />
+              <span>Male</span>
+            </div>
+            <TextField
+              id="lecture"
+              className={classes.textfield}
+              label="Lecture"
+              variant="outlined"
+              required
+              value={gForm.lecture}
+              onChange={e => setGForm({...gForm, lecture: e.target.value})}
             />
             <TextField
               id="tutorial"
@@ -136,13 +212,46 @@ function CommitteeRegister() {
               label="tutorial"
               variant="outlined"
               required
+              value={gForm.tutorial}
+              onChange={e => setGForm({...gForm, tutorial: e.target.value})}
             />
+            <br />
+            <TextField
+              id="describe1"
+              className={classes.textfield}
+              label="Describe Me 1"
+              variant="outlined"
+              required
+              value={gForm.describe1}
+              onChange={e => setGForm({...gForm, describe1: e.target.value})}
+            />
+            <TextField
+              id="describe2"
+              className={classes.textfield}
+              label="Describe Me 2"
+              variant="outlined"
+              required
+              value={gForm.describe2}
+              onChange={e => setGForm({...gForm, describe2: e.target.value})}
+            />
+            <TextField
+              id="describe3"
+              className={classes.textfield}
+              label="Describe Me 3"
+              variant="outlined"
+              required
+              value={gForm.describe3}
+              onChange={e => setGForm({...gForm, describe3: e.target.value})}
+            />
+            <br />
             <TextField
               id="message"
               className={classes.textfield}
               label="message"
               variant="outlined"
               required
+              value={gForm.message}
+              onChange={e => setGForm({...gForm, message: e.target.value})}
             />
             <Button
               variant="contained"
@@ -153,9 +262,10 @@ function CommitteeRegister() {
               Submit
           </Button>
           </form>
-        </Box>
-    </Fragment>
+        </Container>
+      </Box>
+    </MuiPickersUtilsProvider>
   );
 }
 
-export default CommitteeRegister;
+export default Generator;

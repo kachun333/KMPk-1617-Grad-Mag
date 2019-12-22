@@ -4,13 +4,11 @@ import {
   CssBaseline,
   createMuiTheme,
   MuiThemeProvider,
-  Box,
   AppBar,
   Toolbar,
   Slide,
   useScrollTrigger,
 } from "@material-ui/core";
-import { makeStyles } from '@material-ui/styles';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/pages/Home";
 // import Media from "./components/pages/Media";
@@ -18,7 +16,7 @@ import Home from "./components/pages/Home";
 // import ContactUs from "./components/pages/ContactUs";
 import NavbarDesktop from "./components/NavbarDesktop";
 import NavbarMobile from "./components/NavbarMobile";
-import { flexbox } from '@material-ui/system';
+import Generator from './components/pages/Generator';
 import Login from './components/pages/Login';
 import Graduates from './components/pages/Graduates';
 import Committee from './components/pages/Committee';
@@ -93,6 +91,7 @@ function App(props) {
           <Toolbar />
           <Switch>
             <Route path="/" exact component={Home} />
+            <Route path="/generator" exact component={Generator} />
             <Route path="/login" exact component={Login} />
             <Route path="/graduates" exact component={Graduates} />
             <Route path="/committee" exact component={Committee} />
