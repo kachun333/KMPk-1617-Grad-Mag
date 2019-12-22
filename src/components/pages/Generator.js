@@ -63,8 +63,11 @@ const useStyles = makeStyles(theme => ({
     }
   },
   textfield: {
-    margin: theme.spacing(2),
+    margin: theme.spacing(1),
     width: "100%",
+  },
+  button: {
+    margin: theme.spacing(2),
   },
 }));
 
@@ -254,6 +257,7 @@ function Generator() {
               onChange={e => setGForm({...gForm, message: e.target.value})}
             />
             <Button
+              className={classes.button}
               variant="contained"
               size="large"
               color="primary"
