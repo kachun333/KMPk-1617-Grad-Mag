@@ -66,8 +66,7 @@ function Footer() {
   }
   return (
     <footer id="footer" className={classes.footer}>
-
-      <img className={classes.bottle} src={Bottle}></img>
+      <img className={classes.bottle} src={Bottle} alt="bottle-icon"></img>
       <div className={classes.overlay}></div>
       <Box id="footer-content" className={classes.box}>
         <Typography variant="h6" gutterBottom>lectus sed eros</Typography>

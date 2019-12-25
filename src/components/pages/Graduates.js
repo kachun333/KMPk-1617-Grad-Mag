@@ -25,6 +25,7 @@ import { Share } from '@material-ui/icons';
 import Background from '../../assets/images/graduates.jpg';
 import image from '../../assets/images/Tan Zhi Han.jpg';
 import GraduateDetails from './GraduateDetails.js';
+import Banner from '../common/Banner';
 
 // component level styling
 const useStyles = makeStyles(theme => ({
@@ -58,16 +59,20 @@ const useStyles = makeStyles(theme => ({
     }
   },
   card: {
-    width: "120px",
+    margin: "4px",
+    width: "43.2vw",
     [theme.breakpoints.up('md')]: {
-      width: "300px",
+      width: "282px",
     }
   },
   cardMedia: {
-    height: "100%",
+    height: "28.8vw",
     [theme.breakpoints.up('md')]: {
-      height: "200px",
+      height: "188px",
     }
+  },
+  cardContent: {
+    padding: `${theme.spacing(0.5)}px ${theme.spacing(2)}px`
   },
   gridList: {
     width: "100%",
@@ -232,29 +237,31 @@ function Graduates() {
   const matches = useMediaQuery(theme.breakpoints.up('md'));
   return (
     <div>
-      <Box id="graduates-banner" className={classes.banner}>
-      </Box>
+      <Banner banner="graduates" />
       <Container className={classes.container} >
         <Box id="gradautes-filterOption" className={classes.section}>
           <TextField className={classes.searchBar} label="Search" margin="normal" variant="outlined" onChange={handleChange} />
         </Box>
         <Box id="gradautes-images" className={classes.section}>
-            {datasource.map(graduate => (
-              <Card key={graduate.id} className={classes.card}>
-                <CardActionArea onClick={handleFullScreenOpen}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image={image}
-                    title={graduate.name}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Lizard
+          {datasource.map(graduate => (
+            <Card key={graduate.id} className={classes.card}>
+              <CardActionArea onClick={handleFullScreenOpen}>
+                <CardMedia
+                  className={classes.cardMedia}
+                  image={image}
+                  title={graduate.name}
+                />
+                <CardContent className={classes.cardContent}>
+                  <Typography variant="subtitle1">
+                    洪永&nbsp;&nbsp;
                       </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            ))}
+                  <Typography gutterBottom variant="subtitle3" component="div">
+                    Lizardasdf
+                      </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          ))}
         </Box>
       </Container>
       <GraduateDetails

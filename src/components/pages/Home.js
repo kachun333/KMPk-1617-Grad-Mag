@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   withStyles,
@@ -15,28 +15,15 @@ import {
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
 import { useTranslation } from 'react-i18next';
-import Banner from '../../assets/images/home.jpg';
 // import Graduates from '../../assets/images/graduates.jpg';
 import Committee from '../../assets/images/committee.jpg';
-import Background from '../../assets/images/home.jpg';
-// import axios from 'axios';
+import Banner from '../common/Banner';
+import { useFirebase } from 'react-redux-firebase';
 // import { withTranslation } from "react-i18next";
 // import "../../i18n";
 
 // component level styling
 const useStyles = makeStyles(theme => ({
-  banner: {
-   maxWidth: "100vw",
-   backgroundImage: props => `url(${Background})`,
-   backgroundPositionX: "center",
-   backgroundPositionY: "center",
-   backgroundRepeat: "no-repeat",
-   backgroundSize: "cover",
-   height: "40vh",
-   [theme.breakpoints.up('md')]: {
-    height: "calc(100vh - 64px)",
-   }
-  },
   container: {
     display: "flex",
     flexDirection: "column",
@@ -61,12 +48,9 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
     maxWidth: "100vw"
   },
-  buttonBox: {
+  button: {
     width: "fit-content",
     margin: "auto",
-  },
-  button: {
-    padding: `${theme.spacing(1.5)}px ${theme.spacing(2.5)}px`
   },
   float: {
     position: "relative",
@@ -118,11 +102,33 @@ const cards = [{
 function Home() {
   // const [t, i18n] = useTranslation();
   const [username, setUsername] = useState("");
+
+  //get card images
+  const [cardImages, setCardImages] = useState({});
+  const firebase = useFirebase();
+  useEffect(() => {
+    const storageRef = firebase.storage().ref("banners");
+    storageRef.listAll()
+      .then((result) => {
+        result.items.forEach((imageRef) => {
+          let imageName = imageRef.name.split(".")[0];
+          imageRef.getDownloadURL()
+            .then((url) => {
+              let newObj = cardImages;
+              newObj[imageName] = url;
+              console.log(newObj)
+              setCardImages(newObj);
+            })
+            .catch(err => console.error('Fail to load banner image: ', err))
+        });
+      })
+      .catch(err => console.log('Fail to load banner: ', err))
+  }, [])
+
   const classes = useStyles();
   return (
     <div>
-    <Box id="home-banner" className={classes.banner}>
-    </Box>
+      <Banner banner="home" />
       <Container className={classes.container}>
         {username ? (
           <Box id="greet" className={classes.section}>
@@ -151,8 +157,8 @@ function Home() {
           <Typography variant="body1" className={classes.paragraph}>
             Nam ut lectus sed eros interdum consequat a ac nulla. Etiam in purus quam. Nulla eget odio faucibus, gravida tortor quis, lobortis tellus. Aliquam feugiat, erat sed facilisis feugiat, leo est tincidunt augue, eget malesuada metus nulla et magna. Curabitur sed ullamcorper tellus, ut pharetra nunc. Morbi sed velit finibus, rhoncus lacus at, efficitur sapien. Nullam porta orci vel dolor consequat, id commodo est bibendum. Pellentesque semper lobortis eros eu egestas. Fusce porta venenatis justo. Proin ullamcorper scelerisque velit a vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In tincidunt ipsum ac dapibus laoreet. Proin eu porttitor neque. Phasellus ut cursus ante, eu ultrices lectus.
           </Typography>
-          <div className={classes.buttonBox}>
-            <Button className={classes.button} variant="contained" color="primary">
+          <div className={classes.button}>
+            <Button variant="contained" color="primary" size="large">
               Be A Committee
             </Button>
           </div>
@@ -187,8 +193,7 @@ function Home() {
                     <Link to={card.link}>
                       <CardMedia
                         className={classes.cardMedia}
-                        image={require('../../assets/images/graduates.jpg')}
-                        // image={About}
+                        image={cardImages["graduates"]}
                         title={card.title}
                       />
                       <div className={classes.overlay}></div>

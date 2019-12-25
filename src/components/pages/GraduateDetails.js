@@ -32,8 +32,12 @@ const useStyles = makeStyles(theme => ({
   imageBox: {
     position: "relative",
     margin: "auto 0",
+    backgroundPositionX: "center",
+    backgroundPositionY: "center",
+    backgroundRepeat: "no-repeat",
     [theme.breakpoints.up('md')]: {
       flex: 1,
+      height: "100vh",
     },
   },
   toolbar: {
@@ -48,6 +52,10 @@ const useStyles = makeStyles(theme => ({
     color: "#FFF",
   },
   image: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     width: "100%",
   },
   list: {
@@ -55,6 +63,7 @@ const useStyles = makeStyles(theme => ({
     overflow: "auto",
     [theme.breakpoints.up('md')]: {
       width: "400px",
+      height: "100vh",
     },
   },
   listHeader: {
@@ -88,7 +97,6 @@ function GraduateDetails(props) {
           <img className={classes.image} src={image} alt={info.name} />
         </Box>
         <List className={classes.list}>
-
           <Box id="graduate-name" className={classes.listHeader}>
             <Typography variant="h4">
               {info.name_ch}
