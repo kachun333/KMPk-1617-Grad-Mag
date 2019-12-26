@@ -15,9 +15,8 @@ import {
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
 import { useTranslation } from 'react-i18next';
-// import Graduates from '../../assets/images/graduates.jpg';
-import Committee from '../../assets/images/committee.jpg';
 import Banner from '../common/Banner';
+import Bottle from '../../assets/images/bottle.png';
 import { useFirebase } from 'react-redux-firebase';
 // import { withTranslation } from "react-i18next";
 // import "../../i18n";
@@ -106,24 +105,24 @@ function Home() {
   //get card images
   const [cardImages, setCardImages] = useState({});
   const firebase = useFirebase();
-  useEffect(() => {
-    const storageRef = firebase.storage().ref("banners");
-    storageRef.listAll()
-      .then((result) => {
-        result.items.forEach((imageRef) => {
-          let imageName = imageRef.name.split(".")[0];
-          imageRef.getDownloadURL()
-            .then((url) => {
-              let newObj = cardImages;
-              newObj[imageName] = url;
-              console.log(newObj)
-              setCardImages(newObj);
-            })
-            .catch(err => console.error('Fail to load banner image: ', err))
-        });
-      })
-      .catch(err => console.log('Fail to load banner: ', err))
-  }, [])
+  const storageRef = firebase.storage().ref("banners");
+  storageRef.listAll()
+    .then((result) => {
+      result.items.forEach((imageRef) => {
+        let imageName = imageRef.name.split(".")[0];
+        imageRef.getDownloadURL()
+          .then((url) => {
+            let newObj = cardImages;
+            newObj[imageName] = url;
+            setCardImages(newObj);
+            console.log("this is x time");
+          })
+          .catch(err => console.error('Fail to load banner image: ', err))
+      });
+    })
+    .catch(err => console.log('Fail to load banner: ', err))
+
+    console.log(cardImages);
 
   const classes = useStyles();
   return (
@@ -193,7 +192,7 @@ function Home() {
                     <Link to={card.link}>
                       <CardMedia
                         className={classes.cardMedia}
-                        image={cardImages["graduates"]}
+                        image={cardImages["graduates"] ? cardImages["graduates"] : Bottle}
                         title={card.title}
                       />
                       <div className={classes.overlay}></div>

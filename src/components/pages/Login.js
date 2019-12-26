@@ -1,7 +1,5 @@
 import React, { useState, Fragment } from "react";
-import VerticalBanner from "../common/VerticalBanner";
 import {
-  Hidden,
   Divider,
   useTheme,
   useMediaQuery,
@@ -9,15 +7,11 @@ import {
   TextField,
   Typography,
   Button,
-  AppBar,
-  Toolbar,
-  Slide,
-  useScrollTrigger,
 } from "@material-ui/core";
 import { makeStyles } from '@material-ui/styles';
-import Background from '../../assets/images/committee.jpg';
 import GoogleButton from 'react-google-button';
 import { FacebookLoginButton, GoogleLoginButton } from "react-social-login-buttons";
+import VerticalBanner from "../common/VerticalBanner";
 
 
 // component level styling
@@ -30,26 +24,27 @@ const useStyles = makeStyles(theme => ({
       flexDirection: "row",
     }
   },
-  banner: {
-    maxWidth: "100vw",
-    backgroundImage: props => `url(${Background})`,
-    backgroundPositionX: "center",
-    backgroundPositionY: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    height: "40vh",
-    [theme.breakpoints.up('md')]: {
-      width: "60vw",
-      height: "auto",
-      minHeight: "calc(100vh - 64px)",
-    },
-  },
+  // banner: {
+  //   maxWidth: "100vw",
+  //   backgroundImage: props => `url(${Background})`,
+  //   backgroundPositionX: "center",
+  //   backgroundPositionY: "center",
+  //   backgroundRepeat: "no-repeat",
+  //   backgroundSize: "cover",
+  //   height: "40vh",
+  //   [theme.breakpoints.up('md')]: {
+  //     width: "60vw",
+  //     height: "auto",
+  //     minHeight: "calc(100vh - 64px)",
+  //   },
+  // },
   sidebox: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     flex: 1,
+    padding: theme.spacing(2),
   },
   form: {
     display: "flex",
@@ -101,9 +96,8 @@ function Login() {
   }
   return (
     <div className={classes.container}>
-      <Box id="login-banner" className={classes.banner}></Box>
+    <VerticalBanner banner="login" />
       <Box className={classes.sidebox}>
-
         <Box id="social-login" className={classes.socialLogin}>
           <GoogleButton
             type="light"
@@ -138,10 +132,10 @@ function Login() {
             variant="outlined"
           />
           <Box id="login-help" className={classes.help}>
-            <Typography component="div" variant="subtitle3" color="inherit">
+            <Typography component="div" variant="body1" color="inherit">
               Forget password
             </Typography>
-            <Typography component="div" variant="subtitle3" color="inherit">
+            <Typography component="div" variant="body1" color="inherit">
               Create new account
             </Typography>
           </Box>

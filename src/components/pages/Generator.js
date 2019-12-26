@@ -73,11 +73,10 @@ const useStyles = makeStyles(theme => ({
 
 function Generator() {
   const classes = useStyles();
-  
+
   const firestore = useFirestore();
-  console.log(firestore);
   const handleSubmit = (e) => {
-    console.log("been to submit button");
+    e.preventDefault();
     let data = {
       name: gForm.name,
       name_ch: gForm.name_ch,
@@ -85,23 +84,25 @@ function Generator() {
       phone: gForm.phone,
       email: gForm.email,
       one_liner: gForm.one_liner,
-      gender: gForm.gender? "male" : "female",
+      gender: gForm.gender ? "male" : "female",
       lecture: gForm.lecture,
       tutorial: gForm.tutorial,
       describe_me: [gForm.describe1, gForm.describe2, gForm.describe3],
       message: gForm.message,
     }
+    firestore
+      .collection("graduates")
+      .add(data)
+      .then(() => {
+        alert("data with has successfully submitted");
+        setGForm(defaultData);
+      })
+      .catch(err => {
+        console.error("Too bad error occur");
+      });
   }
-  //   console.log("the final data is ", data);
-  //   const result = firestore.collection('gradautes').doc(`${gForm.id}`).add(data).then(() => {
-  //     console.log("firebase success");
-  //   }).catch(err => {
-  //     console.log("firebase fails", err);
-  //   });;
-  //   console.log(result);
-  // }
 
-  const [gForm, setGForm] = React.useState({
+  const defaultData = {
     id: 0,
     name: "",
     name_ch: "",
@@ -116,7 +117,8 @@ function Generator() {
     describe2: "",
     describe3: "",
     message: "",
-  });
+  };
+  const [gForm, setGForm] = React.useState(defaultData);
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -127,23 +129,13 @@ function Generator() {
               Hey there, thank you for helping me
           </Typography>
             <TextField
-              id="id"
-              className={classes.textfield}
-              label="Id"
-              type="number"
-              variant="outlined"
-              required
-              value={gForm.id}
-              onChange={e => setGForm({...gForm, id: e.target.value})}
-            />
-            <TextField
               id="name"
               className={classes.textfield}
               label="Name"
               variant="outlined"
               required
               value={gForm.name}
-              onChange={e => setGForm({...gForm, name: e.target.value})}
+              onChange={e => setGForm({ ...gForm, name: e.target.value })}
             />
             <TextField
               id="name_ch"
@@ -152,7 +144,7 @@ function Generator() {
               variant="outlined"
               required
               value={gForm.name_ch}
-              onChange={e => setGForm({...gForm, name_ch: e.target.value})}
+              onChange={e => setGForm({ ...gForm, name_ch: e.target.value })}
             />
             <KeyboardDatePicker
               margin="normal"
@@ -160,7 +152,7 @@ function Generator() {
               label="Birthday"
               format="dd/MM/yyyy"
               value={gForm.birthday}
-              onChange={date => setGForm({...gForm, birthday: date})}
+              onChange={date => setGForm({ ...gForm, birthday: date })}
             />
             <TextField
               id="phone"
@@ -169,7 +161,7 @@ function Generator() {
               variant="outlined"
               required
               value={gForm.phone}
-              onChange={e => setGForm({...gForm, phone: e.target.value})}
+              onChange={e => setGForm({ ...gForm, phone: e.target.value })}
             />
             <TextField
               id="email"
@@ -179,7 +171,7 @@ function Generator() {
               variant="outlined"
               required
               value={gForm.email}
-              onChange={e => setGForm({...gForm, email: e.target.value})}
+              onChange={e => setGForm({ ...gForm, email: e.target.value })}
             />
             <TextField
               id="one_liner"
@@ -188,14 +180,14 @@ function Generator() {
               variant="outlined"
               required
               value={gForm.one_liner}
-              onChange={e => setGForm({...gForm, one_liner: e.target.value})}
+              onChange={e => setGForm({ ...gForm, one_liner: e.target.value })}
             />
             <div>
               <span>Female</span>
               <Switch
                 id="gender"
                 checked={gForm.gender}
-                onChange={e => setGForm({...gForm, gender: !gForm.gender})}
+                onChange={e => setGForm({ ...gForm, gender: !gForm.gender })}
                 value="gender"
               />
               <span>Male</span>
@@ -207,7 +199,7 @@ function Generator() {
               variant="outlined"
               required
               value={gForm.lecture}
-              onChange={e => setGForm({...gForm, lecture: e.target.value})}
+              onChange={e => setGForm({ ...gForm, lecture: e.target.value })}
             />
             <TextField
               id="tutorial"
@@ -216,7 +208,7 @@ function Generator() {
               variant="outlined"
               required
               value={gForm.tutorial}
-              onChange={e => setGForm({...gForm, tutorial: e.target.value})}
+              onChange={e => setGForm({ ...gForm, tutorial: e.target.value })}
             />
             <br />
             <TextField
@@ -226,7 +218,7 @@ function Generator() {
               variant="outlined"
               required
               value={gForm.describe1}
-              onChange={e => setGForm({...gForm, describe1: e.target.value})}
+              onChange={e => setGForm({ ...gForm, describe1: e.target.value })}
             />
             <TextField
               id="describe2"
@@ -235,7 +227,7 @@ function Generator() {
               variant="outlined"
               required
               value={gForm.describe2}
-              onChange={e => setGForm({...gForm, describe2: e.target.value})}
+              onChange={e => setGForm({ ...gForm, describe2: e.target.value })}
             />
             <TextField
               id="describe3"
@@ -244,7 +236,7 @@ function Generator() {
               variant="outlined"
               required
               value={gForm.describe3}
-              onChange={e => setGForm({...gForm, describe3: e.target.value})}
+              onChange={e => setGForm({ ...gForm, describe3: e.target.value })}
             />
             <br />
             <TextField
@@ -254,7 +246,7 @@ function Generator() {
               variant="outlined"
               required
               value={gForm.message}
-              onChange={e => setGForm({...gForm, message: e.target.value})}
+              onChange={e => setGForm({ ...gForm, message: e.target.value })}
             />
             <Button
               className={classes.button}

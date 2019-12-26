@@ -28,28 +28,34 @@ const useStyles = makeStyles(theme => ({
       flexDirection: "row",
     }
   },
-  banner: {
-    maxWidth: "100vw",
-    backgroundImage: props => `url(${Background})`,
-    backgroundPositionX: "center",
-    backgroundPositionY: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    height: "40vh",
-    [theme.breakpoints.up('md')]: {
-      width: "60vw",
-      height: "auto",
-      minHeight: "calc(100vh - 64px)",
-    },
-  },
+  // banner: {
+  //   maxWidth: "100vw",
+  //   backgroundImage: props => `url(${Background})`,
+  //   backgroundPositionX: "center",
+  //   backgroundPositionY: "center",
+  //   backgroundRepeat: "no-repeat",
+  //   backgroundSize: "cover",
+  //   height: "40vh",
+  //   [theme.breakpoints.up('md')]: {
+  //     width: "60vw",
+  //     height: "auto",
+  //     minHeight: "calc(100vh - 64px)",
+  //   },
+  // },
   sidebox: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    justifyContent: "center",
     flex: 1,
+    padding: theme.spacing(2),
   },
   form: {
-    marginBottom: "48px"
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    flex: 1,
+    padding: theme.spacing(4),
   },
   title: {
     width: "80%",
@@ -83,16 +89,14 @@ function Verify() {
   return (
     <Fragment>
       <Box id="verify" className={classes.container}>
-
-        <Box id="desktopBanner" className={classes.banner}></Box>
-        {/* <VerticalBanner background={Background} /> */}
+        <VerticalBanner banner="verify" />
         <Box className={classes.sidebox}>
           <Box id="title" className={classes.title}>
             <Typography variant={matches ? "h3" : "h5"} color="inherit">
               Verify That You Are A KMPKian
             </Typography>
           </Box>
-          <form onSubmit={handleSubmit} className={`${classes.sidebox} ${classes.form}`}>
+          <form onSubmit={handleSubmit} className={classes.form}>
             <TextField
               id="culturalEvent"
               className={classes.textfield}
