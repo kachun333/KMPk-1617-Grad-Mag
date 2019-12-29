@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import {
   Slide,
   Box,
@@ -12,7 +12,7 @@ import {
   Button,
   IconButton,
   Container,
-  GridList,
+  CircularProgress,
   GridListTile,
   GridListTileBar,
   useMediaQuery,
@@ -24,8 +24,9 @@ import { makeStyles } from "@material-ui/styles";
 import { Share } from '@material-ui/icons';
 import GraduateDetails from './GraduateDetails.js';
 import Banner from '../common/Banner';
-import { useSelector } from 'react-redux';
-import { useFirestoreConnect } from 'react-redux-firebase';
+import { useSelector, useDispatch } from 'react-redux';
+import { useFirestoreConnect, useFirebase } from 'react-redux-firebase';
+import { setGraduates, filterGraduates } from "../../store/actions/graduatesAction";
 
 // component level styling
 const useStyles = makeStyles(theme => ({
@@ -83,54 +84,55 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function filterItem(item, searchOptions) {
-  if (
-    Object.values(item).some(values =>
-      values
-        .toString()
-        .toLowerCase()
-        .includes(searchOptions.searchTerm.toLowerCase())
-    )
-  ) {
-    return item;
-  } else {
-    return undefined;
-  }
-}
 
-function filterItems(items, searchOptions) {
-  return items.reduce((accumulator, currentItem) => {
-    const foundItem = filterItem(currentItem, searchOptions);
-    if (foundItem) {
-      accumulator.push(foundItem);
+function findWithAttr(array, attr, value){
+  for (var i = 0; i < array.length; i += 1) {
+    if (array[i][attr] === value) {
+      return i;
     }
-    return accumulator;
-  }, []);
+  }
+  return -1;
 }
 
-
-function Graduates() {
+function Graduates(props) {
   // const [t, i18n] = useTranslation();
-  const [open, setOpen] = useState(false);
 
-  const handleFullScreenOpen = () => {
-    setOpen(true);
-  };
-  const handleFullScreenClose = () => {
-    setOpen(false);
-  };
-
-  // const [datasource, setDatasource] = useState();
+  const dispatch = useDispatch();
+  const firebase = useFirebase();
 
   useFirestoreConnect('graduates');
-  const graduates = useSelector(state => state.firestore.ordered.graduates);
-  // setDatasource(graduates);
+  const datasource = useSelector(state => state.firestore.ordered.graduates);
+  useEffect(() => {
+    getGraduates(datasource);
+  }, [datasource])
+  const getGraduates = useCallback(
+    datasource => dispatch(setGraduates({ firebase }, datasource)),
+    [dispatch]
+  )
+
+  const graduates = useSelector(state => state.graduates.ordered);
 
   const handleChange = (e) => {
     const searchOptions = {
       searchTerm: e.target.value,
     };
-    // setDatasource(filterItems(graduates, searchOptions));
+    handleFilter(searchOptions);
+  };
+  const handleFilter = useCallback(
+    searchOptions => dispatch(filterGraduates(searchOptions)),
+    [dispatch]
+  )
+
+  const [selected, setSelected] = useState(false);
+  const handleFullScreenOpen = (id) => {
+    let index = findWithAttr(graduates, "id", id)
+    console.log(graduates[index]);
+    if (index >= 0) {
+      setSelected(graduates[index]);
+    }
+  };
+  const handleFullScreenClose = () => {
+    setSelected(null);
   };
 
   const Transition = React.forwardRef(function Transition(props, ref) {
@@ -140,43 +142,46 @@ function Graduates() {
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
+  console.log(graduates)
   return (
     <div>
       <Banner banner="graduates" />
       <Container className={classes.container} >
-        <Box id="gradautes-filterOption" className={classes.section}>
+        <Box id="graduates-filterOption" className={classes.section}>
           <TextField className={classes.searchBar} label="Search" margin="normal" variant="outlined" onChange={handleChange} />
         </Box>
-        <Box id="gradautes-images" className={classes.section}>
-          
-        {graduates ? (
-          graduates.map(graduate => (
-            <Card key={graduate.id} className={classes.card}>
-              <CardActionArea onClick={handleFullScreenOpen}>
-                <CardMedia
-                  className={classes.cardMedia}
-                  image={null}
-                  title={graduate.name}
-                />
-                <CardContent className={classes.cardContent}>
-                  <Typography variant="subtitle1">{graduate.name_ch}</Typography>
-                  <Typography gutterBottom variant="subtitle2" component="div">{graduate.name}</Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          ))) : (
-            <Typography variant="h3" className={classes.paragraph}>
-              Loading.... Please Wait
-            </Typography>
-          )}
+        <Box id="graduates-images" className={classes.section}>
+          {graduates ? (
+            graduates.map(graduate => (
+              <Card key={graduate.id} className={classes.card}>
+                <CardActionArea onClick={() => handleFullScreenOpen(graduate.id)}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image={graduate.image}
+                    title={graduate.name}
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography variant="subtitle1">{graduate.name_ch}</Typography>
+                    <Typography gutterBottom variant="subtitle2" component="div">{graduate.name}</Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            ))) : (
+              <CircularProgress />
+            )}
         </Box>
       </Container>
-      {/* <GraduateDetails
-        open={open}
-        handleClose={handleFullScreenClose}
-        info={null}
-        TransitionComponent={Transition}
-      /> */}
+      {
+        selected ?
+          (<GraduateDetails
+            open={true}
+            handleClose={handleFullScreenClose}
+            info={selected}
+            TransitionComponent={Transition}
+          />)
+          :
+          null
+      }
     </div>
   );
 }

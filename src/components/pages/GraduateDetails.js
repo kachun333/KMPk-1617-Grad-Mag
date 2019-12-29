@@ -77,6 +77,7 @@ const useStyles = makeStyles(theme => ({
 function GraduateDetails(props) {
   const { open, handleClose, info } = props;
   const classes = useStyles();
+  console.log("info object is ",info.phone);
   // const [nestedListOpen, setNestedListOpen] = React.useState(true);
 
   // const handleClick = () => {
@@ -94,7 +95,7 @@ function GraduateDetails(props) {
               <Share className={classes.icon} />
             </IconButton>
           </Toolbar>
-          <img className={classes.image} src={image} alt={info.name} />
+          {/* <img className={classes.image} src={image} alt={info.name} /> */}
         </Box>
         <List className={classes.list}>
           <Box id="graduate-name" className={classes.listHeader}>
@@ -105,9 +106,6 @@ function GraduateDetails(props) {
               {info.name}
             </Typography>
           </Box>
-          {/* <ListItem>
-            <ListItemText primary={`${info.name_ch} ${info.name}`} />
-          </ListItem> */}
           <ListItem id="graduate-phone">
             <ListItemIcon><Phone /></ListItemIcon>
             <ListItemText primary="Phone" secondary={info.phone} />
@@ -128,32 +126,28 @@ function GraduateDetails(props) {
             <ListItemIcon><PanTool /></ListItemIcon>
             <ListItemText primary="One Liner" secondary={info.one_liner} />
           </ListItem>
-          <ListItem id="graduate-message">
+          <ListItem id="graduate-message-title">
             <ListItemIcon><Sms /></ListItemIcon>
             <ListItemText primary="Message" />
           </ListItem>
-          <ListItem className={classes.nestedListItem}>
+          <ListItem id="graduate-message-content" className={classes.nestedListItem}>
             <ListItemText secondary={info.message} />
           </ListItem>
-          {/* <ListItem button onClick={handleClick}> */}
           <ListItem id="graduate-describe_me">
             <ListItemIcon><LocalFlorist /></ListItemIcon>
             <ListItemText primary="Describe me" />
-            {/* {nestedListOpen ? <ExpandLess /> : <ExpandMore />} */}
           </ListItem>
-          {/* <Collapse in={nestedListOpen} timeout="auto" unmountOnExit> */}
           <List component="div" disablePadding>
             {
-              info.describe_me.map((description) => {
+              info.describe_me.map((description,i) => {
                 return (
-                  <ListItem className={classes.nestedListItem}>
+                  <ListItem key={`graduate-describe_me-${i}`} className={classes.nestedListItem}>
                     <ListItemText secondary={description} />
                   </ListItem>
                 );
               })
             }
           </List>
-          {/* </Collapse> */}
         </List>
       </Box>
     </Dialog >

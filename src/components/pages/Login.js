@@ -12,7 +12,9 @@ import { makeStyles } from '@material-ui/styles';
 import GoogleButton from 'react-google-button';
 import { FacebookLoginButton, GoogleLoginButton } from "react-social-login-buttons";
 import VerticalBanner from "../common/VerticalBanner";
-
+import { useFirebase } from 'react-redux-firebase';
+import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
 
 // component level styling
 const useStyles = makeStyles(theme => ({
@@ -94,16 +96,42 @@ function Login() {
     console.log("heandleing");
     console.log(e);
   }
+  const [error, setError] = useState(false);
+
+  const history = useHistory();
+  const isLoggedin = useSelector(state => state.firebase.auth.uid);
+  if (isLoggedin) {
+    history.push("/")
+  }
+
+  const firebase = useFirebase();
+  const handleGoogleLogin = () => {
+    firebase.login({
+      provider: 'google',
+      type: 'redirect',
+    })
+      .then(() => { history.push("/") })
+      .catch(() => { setError("Fail to Login.. Please try again"); })
+  }
+  const handleFacebookLogin = () => {
+    firebase.login({
+      provider: 'facebook',
+      type: 'redirect',
+    })
+      .then(() => { history.push("/") })
+      .catch(() => { setError("Fail to Login.. Please try again"); })
+  }
+
   return (
     <div className={classes.container}>
-    <VerticalBanner banner="login" />
+      <VerticalBanner banner="login" />
       <Box className={classes.sidebox}>
         <Box id="social-login" className={classes.socialLogin}>
           <GoogleButton
             type="light"
-            onClick={() => { console.log('Google button clicked') }}
+            onClick={handleGoogleLogin}
           />
-          <FacebookLoginButton className={classes.facebookLogin} onClick={() => alert("Hello")}>
+          <FacebookLoginButton className={classes.facebookLogin} onClick={handleFacebookLogin}>
             <span style={{ paddingLeft: '12px' }}>Sign in with Facebook</span>
           </FacebookLoginButton>
         </Box>
@@ -112,9 +140,11 @@ function Login() {
           <Typography variant="h5" color="inherit" align="center" >
             Traditional Login
             </Typography>
-          <Typography component="div" variant="caption" color="inherit" align="center" >
-            Why do I need to login?
+          <Button>
+            <Typography component="div" variant="caption" color="inherit" align="center" >
+              Why do I need to login?
             </Typography>
+          </Button>
         </Box>
         <form onSubmit={handleSubmit} className={classes.form}>
           <TextField

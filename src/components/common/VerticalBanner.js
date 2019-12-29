@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme) => createStyles({
     }
   },
   banner: {
-      width: "100%",
-      height: "100%",
+    width: "100%",
+    height: "100%",
   },
 }));
 
@@ -29,14 +29,15 @@ function VerticalBanner(props) {
     .catch(err => console.log('Fail to load banner: ', err))
   const classes = useStyles();
   return (
-    <div className={classes.bannerBox}>
-      {
-        banner ?
+    <>
+      {banner ? 
+        (<div className={classes.bannerBox}>
           <img className={classes.banner} src={banner} alt="banner"></img>
+        </div>)
           :
           null
-      }
-    </div>
+        }
+    </>
   );
 }
 

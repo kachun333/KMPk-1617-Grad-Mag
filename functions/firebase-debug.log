@@ -1,0 +1,67 @@
+[debug] [2019-12-29T04:17:33.868Z] ----------------------------------------------------------------------
+[debug] [2019-12-29T04:17:33.871Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\1998c\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2019-12-29T04:17:33.871Z] CLI Version:   7.10.0
+[debug] [2019-12-29T04:17:33.871Z] Platform:      win32
+[debug] [2019-12-29T04:17:33.871Z] Node Version:  v10.16.0
+[debug] [2019-12-29T04:17:33.873Z] Time:          Sun Dec 29 2019 12:17:33 GMT+0800 (Malaysia Time)
+[debug] [2019-12-29T04:17:33.873Z] ----------------------------------------------------------------------
+[debug] [2019-12-29T04:17:33.873Z] 
+[debug] [2019-12-29T04:17:33.890Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-29T04:17:33.891Z] > authorizing via signed-in user
+[info] i  emulators: Starting emulators: functions, firestore, hosting
+[warn] !  Your requested "node" version "8" doesn't match your global version "10"
+[info] +  functions: Emulator started at http://localhost:5001
+[info] i  firestore: Serving ALL traffic (including WebChannel) on http://localhost:8080
+[warn] !  firestore: Support for WebChannel on a separate port (8081) is DEPRECATED and will go away soon. Please use port above instead.
+[info] i  firestore: downloading cloud-firestore-emulator-v1.10.2.jar...
+[debug] [2019-12-29T04:18:41.934Z] Ignoring unsupported arg: projectId
+[debug] [2019-12-29T04:18:41.934Z] Ignoring unsupported arg: auto_download
+[debug] [2019-12-29T04:18:41.934Z] Starting emulator firestore with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\1998c\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.10.2.jar","--host","localhost","--port",8080,"--rules","D:\\Code\\OurPromise\\firestore.rules","--functions_emulator","localhost:5001","--webchannel_port",8081],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator"],"joinArgs":false}
+[info] i  firestore: Emulator logging to firestore-debug.log
+[debug] [2019-12-29T04:18:45.573Z] API endpoint: http://
+[debug] [2019-12-29T04:18:45.573Z] localhost:8080
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=localhost:8080
+
+Dev App Server is now running.
+
+
+[info] +  firestore: Emulator started at http://localhost:8080
+[info] i  firestore: For testing set FIRESTORE_EMULATOR_HOST=localhost:8080
+[debug] [2019-12-29T04:18:47.732Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/ourpromise/webApps/-/config  
+ 
+[debug] [2019-12-29T04:18:48.741Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: build
+[info] +  hosting: Local server: http://localhost:5000
+[info] +  hosting: Emulator started at http://localhost:5000
+[info] i  functions: Watching "D:\Code\OurPromise\functions" for Cloud Functions...
+[debug] [2019-12-29T04:18:49.276Z] [worker-~diagnostic~-dcf3c8cd-3077-41b7-9068-a958b9f45bfb]: Assigning socketPath: \\?\pipe\D:\Code\OurPromise\functions\2056
+[debug] [2019-12-29T04:18:49.276Z] [worker-~diagnostic~-dcf3c8cd-3077-41b7-9068-a958b9f45bfb]: BUSY
+[debug] [2019-12-29T04:18:50.121Z] [runtime-status] [2056] Functions runtime initialized. {"cwd":"D:\\Code\\OurPromise\\functions","node_version":"10.16.0"}
+[debug] [2019-12-29T04:18:50.122Z] [runtime-status] [2056] Disabled runtime features: undefined
+[debug] [2019-12-29T04:18:50.131Z] [runtime-status] [2056] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-29T04:18:50.134Z] [runtime-status] [2056] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T04:18:50.731Z] [runtime-status] [2056] Found google-gax at D:\Code\OurPromise\functions\node_modules\google-gax\build\src\index.js
+[debug] [2019-12-29T04:18:50.732Z] [runtime-status] [2056] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2019-12-29T04:18:50.881Z] [runtime-status] [2056] Checked functions.config() {"config":{}}
+[debug] [2019-12-29T04:18:50.884Z] [runtime-status] [2056] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T04:18:50.888Z] [runtime-status] [2056] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-29T04:18:50.889Z] [runtime-status] [2056] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T04:18:51.096Z] [runtime-status] [2056] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.8.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-admin\\lib\\index.js"}}
+[debug] [2019-12-29T04:18:51.102Z] [runtime-status] [2056] config() parent accessed! {"parentKey":"firebase","parentConfig":{}}
+[debug] [2019-12-29T04:18:51.104Z] [runtime-status] [2056] initializeApp(DEFAULT) {"databaseURL":"https://ourpromise.firebaseio.com","storageBucket":"ourpromise.appspot.com","projectId":"ourpromise"}
+[warn] !  TypeError: instance.registerVersion is not a function
+    at registerDatabase (D:\Code\OurPromise\functions\node_modules\@firebase\database\dist\index.node.cjs.js:15188:14)
+    at Object.<anonymous> (D:\Code\OurPromise\functions\node_modules\@firebase\database\dist\index.node.cjs.js:15200:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:690:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at FirebaseNamespace.get [as database] (D:\Code\OurPromise\functions\node_modules\firebase-admin\lib\firebase-namespace.js:282:38)
+[warn] !  We were unable to load your functions code. (see above)
+[debug] [2019-12-29T04:18:51.322Z] [worker-~diagnostic~-dcf3c8cd-3077-41b7-9068-a958b9f45bfb]: exited
+[debug] [2019-12-29T04:18:51.322Z] [worker-~diagnostic~-dcf3c8cd-3077-41b7-9068-a958b9f45bfb]: FINISHED

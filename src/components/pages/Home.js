@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   Box,
   withStyles,
@@ -10,14 +10,17 @@ import {
   Typography,
   Button,
   Container,
-  Hidden
+  Hidden,
+  CircularProgress,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
 import { useTranslation } from 'react-i18next';
 import Banner from '../common/Banner';
-import Bottle from '../../assets/images/bottle.png';
-import { useFirebase } from 'react-redux-firebase';
+import NoImage from '../../assets/images/bottle.png';
+import { useSelector, useDispatch } from 'react-redux';
+import { useFirebase, useFirestoreConnect } from 'react-redux-firebase';
+import { getCards } from "../../store/actions/appActions";
 // import { withTranslation } from "react-i18next";
 // import "../../i18n";
 
@@ -88,11 +91,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 const cards = [{
-  image: '../../assets/images/graduates.jpg',
   title: "Graduates",
   link: "/graduates",
 }, {
-  image: '../../assets/images/graduates.jpg',
   title: "Committee",
   link: "/committee",
 },
@@ -102,27 +103,27 @@ function Home() {
   // const [t, i18n] = useTranslation();
   const [username, setUsername] = useState("");
 
-  //get card images
-  const [cardImages, setCardImages] = useState({});
+  const dispatch = useDispatch();
   const firebase = useFirebase();
-  const storageRef = firebase.storage().ref("banners");
-  storageRef.listAll()
-    .then((result) => {
-      result.items.forEach((imageRef) => {
-        let imageName = imageRef.name.split(".")[0];
-        imageRef.getDownloadURL()
-          .then((url) => {
-            let newObj = cardImages;
-            newObj[imageName] = url;
-            setCardImages(newObj);
-            console.log("this is x time");
-          })
-          .catch(err => console.error('Fail to load banner image: ', err))
-      });
-    })
-    .catch(err => console.log('Fail to load banner: ', err))
 
-    console.log(cardImages);
+  useFirestoreConnect('home_cards');
+  const datasource = useSelector(state => state.firestore.ordered.home_cards);
+  useEffect(() => {
+    loadCards(datasource);
+  }, [datasource])
+  const loadCards = useCallback(
+    datasource => dispatch(getCards({ firebase }, datasource)),
+    [dispatch]
+  )
+
+  const cards = useSelector(state => state.app.cards);
+
+  const auth = useSelector(state => state.firebase.auth);
+  const profile = useSelector(state => state.firebase.profile);
+  const handleButton = () => {
+    console.log("the current auth is", auth);
+    console.log("the current profile is", profile);
+  }
 
   const classes = useStyles();
   return (
@@ -157,7 +158,7 @@ function Home() {
             Nam ut lectus sed eros interdum consequat a ac nulla. Etiam in purus quam. Nulla eget odio faucibus, gravida tortor quis, lobortis tellus. Aliquam feugiat, erat sed facilisis feugiat, leo est tincidunt augue, eget malesuada metus nulla et magna. Curabitur sed ullamcorper tellus, ut pharetra nunc. Morbi sed velit finibus, rhoncus lacus at, efficitur sapien. Nullam porta orci vel dolor consequat, id commodo est bibendum. Pellentesque semper lobortis eros eu egestas. Fusce porta venenatis justo. Proin ullamcorper scelerisque velit a vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In tincidunt ipsum ac dapibus laoreet. Proin eu porttitor neque. Phasellus ut cursus ante, eu ultrices lectus.
           </Typography>
           <div className={classes.button}>
-            <Button variant="contained" color="primary" size="large">
+            <Button variant="contained" color="primary" size="large" onClick={handleButton}>
               Be A Committee
             </Button>
           </div>
@@ -185,27 +186,30 @@ function Home() {
         </Box>
         <Box id="content-cards" className={classes.section}>
           <Grid container spacing={4}>
-            {cards.map((card, i) => (
-              <Grid item key={i} xs={12} md={6}>
-                <Card>
-                  <CardActionArea className={classes.card}>
-                    <Link to={card.link}>
-                      <CardMedia
-                        className={classes.cardMedia}
-                        image={cardImages["graduates"] ? cardImages["graduates"] : Bottle}
-                        title={card.title}
-                      />
-                      <div className={classes.overlay}></div>
-                      <div className={classes.cardContent}>
-                        <Typography gutterBottom variant="h5">
-                          {card.title}
-                        </Typography>
-                      </div>
-                    </Link>
-                  </CardActionArea>
-                </Card>
-              </Grid>
-            ))}
+            {cards ? (
+              cards.map((card, i) => (
+                <Grid item key={i} xs={12} md={6}>
+                  <Card>
+                    <CardActionArea className={classes.card}>
+                      <Link to={card.link}>
+                        <CardMedia
+                          className={classes.cardMedia}
+                          src={card.image}
+                          title={card.title}
+                        />
+                        <div className={classes.overlay}></div>
+                        <div className={classes.cardContent}>
+                          <Typography gutterBottom variant="h5">
+                            {card.title}
+                          </Typography>
+                        </div>
+                      </Link>
+                    </CardActionArea>
+                  </Card>
+                </Grid>
+              ))) : (
+                <CircularProgress />
+              )}
           </Grid>
         </Box>
       </Container>

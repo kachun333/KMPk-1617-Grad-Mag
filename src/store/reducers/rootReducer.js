@@ -8,7 +8,7 @@ import { combineReducers } from 'redux'
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  graduate: graduateReducer,
+  graduates: graduateReducer,
   committee: committeeReducer,
   app: appReducer,
   firebase: firebaseReducer,

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { makeStyles, createStyles } from "@material-ui/styles";
 import { useFirebase } from 'react-redux-firebase';
 
-
 const useStyles = makeStyles((theme) => createStyles({
   bannerBox: {
     [theme.breakpoints.up('md')]: {
@@ -13,7 +12,7 @@ const useStyles = makeStyles((theme) => createStyles({
     }
   },
   banner: {
-      width: "100%"
+    width: "100%"
   },
 }));
 
@@ -28,14 +27,15 @@ function Banner(props) {
     .catch(err => console.log('Fail to load banner: ', err))
   const classes = useStyles();
   return (
-    <div className={classes.bannerBox}>
-      {
-        banner ?
+    <>
+      {banner ?
+        (<div className={classes.bannerBox}>
           <img className={classes.banner} src={banner} alt="banner"></img>
-          :
-          null
+        </div>)
+        :
+        null
       }
-    </div>
+    </>
   );
 }
 
