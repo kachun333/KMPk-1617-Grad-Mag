@@ -7,11 +7,12 @@ import {
   TextField,
   Typography,
   Button,
+  Link
 } from "@material-ui/core";
 import { makeStyles } from '@material-ui/styles';
 import GoogleButton from 'react-google-button';
-import { FacebookLoginButton, GoogleLoginButton } from "react-social-login-buttons";
-import VerticalBanner from "../common/VerticalBanner";
+import VerticalBanner from "../../common/VerticalBanner";
+import CustomDialog from "../../common/CustomDialog";
 import { useFirebase } from 'react-redux-firebase';
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
@@ -53,12 +54,6 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     alignItems: "center",
   },
-  socialLogin: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    margin: "16px",
-  },
   title: {
     width: "80%",
     margin: "16px",
@@ -80,93 +75,80 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     height: "100%",
   },
-  facebookLogin: {
-    width: "240px !important",
-    fontSize: "16px !important",
-    fontFamily: "Roboto, arial, sans-serif !important",
-    marginTop: "12px !important",
-  }
 }));
-function Login() {
-  const classes = useStyles();
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up('md'));
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("heandleing");
-    console.log(e);
-  }
-  const [error, setError] = useState(false);
-
+function Create() {
   const history = useHistory();
   const isLoggedin = useSelector(state => state.firebase.auth.uid);
   if (isLoggedin) {
-    history.push("/")
+    history.push("/");
   }
 
+  const classes = useStyles();
+
+  const [credentials, setCredentials] = useState({ email: "", password: "", displayName: "" });
+
   const firebase = useFirebase();
-  const handleGoogleLogin = () => {
-    firebase.login({
-      provider: 'google',
-      type: 'redirect',
-    })
-      .then(() => { history.push("/") })
-      .catch(() => { setError("Fail to Login.. Please try again"); })
+  const handleCreate = ({ email, password, displayName }) => {
+    firebase.createUser(
+      { email, password },
+      { displayName, email }
+    )
+      .then(() => {
+        setDialog({ title: "Account Created!", description: "You will be redirect to login page soon" });
+        history.push("/auth/login")
+      })
+      .catch(() => {
+        setDialog({ title: "Account Fail to create", description: "Please try again.." });
+      })
   }
-  const handleFacebookLogin = () => {
-    firebase.login({
-      provider: 'facebook',
-      type: 'redirect',
-    })
-      .then(() => { history.push("/") })
-      .catch(() => { setError("Fail to Login.. Please try again"); })
-  }
+
+
+  const [dialog, setDialog] = useState(null);
 
   return (
     <div className={classes.container}>
       <VerticalBanner banner="login" />
       <Box className={classes.sidebox}>
-        <Box id="social-login" className={classes.socialLogin}>
-          <GoogleButton
-            type="light"
-            onClick={handleGoogleLogin}
-          />
-          <FacebookLoginButton className={classes.facebookLogin} onClick={handleFacebookLogin}>
-            <span style={{ paddingLeft: '12px' }}>Sign in with Facebook</span>
-          </FacebookLoginButton>
-        </Box>
-        <Divider />
         <Box id="title" className={classes.title}>
-          <Typography variant="h5" color="inherit" align="center" >
-            Traditional Login
-            </Typography>
-          <Button>
-            <Typography component="div" variant="caption" color="inherit" align="center" >
-              Why do I need to login?
-            </Typography>
-          </Button>
+          <Typography variant="h5" color="inherit" align="center" >Create Account</Typography>
         </Box>
-        <form onSubmit={handleSubmit} className={classes.form}>
+        <form className={classes.form} onSubmit={(e) => { e.preventDefault(); handleCreate(credentials); }}>
           <TextField
-            id="email"
+            className={classes.textfield}
+            label="Display Name"
+            variant="outlined"
+            value={credentials.displayName}
+            onChange={(e) => setCredentials({ ...credentials, displayName: e.currentTarget.value })}
+            required
+          />
+          <TextField
             className={classes.textfield}
             label="Email"
             type="email"
             variant="outlined"
+            value={credentials.email}
+            onChange={(e) => setCredentials({ ...credentials, email: e.currentTarget.value })}
+            required
           />
           <TextField
-            id="password"
             className={classes.textfield}
             label="Password"
             type="password"
             variant="outlined"
+            value={credentials.password}
+            onChange={(e) => setCredentials({ ...credentials, password: e.currentTarget.value })}
+            required
           />
-          <Box id="login-help" className={classes.help}>
+          <Box id="create-help" className={classes.help}>
             <Typography component="div" variant="body1" color="inherit">
-              Forget password
+              <Link href="#" onClick={(e) => { e.preventDefault(); history.push("/auth/reset"); }}>
+                Forget password
+              </Link>
             </Typography>
             <Typography component="div" variant="body1" color="inherit">
-              Create new account
+              <Link href="#" onClick={(e) => { e.preventDefault(); history.push("/auth/login"); }}>
+                Already have an account? Sign in instead
+              </Link>
             </Typography>
           </Box>
           <Button
@@ -176,12 +158,22 @@ function Login() {
             color="primary"
             type="submit"
           >
-            Login
-            </Button>
+            Create
+          </Button>
         </form>
       </Box>
+      {
+        dialog ?
+          <CustomDialog
+            open={dialog}
+            onClose={() => { setDialog(null) }}
+            title={dialog.title}
+            description={dialog.description}
+          />
+          : null
+      }
     </div>
   );
 }
 
-export default Login;
+export default Create;

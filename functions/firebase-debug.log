@@ -1,67 +1,164 @@
-[debug] [2019-12-29T04:17:33.868Z] ----------------------------------------------------------------------
-[debug] [2019-12-29T04:17:33.871Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\1998c\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
-[debug] [2019-12-29T04:17:33.871Z] CLI Version:   7.10.0
-[debug] [2019-12-29T04:17:33.871Z] Platform:      win32
-[debug] [2019-12-29T04:17:33.871Z] Node Version:  v10.16.0
-[debug] [2019-12-29T04:17:33.873Z] Time:          Sun Dec 29 2019 12:17:33 GMT+0800 (Malaysia Time)
-[debug] [2019-12-29T04:17:33.873Z] ----------------------------------------------------------------------
-[debug] [2019-12-29T04:17:33.873Z] 
-[debug] [2019-12-29T04:17:33.890Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2019-12-29T04:17:33.891Z] > authorizing via signed-in user
-[info] i  emulators: Starting emulators: functions, firestore, hosting
-[warn] !  Your requested "node" version "8" doesn't match your global version "10"
-[info] +  functions: Emulator started at http://localhost:5001
-[info] i  firestore: Serving ALL traffic (including WebChannel) on http://localhost:8080
-[warn] !  firestore: Support for WebChannel on a separate port (8081) is DEPRECATED and will go away soon. Please use port above instead.
-[info] i  firestore: downloading cloud-firestore-emulator-v1.10.2.jar...
-[debug] [2019-12-29T04:18:41.934Z] Ignoring unsupported arg: projectId
-[debug] [2019-12-29T04:18:41.934Z] Ignoring unsupported arg: auto_download
-[debug] [2019-12-29T04:18:41.934Z] Starting emulator firestore with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\1998c\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.10.2.jar","--host","localhost","--port",8080,"--rules","D:\\Code\\OurPromise\\firestore.rules","--functions_emulator","localhost:5001","--webchannel_port",8081],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator"],"joinArgs":false}
-[info] i  firestore: Emulator logging to firestore-debug.log
-[debug] [2019-12-29T04:18:45.573Z] API endpoint: http://
-[debug] [2019-12-29T04:18:45.573Z] localhost:8080
-If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+[debug] [2019-12-29T05:16:13.953Z] ----------------------------------------------------------------------
+[debug] [2019-12-29T05:16:13.959Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\1998c\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2019-12-29T05:16:13.960Z] CLI Version:   7.10.0
+[debug] [2019-12-29T05:16:13.960Z] Platform:      win32
+[debug] [2019-12-29T05:16:13.960Z] Node Version:  v10.16.0
+[debug] [2019-12-29T05:16:13.962Z] Time:          Sun Dec 29 2019 13:16:13 GMT+0800 (Malaysia Time)
+[debug] [2019-12-29T05:16:13.962Z] ----------------------------------------------------------------------
+[debug] [2019-12-29T05:16:13.962Z] 
+[debug] [2019-12-29T05:16:13.984Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-29T05:16:13.988Z] > authorizing via signed-in user
+[debug] [2019-12-29T05:16:13.988Z] [iam] checking project ourpromise for permissions ["firebase.projects.get"]
+[debug] [2019-12-29T05:16:13.993Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/ourpromise:testIamPermissions  
 
-   export FIRESTORE_EMULATOR_HOST=localhost:8080
-
-Dev App Server is now running.
-
-
-[info] +  firestore: Emulator started at http://localhost:8080
-[info] i  firestore: For testing set FIRESTORE_EMULATOR_HOST=localhost:8080
-[debug] [2019-12-29T04:18:47.732Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/ourpromise/webApps/-/config  
+[debug] [2019-12-29T05:16:15.316Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-29T05:16:15.318Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/ourpromise  
  
-[debug] [2019-12-29T04:18:48.741Z] <<< HTTP RESPONSE 200
-[info] i  hosting: Serving hosting files from: build
-[info] +  hosting: Local server: http://localhost:5000
-[info] +  hosting: Emulator started at http://localhost:5000
+[debug] [2019-12-29T05:16:15.611Z] <<< HTTP RESPONSE 200
+[warn] !  Your requested "node" version "8" doesn't match your global version "10"
+[info] +  functions: Emulator started at http://localhost:5000
 [info] i  functions: Watching "D:\Code\OurPromise\functions" for Cloud Functions...
-[debug] [2019-12-29T04:18:49.276Z] [worker-~diagnostic~-dcf3c8cd-3077-41b7-9068-a958b9f45bfb]: Assigning socketPath: \\?\pipe\D:\Code\OurPromise\functions\2056
-[debug] [2019-12-29T04:18:49.276Z] [worker-~diagnostic~-dcf3c8cd-3077-41b7-9068-a958b9f45bfb]: BUSY
-[debug] [2019-12-29T04:18:50.121Z] [runtime-status] [2056] Functions runtime initialized. {"cwd":"D:\\Code\\OurPromise\\functions","node_version":"10.16.0"}
-[debug] [2019-12-29T04:18:50.122Z] [runtime-status] [2056] Disabled runtime features: undefined
-[debug] [2019-12-29T04:18:50.131Z] [runtime-status] [2056] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
-[debug] [2019-12-29T04:18:50.134Z] [runtime-status] [2056] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
-[debug] [2019-12-29T04:18:50.731Z] [runtime-status] [2056] Found google-gax at D:\Code\OurPromise\functions\node_modules\google-gax\build\src\index.js
-[debug] [2019-12-29T04:18:50.732Z] [runtime-status] [2056] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
-[debug] [2019-12-29T04:18:50.881Z] [runtime-status] [2056] Checked functions.config() {"config":{}}
-[debug] [2019-12-29T04:18:50.884Z] [runtime-status] [2056] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
-[debug] [2019-12-29T04:18:50.888Z] [runtime-status] [2056] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
-[debug] [2019-12-29T04:18:50.889Z] [runtime-status] [2056] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
-[debug] [2019-12-29T04:18:51.096Z] [runtime-status] [2056] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.8.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-admin\\lib\\index.js"}}
-[debug] [2019-12-29T04:18:51.102Z] [runtime-status] [2056] config() parent accessed! {"parentKey":"firebase","parentConfig":{}}
-[debug] [2019-12-29T04:18:51.104Z] [runtime-status] [2056] initializeApp(DEFAULT) {"databaseURL":"https://ourpromise.firebaseio.com","storageBucket":"ourpromise.appspot.com","projectId":"ourpromise"}
-[warn] !  TypeError: instance.registerVersion is not a function
-    at registerDatabase (D:\Code\OurPromise\functions\node_modules\@firebase\database\dist\index.node.cjs.js:15188:14)
-    at Object.<anonymous> (D:\Code\OurPromise\functions\node_modules\@firebase\database\dist\index.node.cjs.js:15200:5)
-    at Module._compile (internal/modules/cjs/loader.js:776:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
-    at Module.load (internal/modules/cjs/loader.js:653:32)
-    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
-    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
-    at Module.require (internal/modules/cjs/loader.js:690:17)
-    at require (internal/modules/cjs/helpers.js:25:18)
-    at FirebaseNamespace.get [as database] (D:\Code\OurPromise\functions\node_modules\firebase-admin\lib\firebase-namespace.js:282:38)
-[warn] !  We were unable to load your functions code. (see above)
-[debug] [2019-12-29T04:18:51.322Z] [worker-~diagnostic~-dcf3c8cd-3077-41b7-9068-a958b9f45bfb]: exited
-[debug] [2019-12-29T04:18:51.322Z] [worker-~diagnostic~-dcf3c8cd-3077-41b7-9068-a958b9f45bfb]: FINISHED
+[debug] [2019-12-29T05:16:18.148Z] [worker-~diagnostic~-7f66c223-3214-4df8-9472-44825ede0838]: Assigning socketPath: \\?\pipe\D:\Code\OurPromise\functions\12872
+[debug] [2019-12-29T05:16:18.149Z] [worker-~diagnostic~-7f66c223-3214-4df8-9472-44825ede0838]: BUSY
+[debug] [2019-12-29T05:16:18.933Z] [runtime-status] [12872] Functions runtime initialized. {"cwd":"D:\\Code\\OurPromise\\functions","node_version":"10.16.0"}
+[debug] [2019-12-29T05:16:18.935Z] [runtime-status] [12872] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-29T05:16:18.941Z] [runtime-status] [12872] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-29T05:16:18.943Z] [runtime-status] [12872] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T05:16:18.945Z] [runtime-status] [12872] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] +  functions[getGraduates]: http function initialized (http://localhost:5000/ourpromise/us-central1/getGraduates).
+[debug] [2019-12-29T05:16:19.064Z] [worker-~diagnostic~-7f66c223-3214-4df8-9472-44825ede0838]: exited
+[debug] [2019-12-29T05:16:19.065Z] [worker-~diagnostic~-7f66c223-3214-4df8-9472-44825ede0838]: FINISHED
+[debug] [2019-12-29T05:18:52.216Z] Accepted request GET /ourpromise/us-central1/getGraduates --> getGraduates
+[debug] [2019-12-29T05:18:52.227Z] [worker-getGraduates-8201b22f-d5c6-4a29-b3c6-10a7e0465093]: Assigning socketPath: \\?\pipe\D:\Code\OurPromise\functions\8680
+[debug] [2019-12-29T05:18:52.227Z] [worker-getGraduates-8201b22f-d5c6-4a29-b3c6-10a7e0465093]: BUSY
+[debug] [2019-12-29T05:18:53.418Z] [runtime-status] [8680] Functions runtime initialized. {"cwd":"D:\\Code\\OurPromise\\functions","node_version":"10.16.0"}
+[debug] [2019-12-29T05:18:53.428Z] [runtime-status] [8680] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-29T05:18:53.438Z] [runtime-status] [8680] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-29T05:18:53.442Z] [runtime-status] [8680] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T05:18:53.443Z] [runtime-status] [8680] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T05:18:53.611Z] [runtime-status] [8680] Trigger "getGraduates" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "getGraduates"
+[debug] [2019-12-29T05:18:53.613Z] [runtime-status] [8680] triggerDefinition {"httpsTrigger":{},"name":"getGraduates","entryPoint":"getGraduates"}
+[debug] [2019-12-29T05:18:53.614Z] [runtime-status] [8680] Running getGraduates in mode HTTPS
+[debug] [2019-12-29T05:18:53.624Z] [runtime-status] [8680] Attempting to listen to socketPath: \\?\pipe\D:\Code\OurPromise\functions\8680
+[debug] [2019-12-29T05:18:53.646Z] [functions] Runtime ready! Sending request!
+[debug] [2019-12-29T05:18:53.671Z] [runtime-status] [8680] Ephemeral server handling GET request
+[debug] [2019-12-29T05:18:54.869Z] [runtime-status] [8680] Ephemeral server survived.
+[info] >  TypeError: snapshot.data is not a function
+[info] >      at admin.firestore.collection.get.then.snapshot (D:\Code\OurPromise\functions\index.js:13:27)
+[info] >      at process._tickCallback (internal/process/next_tick.js:68:7)
+[info] i  functions: Finished "getGraduates" in ~1s
+[debug] [2019-12-29T05:18:55.843Z] [worker-getGraduates-8201b22f-d5c6-4a29-b3c6-10a7e0465093]: IDLE
+[debug] [2019-12-29T05:19:20.277Z] File D:\Code\OurPromise\functions\index.js changed, reloading triggers
+[debug] [2019-12-29T05:19:21.278Z] [worker-pool]: Shutting down IDLE worker (getGraduates)
+[debug] [2019-12-29T05:19:21.283Z] [worker-~diagnostic~-6a3a3473-701a-42fd-a5c3-9adb933e00ec]: Assigning socketPath: \\?\pipe\D:\Code\OurPromise\functions\8984
+[debug] [2019-12-29T05:19:21.283Z] [worker-~diagnostic~-6a3a3473-701a-42fd-a5c3-9adb933e00ec]: BUSY
+[debug] [2019-12-29T05:19:21.290Z] [worker-getGraduates-8201b22f-d5c6-4a29-b3c6-10a7e0465093]: exited
+[debug] [2019-12-29T05:19:21.290Z] [worker-getGraduates-8201b22f-d5c6-4a29-b3c6-10a7e0465093]: FINISHED
+[debug] [2019-12-29T05:19:22.983Z] [runtime-status] [8984] Functions runtime initialized. {"cwd":"D:\\Code\\OurPromise\\functions","node_version":"10.16.0"}
+[debug] [2019-12-29T05:19:22.987Z] [runtime-status] [8984] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-29T05:19:22.994Z] [runtime-status] [8984] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-29T05:19:22.996Z] [runtime-status] [8984] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T05:19:22.997Z] [runtime-status] [8984] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T05:19:23.151Z] [worker-~diagnostic~-6a3a3473-701a-42fd-a5c3-9adb933e00ec]: exited
+[debug] [2019-12-29T05:19:23.152Z] [worker-~diagnostic~-6a3a3473-701a-42fd-a5c3-9adb933e00ec]: FINISHED
+[debug] [2019-12-29T05:19:28.494Z] Accepted request GET /ourpromise/us-central1/getGraduates --> getGraduates
+[debug] [2019-12-29T05:19:28.498Z] [worker-getGraduates-d907eff3-64d9-48eb-b87b-ec015280f82f]: Assigning socketPath: \\?\pipe\D:\Code\OurPromise\functions\8308
+[debug] [2019-12-29T05:19:28.498Z] [worker-getGraduates-d907eff3-64d9-48eb-b87b-ec015280f82f]: BUSY
+[debug] [2019-12-29T05:19:29.972Z] [runtime-status] [8308] Functions runtime initialized. {"cwd":"D:\\Code\\OurPromise\\functions","node_version":"10.16.0"}
+[debug] [2019-12-29T05:19:29.981Z] [runtime-status] [8308] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-29T05:19:29.996Z] [runtime-status] [8308] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-29T05:19:29.999Z] [runtime-status] [8308] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T05:19:30.004Z] [runtime-status] [8308] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T05:19:30.191Z] [runtime-status] [8308] Trigger "getGraduates" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "getGraduates"
+[debug] [2019-12-29T05:19:30.193Z] [runtime-status] [8308] triggerDefinition {"httpsTrigger":{},"name":"getGraduates","entryPoint":"getGraduates"}
+[debug] [2019-12-29T05:19:30.194Z] [runtime-status] [8308] Running getGraduates in mode HTTPS
+[debug] [2019-12-29T05:19:30.203Z] [runtime-status] [8308] Attempting to listen to socketPath: \\?\pipe\D:\Code\OurPromise\functions\8308
+[debug] [2019-12-29T05:19:30.223Z] [functions] Runtime ready! Sending request!
+[debug] [2019-12-29T05:19:30.249Z] [runtime-status] [8308] Ephemeral server handling GET request
+[debug] [2019-12-29T05:19:31.615Z] [runtime-status] [8308] Ephemeral server survived.
+[info] i  functions: Finished "getGraduates" in ~1s
+[debug] [2019-12-29T05:19:32.457Z] [worker-getGraduates-d907eff3-64d9-48eb-b87b-ec015280f82f]: IDLE
+[debug] [2019-12-29T05:25:49.619Z] File D:\Code\OurPromise\functions\index.js changed, reloading triggers
+[debug] [2019-12-29T05:25:50.620Z] [worker-pool]: Shutting down IDLE worker (getGraduates)
+[debug] [2019-12-29T05:25:50.629Z] [worker-~diagnostic~-1d9bf704-51ed-4fa3-b0e9-198acd87f751]: Assigning socketPath: \\?\pipe\D:\Code\OurPromise\functions\9404
+[debug] [2019-12-29T05:25:50.629Z] [worker-~diagnostic~-1d9bf704-51ed-4fa3-b0e9-198acd87f751]: BUSY
+[debug] [2019-12-29T05:25:50.635Z] [worker-getGraduates-d907eff3-64d9-48eb-b87b-ec015280f82f]: exited
+[debug] [2019-12-29T05:25:50.635Z] [worker-getGraduates-d907eff3-64d9-48eb-b87b-ec015280f82f]: FINISHED
+[debug] [2019-12-29T05:25:52.995Z] [runtime-status] [9404] Functions runtime initialized. {"cwd":"D:\\Code\\OurPromise\\functions","node_version":"10.16.0"}
+[debug] [2019-12-29T05:25:53.001Z] [runtime-status] [9404] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-29T05:25:53.007Z] [runtime-status] [9404] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-29T05:25:53.009Z] [runtime-status] [9404] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T05:25:53.011Z] [runtime-status] [9404] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T05:25:53.167Z] [worker-~diagnostic~-1d9bf704-51ed-4fa3-b0e9-198acd87f751]: exited
+[debug] [2019-12-29T05:25:53.167Z] [worker-~diagnostic~-1d9bf704-51ed-4fa3-b0e9-198acd87f751]: FINISHED
+[debug] [2019-12-29T05:25:54.864Z] Accepted request GET /ourpromise/us-central1/getGraduates --> getGraduates
+[debug] [2019-12-29T05:25:54.867Z] [worker-getGraduates-3730b040-0cd0-4a8f-b488-a8ea2f314b15]: Assigning socketPath: \\?\pipe\D:\Code\OurPromise\functions\7844
+[debug] [2019-12-29T05:25:54.867Z] [worker-getGraduates-3730b040-0cd0-4a8f-b488-a8ea2f314b15]: BUSY
+[debug] [2019-12-29T05:25:55.850Z] [runtime-status] [7844] Functions runtime initialized. {"cwd":"D:\\Code\\OurPromise\\functions","node_version":"10.16.0"}
+[debug] [2019-12-29T05:25:55.855Z] [runtime-status] [7844] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-29T05:25:55.864Z] [runtime-status] [7844] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-29T05:25:55.867Z] [runtime-status] [7844] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T05:25:55.868Z] [runtime-status] [7844] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T05:25:55.977Z] [runtime-status] [7844] Trigger "getGraduates" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "getGraduates"
+[debug] [2019-12-29T05:25:55.980Z] [runtime-status] [7844] triggerDefinition {"httpsTrigger":{},"name":"getGraduates","entryPoint":"getGraduates"}
+[debug] [2019-12-29T05:25:55.981Z] [runtime-status] [7844] Running getGraduates in mode HTTPS
+[debug] [2019-12-29T05:25:55.987Z] [runtime-status] [7844] Attempting to listen to socketPath: \\?\pipe\D:\Code\OurPromise\functions\7844
+[debug] [2019-12-29T05:25:56.002Z] [functions] Runtime ready! Sending request!
+[debug] [2019-12-29T05:25:56.019Z] [runtime-status] [7844] Ephemeral server handling GET request
+[debug] [2019-12-29T05:25:56.934Z] [runtime-status] [7844] Ephemeral server survived.
+[info] >  ReferenceError: data is not defined
+[info] >      at admin.firestore.collection.get.then.snapshot (D:\Code\OurPromise\functions\index.js:17:14)
+[info] >      at process._tickCallback (internal/process/next_tick.js:68:7)
+[info] i  functions: Finished "getGraduates" in ~1s
+[debug] [2019-12-29T05:25:57.939Z] [worker-getGraduates-3730b040-0cd0-4a8f-b488-a8ea2f314b15]: IDLE
+[debug] [2019-12-29T05:27:40.145Z] File D:\Code\OurPromise\functions\index.js changed, reloading triggers
+[debug] [2019-12-29T05:27:41.146Z] [worker-pool]: Shutting down IDLE worker (getGraduates)
+[debug] [2019-12-29T05:27:41.151Z] [worker-~diagnostic~-b99dc3f4-c8a5-43a8-8e71-1331cdfd728d]: Assigning socketPath: \\?\pipe\D:\Code\OurPromise\functions\6972
+[debug] [2019-12-29T05:27:41.151Z] [worker-~diagnostic~-b99dc3f4-c8a5-43a8-8e71-1331cdfd728d]: BUSY
+[debug] [2019-12-29T05:27:41.158Z] [worker-getGraduates-3730b040-0cd0-4a8f-b488-a8ea2f314b15]: exited
+[debug] [2019-12-29T05:27:41.158Z] [worker-getGraduates-3730b040-0cd0-4a8f-b488-a8ea2f314b15]: FINISHED
+[debug] [2019-12-29T05:27:42.498Z] [runtime-status] [6972] Functions runtime initialized. {"cwd":"D:\\Code\\OurPromise\\functions","node_version":"10.16.0"}
+[debug] [2019-12-29T05:27:42.501Z] [runtime-status] [6972] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-29T05:27:42.506Z] [runtime-status] [6972] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-29T05:27:42.508Z] [runtime-status] [6972] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T05:27:42.509Z] [runtime-status] [6972] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T05:27:42.613Z] [worker-~diagnostic~-b99dc3f4-c8a5-43a8-8e71-1331cdfd728d]: exited
+[debug] [2019-12-29T05:27:42.613Z] [worker-~diagnostic~-b99dc3f4-c8a5-43a8-8e71-1331cdfd728d]: FINISHED
+[debug] [2019-12-29T05:27:47.420Z] Accepted request GET /ourpromise/us-central1/getGraduates --> getGraduates
+[debug] [2019-12-29T05:27:47.424Z] [worker-getGraduates-b9fb0db3-a6ef-4b7b-9d8f-4cb5c152e202]: Assigning socketPath: \\?\pipe\D:\Code\OurPromise\functions\10200
+[debug] [2019-12-29T05:27:47.424Z] [worker-getGraduates-b9fb0db3-a6ef-4b7b-9d8f-4cb5c152e202]: BUSY
+[debug] [2019-12-29T05:27:48.227Z] [runtime-status] [10200] Functions runtime initialized. {"cwd":"D:\\Code\\OurPromise\\functions","node_version":"10.16.0"}
+[debug] [2019-12-29T05:27:48.232Z] [runtime-status] [10200] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-29T05:27:48.240Z] [runtime-status] [10200] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-29T05:27:48.242Z] [runtime-status] [10200] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T05:27:48.243Z] [runtime-status] [10200] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T05:27:48.347Z] [runtime-status] [10200] Trigger "getGraduates" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "getGraduates"
+[debug] [2019-12-29T05:27:48.349Z] [runtime-status] [10200] triggerDefinition {"httpsTrigger":{},"name":"getGraduates","entryPoint":"getGraduates"}
+[debug] [2019-12-29T05:27:48.350Z] [runtime-status] [10200] Running getGraduates in mode HTTPS
+[debug] [2019-12-29T05:27:48.360Z] [runtime-status] [10200] Attempting to listen to socketPath: \\?\pipe\D:\Code\OurPromise\functions\10200
+[debug] [2019-12-29T05:27:48.372Z] [functions] Runtime ready! Sending request!
+[debug] [2019-12-29T05:27:48.392Z] [runtime-status] [10200] Ephemeral server handling GET request
+[debug] [2019-12-29T05:27:49.247Z] [runtime-status] [10200] Ephemeral server survived.
+[info] >  ReferenceError: data is not defined
+[info] >      at admin.firestore.collection.get.then.snapshot (D:\Code\OurPromise\functions\index.js:17:14)
+[info] >      at process._tickCallback (internal/process/next_tick.js:68:7)
+[info] i  functions: Finished "getGraduates" in ~1s
+[debug] [2019-12-29T05:27:50.080Z] [worker-getGraduates-b9fb0db3-a6ef-4b7b-9d8f-4cb5c152e202]: IDLE
+[debug] [2019-12-29T06:02:26.623Z] File D:\Code\OurPromise\functions\credentials.json changed, reloading triggers
+[debug] [2019-12-29T06:02:27.626Z] [worker-pool]: Shutting down IDLE worker (getGraduates)
+[debug] [2019-12-29T06:02:27.641Z] [worker-~diagnostic~-852d18f5-6868-415d-b95c-2ad87c3f507f]: Assigning socketPath: \\?\pipe\D:\Code\OurPromise\functions\13604
+[debug] [2019-12-29T06:02:27.641Z] [worker-~diagnostic~-852d18f5-6868-415d-b95c-2ad87c3f507f]: BUSY
+[debug] [2019-12-29T06:02:27.642Z] [worker-getGraduates-b9fb0db3-a6ef-4b7b-9d8f-4cb5c152e202]: exited
+[debug] [2019-12-29T06:02:27.642Z] [worker-getGraduates-b9fb0db3-a6ef-4b7b-9d8f-4cb5c152e202]: FINISHED
+[debug] [2019-12-29T06:02:29.006Z] [runtime-status] [13604] Functions runtime initialized. {"cwd":"D:\\Code\\OurPromise\\functions","node_version":"10.16.0"}
+[debug] [2019-12-29T06:02:29.009Z] [runtime-status] [13604] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-29T06:02:29.015Z] [runtime-status] [13604] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-29T06:02:29.018Z] [runtime-status] [13604] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T06:02:29.019Z] [runtime-status] [13604] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T06:02:29.141Z] [worker-~diagnostic~-852d18f5-6868-415d-b95c-2ad87c3f507f]: exited
+[debug] [2019-12-29T06:02:29.142Z] [worker-~diagnostic~-852d18f5-6868-415d-b95c-2ad87c3f507f]: FINISHED
+[debug] [2019-12-29T14:04:12.182Z] File D:\Code\OurPromise\functions\index.js changed, reloading triggers

@@ -147,7 +147,7 @@ function NavbarMobile() {
           {isLoggedin ? (
             <Avatar alt="me" src={avatar || Logo} className={classes.avatar} />
           ) :
-            <Button className={classes.login} component={NavLink} to="/login" variant="contained" color="primary">
+            <Button className={classes.login} component={NavLink} to="/auth/login" variant="contained" color="primary">
               Login
             </Button>
           }

@@ -64,6 +64,7 @@ function NavbarDesktop() {
 
   const firebase = useFirebase();
   const handleLogout = () => {
+    setAvatarMenu(null);
     firebase.logout();
   };
   const handleLanguageChange = language => {
@@ -157,7 +158,7 @@ function NavbarDesktop() {
               </Menu>
             </>
           ) :
-            <Button className={classes.login} component={NavLink} to="/login" variant="contained" color="primary" >
+            <Button className={classes.login} component={NavLink} to="/auth/login" variant="contained" color="primary" >
               Login
             </Button>
           }

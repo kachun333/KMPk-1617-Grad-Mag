@@ -11,7 +11,7 @@ import {
   Typography,
   Button,
   Container,
-  Hidden
+  CircularProgress
 } from "@material-ui/core";
 import { People, Restore, Favorite } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/styles";
@@ -180,11 +180,9 @@ function Committee(props) {
                     </CardActionArea>
                   </Card>
                 </Grid>
-              ))) : (
-                <Typography variant="h3" className={classes.paragraph}>
-                  Loading.... Please Wait
-                </Typography>
-              )}
+              ))) 
+              : <CircularProgress />
+              }
           </Grid>
         </Box>
       </Container>

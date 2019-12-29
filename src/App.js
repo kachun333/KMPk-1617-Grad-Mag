@@ -17,8 +17,10 @@ import Home from "./components/pages/Home";
 import NavbarDesktop from "./components/NavbarDesktop";
 import NavbarMobile from "./components/NavbarMobile";
 import Generator from './components/pages/Generator';
-import Login from './components/pages/Login';
-import Verify from './components/pages/Verify';
+import Login from './components/pages/auth/Login';
+import Verify from './components/pages/auth/Verify';
+import Create from './components/pages/auth/Create';
+import Reset from './components/pages/auth/Reset';
 import PageNotFound from './components/pages/PageNotFound';
 import Graduates from './components/pages/Graduates';
 import Committee from './components/pages/Committee';
@@ -93,12 +95,14 @@ function App(props) {
           <Toolbar />
           <Switch>
             <Route path="/" exact component={Home} />
+            <Route path="/auth/login" exact component={Login} />
+            <Route path="/auth/verify" exact component={Verify} />
+            <Route path="/auth/create" exact component={Create} />
+            <Route path="/auth/reset" exact component={Reset} />
             <Route path="/generator" exact component={Generator} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/verify" exact component={Verify} />
             <Route path="/graduates" exact component={Graduates} />
             <Route path="/committee" exact component={Committee} />
-            <Route path="/committee/register" exact component={CommitteeRegister} />
+            <Route path="/committee/register/:dept" exact component={CommitteeRegister} />
             <Route component={PageNotFound} />
           </Switch>
           <Footer />

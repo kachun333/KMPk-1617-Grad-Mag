@@ -21,6 +21,7 @@ import NoImage from '../../assets/images/bottle.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { useFirebase, useFirestoreConnect } from 'react-redux-firebase';
 import { getCards } from "../../store/actions/appActions";
+import { useHistory } from "react-router-dom";
 // import { withTranslation } from "react-i18next";
 // import "../../i18n";
 
@@ -78,7 +79,7 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     margin: "0 32px",
     marginBottom: "8px",
-    color: "white",
+    // color: "white",
   },
   overlay: {
     position: 'absolute',
@@ -100,8 +101,9 @@ const cards = [{
 ];
 
 function Home() {
+  const history = useHistory();
   // const [t, i18n] = useTranslation();
-  const [username, setUsername] = useState("");
+  const displayName = useSelector(state => state.firebase.profile.displayName);
 
   const dispatch = useDispatch();
   const firebase = useFirebase();
@@ -130,10 +132,10 @@ function Home() {
     <div>
       <Banner banner="home" />
       <Container className={classes.container}>
-        {username ? (
+        {displayName ? (
           <Box id="greet" className={classes.section}>
             <Typography variant="h3" className={classes.paragraph}>
-              {username}, How's life?
+              {displayName || "Hey"}, How's life going?
             </Typography>
           </Box>
         ) : null
@@ -158,8 +160,8 @@ function Home() {
             Nam ut lectus sed eros interdum consequat a ac nulla. Etiam in purus quam. Nulla eget odio faucibus, gravida tortor quis, lobortis tellus. Aliquam feugiat, erat sed facilisis feugiat, leo est tincidunt augue, eget malesuada metus nulla et magna. Curabitur sed ullamcorper tellus, ut pharetra nunc. Morbi sed velit finibus, rhoncus lacus at, efficitur sapien. Nullam porta orci vel dolor consequat, id commodo est bibendum. Pellentesque semper lobortis eros eu egestas. Fusce porta venenatis justo. Proin ullamcorper scelerisque velit a vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In tincidunt ipsum ac dapibus laoreet. Proin eu porttitor neque. Phasellus ut cursus ante, eu ultrices lectus.
           </Typography>
           <div className={classes.button}>
-            <Button variant="contained" color="primary" size="large" onClick={handleButton}>
-              Be A Committee
+            <Button variant="contained" color="primary" size="large" onClick={ () => { history.push("/committee")}}>
+              Learn More
             </Button>
           </div>
         </Box>
@@ -199,7 +201,7 @@ function Home() {
                         />
                         <div className={classes.overlay}></div>
                         <div className={classes.cardContent}>
-                          <Typography gutterBottom variant="h5">
+                          <Typography gutterBottom variant="h5" color="primary">
                             {card.title}
                           </Typography>
                         </div>

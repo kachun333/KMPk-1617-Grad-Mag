@@ -3,8 +3,8 @@ import VerticalBanner from "../common/VerticalBanner";
 import {
   Hidden,
   CssBaseline,
-  createMuiTheme,
-  MuiThemeProvider,
+  useTheme,
+  useMediaQuery,
   Slider,
   Box,
   TextField,
@@ -21,6 +21,10 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from '@material-ui/styles';
 import Background from '../../assets/images/committee-register.jpg';
+import { useParams } from "react-router-dom";
+import { useFirestore } from 'react-redux-firebase'
+import { useSelector, useDispatch } from 'react-redux';
+import CustomDialog from "../common/CustomDialog";
 
 
 // component level styling
@@ -74,47 +78,73 @@ const useStyles = makeStyles(theme => ({
 }));
 function CommitteeRegister() {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
-  const handleChange = event => {
-    setAge(event.target.value);
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
+
+  const defaultData = {
+    name: "",
+    university: "",
+    department: "",
+    commitment: 5,
+    opinion: "",
+    concerns: "",
   };
-  const handleSubmit = (e) => {
-    console.log(e);
+  
+  const { dept } = useParams();
+  if (dept) {
+    defaultData.department = dept;
+  }
+  const [form, setForm] = useState(defaultData);
+  const [dialog, setDialog] = useState(null);
+  
+  const displayName = useSelector(state => state.firebase.profile.displayName);
+  const uid = useSelector(state => state.firebase.auth.uid);
+  const firestore = useFirestore();
+  const handleSubmit = (submitObject) => {
+    submitObject = {
+      ...submitObject,
+      uid: uid,
+      displayName: displayName
+    }
+    firestore
+      .collection("committee_registration")
+      .add(submitObject)
+      .then(() => {
+        setDialog({ title: "Successfully Submitted!", description: "Your registration form has been submitted. Thank you." });
+      })
+      .catch(() => {
+        setDialog({ title: "Fail to Submit..", description: "Please try again later" });
+      })
   }
   return (
     <Fragment>
       <Box id="verify" className={classes.container}>
-
         <Box id="desktopBanner" className={classes.banner}></Box>
         {/* <VerticalBanner backg round={Background} /> */}
         <Box className={classes.sidebox}>
+          
           <Box id="title" className={classes.title}>
-            <Hidden smDown>
-              <Typography variant="h2" color="inherit">
-                I'm Ready To Serve!
-          </Typography>
-            </Hidden>
-            <Hidden mdUp>
-              <Typography variant="h5" color="inherit">
-                I'm Ready To Serve!
-          </Typography>
-            </Hidden>
+            <Typography variant={matches ? "h4" : "h5"} color="inherit">
+              Can't wait to join the team!
+            </Typography>
           </Box>
-          <form onSubmit={handleSubmit} className={`${classes.sidebox} ${classes.form}`}>
+          <form onSubmit={ (e) => { e.preventDefault(); handleSubmit(form) }} className={`${classes.sidebox} ${classes.form}`}>
             <TextField
               id="name"
               className={classes.textfield}
               label="Name"
               variant="outlined"
               required
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.currentTarget.value })}
               helperText="Kindly enter your English name"
             />
             <FormControl required variant="outlined" className={classes.textfield}>
               <InputLabel id="university">University</InputLabel>
               <Select
                 labelId="university"
-                value={age}
-                onChange={handleChange}
+                value={form.university}
+                onChange={(e) => setForm({ ...form, university: e.target.value })}
               >
                 <MenuItem value={"UM"}>Universiti Malaya (UM)</MenuItem>
                 <MenuItem value={"USM"}>Universiti Sains Malaysia (USM)</MenuItem>
@@ -134,13 +164,13 @@ function CommitteeRegister() {
               <InputLabel id="department">Department</InputLabel>
               <Select
                 labelId="department"
-                value={age}
-                onChange={handleChange}
+                value={form.department}
+                onChange={(e) => setForm({ ...form, department: e.target.value })}
               >
-                <MenuItem value={"Treasury"}>Treasury</MenuItem>
-                <MenuItem value={"Marketing"}>Marketing</MenuItem>
-                <MenuItem value={"Program"}>Program</MenuItem>
-                <MenuItem value={"Operation"}>Operation</MenuItem>
+                <MenuItem value={"treasury"}>Treasury</MenuItem>
+                <MenuItem value={"marketing"}>Marketing</MenuItem>
+                <MenuItem value={"program"}>Program</MenuItem>
+                <MenuItem value={"operation"}>Operation</MenuItem>
               </Select>
             </FormControl>
 
@@ -149,8 +179,9 @@ function CommitteeRegister() {
       </Typography>
             <Slider
               className={classes.textfield}
-              defaultValue={5}
               valueLabelDisplay="auto"
+              value={form.commitment}
+              onChange={(e,value) => setForm({ ...form, commitment: value })}
               step={1}
               marks
               min={0}
@@ -163,6 +194,8 @@ function CommitteeRegister() {
               multiline
               required
               variant="outlined"
+              value={form.opinion}
+              onChange={(e) => setForm({ ...form, opinion: e.currentTarget.value })}
               helperText="Learn more about the theme here.."
             />
             <TextField
@@ -171,6 +204,8 @@ function CommitteeRegister() {
               label="Anything from you?"
               multiline
               variant="outlined"
+              value={form.concerns}
+              onChange={(e) => setForm({ ...form, concerns: e.currentTarget.value })}
             />
             <Button
               className={classes.button}
@@ -184,6 +219,16 @@ function CommitteeRegister() {
           </form>
         </Box>
       </Box>
+      {
+        dialog ?
+          <CustomDialog
+            open={dialog}
+            onClose={() => { setDialog(null) }}
+            title={dialog.title}
+            description={dialog.description}
+          />
+          : null
+      }
     </Fragment>
   );
 }

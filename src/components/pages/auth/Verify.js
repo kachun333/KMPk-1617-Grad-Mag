@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from "react";
-import VerticalBanner from "../common/VerticalBanner";
+import VerticalBanner from "../../common/VerticalBanner";
 import {
   Hidden,
   useTheme,
@@ -15,7 +15,8 @@ import {
   useScrollTrigger,
 } from "@material-ui/core";
 import { makeStyles } from '@material-ui/styles';
-import Background from '../../assets/images/login.jpg';
+import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
 
 
 // component level styling
@@ -28,20 +29,6 @@ const useStyles = makeStyles(theme => ({
       flexDirection: "row",
     }
   },
-  // banner: {
-  //   maxWidth: "100vw",
-  //   backgroundImage: props => `url(${Background})`,
-  //   backgroundPositionX: "center",
-  //   backgroundPositionY: "center",
-  //   backgroundRepeat: "no-repeat",
-  //   backgroundSize: "cover",
-  //   height: "40vh",
-  //   [theme.breakpoints.up('md')]: {
-  //     width: "60vw",
-  //     height: "auto",
-  //     minHeight: "calc(100vh - 64px)",
-  //   },
-  // },
   sidebox: {
     display: "flex",
     flexDirection: "column",
@@ -78,6 +65,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 function Verify() {
+  // const history = useHistory();
+  // const isLoggedin = useSelector(state => state.firebase.auth.uid);
+  // if (isLoggedin) {
+  //   history.push("/");
+  // }
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
