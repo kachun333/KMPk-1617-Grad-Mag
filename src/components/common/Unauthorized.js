@@ -33,9 +33,11 @@ export default function SimpleCard() {
         <Typography variant="h5">
           You are required to login & verify in order to view complete information
         </Typography>
-        <Button className={classes.login} component={Link} to="/login" variant="contained" color="primary">
-          Login
-        </Button>
+        <CardActions>
+          <Button size="medium" color="primary">
+            Login
+          </Button>
+        </CardActions>
       </CardContent>
     </Card>
   );

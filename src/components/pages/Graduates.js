@@ -27,6 +27,7 @@ import Banner from '../common/Banner';
 import { useSelector, useDispatch } from 'react-redux';
 import { useFirestoreConnect, useFirebase } from 'react-redux-firebase';
 import { setGraduates, filterGraduates } from "../../store/actions/graduatesAction";
+import Unauthorized from '../common/Unauthorized';
 
 // component level styling
 const useStyles = makeStyles(theme => ({
@@ -85,7 +86,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-function findWithAttr(array, attr, value){
+function findWithAttr(array, attr, value) {
   for (var i = 0; i < array.length; i += 1) {
     if (array[i][attr] === value) {
       return i;
@@ -104,6 +105,23 @@ function Graduates(props) {
   const datasource = useSelector(state => state.firestore.ordered.graduates);
   useEffect(() => {
     getGraduates(datasource);
+    setSelected({
+      "id": "39",
+      "name": "Brian Lee How Cheng",
+      "name_ch": "李孝靖",
+      "birthday": "16/01/1998",
+      "phone": "016-4514893",
+      "email": "brianlhc13@gmail.com",
+      "one_liner": "walao！",
+      "gender": "male",
+      "lecture": "M1",
+      "tutorial": "M1T8b",
+      "describe_me": ["Typical乖乖仔，but是很eh cham的乖乖仔。以学业为第一的他，同时也喜欢运动，和朋友打成一片。是大家的好supporter！",
+        "很ampia leh，Liverpool fan，是球好伴，运动佳，成绩好，人很好，随意，让他很容易跟大家参，话很多，很容易跟大家聊起来。",
+        "最好的钟灵朋友，运动好伙伴，样样行，有点吝啬丑害羞。为什么那么多白头发？希望你和她能进一样的大学？",
+      ],
+      "message": "谢谢大家这一年的陪伴。这一年说长不长，说短不短，一眨眼我们都毕业了。祝大家能够得到自己心目中的大学和科系。爱吾kmpk 。"
+    });
   }, [datasource])
   const getGraduates = useCallback(
     datasource => dispatch(setGraduates({ firebase }, datasource)),
@@ -141,7 +159,6 @@ function Graduates(props) {
 
   const classes = useStyles();
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up('md'));
   console.log(graduates)
   return (
     <div>
@@ -151,7 +168,9 @@ function Graduates(props) {
           <TextField className={classes.searchBar} label="Search" margin="normal" variant="outlined" onChange={handleChange} />
         </Box>
         <Box id="graduates-images" className={classes.section}>
-          {graduates ? (
+          {
+          false?
+          graduates ? (
             graduates.map(graduate => (
               <Card key={graduate.id} className={classes.card}>
                 <CardActionArea onClick={() => handleFullScreenOpen(graduate.id)}>
@@ -168,7 +187,10 @@ function Graduates(props) {
               </Card>
             ))) : (
               <CircularProgress />
-            )}
+            )
+          :
+          <Unauthorized />
+          }
         </Box>
       </Container>
       {
