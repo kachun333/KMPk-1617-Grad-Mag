@@ -162,3 +162,28 @@
 [debug] [2019-12-29T06:02:29.141Z] [worker-~diagnostic~-852d18f5-6868-415d-b95c-2ad87c3f507f]: exited
 [debug] [2019-12-29T06:02:29.142Z] [worker-~diagnostic~-852d18f5-6868-415d-b95c-2ad87c3f507f]: FINISHED
 [debug] [2019-12-29T14:04:12.182Z] File D:\Code\OurPromise\functions\index.js changed, reloading triggers
+[debug] [2019-12-29T14:04:13.282Z] [worker-~diagnostic~-019f0f37-e9d9-4412-8da3-8ca07825d9ff]: Assigning socketPath: \\?\pipe\D:\Code\OurPromise\functions\2652
+[debug] [2019-12-29T14:04:13.283Z] [worker-~diagnostic~-019f0f37-e9d9-4412-8da3-8ca07825d9ff]: BUSY
+[debug] [2019-12-29T14:04:17.551Z] [runtime-status] [2652] Functions runtime initialized. {"cwd":"D:\\Code\\OurPromise\\functions","node_version":"10.16.0"}
+[debug] [2019-12-29T14:04:17.555Z] [runtime-status] [2652] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-29T14:04:17.571Z] [runtime-status] [2652] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-29T14:04:17.582Z] [runtime-status] [2652] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-29T14:04:17.584Z] [runtime-status] [2652] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"D:\\Code\\OurPromise\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[warn] !  D:\Code\OurPromise\functions\index.js:3
+import credentials from 'credentials.json';
+       ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier
+    at Module._compile (internal/modules/cjs/loader.js:721:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:690:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at C:\Users\1998c\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:718:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\1998c\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:4:58)
+[warn] !  We were unable to load your functions code. (see above)
+[debug] [2019-12-29T14:04:17.930Z] [worker-~diagnostic~-019f0f37-e9d9-4412-8da3-8ca07825d9ff]: exited
+[debug] [2019-12-29T14:04:17.930Z] [worker-~diagnostic~-019f0f37-e9d9-4412-8da3-8ca07825d9ff]: FINISHED
