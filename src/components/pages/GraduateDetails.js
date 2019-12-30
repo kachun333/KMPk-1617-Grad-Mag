@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Toolbar,
   makeStyles,
@@ -19,6 +19,7 @@ import {
 } from "@material-ui/core";
 import { Close, Share, ArrowBackIos, ArrowForwardIos, Cake, Email, Phone, Domain, Sms, LocalFlorist, PanTool } from '@material-ui/icons';
 import image from '../../assets/images/Tan Zhi Han.jpg';
+import { useSelector, useDispatch } from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -78,76 +79,95 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function GraduateDetails(props) {
-  const { open, handleClose, info } = props;
+  // const { open, handleClose, info } = props;
+  let graduate = {
+      "id": "",
+      "name": "",
+      "name_ch": "",
+      "birthday": "",
+      "phone": "",
+      "email": "",
+      "one_liner": "",
+      "gender": "",
+      "lecture": "",
+      "tutorial": "",
+      "describe_me": [],
+      "message": ""
+  }
+  const graduates = useSelector(state => state.graduates.ordered);
+  useEffect(() => {
+    graduate = graduates[1];
+  }, [])
+  const handleClose = () => {
+    console.log("handle close");
+  }
   const classes = useStyles();
-  console.log("info object is ", info.phone);
+  // console.log("info object is ", info.phone);
   return (
-    <Dialog fullScreen open={open} onClose={handleClose}>
-      <Box className={classes.container}>
-        <Box id="graduate-image" className={classes.imageBox}>
-          <Toolbar className={classes.toolbar}>
-            <IconButton edge="start" onClick={handleClose} aria-label="close">
-              <Close className={classes.icon} />
-            </IconButton>
-          </Toolbar>
-          <img className={classes.image} src={image} alt={info.name} />
-        </Box>
-        <Box className={classes.list}>
-          <Box id="graduate-name" className={classes.listHeader}>
-            <Typography variant="h4">
-              {info.name_ch}
-            </Typography>
-            <Typography variant="subtitle1">
-              {info.name}
-            </Typography>
-          </Box>
-          <List>
-            <ListItem id="graduate-phone">
-              <ListItemIcon><Phone /></ListItemIcon>
-              <ListItemText primary="Phone" secondary={info.phone} />
-            </ListItem>
-            <ListItem id="graduate-email">
-              <ListItemIcon><Email /></ListItemIcon>
-              <ListItemText primary="Email" secondary={info.email} />
-            </ListItem>
-            <ListItem id="graduate-birthday">
-              <ListItemIcon><Cake /></ListItemIcon>
-              <ListItemText primary="Birthday" secondary={info.birthday} />
-            </ListItem>
-            <ListItem id="graduate-tutorial">
-              <ListItemIcon><Domain /></ListItemIcon>
-              <ListItemText primary="Tutorial Class" secondary={info.tutorial} />
-            </ListItem>
-            <ListItem id="graduate-one_liner">
-              <ListItemIcon><PanTool /></ListItemIcon>
-              <ListItemText primary="One Liner" secondary={info.one_liner} />
-            </ListItem>
-            <ListItem id="graduate-message-title">
-              <ListItemIcon><Sms /></ListItemIcon>
-              <ListItemText primary="Message" />
-            </ListItem>
-            <ListItem id="graduate-message-content">
-              <ListItemText secondary={info.message} />
-            </ListItem>
-            <ListItem id="graduate-describe_me">
-              <ListItemIcon><LocalFlorist /></ListItemIcon>
-              <ListItemText primary="Describe me" />
-            </ListItem>
-            <List component="div" disablePadding>
-              {
-                info.describe_me.map((description, i) => {
-                  return (
-                    <ListItem key={`graduate-describe_me-${i}`}>
-                      <ListItemText secondary={description} />
-                    </ListItem>
-                  );
-                })
-              }
-            </List>
-          </List>
-        </Box>
+    <Box className={classes.container}>
+      <Box id="graduate-image" className={classes.imageBox}>
+        <Toolbar className={classes.toolbar}>
+          <IconButton edge="start" onClick={handleClose} aria-label="close">
+            <Close className={classes.icon} />
+          </IconButton>
+        </Toolbar>
+        <img className={classes.image} src={image} alt={graduate.name} />
       </Box>
-    </Dialog >
+      <Box className={classes.list}>
+        <Box id="graduate-name" className={classes.listHeader}>
+          <Typography variant="h4">
+            {graduate.name_ch}
+          </Typography>
+          <Typography variant="subtitle1">
+            {graduate.name}
+          </Typography>
+        </Box>
+        <List>
+          <ListItem id="graduate-phone">
+            <ListItemIcon><Phone /></ListItemIcon>
+            <ListItemText primary="Phone" secondary={graduate.phone} />
+          </ListItem>
+          <ListItem id="graduate-email">
+            <ListItemIcon><Email /></ListItemIcon>
+            <ListItemText primary="Email" secondary={graduate.email} />
+          </ListItem>
+          <ListItem id="graduate-birthday">
+            <ListItemIcon><Cake /></ListItemIcon>
+            <ListItemText primary="Birthday" secondary={graduate.birthday} />
+          </ListItem>
+          <ListItem id="graduate-tutorial">
+            <ListItemIcon><Domain /></ListItemIcon>
+            <ListItemText primary="Tutorial Class" secondary={graduate.tutorial} />
+          </ListItem>
+          <ListItem id="graduate-one_liner">
+            <ListItemIcon><PanTool /></ListItemIcon>
+            <ListItemText primary="One Liner" secondary={graduate.one_liner} />
+          </ListItem>
+          <ListItem id="graduate-message-title">
+            <ListItemIcon><Sms /></ListItemIcon>
+            <ListItemText primary="Message" />
+          </ListItem>
+          <ListItem id="graduate-message-content">
+            <ListItemText secondary={graduate.message} />
+          </ListItem>
+          <ListItem id="graduate-describe_me">
+            <ListItemIcon><LocalFlorist /></ListItemIcon>
+            <ListItemText primary="Describe me" />
+          </ListItem>
+          <List component="div" disablePadding>
+            {
+              graduate.describe_me.map((description, i) => {
+                return (
+                  <ListItem key={`graduate-describe_me-${i}`}>
+                    <ListItemText secondary={description} />
+                  </ListItem>
+                );
+              })
+            }
+          </List>
+        </List>
+      </Box>
+    </Box>
   );
 }
 

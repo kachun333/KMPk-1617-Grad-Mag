@@ -23,6 +23,7 @@ import Create from './components/pages/auth/Create';
 import Reset from './components/pages/auth/Reset';
 import PageNotFound from './components/pages/PageNotFound';
 import Graduates from './components/pages/Graduates';
+import GraduateDetails from './components/pages/GraduateDetails';
 import Committee from './components/pages/Committee';
 import CommitteeRegister from './components/pages/CommitteeRegister';
 import Footer from "./components/Footer";
@@ -101,6 +102,7 @@ function App(props) {
             <Route path="/auth/reset" exact component={Reset} />
             <Route path="/generator" exact component={Generator} />
             <Route path="/graduates" exact component={Graduates} />
+            <Route path="/graduates/:id" exact component={GraduateDetails} />
             <Route path="/committee" exact component={Committee} />
             <Route path="/committee/register/:dept" exact component={CommitteeRegister} />
             <Route component={PageNotFound} />
