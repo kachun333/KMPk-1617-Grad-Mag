@@ -1,39 +1,26 @@
 import React, { useState, useEffect, Fragment } from "react";
-import {
-  Drawer,
-  Avatar,
-  Switch,
-  IconButton,
-  Toolbar,
-  Typography,
-  Box,
-  Button,
-  withStyles,
-  Menu,
-  MenuItem
-} from "@material-ui/core";
-import {
-  Menu as MenuIcon,
-  ArrowForward,
-  Translate,
-  ArrowDropDown,
-  Brightness4,
-  Brightness7,
-} from "@material-ui/icons";
-import { makeStyles } from "@material-ui/styles";
+import Drawer from '@material-ui/core/Drawer';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import Toolbar from '@material-ui/core/Toolbar';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import makeStyles from "@material-ui/styles/makeStyles";
+import MenuIcon from '@material-ui/icons/Menu';
+import ArrowForward from '@material-ui/icons/ArrowForward';
+// import  Menu as MenuIcon from '@material-ui/icons/Translate';
+// import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
+// import Brightness4 from '@material-ui/icons/Brightness4';
+// import Brightness7 from '@material-ui/icons/Brightness7';
 import { NavLink, useLocation } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux'
 import Logo from '../assets/images/logo.png';
+import DefaultAvatar from '../assets/images/favicon.png';
 import { useFirebase } from 'react-redux-firebase';
-import { useHistory } from "react-router-dom";
 
 // component level styling using withStyles
 const useStyles = makeStyles((theme) => ({
-  fill: {
-    width: "100%",
-    height: "100%"
-  },
   appbar: {
     width: "100%",
     maxWidth: "100vw",
@@ -54,12 +41,6 @@ const useStyles = makeStyles((theme) => ({
   },
   active: {
     borderLeft: `3px solid ${theme.palette.primary.main}`
-  },
-  float: {
-    position: "absolute",
-    zIndex: 2,
-    width: "100%",
-    maxWidth: "100vw"
   },
   tab: {
     display: "flex",
@@ -90,7 +71,6 @@ function NavbarMobile() {
 
   const [isOpen, setIsOpen] = useState(false);
   const classes = useStyles();
-  // const [t, i18n] = useTranslation();
 
   const handleOpenMenu = () => {
     setIsOpen(true)
@@ -102,17 +82,11 @@ function NavbarMobile() {
   const isLoggedin = useSelector(state => state.firebase.auth.uid);
   const avatar = useSelector(state => state.firebase.profile.avatarUrl);
 
-
-  // const history = useHistory();
   const firebase = useFirebase();
   const handleLogout = () => {
     firebase.logout();
     setIsOpen(false)
   };
-  const handleLanguageChange = language => {
-    // i18n.changeLanguage(language);
-  };
-
   return (
     <Fragment>
       <Toolbar className={classes.appbar}>
@@ -145,7 +119,7 @@ function NavbarMobile() {
             <ArrowForward />
           </IconButton>
           {isLoggedin ? (
-            <Avatar alt="me" src={avatar || Logo} className={classes.avatar} />
+            <Avatar alt="me" src={avatar || DefaultAvatar} className={classes.avatar} />
           ) :
             <Button className={classes.login} component={NavLink} to="/auth/login" variant="contained" color="primary">
               Login
@@ -190,7 +164,7 @@ function NavbarMobile() {
           </Button>)
           : null
         }
-        <Typography className={classes.tab} variant="overline">
+        {/* <Typography className={classes.tab} variant="overline">
           Toggle light
         </Typography>
         <div className={classes.tab}>
@@ -215,7 +189,7 @@ function NavbarMobile() {
             inputProps={{ 'aria-label': 'toggle theme' }}
           />
           Eng
-        </div>
+        </div> */}
       </Drawer>
     </Fragment>
   );

@@ -98,6 +98,7 @@ function GraduateDetails(props) {
   useEffect(() => {
     graduate = graduates[1];
   }, [])
+  console.log("selected graduate is ", graduate);
   const handleClose = () => {
     console.log("handle close");
   }

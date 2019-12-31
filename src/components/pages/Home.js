@@ -1,29 +1,19 @@
-import React, { useState, useEffect, useCallback } from "react";
-import {
-  Box,
-  withStyles,
-  Grid,
-  Card,
-  CardActionArea,
-  CardMedia,
-  CardContent,
-  Typography,
-  Button,
-  Container,
-  Hidden,
-  CircularProgress,
-} from "@material-ui/core";
-import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/styles";
-import { useTranslation } from 'react-i18next';
-import Banner from '../common/Banner';
-import NoImage from '../../assets/images/bottle.png';
+import React, { useEffect, useCallback } from "react";
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import makeStyles from "@material-ui/styles/makeStyles";
+import { useHistory, Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { useFirebase, useFirestoreConnect } from 'react-redux-firebase';
 import { getCards } from "../../store/actions/appActions";
-import { useHistory } from "react-router-dom";
-// import { withTranslation } from "react-i18next";
-// import "../../i18n";
+import Banner from '../common/Banner';
 
 // component level styling
 const useStyles = makeStyles(theme => ({
@@ -32,38 +22,12 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     flex: 1,
   },
-  fitViewPort: {
-    height: "100vh",
-    width: "100vw",
-    maxWidth: "100vw"
-  },
   section: {
     margin: `${theme.spacing(2)}px 0px`,
-  },
-  center: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: 20
-  },
-  fitPercentages: {
-    width: "100%",
-    height: "100%",
-    maxWidth: "100vw"
   },
   button: {
     width: "fit-content",
     margin: "auto",
-  },
-  float: {
-    position: "relative",
-    zIndex: 1,
-    height: "100vh",
-    width: "100vw",
-    maxWidth: "100vw"
-  },
-  img: {
-    width: "100vw"
   },
   paragraph: {
     margin: theme.spacing(2),
@@ -79,7 +43,6 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     margin: "0 32px",
     marginBottom: "8px",
-    // color: "white",
   },
   overlay: {
     position: 'absolute',
@@ -91,41 +54,26 @@ const useStyles = makeStyles(theme => ({
     opacity: 0.5,
   },
 }));
-const cards = [{
-  title: "Graduates",
-  link: "/graduates",
-}, {
-  title: "Committee",
-  link: "/committee",
-},
-];
 
 function Home() {
   const history = useHistory();
-  // const [t, i18n] = useTranslation();
   const displayName = useSelector(state => state.firebase.profile.displayName);
 
   const dispatch = useDispatch();
   const firebase = useFirebase();
+
+  const loadCards = useCallback(
+    datasource => dispatch(getCards({ firebase }, datasource)),
+    [dispatch]
+  )
 
   useFirestoreConnect('home_cards');
   const datasource = useSelector(state => state.firestore.ordered.home_cards);
   useEffect(() => {
     loadCards(datasource);
   }, [datasource])
-  const loadCards = useCallback(
-    datasource => dispatch(getCards({ firebase }, datasource)),
-    [dispatch]
-  )
 
   const cards = useSelector(state => state.app.cards);
-
-  const auth = useSelector(state => state.firebase.auth);
-  const profile = useSelector(state => state.firebase.profile);
-  const handleButton = () => {
-    console.log("the current auth is", auth);
-    console.log("the current profile is", profile);
-  }
 
   const classes = useStyles();
   return (
@@ -160,7 +108,7 @@ function Home() {
             Nam ut lectus sed eros interdum consequat a ac nulla. Etiam in purus quam. Nulla eget odio faucibus, gravida tortor quis, lobortis tellus. Aliquam feugiat, erat sed facilisis feugiat, leo est tincidunt augue, eget malesuada metus nulla et magna. Curabitur sed ullamcorper tellus, ut pharetra nunc. Morbi sed velit finibus, rhoncus lacus at, efficitur sapien. Nullam porta orci vel dolor consequat, id commodo est bibendum. Pellentesque semper lobortis eros eu egestas. Fusce porta venenatis justo. Proin ullamcorper scelerisque velit a vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In tincidunt ipsum ac dapibus laoreet. Proin eu porttitor neque. Phasellus ut cursus ante, eu ultrices lectus.
           </Typography>
           <div className={classes.button}>
-            <Button variant="contained" color="primary" size="large" onClick={ () => { history.push("/committee")}}>
+            <Button variant="contained" color="primary" size="large" onClick={() => { history.push("/committee") }}>
               Learn More
             </Button>
           </div>
@@ -196,7 +144,7 @@ function Home() {
                       <Link to={card.link}>
                         <CardMedia
                           className={classes.cardMedia}
-                          src={card.image}
+                          image={card.image}
                           title={card.title}
                         />
                         <div className={classes.overlay}></div>

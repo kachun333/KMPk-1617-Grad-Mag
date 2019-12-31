@@ -1,30 +1,21 @@
 import React, { useState, Fragment } from "react";
-import VerticalBanner from "../common/VerticalBanner";
-import {
-  Hidden,
-  CssBaseline,
-  useTheme,
-  useMediaQuery,
-  Slider,
-  Box,
-  TextField,
-  Typography,
-  Button,
-  AppBar,
-  Toolbar,
-  Slide,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  useScrollTrigger,
-} from "@material-ui/core";
-import { makeStyles } from '@material-ui/styles';
-import Background from '../../assets/images/committee-register.jpg';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import Select from '@material-ui/core/Select';
+import Slider from '@material-ui/core/Slider';
+import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import makeStyles from "@material-ui/styles/makeStyles";
+import useTheme from "@material-ui/styles/useTheme";
 import { useParams } from "react-router-dom";
 import { useFirestore } from 'react-redux-firebase'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import CustomDialog from "../common/CustomDialog";
+import Background from '../../assets/images/committee-register.jpg';
 
 
 // component level styling
@@ -89,14 +80,14 @@ function CommitteeRegister() {
     opinion: "",
     concerns: "",
   };
-  
+
   const { dept } = useParams();
   if (dept) {
     defaultData.department = dept;
   }
   const [form, setForm] = useState(defaultData);
   const [dialog, setDialog] = useState(null);
-  
+
   const displayName = useSelector(state => state.firebase.profile.displayName);
   const uid = useSelector(state => state.firebase.auth.uid);
   const firestore = useFirestore();
@@ -120,15 +111,14 @@ function CommitteeRegister() {
     <Fragment>
       <Box id="verify" className={classes.container}>
         <Box id="desktopBanner" className={classes.banner}></Box>
-        {/* <VerticalBanner backg round={Background} /> */}
         <Box className={classes.sidebox}>
-          
+
           <Box id="title" className={classes.title}>
             <Typography variant={matches ? "h4" : "h5"} color="inherit">
               Can't wait to join the team!
             </Typography>
           </Box>
-          <form onSubmit={ (e) => { e.preventDefault(); handleSubmit(form) }} className={`${classes.sidebox} ${classes.form}`}>
+          <form onSubmit={(e) => { e.preventDefault(); handleSubmit(form) }} className={`${classes.sidebox} ${classes.form}`}>
             <TextField
               id="name"
               className={classes.textfield}
@@ -173,7 +163,6 @@ function CommitteeRegister() {
                 <MenuItem value={"operation"}>Operation</MenuItem>
               </Select>
             </FormControl>
-
             <Typography variant="body1" id="commitment" gutterBottom>
               Rate Your commitment
       </Typography>
@@ -181,7 +170,7 @@ function CommitteeRegister() {
               className={classes.textfield}
               valueLabelDisplay="auto"
               value={form.commitment}
-              onChange={(e,value) => setForm({ ...form, commitment: value })}
+              onChange={(e, value) => setForm({ ...form, commitment: value })}
               step={1}
               marks
               min={0}

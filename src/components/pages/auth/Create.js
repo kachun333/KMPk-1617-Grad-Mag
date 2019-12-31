@@ -1,21 +1,15 @@
-import React, { useState, Fragment } from "react";
-import {
-  Divider,
-  useTheme,
-  useMediaQuery,
-  Box,
-  TextField,
-  Typography,
-  Button,
-  Link
-} from "@material-ui/core";
-import { makeStyles } from '@material-ui/styles';
-import GoogleButton from 'react-google-button';
+import React, { useState } from "react";
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import makeStyles from "@material-ui/styles/makeStyles";
 import VerticalBanner from "../../common/VerticalBanner";
 import CustomDialog from "../../common/CustomDialog";
 import { useFirebase } from 'react-redux-firebase';
 import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 // component level styling
 const useStyles = makeStyles(theme => ({
@@ -27,20 +21,6 @@ const useStyles = makeStyles(theme => ({
       flexDirection: "row",
     }
   },
-  // banner: {
-  //   maxWidth: "100vw",
-  //   backgroundImage: props => `url(${Background})`,
-  //   backgroundPositionX: "center",
-  //   backgroundPositionY: "center",
-  //   backgroundRepeat: "no-repeat",
-  //   backgroundSize: "cover",
-  //   height: "40vh",
-  //   [theme.breakpoints.up('md')]: {
-  //     width: "60vw",
-  //     height: "auto",
-  //     minHeight: "calc(100vh - 64px)",
-  //   },
-  // },
   sidebox: {
     display: "flex",
     flexDirection: "column",
@@ -70,10 +50,6 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     margin: theme.spacing(2),
-  },
-  caption: {
-    width: "100%",
-    height: "100%",
   },
 }));
 function Create() {

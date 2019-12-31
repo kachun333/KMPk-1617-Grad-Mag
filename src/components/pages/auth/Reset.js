@@ -1,23 +1,12 @@
-import React, { useState, Fragment } from "react";
-import {
-  Divider,
-  useTheme,
-  useMediaQuery,
-  Box,
-  TextField,
-  Typography,
-  Button,
-  Link
-} from "@material-ui/core";
-import { makeStyles } from '@material-ui/styles';
-import GoogleButton from 'react-google-button';
+import React from "react";
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
+import makeStyles from "@material-ui/styles/makeStyles";
 import VerticalBanner from "../../common/VerticalBanner";
-import CustomDialog from "../../common/CustomDialog";
-import { useFirebase } from 'react-redux-firebase';
 import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-// component level styling
 const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
@@ -52,7 +41,6 @@ function Create() {
   if (isLoggedin) {
     history.push("/");
   }
-
   const classes = useStyles();
 
   return (

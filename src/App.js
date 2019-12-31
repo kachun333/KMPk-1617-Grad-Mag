@@ -1,19 +1,14 @@
 import React, { useState, Suspense } from 'react';
-import {
-  Hidden,
-  CssBaseline,
-  createMuiTheme,
-  MuiThemeProvider,
-  AppBar,
-  Toolbar,
-  Slide,
-  useScrollTrigger,
-} from "@material-ui/core";
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
+import Hidden from '@material-ui/core/Hidden';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Slide from '@material-ui/core/Slide';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/pages/Home";
-// import Media from "./components/pages/Media";
-// import Article from "./components/pages/Article";
-// import ContactUs from "./components/pages/ContactUs";
 import NavbarDesktop from "./components/NavbarDesktop";
 import NavbarMobile from "./components/NavbarMobile";
 import Generator from './components/pages/Generator';
@@ -27,9 +22,6 @@ import GraduateDetails from './components/pages/GraduateDetails';
 import Committee from './components/pages/Committee';
 import CommitteeRegister from './components/pages/CommitteeRegister';
 import Footer from "./components/Footer";
-// import "./i18n"; 
-
-//component level styling
 
 function HideOnScroll(props) {
   const { children } = props;
@@ -43,7 +35,7 @@ function HideOnScroll(props) {
 
 function App(props) {
 
-  const [theme, setTheme] = useState({
+  const [theme] = useState({
     palette: {
       type: "light",
       primary: { main: "#673ab7" },
@@ -78,8 +70,7 @@ function App(props) {
     },
   });
 
-  // const classes = useStyles();
-  let muiTheme = createMuiTheme(theme);
+  const muiTheme = createMuiTheme(theme);
 
   return (
     <Router>

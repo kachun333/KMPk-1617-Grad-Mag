@@ -1,18 +1,14 @@
 import React from "react";
-import {
-  Box,
-  withStyles,
-  Typography,
-  Link,
-} from "@material-ui/core";
-import { makeStyles, createStyles } from "@material-ui/styles";
-import { GitHub, Email } from "@material-ui/icons";
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
+import makeStyles from "@material-ui/styles/makeStyles";
+import GitHub from '@material-ui/icons/GitHub';
+import Email from '@material-ui/icons/Email';
 import Bottle from '../assets/images/bottle.png';
 import FooterImg from '../assets/images/footer.png';
 
-
-// component level styling
-const useStyles = makeStyles((theme) => createStyles({
+const useStyles = makeStyles((theme) => ({
   footer: {
     position: "relative",
     marginTop: "64px",
@@ -61,9 +57,6 @@ const useStyles = makeStyles((theme) => createStyles({
 
 function Footer() {
   const classes = useStyles();
-  const handleClick = (e) => {
-    e.preventDefault();
-  }
   return (
     <footer id="footer" className={classes.footer}>
       <img className={classes.bottle} src={Bottle} alt="bottle-icon"></img>

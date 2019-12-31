@@ -1,23 +1,12 @@
-import React, { useState, Fragment } from "react";
+import React, { Fragment } from "react";
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import makeStyles from '@material-ui/styles/makeStyles';
+import useTheme from '@material-ui/styles/useTheme';
 import VerticalBanner from "../../common/VerticalBanner";
-import {
-  Hidden,
-  useTheme,
-  useMediaQuery,
-  MuiThemeProvider,
-  Box,
-  TextField,
-  Typography,
-  Button,
-  AppBar,
-  Toolbar,
-  Slide,
-  useScrollTrigger,
-} from "@material-ui/core";
-import { makeStyles } from '@material-ui/styles';
-import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
-
 
 // component level styling
 const useStyles = makeStyles(theme => ({
@@ -59,24 +48,13 @@ const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(2),
   },
-  caption: {
-    width: "100%",
-    height: "100%",
-  }
 }));
 function Verify() {
-  // const history = useHistory();
-  // const isLoggedin = useSelector(state => state.firebase.auth.uid);
-  // if (isLoggedin) {
-  //   history.push("/");
-  // }
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("heandleing");
-    console.log(e);
   }
   return (
     <Fragment>

@@ -13,7 +13,6 @@ const appReducer = (state = initState, action) => {
         ...state,
         cards: action.cards,
       }
-      return state;
     default:
       return state;
   }

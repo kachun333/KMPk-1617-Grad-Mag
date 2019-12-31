@@ -1,12 +1,21 @@
-import React, { useState, useCallback, useEffect } from "react";
-import { Toolbar, Tabs, Tab, Avatar, Button, IconButton, Box, Typography, MenuItem, Menu } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
-import { Translate, ArrowDropDown, Brightness4, Brightness7 } from "@material-ui/icons";
+import React, { useState, useEffect } from "react";
+import Box from '@material-ui/core/Box';
+import Toolbar from '@material-ui/core/Toolbar';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+import makeStyles from "@material-ui/styles/makeStyles";
+// import Translate from '@material-ui/icons/Translate';
+// import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
+// import Brightness4 from '@material-ui/icons/Brightness4';
+// import Brightness7 from '@material-ui/icons/Brightness7';
 import { NavLink, useLocation } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
-import { useSelector, useDispatch } from 'react-redux';
-import { setTitle } from '../store/actions/appActions'
+import { useSelector } from 'react-redux';
 import Logo from '../assets/images/logo.png';
+import DefaultAvatar from '../assets/images/favicon.png';
 import { useFirebase } from 'react-redux-firebase';
 
 const useStyles = makeStyles((theme) => ({
@@ -56,10 +65,7 @@ function NavbarDesktop() {
     }
   }, [location])
 
-  const [selectedLanguage, setSelectedLanguage] = useState(null);
-  const [languageMenu, setLanguageMenu] = useState(null);
   const [avatarMenu, setAvatarMenu] = useState(null);
-  // const [t, i18n] = useTranslation();
   const classes = useStyles();
 
   const firebase = useFirebase();
@@ -67,11 +73,6 @@ function NavbarDesktop() {
     setAvatarMenu(null);
     firebase.logout();
   };
-  const handleLanguageChange = language => {
-    setLanguageMenu(null);
-    // i18n.changeLanguage(language);
-  };
-
   return (
     <Toolbar
       className={classes.appbar}>
@@ -114,7 +115,7 @@ function NavbarDesktop() {
           >
             committee
           </Button>
-          <IconButton>
+          {/* <IconButton>
             <Brightness7 />
           </IconButton>
           <Button onClick={(e) => { setLanguageMenu(e.currentTarget) }}>
@@ -138,11 +139,11 @@ function NavbarDesktop() {
             >
               English
                 </MenuItem>
-          </Menu>
+          </Menu> */}
           {isLoggedin ? (
             <>
               <IconButton onClick={(e) => { setAvatarMenu(e.currentTarget) }}>
-                <Avatar alt="me" src={avatar || Logo} />
+                <Avatar alt="me" src={avatar || DefaultAvatar} />
               </IconButton>
               <Menu
                 anchorEl={avatarMenu}

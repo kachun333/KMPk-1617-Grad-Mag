@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { makeStyles, createStyles } from "@material-ui/styles";
+import React, { useState } from "react";
+import makeStyles from '@material-ui/core/styles/makeStyles';
 import { useFirebase } from 'react-redux-firebase';
 
-const useStyles = makeStyles((theme) => createStyles({
+const useStyles = makeStyles((theme) => ({
   bannerBox: {
     [theme.breakpoints.up('md')]: {
       display: "flex",

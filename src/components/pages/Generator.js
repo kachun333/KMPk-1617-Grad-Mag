@@ -19,6 +19,7 @@ import { makeStyles } from '@material-ui/styles';
 import { useFirestore } from 'react-redux-firebase'
 import DateFnsUtils from '@date-io/date-fns';
 import Background from '../../assets/images/committee-register.jpg';
+import CustomDialog from "../common/CustomDialog";
 
 
 // component level styling
@@ -74,6 +75,7 @@ const useStyles = makeStyles(theme => ({
 function Generator() {
   const classes = useStyles();
 
+  const [dialog, setDialog] = useState(null);
   const firestore = useFirestore();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -98,7 +100,8 @@ function Generator() {
         setGForm(defaultData);
       })
       .catch(err => {
-        console.error("Too bad error occur");
+        setDialog({ title: "Fail to submit data", description: err });
+        console.error("fail to submit data ", err);
       });
   }
 
@@ -260,6 +263,16 @@ function Generator() {
           </form>
         </Container>
       </Box>
+      {
+        dialog ?
+          <CustomDialog
+            open={dialog}
+            onClose={() => { setDialog(null) }}
+            title={dialog.title}
+            description={dialog.description}
+          />
+          : null
+      }
     </MuiPickersUtilsProvider>
   );
 }
