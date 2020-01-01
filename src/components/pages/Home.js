@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import makeStyles from "@material-ui/styles/makeStyles";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { useFirebase, useFirestoreConnect } from 'react-redux-firebase';
 import { getCards } from "../../store/actions/appActions";
@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
   },
   cardMedia: {
-    height: "240px"
+    height: "280px"
   },
   cardContent: {
     position: "absolute",
@@ -55,8 +55,25 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const cards = [
+  {
+    title: "Graduates",
+    link: "graduates",
+    image: "https://firebasestorage.googleapis.com/v0/b/ourpromise.appspot.com/o/banners%2Fgraduates.jpg?alt=media&token=602999e3-4041-4479-b74e-227752611dcf",
+  },
+  {
+    title: "Committee",
+    link: "committee",
+    image: "https://firebasestorage.googleapis.com/v0/b/ourpromise.appspot.com/o/banners%2Fcommittee.jpg?alt=media&token=d3ea08ba-7628-463c-b08d-fd1eb883a871"
+  },
+];
+const features = [
+  "Search graduates",
+  "View graduates details",
+  "Register as committee team",
+  "Authenticate to view private information"
+]
 function Home() {
-  const history = useHistory();
   const displayName = useSelector(state => state.firebase.profile.displayName);
 
   const dispatch = useDispatch();
@@ -67,13 +84,6 @@ function Home() {
     [dispatch]
   )
 
-  useFirestoreConnect('home_cards');
-  const datasource = useSelector(state => state.firestore.ordered.home_cards);
-  useEffect(() => {
-    loadCards(datasource);
-  }, [datasource])
-
-  const cards = useSelector(state => state.app.cards);
 
   const classes = useStyles();
   return (
@@ -83,32 +93,41 @@ function Home() {
         {displayName ? (
           <Box id="greet" className={classes.section}>
             <Typography variant="h3" className={classes.paragraph}>
-              {displayName || "Hey"}, How's life going?
+              {displayName || "Hey guys"}, 别来无恙？
             </Typography>
           </Box>
         ) : null
         }
         <Box id="home-introduction" className={classes.section}>
           <Typography variant="h3" className={classes.paragraph}>
-            6th June 2016
+            2016年6月6日
           </Typography>
           <Typography variant="body1" className={classes.paragraph}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae sapien pulvinar, finibus nisl eu, finibus justo. In pulvinar libero eu turpis ultricies commodo in in sem. Quisque dictum id nunc tempus tincidunt. Vestibulum ut turpis ac diam ultricies pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam iaculis eu mi sit amet suscipit. Praesent ut venenatis est. Duis dictum urna a ex gravida ornare et et turpis. Nam eu libero nec libero pretium commodo sed a mauris. Morbi sed molestie diam, id euismod est. Praesent massa tellus, laoreet ac venenatis nec, vestibulum ut sem. Praesent a odio risus. Donec convallis tellus porta, rhoncus purus eget, consequat magna. Ut aliquam interdum dolor, eu laoreet velit. Ut laoreet tempus dolor, laoreet mollis nisl feugiat at.
+            还记得这一天是什么日子吗？ 没错， 这天就是我们故事的开章，是我们第一次离乡背井，来到了隐匿于油棕园间的霹雳州务边国立大学预科学院。那你又可否还记得我们一起创出的那些‘第一次’？ 第一次离家到外上学, 第一次踏入讲堂，第一次参与的活动， 第一次与朋友彻夜聊心， 第一次一起出外郊游， 第一次在舞台上表演， 还有， 第一次在毕业典礼上落泪。。
           </Typography>
           <Typography variant="body1" className={classes.paragraph}>
-            Aliquam semper fermentum arcu vel rhoncus. Nullam hendrerit magna a orci dapibus tempor. Proin sollicitudin, orci eu facilisis laoreet, ligula purus porta sapien, vel dictum augue purus id magna. Aliquam dapibus nibh nulla, nec tristique leo bibendum nec. Praesent aliquam sollicitudin magna, sit amet molestie nisi scelerisque ac. Nulla nec tempor risus. Aliquam non viverra ipsum. Aliquam tincidunt, lacus a tempor pulvinar, quam mauris porta diam, quis pellentesque lorem nisl et mauris. Vivamus sit amet placerat velit, et bibendum sapien. Suspendisse auctor purus nec lorem faucibus, vitae blandit purus vehicula. Nulla quis nisi diam.
+            人类是十分善忘的动物， 因此三年前，毕业刊筹委们不惜跨过种种困难，坚持将专属于我们的毕业刊完成， 并将它命名为《醇憶》。毕业刊筹委们希望透过书刊， 我们可以把青春，回忆，心境都记载下来。透过时间的考验，希望毕业刊就像一瓶好酒， 越酿越芳香。初次品尝其甘甜的时候将近。2020年正是我们相约的时候。在大学勤奋向学，忙碌于活动的你可否会赴约呢？
           </Typography>
           <Typography variant="body1" className={classes.paragraph}>
-            In sollicitudin pellentesque mi, sit amet lobortis ex consequat vitae. Duis volutpat, libero vitae efficitur tincidunt, erat lectus porttitor tellus, a elementum eros lectus id quam. Vestibulum vestibulum est elit, at aliquet nisl dapibus nec. Maecenas maximus bibendum diam id convallis. Mauris ullamcorper leo ac ex dictum interdum. Vestibulum blandit dolor eget malesuada pretium. Praesent mauris dolor, aliquam eget nulla et, auctor consequat mi. Praesent at leo condimentum, ullamcorper ante nec, finibus odio. Phasellus nibh urna, sodales aliquam dolor eu, iaculis semper arcu. Nam lobortis id massa at iaculis. Curabitur mauris ligula, fringilla sit amet ipsum eu, bibendum semper lacus.
+            ‘三年之约’会是怎么样的呢？日期定了吗？地点在哪？有什么好玩的活动？
           </Typography>
           <Typography variant="body1" className={classes.paragraph}>
-            Vestibulum pretium lorem et posuere faucibus. Fusce ultricies mauris eros, non aliquet felis elementum in. Morbi vel interdum risus, a ullamcorper ipsum. Sed convallis egestas sodales. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque gravida posuere blandit. Quisque est tortor, scelerisque quis quam eu, consectetur tempus enim. Phasellus ac luctus velit, vel ornare nibh.
+            我只能告诉你， ‘我也不知道’。
           </Typography>
           <Typography variant="body1" className={classes.paragraph}>
-            Nam ut lectus sed eros interdum consequat a ac nulla. Etiam in purus quam. Nulla eget odio faucibus, gravida tortor quis, lobortis tellus. Aliquam feugiat, erat sed facilisis feugiat, leo est tincidunt augue, eget malesuada metus nulla et magna. Curabitur sed ullamcorper tellus, ut pharetra nunc. Morbi sed velit finibus, rhoncus lacus at, efficitur sapien. Nullam porta orci vel dolor consequat, id commodo est bibendum. Pellentesque semper lobortis eros eu egestas. Fusce porta venenatis justo. Proin ullamcorper scelerisque velit a vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In tincidunt ipsum ac dapibus laoreet. Proin eu porttitor neque. Phasellus ut cursus ante, eu ultrices lectus.
+            我不想把活动搞得太随便，但要办一个有意义的活动是需要付出时间细心规划的。因此，我希望大家可以助我一臂之力，加入三年之约的筹委会， 一起协力办一个有意义的活动。
+            </Typography>
+          <Typography variant="body1" className={classes.paragraph}>
+          大家如有兴趣阅读更多详情，请点入以下的网址。谢谢。
           </Typography>
           <div className={classes.button}>
-            <Button variant="contained" color="primary" size="large" onClick={() => { history.push("/committee") }}>
+            <Button
+              component={Link}
+              variant="contained"
+              color="primary"
+              size="large"
+              to="/committee"
+            >
               Learn More
             </Button>
           </div>
@@ -116,9 +135,12 @@ function Home() {
         <Box id="about" className={classes.section}>
           <Typography variant="h3" className={classes.paragraph}>
             About
-            </Typography>
+          </Typography>
           <Typography variant="body1" className={classes.paragraph}>
-            Vestibulum pretium lorem et posuere faucibus. Fusce ultricies mauris eros, non aliquet felis elementum in. Morbi vel interdum risus, a ullamcorper ipsum. Sed convallis egestas sodales. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque gravida posuere blandit. Quisque est tortor, scelerisque quis quam eu, consectetur tempus enim. Phasellus ac luctus velit, vel ornare nibh.
+            This website serves as a platform to unite KMPk 16/17 graduates. The admin is currently migrating the physical graduation magazine to this website.
+          </Typography>
+          <Typography variant="body1" className={classes.paragraph}>
+            Stay tune for more interesting content and interactive features!
           </Typography>
         </Box>
         <Box id="new" className={classes.section}>
@@ -126,12 +148,11 @@ function Home() {
             What's new!
             </Typography>
           <ul>
-            <li><Typography variant="subtitle1" className={classes.paragraph}>
-              Nam ut lectus sed eros </Typography></li>
-            <li><Typography variant="subtitle1" className={classes.paragraph}>
-              Nam ut lectus sed eros </Typography></li>
-            <li><Typography variant="subtitle1" className={classes.paragraph}>
-              Nam ut lectus sed eros </Typography></li>
+            {
+              features.map((feature) => (
+                (<li><Typography variant="subtitle1">{feature}</Typography></li>)
+              ))
+            }
           </ul>
         </Box>
         <Box id="content-cards" className={classes.section}>
@@ -147,12 +168,12 @@ function Home() {
                           image={card.image}
                           title={card.title}
                         />
-                        <div className={classes.overlay}></div>
-                        <div className={classes.cardContent}>
-                          <Typography gutterBottom variant="h5" color="primary">
-                            {card.title}
-                          </Typography>
-                        </div>
+                        {/* <div className={classes.overlay}></div>
+                          <div className={classes.cardContent}>
+                            <Typography gutterBottom variant="h5" color="primary">
+                              {card.title}
+                            </Typography>
+                          </div> */}
                       </Link>
                     </CardActionArea>
                   </Card>
@@ -163,7 +184,7 @@ function Home() {
           </Grid>
         </Box>
       </Container>
-    </div>
+    </div >
   );
 }
 

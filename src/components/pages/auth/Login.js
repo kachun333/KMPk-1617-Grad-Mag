@@ -74,6 +74,7 @@ const useStyles = makeStyles(theme => ({
 function Login() {
   const history = useHistory();
   const isLoggedin = useSelector(state => state.firebase.auth.uid);
+  const verified = useSelector(state => state.firebase.profile.verified);
   if (isLoggedin) {
     history.push("/")
   }
@@ -86,8 +87,11 @@ function Login() {
   const handleLogin = (loginObject) => {
     firebase.login(loginObject)
       .then(() => {
-        setDialog({ title: "Login Success!", description: "You will be redirect to home page soon" });
-        history.push("/")
+        if (verified) {
+          history.push("/")
+        } else {
+          history.push("/auth/verify")
+        }
       })
       .catch(() => {
         setDialog({ title: "Login Fail..", description: "Incorrect credentials or account doesn't exist" });
@@ -101,9 +105,9 @@ function Login() {
         <Box id="social-login" className={classes.socialLogin}>
           <GoogleButton
             type="light"
-            onClick={() => { handleLogin({ provider: 'google', type: 'redirect' }) }}
+            onClick={() => { handleLogin({ provider: 'google', type: 'popup' }) }}
           />
-          <FacebookLoginButton className={classes.facebookLogin} onClick={() => { handleLogin({ provider: 'facebook', type: 'redirect' }) }}>
+          <FacebookLoginButton className={classes.facebookLogin} onClick={() => { handleLogin({ provider: 'facebook', type: 'popup' }) }}>
             <span style={{ paddingLeft: '12px' }}>Sign in with Facebook</span>
           </FacebookLoginButton>
         </Box>
@@ -147,12 +151,12 @@ function Login() {
           />
           <Box id="login-help" className={classes.help}>
             <Typography component="div" variant="body1" color="inherit">
-            <Link href="#" onClick={(e) => { e.preventDefault(); history.push("/auth/reset"); }}>
+              <Link href="#" onClick={(e) => { e.preventDefault(); history.push("/auth/reset"); }}>
                 Forget password
               </Link>
             </Typography>
             <Typography component="div" variant="body1" color="inherit">
-            <Link href="#" onClick={(e) => { e.preventDefault(); history.push("/auth/create"); }}>
+              <Link href="#" onClick={(e) => { e.preventDefault(); history.push("/auth/create"); }}>
                 Create new account
               </Link>
             </Typography>

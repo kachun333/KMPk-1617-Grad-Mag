@@ -9,6 +9,11 @@ const graduateReducer = (state = initState, action) => {
         data: action.graduates,
         ordered: action.graduates,
       }
+    case 'SET_GRADUATE':
+      return {
+        ...state,
+        graduate: action.graduate
+      }
     case 'FILTER_GRADUATES':
       return {
         ...state,

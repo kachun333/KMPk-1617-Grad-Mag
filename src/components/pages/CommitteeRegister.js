@@ -16,6 +16,7 @@ import { useFirestore } from 'react-redux-firebase'
 import { useSelector } from 'react-redux';
 import CustomDialog from "../common/CustomDialog";
 import Background from '../../assets/images/committee-register.jpg';
+import Unauthorized from '../common/Unauthorized';
 
 
 // component level styling
@@ -47,6 +48,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     alignItems: "center",
     flex: 1,
+    padding: 16
   },
   form: {
     marginBottom: "48px"
@@ -88,8 +90,9 @@ function CommitteeRegister() {
   const [form, setForm] = useState(defaultData);
   const [dialog, setDialog] = useState(null);
 
-  const displayName = useSelector(state => state.firebase.profile.displayName);
+  const verified = useSelector(state => state.firebase.profile.verified);
   const uid = useSelector(state => state.firebase.auth.uid);
+  const displayName = useSelector(state => state.firebase.profile.displayName);
   const firestore = useFirestore();
   const handleSubmit = (submitObject) => {
     submitObject = {
@@ -112,100 +115,106 @@ function CommitteeRegister() {
       <Box id="verify" className={classes.container}>
         <Box id="desktopBanner" className={classes.banner}></Box>
         <Box className={classes.sidebox}>
-
-          <Box id="title" className={classes.title}>
-            <Typography variant={matches ? "h4" : "h5"} color="inherit">
-              Can't wait to join the team!
-            </Typography>
-          </Box>
-          <form onSubmit={(e) => { e.preventDefault(); handleSubmit(form) }} className={`${classes.sidebox} ${classes.form}`}>
-            <TextField
-              id="name"
-              className={classes.textfield}
-              label="Name"
-              variant="outlined"
-              required
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.currentTarget.value })}
-              helperText="Kindly enter your English name"
-            />
-            <FormControl required variant="outlined" className={classes.textfield}>
-              <InputLabel id="university">University</InputLabel>
-              <Select
-                labelId="university"
-                value={form.university}
-                onChange={(e) => setForm({ ...form, university: e.target.value })}
-              >
-                <MenuItem value={"UM"}>Universiti Malaya (UM)</MenuItem>
-                <MenuItem value={"USM"}>Universiti Sains Malaysia (USM)</MenuItem>
-                <MenuItem value={"UKM"}>Universiti Kebangsaan Malaysia (UKM)	</MenuItem>
-                <MenuItem value={"UPM"}>Universiti Putra Malaysia (UPM)</MenuItem>
-                <MenuItem value={"UTM"}>Universiti Teknologi Malaysia (UTM)</MenuItem>
-                <MenuItem value={"UUM"}>Universiti Utara Malaysia (UUM)</MenuItem>
-                <MenuItem value={"UniMAP"}>Universiti Malaysia Perlis (UniMAP)</MenuItem>
-                <MenuItem value={"UNIMAS"}>Universiti Malaysia Sarawak (UNIMAS)</MenuItem>
-                <MenuItem value={"UMS"}>Universiti Malaysia Sabah (UMS)</MenuItem>
-                <MenuItem value={"UPSI"}>Universiti Pendidikan Sultan Idris (UPSI)</MenuItem>
-                <MenuItem value={"UMP"}>Universiti Malaysia Pahang (UMP)</MenuItem>
-                <MenuItem value={"Others"}>Others</MenuItem>
-              </Select>
-            </FormControl>
-            <FormControl required variant="outlined" className={classes.textfield}>
-              <InputLabel id="department">Department</InputLabel>
-              <Select
-                labelId="department"
-                value={form.department}
-                onChange={(e) => setForm({ ...form, department: e.target.value })}
-              >
-                <MenuItem value={"treasury"}>Treasury</MenuItem>
-                <MenuItem value={"marketing"}>Marketing</MenuItem>
-                <MenuItem value={"program"}>Program</MenuItem>
-                <MenuItem value={"operation"}>Operation</MenuItem>
-              </Select>
-            </FormControl>
-            <Typography variant="body1" id="commitment" gutterBottom>
-              Rate Your commitment
-      </Typography>
-            <Slider
-              className={classes.textfield}
-              valueLabelDisplay="auto"
-              value={form.commitment}
-              onChange={(e, value) => setForm({ ...form, commitment: value })}
-              step={1}
-              marks
-              min={0}
-              max={10}
-            />
-            <TextField
-              id="opinion"
-              className={classes.textfield}
-              label="Your opinion on the theme"
-              multiline
-              required
-              variant="outlined"
-              value={form.opinion}
-              onChange={(e) => setForm({ ...form, opinion: e.currentTarget.value })}
-              helperText="Learn more about the theme here.."
-            />
-            <TextField
-              id="concerns"
-              className={classes.textfield}
-              label="Anything from you?"
-              multiline
-              variant="outlined"
-              value={form.concerns}
-              onChange={(e) => setForm({ ...form, concerns: e.currentTarget.value })}
-            />
-            <Button
-              className={classes.button}
-              variant="contained"
-              size="large"
-              color="primary"
-              type="submit"
-            >
-              Submit
-          </Button>
-          </form>
+          {
+            verified ?
+              (
+                <>
+                  <Box id="title" className={classes.title}>
+                    <Typography variant={matches ? "h4" : "h5"} color="inherit">
+                      Can't wait to join the team!
+                  </Typography>
+                  </Box>
+                  <form onSubmit={(e) => { e.preventDefault(); handleSubmit(form) }} className={`${classes.sidebox} ${classes.form}`}>
+                    <TextField
+                      id="name"
+                      className={classes.textfield}
+                      label="Name"
+                      variant="outlined"
+                      required
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.currentTarget.value })}
+                      helperText="Kindly enter your English name"
+                    />
+                    <FormControl required variant="outlined" className={classes.textfield}>
+                      <InputLabel id="university">University</InputLabel>
+                      <Select
+                        labelId="university"
+                        value={form.university}
+                        onChange={(e) => setForm({ ...form, university: e.target.value })}
+                      >
+                        <MenuItem value={"UM"}>Universiti Malaya (UM)</MenuItem>
+                        <MenuItem value={"USM"}>Universiti Sains Malaysia (USM)</MenuItem>
+                        <MenuItem value={"UKM"}>Universiti Kebangsaan Malaysia (UKM)	</MenuItem>
+                        <MenuItem value={"UPM"}>Universiti Putra Malaysia (UPM)</MenuItem>
+                        <MenuItem value={"UTM"}>Universiti Teknologi Malaysia (UTM)</MenuItem>
+                        <MenuItem value={"UUM"}>Universiti Utara Malaysia (UUM)</MenuItem>
+                        <MenuItem value={"UniMAP"}>Universiti Malaysia Perlis (UniMAP)</MenuItem>
+                        <MenuItem value={"UNIMAS"}>Universiti Malaysia Sarawak (UNIMAS)</MenuItem>
+                        <MenuItem value={"UMS"}>Universiti Malaysia Sabah (UMS)</MenuItem>
+                        <MenuItem value={"UPSI"}>Universiti Pendidikan Sultan Idris (UPSI)</MenuItem>
+                        <MenuItem value={"UMP"}>Universiti Malaysia Pahang (UMP)</MenuItem>
+                        <MenuItem value={"Others"}>Others</MenuItem>
+                      </Select>
+                    </FormControl>
+                    <FormControl required variant="outlined" className={classes.textfield}>
+                      <InputLabel id="department">Department</InputLabel>
+                      <Select
+                        labelId="department"
+                        value={form.department}
+                        onChange={(e) => setForm({ ...form, department: e.target.value })}
+                      >
+                        <MenuItem value={"treasury"}>Treasury</MenuItem>
+                        <MenuItem value={"marketing"}>Marketing</MenuItem>
+                        <MenuItem value={"program"}>Program</MenuItem>
+                        <MenuItem value={"operation"}>Operation</MenuItem>
+                      </Select>
+                    </FormControl>
+                    <Typography variant="body1" id="commitment" gutterBottom>
+                      Rate Your commitment
+                    </Typography>
+                    <Slider
+                      className={classes.textfield}
+                      valueLabelDisplay="auto"
+                      value={form.commitment}
+                      onChange={(e, value) => setForm({ ...form, commitment: value })}
+                      step={1}
+                      marks
+                      min={0}
+                      max={10}
+                    />
+                    <TextField
+                      id="opinion"
+                      className={classes.textfield}
+                      label="Your opinion on the theme"
+                      multiline
+                      required
+                      variant="outlined"
+                      value={form.opinion}
+                      onChange={(e) => setForm({ ...form, opinion: e.currentTarget.value })}
+                    />
+                    <TextField
+                      id="concerns"
+                      className={classes.textfield}
+                      label="Anything from you?"
+                      multiline
+                      variant="outlined"
+                      value={form.concerns}
+                      onChange={(e) => setForm({ ...form, concerns: e.currentTarget.value })}
+                    />
+                    <Button
+                      className={classes.button}
+                      variant="contained"
+                      size="large"
+                      color="primary"
+                      type="submit"
+                    >
+                      Submit
+                    </Button>
+                  </form>
+                </>
+              )
+              : <Unauthorized type={uid ? "verify" : "login"} />
+          }
         </Box>
       </Box>
       {

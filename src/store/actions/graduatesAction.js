@@ -1,15 +1,23 @@
+import AwesomeDebouncePromise from 'awesome-debounce-promise';
+
 export const setGraduates = ({ firebase }, datasource) => {
-  return (dispatch, getState) => {
-      const graduates = getImages(firebase, datasource);
-      dispatch({ type: "SET_GRADUATES", graduates });
+  return (dispatch) => {
+    const graduates = getImages(firebase, datasource);
+    dispatch({ type: "SET_GRADUATES", graduates });
   }
 };
 
 export const filterGraduates = (searchOptions) => {
   return (dispatch, getState) => {
     const graduates = getState().graduates.data;
+    console.log("graduates is ", graduates)
+    console.log("searchOptions is ", searchOptions)
     const filteredItems = filterItems(graduates, searchOptions)
-    dispatch({ type: "FILTER_GRADUATES", filteredItems });
+    const asyncFunction = () => dispatch({ type: "FILTER_GRADUATES", filteredItems });
+    AwesomeDebouncePromise(
+      asyncFunction,
+      500
+    );
   }
 };
 
@@ -23,7 +31,7 @@ function findWithAttr(array, attr, value) {
 }
 
 function getImages(firebase, graduates) {
-  if (!graduates){
+  if (!graduates) {
     return null;
   }
   const storageRef = firebase.storage().ref("graduates");
@@ -35,7 +43,8 @@ function getImages(firebase, graduates) {
           .then((url) => {
             let index = findWithAttr(graduates, "name", imageName)
             if (index >= 0) {
-              graduates[index] = { ...graduates[index], image: url }
+              let birthday = new Date(graduates[index].birthday._seconds * 1000);
+              graduates[index] = { ...graduates[index], image: url, birthday: birthday.toDateString() }
             }
           })
           .catch(err => console.error('Fail to load graduates image: ', err))
@@ -48,12 +57,15 @@ function getImages(firebase, graduates) {
 
 function filterItem(item, searchOptions) {
   if (
-    Object.values(item).some(values =>
-      values
-        .toString()
-        .toLowerCase()
-        .includes(searchOptions.searchTerm.toLowerCase())
-    )
+    Object.values(item).some(values => {
+      if (typeof values.toString()) {
+        debugger
+        values
+          .toString()
+          .toLowerCase()
+          .includes(searchOptions.searchTerm.toLowerCase())
+      }
+    })
   ) {
     return item;
   } else {

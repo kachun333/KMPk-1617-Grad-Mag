@@ -11,7 +11,7 @@ import makeStyles from "@material-ui/styles/makeStyles";
 import People from '@material-ui/icons/People';
 import Restore from '@material-ui/icons/Restore';
 import Favorite from '@material-ui/icons/Favorite';
-import Link from "react-router-dom/Link";
+import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import Banner from '../common/Banner';
@@ -52,18 +52,34 @@ const useStyles = makeStyles(theme => ({
 function ObjectiveIcon(title) {
   const classes = useStyles();
   switch (title) {
-    case 'info':
+    case 'friendship':
       return <People className={classes.objective} />;
-    case 'warning':
+    case 'throwback':
       return <Restore className={classes.objective} />;
-    case 'error':
+    case 'society':
       return <Favorite className={classes.objective} />;
     default:
       return null;
   }
 }
 
-const objectives = [1, 2, 3];
+const objectives = [
+  {
+    icon: "friendship",
+    title: "保持联系",
+    description: "毕业后，我们都为各自的梦想翱翔，去了不同的大学。三年里，大家都过着不同的生活。让我们借此机会互问近况，永固友谊。",
+  },
+  {
+    icon: "throwback",
+    title: "丢回叙旧",
+    description: "人生路上有起有落，走着走着我们常忘了初衷。这活动该带我们进入时光隧道看看自己在不知不觉中成长了多少。",
+  },
+  {
+    icon: "society",
+    title: "回馈社会",
+    description: "你可否察觉身为学生的我们是多么有的幸运。我们常受社会的关照，被养育成人。我希望大家可以腾出活动中的一点时间，利用我们年少的活力,创新力与多元的专业领域为社会供一份勉力。",
+  },
+];
 
 function Committee(props) {
 
@@ -80,7 +96,13 @@ function Committee(props) {
             Hello World!
           </Typography>
           <Typography variant="body1" className={classes.paragraph}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae sapien pulvinar, finibus nisl eu, finibus justo. In pulvinar libero eu turpis ultricies commodo in in sem. Quisque dictum id nunc tempus tincidunt. Vestibulum ut turpis ac diam ultricies pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam iaculis eu mi sit amet suscipit. Praesent ut venenatis est. Duis dictum urna a ex gravida ornare et et turpis. Nam eu libero nec libero pretium commodo sed a mauris. Morbi sed molestie diam, id euismod est. Praesent massa tellus, laoreet ac venenatis nec, vestibulum ut sem. Praesent a odio risus. Donec convallis tellus porta, rhoncus purus eget, consequat magna. Ut aliquam interdum dolor, eu laoreet velit. Ut laoreet tempus dolor, laoreet mollis nisl feugiat at.
+            若你在阅读此文章，我感到无比开心， 因为你抱有兴趣成为‘三年之约’筹委会之一员。
+          </Typography>
+          <Typography variant="body1" className={classes.paragraph}>
+            ‘三年之约’会是怎么样的呢？我想你以知道我的回答，其实‘我也不知道’。哈哈。因为它可以千奇百怪，天马行空。就要看你了,未来的三年之约筹委会。 若你成为了‘三年之约’筹委会之一员，你将能把活动搞得最精彩。
+          </Typography>
+          <Typography variant="body1" className={classes.paragraph}>
+            当然，身为‘三年之约’的启发人，我对这活动也有少许头绪和方针。这活动应包含三大宗旨：
           </Typography>
           <Box id="committee-objectives" className={classes.section}>
             <Grid container spacing={4}>
@@ -88,13 +110,9 @@ function Committee(props) {
                 <Grid item key={i} xs={12} md={4}>
                   <Card className={classes.card}>
                     <CardContent className={classes.objectiveCard}>
-                      {ObjectiveIcon("warning")}
-                      <Typography gutterBottom variant="h4" color="primary">
-                        Lorem ipsum dolor sit amet
-                        </Typography>
-                      <Typography variant="body1">
-                        Our dreams set us apart. We were in different university and each of us has gone through different life journeys in the past 3 years. Let’s get updated with how everyone is doing & maintain our life-long friendship.
-                        </Typography>
+                      {ObjectiveIcon(obj.icon)}
+                      <Typography gutterBottom variant="h4">{obj.title}</Typography>
+                      <Typography variant="body1">{obj.description}</Typography>
                     </CardContent>
                   </Card>
                 </Grid>
@@ -102,17 +120,13 @@ function Committee(props) {
             </Grid>
           </Box>
           <Typography variant="body1" className={classes.paragraph}>
-            Aliquam semper fermentum arcu vel rhoncus. Nullam hendrerit magna a orci dapibus tempor. Proin sollicitudin, orci eu facilisis laoreet, ligula purus porta sapien, vel dictum augue purus id magna. Aliquam dapibus nibh nulla, nec tristique leo bibendum nec. Praesent aliquam sollicitudin magna, sit amet molestie nisi scelerisque ac. Nulla nec tempor risus. Aliquam non viverra ipsum. Aliquam tincidunt, lacus a tempor pulvinar, quam mauris porta diam, quis pellentesque lorem nisl et mauris. Vivamus sit amet placerat velit, et bibendum sapien. Suspendisse auctor purus nec lorem faucibus, vitae blandit purus vehicula. Nulla quis nisi diam.
+            若你对此活动的三大方针有所共鸣，请在以下选择一个部门并完成筹委会报名表格。期待与你合作。
           </Typography>
           <Typography variant="body1" className={classes.paragraph}>
-            In sollicitudin pellentesque mi, sit amet lobortis ex consequat vitae. Duis volutpat, libero vitae efficitur tincidunt, erat lectus porttitor tellus, a elementum eros lectus id quam. Vestibulum vestibulum est elit, at aliquet nisl dapibus nec. Maecenas maximus bibendum diam id convallis. Mauris ullamcorper leo ac ex dictum interdum. Vestibulum blandit dolor eget malesuada pretium. Praesent mauris dolor, aliquam eget nulla et, auctor consequat mi. Praesent at leo condimentum, ullamcorper ante nec, finibus odio. Phasellus nibh urna, sodales aliquam dolor eu, iaculis semper arcu. Nam lobortis id massa at iaculis. Curabitur mauris ligula, fringilla sit amet ipsum eu, bibendum semper lacus.
           </Typography>
           <Typography variant="body1" className={classes.paragraph}>
-            Vestibulum pretium lorem et posuere faucibus. Fusce ultricies mauris eros, non aliquet felis elementum in. Morbi vel interdum risus, a ullamcorper ipsum. Sed convallis egestas sodales. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque gravida posuere blandit. Quisque est tortor, scelerisque quis quam eu, consectetur tempus enim. Phasellus ac luctus velit, vel ornare nibh.
-          </Typography>
-          <Typography variant="body1" className={classes.paragraph}>
-            Nam ut lectus sed eros interdum consequat a ac nulla. Etiam in purus quam. Nulla eget odio faucibus, gravida tortor quis, lobortis tellus. Aliquam feugiat, erat sed facilisis feugiat, leo est tincidunt augue, eget malesuada metus nulla et magna. Curabitur sed ullamcorper tellus, ut pharetra nunc. Morbi sed velit finibus, rhoncus lacus at, efficitur sapien. Nullam porta orci vel dolor consequat, id commodo est bibendum. Pellentesque semper lobortis eros eu egestas. Fusce porta venenatis justo. Proin ullamcorper scelerisque velit a vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In tincidunt ipsum ac dapibus laoreet. Proin eu porttitor neque. Phasellus ut cursus ante, eu ultrices lectus.
-          </Typography>
+            嘉骏 上
+            </Typography>
         </Box>
         <Box id="committee-positions" className={classes.section}>
           <Grid container spacing={4}>

@@ -62,7 +62,7 @@ function Footer() {
       <img className={classes.bottle} src={Bottle} alt="bottle-icon"></img>
       <div className={classes.overlay}></div>
       <Box id="footer-content" className={classes.box}>
-        <Typography variant="h6" gutterBottom>lectus sed eros</Typography>
+        <Typography variant="h6" gutterBottom>三年之约 Our Promise</Typography>
         <Link href="mailto: gmagazinekmpk@gmail.com" className={classes.boxItem} color="inherit">
           <Email className={classes.icon} />
           <Typography variant="overline">gmagazinekmpk@gmail.com</Typography>

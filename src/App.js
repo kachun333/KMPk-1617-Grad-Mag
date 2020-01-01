@@ -1,5 +1,5 @@
 import React, { useState, Suspense } from 'react';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import Hidden from '@material-ui/core/Hidden';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -42,7 +42,9 @@ function App(props) {
       secondary: { main: "#f50057" }
     },
     typography: {
-      fontFamily: "poppins",
+      fontFamily: [
+        "Poppins", "Times New Roman", "FangSong", "仿宋", "STFangSong", "华文仿宋", "serif"
+      ].join(','),
       h1: {
         fontSize: "4.5rem"
       },
@@ -62,7 +64,7 @@ function App(props) {
         fontSize: "1.1rem"
       },
       body1: {
-        fontSize: "1rem"
+        fontSize: "1.1rem"
       },
       overline: {
         fontSize: "0.8rem"

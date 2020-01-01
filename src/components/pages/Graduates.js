@@ -13,8 +13,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useFirestoreConnect, useFirebase } from 'react-redux-firebase';
 import { setGraduates, filterGraduates } from "../../store/actions/graduatesAction";
 import Banner from '../common/Banner';
-import Unauthorized from '../common/Unauthorized';
-import Logo from '../../assets/images/logo.png';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -47,10 +46,15 @@ const useStyles = makeStyles(theme => ({
       height: "188px",
     }
   },
+  link: {
+    textDecoration: 'none',
+    color: 'inherit',
+  },
   cardContent: {
     padding: `${theme.spacing(0.5)}px ${theme.spacing(2)}px`
   },
 }));
+
 
 function Graduates(props) {
   const dispatch = useDispatch();
@@ -60,60 +64,62 @@ function Graduates(props) {
   const datasource = useSelector(state => state.firestore.ordered.graduates);
   const getGraduates = useCallback(
     datasource => dispatch(setGraduates({ firebase }, datasource)),
-    [dispatch]
+    [firebase, dispatch]
   )
 
   useEffect(() => {
     getGraduates(datasource);
-  }, [datasource])
+  }, [getGraduates, datasource])
   const graduates = useSelector(state => state.graduates.ordered);
 
-  const handleChange = (e) => {
-    const searchOptions = {
-      searchTerm: e.target.value,
-    };
-    handleFilter(searchOptions);
-  };
   const handleFilter = useCallback(
     searchOptions => dispatch(filterGraduates(searchOptions)),
     [dispatch]
   )
 
-  const classes = useStyles();
-  if (graduates) {
-    console.log("here gain");
+  const [searchTerm, setSearchTerm] = useState(null);
+  const handleChange = async () => {
+      const searchOptions = {
+        searchTerm: searchTerm,
+      };
+      handleFilter(searchOptions);
   }
-  console.log(graduates)
+  const refresh = () => { handleFilter({ searchTerm: "" }); }
+  if (graduates) {
+    setTimeout(() => {
+      refresh();
+    }, 0);
+  }
+
+  const classes = useStyles();
   return (
     <div>
       <Banner banner="graduates" />
       <Container className={classes.container} >
         <Box id="graduates-filterOption" className={classes.section}>
-          <TextField className={classes.searchBar} label="Search" margin="normal" variant="outlined" onChange={handleChange} />
+          <TextField className={classes.searchBar} label="Search" margin="normal" variant="outlined" onChange={(e) => { setSearchTerm(e.currentTarget.value); handleChange(); }} />
         </Box>
         <Box id="graduates-images" className={classes.section}>
-          {
-            true ?
-              graduates ? (
-                graduates.map(graduate => (
-                  <Card key={graduate.id} className={classes.card}>
-                    <CardActionArea>
-                      <CardMedia
-                        className={classes.cardMedia}
-                        image={graduate.image || Logo}
-                        title={graduate.name}
-                      />
-                      <CardContent className={classes.cardContent}>
-                        <Typography variant="subtitle1">{graduate.name_ch}</Typography>
-                        <Typography gutterBottom variant="subtitle2" component="div">{graduate.name}</Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                ))) : (
-                  <CircularProgress />
-                )
-              :
-              <Unauthorized />
+          {graduates ? (
+            graduates.map(graduate => (
+              <Card key={graduate.id} className={classes.card}>
+                <CardActionArea>
+                  <Link className={classes.link} to={`/graduates/${graduate.id}`}>
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image={graduate.image || null}
+                      title={graduate.name}
+                    />
+                    <CardContent className={classes.cardContent}>
+                      <Typography variant="subtitle1">{graduate.name_ch}</Typography>
+                      <Typography gutterBottom variant="subtitle2" component="div">{graduate.name}</Typography>
+                    </CardContent>
+                  </Link>
+                </CardActionArea>
+              </Card>
+            ))) : (
+              <CircularProgress />
+            )
           }
         </Box>
       </Container>

@@ -17,6 +17,7 @@ import { useSelector } from 'react-redux';
 import Logo from '../assets/images/logo.png';
 import DefaultAvatar from '../assets/images/favicon.png';
 import { useFirebase } from 'react-redux-firebase';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
@@ -56,7 +57,7 @@ function NavbarDesktop() {
   const isLoggedin = useSelector(state => state.firebase.auth.uid);
   const avatar = useSelector(state => state.firebase.profile.avatarUrl);
   //set AppBar Title
-  const [title, setTitle] = useState("Our Promise");
+  const [title, setTitle] = useState("三年之约 Our Promise");
   const location = useLocation();
   useEffect(() => {
     let newTitle = capitalizeFirstLetter(location.pathname.split("/")[1]);
@@ -150,12 +151,13 @@ function NavbarDesktop() {
                 open={Boolean(avatarMenu)}
                 onClose={() => { setAvatarMenu(null) }}
               >
+                <VerifyMenuItem />
                 <MenuItem
                   component={Button}
                   onClick={handleLogout}
                 >
                   Logout
-              </MenuItem>
+                </MenuItem>
               </Menu>
             </>
           ) :
@@ -166,6 +168,25 @@ function NavbarDesktop() {
         </Box>
       </Box>
     </Toolbar>
+  );
+}
+
+function VerifyMenuItem() {
+  const history = useHistory();
+  const verified = useSelector(state => state.firebase.profile.verified);
+  return (
+    <>
+      {
+        verified ?
+          null :
+          <MenuItem
+            component={Button}
+            onClick={() => { history.push("/auth/verify") }}
+          >
+            Verify
+        </MenuItem>
+      }
+    </>
   );
 }
 

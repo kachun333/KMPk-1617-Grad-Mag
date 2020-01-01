@@ -6,20 +6,23 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  withStyles,
   Typography,
-  Button,
   IconButton,
-  Container,
-  Dialog,
-  Collapse,
   Box,
-  useMediaQuery,
-  useTheme,
 } from "@material-ui/core";
-import { Close, Share, ArrowBackIos, ArrowForwardIos, Cake, Email, Phone, Domain, Sms, LocalFlorist, PanTool } from '@material-ui/icons';
-import image from '../../assets/images/Tan Zhi Han.jpg';
+import Close from '@material-ui/icons/Close';
+import Cake from '@material-ui/icons/Cake';
+import Email from '@material-ui/icons/Email';
+import Phone from '@material-ui/icons/Phone';
+import Domain from '@material-ui/icons/Domain';
+import Sms from '@material-ui/icons/Sms';
+import LocalFlorist from '@material-ui/icons/People';
+import PanTool from '@material-ui/icons/PanTool';
+import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
+import { setGraduate } from "../../store/actions/graduatesAction";
+import { useFirestoreConnect, useFirebase } from 'react-redux-firebase';
+import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -66,7 +69,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       width: '100%',
       maxWidth: "400px",
-      height: "100vh",
+      height: "calc(100vh - 64px)",
       overflow: "auto",
     },
   },
@@ -78,26 +81,35 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function GraduateDetails(props) {
-  // const { open, handleClose, info } = props;
-  let graduate = {
-      "id": "",
-      "name": "",
-      "name_ch": "",
-      "birthday": "",
-      "phone": "",
-      "email": "",
-      "one_liner": "",
-      "gender": "",
-      "lecture": "",
-      "tutorial": "",
-      "describe_me": [],
-      "message": ""
-  }
-  const graduates = useSelector(state => state.graduates.ordered);
+function GraduateDetails() {
+  // const dispatch = useDispatch();
+  // const firebase = useFirebase();
+
+  // useFirestoreConnect('graduates');
+  // const datasource = useSelector(state => state.firestore.ordered.graduates);
+  // const getGraduate = useCallback(
+  //   datasource => dispatch(setGraduate({ firebase }, datasource)),
+  //   [firebase, dispatch]
+  // )
+
+  // useEffect(() => {
+  //     getGraduate(datasource);
+  // }, [getGraduate, datasource])
+  // const graduate = useSelector(state => state.graduates.graduate);
+
+  const { id } = useParams();
+  const [graduate, setGraduate] = useState({});
   useEffect(() => {
-    graduate = graduates[1];
+    axios.get(`https://us-central1-ourpromise.cloudfunctions.net/api/graduates/${id}`)
+      .then(res => {
+        setGraduate(res.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }, [])
+
+
   console.log("selected graduate is ", graduate);
   const handleClose = () => {
     console.log("handle close");
@@ -112,60 +124,100 @@ function GraduateDetails(props) {
             <Close className={classes.icon} />
           </IconButton>
         </Toolbar>
-        <img className={classes.image} src={image} alt={graduate.name} />
+        <img className={classes.image} src={null} alt={graduate ? graduate.name : ""} />
       </Box>
       <Box className={classes.list}>
         <Box id="graduate-name" className={classes.listHeader}>
           <Typography variant="h4">
-            {graduate.name_ch}
+            {graduate ? graduate.name_ch : ""}
           </Typography>
           <Typography variant="subtitle1">
-            {graduate.name}
+            {graduate ? graduate.name : ""}
           </Typography>
         </Box>
+        {/* {
+          typeof graduate ?
+            <List>
+              <ListItem id="graduate-phone">
+                <ListItemIcon><Phone /></ListItemIcon>
+                <ListItemText primary="Phone" secondary={graduate ? graduate.phone : ""} />
+              </ListItem>
+              <ListItem id="graduate-email">
+                <ListItemIcon><Email /></ListItemIcon>
+                <ListItemText primary="Email" secondary={graduate ? graduate.email : ""} />
+              </ListItem>
+              <ListItem id="graduate-birthday">
+                <ListItemIcon><Cake /></ListItemIcon>
+                <ListItemText primary="Birthday" secondary={graduate ? graduate.birthday : ""} />
+              </ListItem>
+              <ListItem id="graduate-tutorial">
+                <ListItemIcon><Domain /></ListItemIcon>
+                <ListItemText primary="Tutorial Class" secondary={graduate ? graduate.tutorial : ""} />
+              </ListItem>
+              <ListItem id="graduate-one_liner">
+                <ListItemIcon><PanTool /></ListItemIcon>
+                <ListItemText primary="One Liner" secondary={graduate ? graduate.one_liner : ""} />
+              </ListItem>
+              <ListItem id="graduate-message-title">
+                <ListItemIcon><Sms /></ListItemIcon>
+                <ListItemText primary="Message" />
+              </ListItem>
+              <ListItem id="graduate-message-content">
+                <ListItemText secondary={graduate ? graduate.message : ""} />
+              </ListItem>
+              <ListItem id="graduate-describe_me">
+                <ListItemIcon><LocalFlorist /></ListItemIcon>
+                <ListItemText primary="Describe me" />
+              </ListItem>
+            </List>
+            : null
+        } */}
         <List>
           <ListItem id="graduate-phone">
             <ListItemIcon><Phone /></ListItemIcon>
-            <ListItemText primary="Phone" secondary={graduate.phone} />
+            <ListItemText primary="Phone" secondary={graduate? graduate.phone : ""} />
           </ListItem>
           <ListItem id="graduate-email">
             <ListItemIcon><Email /></ListItemIcon>
-            <ListItemText primary="Email" secondary={graduate.email} />
+            <ListItemText primary="Email" secondary={graduate? graduate.email : ""} />
           </ListItem>
           <ListItem id="graduate-birthday">
             <ListItemIcon><Cake /></ListItemIcon>
-            <ListItemText primary="Birthday" secondary={graduate.birthday} />
+            <ListItemText primary="Birthday" secondary={graduate? graduate.birthday : ""} />
           </ListItem>
           <ListItem id="graduate-tutorial">
             <ListItemIcon><Domain /></ListItemIcon>
-            <ListItemText primary="Tutorial Class" secondary={graduate.tutorial} />
+            <ListItemText primary="Tutorial Class" secondary={graduate? graduate.tutorial : ""} />
           </ListItem>
           <ListItem id="graduate-one_liner">
             <ListItemIcon><PanTool /></ListItemIcon>
-            <ListItemText primary="One Liner" secondary={graduate.one_liner} />
+            <ListItemText primary="One Liner" secondary={graduate? graduate.one_liner : ""} />
           </ListItem>
           <ListItem id="graduate-message-title">
             <ListItemIcon><Sms /></ListItemIcon>
             <ListItemText primary="Message" />
           </ListItem>
           <ListItem id="graduate-message-content">
-            <ListItemText secondary={graduate.message} />
+            <ListItemText secondary={graduate? graduate.message : ""} />
           </ListItem>
           <ListItem id="graduate-describe_me">
             <ListItemIcon><LocalFlorist /></ListItemIcon>
             <ListItemText primary="Describe me" />
           </ListItem>
           <List component="div" disablePadding>
-            {
+        {
+              graduate.describe_me ?
               graduate.describe_me.map((description, i) => {
-                return (
-                  <ListItem key={`graduate-describe_me-${i}`}>
-                    <ListItemText secondary={description} />
-                  </ListItem>
-                );
-              })
+                  return (
+                    <ListItem key={`graduate-describe_me-${i}`}>
+                      <ListItemText secondary={description} />
+                    </ListItem>
+                  );
+                })
+                : null
+              }
             }
-          </List>
+        </List>
         </List>
       </Box>
     </Box>

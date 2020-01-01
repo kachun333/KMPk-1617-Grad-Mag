@@ -61,6 +61,7 @@ function capitalizeFirstLetter(string) {
 }
 
 function NavbarMobile() {
+  const verified = useSelector(state => state.firebase.profile.verified);
   //set AppBar Title
   const [title, setTitle] = useState("Our Promise");
   const location = useLocation();
@@ -153,7 +154,18 @@ function NavbarMobile() {
         >
           committee
           </Button>
-
+        {!verified ? 
+          (<Button
+            component={NavLink}
+            to="/auth/verify"
+            activeClassName={classes.active}
+            className={classes.tab}
+            onClick={handleCloseMenu}
+          >
+            verify
+          </Button>)
+          : null
+        }
         {isLoggedin ? 
           (<Button
             activeClassName={classes.active}
