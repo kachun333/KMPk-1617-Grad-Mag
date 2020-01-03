@@ -150,12 +150,12 @@ function Login() {
             required
           />
           <Box id="login-help" className={classes.help}>
-            <Typography component="div" variant="body1" color="inherit">
+            <Typography component="div" variant="body2" color="inherit">
               <Link href="#" onClick={(e) => { e.preventDefault(); history.push("/auth/reset"); }}>
                 Forget password
               </Link>
             </Typography>
-            <Typography component="div" variant="body1" color="inherit">
+            <Typography component="div" variant="body2" color="inherit">
               <Link href="#" onClick={(e) => { e.preventDefault(); history.push("/auth/create"); }}>
                 Create new account
               </Link>

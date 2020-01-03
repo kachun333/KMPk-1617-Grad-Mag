@@ -145,7 +145,7 @@ function Committee(props) {
                         </Typography>
                           <ul>
                             {dept.jd.map((role, i) => (
-                              <li key={i} ><Typography variant="body1">
+                              <li key={i} ><Typography variant="body2">
                                 {role}</Typography></li>
                             ))}
                           </ul>
@@ -154,7 +154,7 @@ function Committee(props) {
                         </Typography>
                           <ul>
                             {dept.preference.map((pref, i) => (
-                              <li key={i} ><Typography variant="body1">
+                              <li key={i} ><Typography variant="body2">
                                 {pref}</Typography></li>
                             ))}
                           </ul>

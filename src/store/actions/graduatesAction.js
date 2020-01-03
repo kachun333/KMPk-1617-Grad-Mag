@@ -10,8 +10,6 @@ export const setGraduates = ({ firebase }, datasource) => {
 export const filterGraduates = (searchOptions) => {
   return (dispatch, getState) => {
     const graduates = getState().graduates.data;
-    console.log("graduates is ", graduates)
-    console.log("searchOptions is ", searchOptions)
     const filteredItems = filterItems(graduates, searchOptions)
     const asyncFunction = () => dispatch({ type: "FILTER_GRADUATES", filteredItems });
     AwesomeDebouncePromise(
@@ -59,7 +57,6 @@ function filterItem(item, searchOptions) {
   if (
     Object.values(item).some(values => {
       if (typeof values.toString()) {
-        debugger
         values
           .toString()
           .toLowerCase()

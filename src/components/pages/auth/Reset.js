@@ -52,12 +52,12 @@ function Create() {
             This feature is not yet ready, so please don't lost your password
           </Typography>
           <Box id="create-help" className={classes.help}>
-            <Typography component="div" variant="body1" color="inherit">
+            <Typography component="div" variant="body2" color="inherit">
               <Link href="#" onClick={(e) => { e.preventDefault(); history.push("/auth/create"); }}>
                 Create new account
               </Link>
             </Typography>
-            <Typography component="div" variant="body1" color="inherit">
+            <Typography component="div" variant="body2" color="inherit">
               <Link href="#" onClick={(e) => { e.preventDefault(); history.push("/auth/login"); }}>
                 Already have an account? Sign in instead
               </Link>

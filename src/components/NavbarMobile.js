@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import Drawer from '@material-ui/core/Drawer';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
@@ -13,7 +13,7 @@ import ArrowForward from '@material-ui/icons/ArrowForward';
 // import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 // import Brightness4 from '@material-ui/icons/Brightness4';
 // import Brightness7 from '@material-ui/icons/Brightness7';
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector } from 'react-redux'
 import Logo from '../assets/images/logo.png';
 import DefaultAvatar from '../assets/images/favicon.png';
@@ -56,19 +56,10 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
 function NavbarMobile() {
   const verified = useSelector(state => state.firebase.profile.verified);
   //set AppBar Title
-  const [title, setTitle] = useState("Our Promise");
-  const location = useLocation();
-  useEffect(() => {
-    let newTitle = capitalizeFirstLetter(location.pathname.split("/")[1]);
-    setTitle(newTitle);
-  }, [location])
+  const [title] = useState("Our Promise");
 
   const [isOpen, setIsOpen] = useState(false);
   const classes = useStyles();

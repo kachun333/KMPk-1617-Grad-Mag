@@ -10,7 +10,7 @@ import {
   IconButton,
   Box,
 } from "@material-ui/core";
-import Close from '@material-ui/icons/Close';
+import ArrowBack from '@material-ui/icons/ArrowBack';
 import Cake from '@material-ui/icons/Cake';
 import Email from '@material-ui/icons/Email';
 import Phone from '@material-ui/icons/Phone';
@@ -19,9 +19,7 @@ import Sms from '@material-ui/icons/Sms';
 import LocalFlorist from '@material-ui/icons/People';
 import PanTool from '@material-ui/icons/PanTool';
 import axios from 'axios';
-import { useSelector, useDispatch } from 'react-redux';
-import { setGraduate } from "../../store/actions/graduatesAction";
-import { useFirestoreConnect, useFirebase } from 'react-redux-firebase';
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
@@ -60,8 +58,8 @@ const useStyles = makeStyles(theme => ({
     color: "#FFF",
   },
   image: {
-    maxWidth: "100%",
-    maxHeight: "100%",
+    // maxWidth: "100%",
+    maxHeight: "calc(100vh - 64px)",
   },
   list: {
     height: "100%",
@@ -82,20 +80,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function GraduateDetails() {
-  // const dispatch = useDispatch();
-  // const firebase = useFirebase();
-
-  // useFirestoreConnect('graduates');
-  // const datasource = useSelector(state => state.firestore.ordered.graduates);
-  // const getGraduate = useCallback(
-  //   datasource => dispatch(setGraduate({ firebase }, datasource)),
-  //   [firebase, dispatch]
-  // )
-
-  // useEffect(() => {
-  //     getGraduate(datasource);
-  // }, [getGraduate, datasource])
-  // const graduate = useSelector(state => state.graduates.graduate);
 
   const { id } = useParams();
   const [graduate, setGraduate] = useState({});
@@ -107,24 +91,20 @@ function GraduateDetails() {
       .catch(error => {
         console.log(error);
       });
-  }, [])
+  }, [id]);
 
-
-  console.log("selected graduate is ", graduate);
-  const handleClose = () => {
-    console.log("handle close");
-  }
   const classes = useStyles();
-  // console.log("info object is ", info.phone);
   return (
     <Box className={classes.container}>
       <Box id="graduate-image" className={classes.imageBox}>
         <Toolbar className={classes.toolbar}>
-          <IconButton edge="start" onClick={handleClose} aria-label="close">
-            <Close className={classes.icon} />
+          <IconButton edge="start" aria-label="close">
+            <Link to="/graduates">
+              <ArrowBack className={classes.icon} />
+            </Link>
           </IconButton>
         </Toolbar>
-        <img className={classes.image} src={null} alt={graduate ? graduate.name : ""} />
+        <img className={classes.image} src={graduate.image || null} alt={graduate ? graduate.name : ""} />
       </Box>
       <Box className={classes.list}>
         <Box id="graduate-name" className={classes.listHeader}>
@@ -135,79 +115,42 @@ function GraduateDetails() {
             {graduate ? graduate.name : ""}
           </Typography>
         </Box>
-        {/* {
-          typeof graduate ?
-            <List>
-              <ListItem id="graduate-phone">
-                <ListItemIcon><Phone /></ListItemIcon>
-                <ListItemText primary="Phone" secondary={graduate ? graduate.phone : ""} />
-              </ListItem>
-              <ListItem id="graduate-email">
-                <ListItemIcon><Email /></ListItemIcon>
-                <ListItemText primary="Email" secondary={graduate ? graduate.email : ""} />
-              </ListItem>
-              <ListItem id="graduate-birthday">
-                <ListItemIcon><Cake /></ListItemIcon>
-                <ListItemText primary="Birthday" secondary={graduate ? graduate.birthday : ""} />
-              </ListItem>
-              <ListItem id="graduate-tutorial">
-                <ListItemIcon><Domain /></ListItemIcon>
-                <ListItemText primary="Tutorial Class" secondary={graduate ? graduate.tutorial : ""} />
-              </ListItem>
-              <ListItem id="graduate-one_liner">
-                <ListItemIcon><PanTool /></ListItemIcon>
-                <ListItemText primary="One Liner" secondary={graduate ? graduate.one_liner : ""} />
-              </ListItem>
-              <ListItem id="graduate-message-title">
-                <ListItemIcon><Sms /></ListItemIcon>
-                <ListItemText primary="Message" />
-              </ListItem>
-              <ListItem id="graduate-message-content">
-                <ListItemText secondary={graduate ? graduate.message : ""} />
-              </ListItem>
-              <ListItem id="graduate-describe_me">
-                <ListItemIcon><LocalFlorist /></ListItemIcon>
-                <ListItemText primary="Describe me" />
-              </ListItem>
-            </List>
-            : null
-        } */}
         <List>
           <ListItem id="graduate-phone">
             <ListItemIcon><Phone /></ListItemIcon>
-            <ListItemText primary="Phone" secondary={graduate? graduate.phone : ""} />
+            <ListItemText primary="Phone" secondary={graduate ? graduate.phone : ""} />
           </ListItem>
           <ListItem id="graduate-email">
             <ListItemIcon><Email /></ListItemIcon>
-            <ListItemText primary="Email" secondary={graduate? graduate.email : ""} />
+            <ListItemText primary="Email" secondary={graduate ? graduate.email : ""} />
           </ListItem>
           <ListItem id="graduate-birthday">
             <ListItemIcon><Cake /></ListItemIcon>
-            <ListItemText primary="Birthday" secondary={graduate? graduate.birthday : ""} />
+            <ListItemText primary="Birthday" secondary={graduate ? graduate.birthday : ""} />
           </ListItem>
           <ListItem id="graduate-tutorial">
             <ListItemIcon><Domain /></ListItemIcon>
-            <ListItemText primary="Tutorial Class" secondary={graduate? graduate.tutorial : ""} />
+            <ListItemText primary="Tutorial Class" secondary={graduate ? graduate.tutorial : ""} />
           </ListItem>
           <ListItem id="graduate-one_liner">
             <ListItemIcon><PanTool /></ListItemIcon>
-            <ListItemText primary="One Liner" secondary={graduate? graduate.one_liner : ""} />
+            <ListItemText primary="One Liner" secondary={graduate ? graduate.one_liner : ""} />
           </ListItem>
           <ListItem id="graduate-message-title">
             <ListItemIcon><Sms /></ListItemIcon>
             <ListItemText primary="Message" />
           </ListItem>
           <ListItem id="graduate-message-content">
-            <ListItemText secondary={graduate? graduate.message : ""} />
+            <ListItemText secondary={graduate ? graduate.message : ""} />
           </ListItem>
           <ListItem id="graduate-describe_me">
             <ListItemIcon><LocalFlorist /></ListItemIcon>
             <ListItemText primary="Describe me" />
           </ListItem>
           <List component="div" disablePadding>
-        {
+            {
               graduate.describe_me ?
-              graduate.describe_me.map((description, i) => {
+                graduate.describe_me.map((description, i) => {
                   return (
                     <ListItem key={`graduate-describe_me-${i}`}>
                       <ListItemText secondary={description} />
@@ -215,9 +158,8 @@ function GraduateDetails() {
                   );
                 })
                 : null
-              }
             }
-        </List>
+          </List>
         </List>
       </Box>
     </Box>

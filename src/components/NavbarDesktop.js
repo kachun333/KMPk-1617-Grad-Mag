@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Box from '@material-ui/core/Box';
 import Toolbar from '@material-ui/core/Toolbar';
 import Avatar from '@material-ui/core/Avatar';
@@ -12,7 +12,7 @@ import makeStyles from "@material-ui/styles/makeStyles";
 // import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 // import Brightness4 from '@material-ui/icons/Brightness4';
 // import Brightness7 from '@material-ui/icons/Brightness7';
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Logo from '../assets/images/logo.png';
 import DefaultAvatar from '../assets/images/favicon.png';
@@ -48,23 +48,19 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 function NavbarDesktop() {
 
   const isLoggedin = useSelector(state => state.firebase.auth.uid);
   const avatar = useSelector(state => state.firebase.profile.avatarUrl);
   //set AppBar Title
-  const [title, setTitle] = useState("三年之约 Our Promise");
-  const location = useLocation();
-  useEffect(() => {
-    let newTitle = capitalizeFirstLetter(location.pathname.split("/")[1]);
-    if (newTitle) {
-      setTitle(newTitle);
-    }
-  }, [location])
+  const [title] = useState("三年之约 Our Promise");
+  // useEffect(() => {
+  //   let newTitle = capitalizeFirstLetter(location.pathname.split("/")[1]);
+  //   if (newTitle) {
+  //     setTitle(newTitle);
+  //   }
+  // }, [location])
 
   const [avatarMenu, setAvatarMenu] = useState(null);
   const classes = useStyles();
@@ -80,7 +76,7 @@ function NavbarDesktop() {
       <Button id="logo" component={NavLink} to="/">
         <img alt="logo" src={Logo} className={classes.logo} />
       </Button>
-      <Typography variant="h5" className={classes.title}>
+      <Typography variant="h6" className={classes.title}>
         {title}
       </Typography>
       <Box

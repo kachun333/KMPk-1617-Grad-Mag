@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React from "react";
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -10,9 +10,7 @@ import Container from '@material-ui/core/Container';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import makeStyles from "@material-ui/styles/makeStyles";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
-import { useFirebase, useFirestoreConnect } from 'react-redux-firebase';
-import { getCards } from "../../store/actions/appActions";
+import { useSelector } from 'react-redux';
 import Banner from '../common/Banner';
 
 // component level styling
@@ -75,15 +73,6 @@ const features = [
 ]
 function Home() {
   const displayName = useSelector(state => state.firebase.profile.displayName);
-
-  const dispatch = useDispatch();
-  const firebase = useFirebase();
-
-  const loadCards = useCallback(
-    datasource => dispatch(getCards({ firebase }, datasource)),
-    [dispatch]
-  )
-
 
   const classes = useStyles();
   return (
@@ -149,8 +138,8 @@ function Home() {
             </Typography>
           <ul>
             {
-              features.map((feature) => (
-                (<li><Typography variant="subtitle1">{feature}</Typography></li>)
+              features.map((feature,i) => (
+                (<li key={i}><Typography variant="subtitle1">{feature}</Typography></li>)
               ))
             }
           </ul>

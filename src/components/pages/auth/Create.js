@@ -116,12 +116,12 @@ function Create() {
             required
           />
           <Box id="create-help" className={classes.help}>
-            <Typography component="div" variant="body1" color="inherit">
+            <Typography component="div" variant="body2" color="inherit">
               <Link href="#" onClick={(e) => { e.preventDefault(); history.push("/auth/reset"); }}>
                 Forget password
               </Link>
             </Typography>
-            <Typography component="div" variant="body1" color="inherit">
+            <Typography component="div" variant="body2" color="inherit">
               <Link href="#" onClick={(e) => { e.preventDefault(); history.push("/auth/login"); }}>
                 Already have an account? Sign in instead
               </Link>

@@ -115,7 +115,7 @@ function Verify() {
               onChange={(e) => setCredentials({ ...credentials, event2: e.currentTarget.value })}
             />
             <Box id="login-help" className={classes.help}>
-              <Typography component="div" variant="body1" color="inherit">
+              <Typography component="div" variant="body2" color="inherit">
                 <Link href="#" onClick={() => { setDialog({title:"Need Hint?", description:"Cultural Event Name: TrailsO*C****** & CNY Event Event Name: B**ss** "}) }}>
                   Need hint?
                 </Link>
