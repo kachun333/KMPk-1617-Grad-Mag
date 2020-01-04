@@ -97,7 +97,7 @@ function App(props) {
             <Route path="/graduates" exact component={Graduates} />
             <Route path="/graduates/:id" exact component={GraduateDetails} />
             <Route path="/committee" exact component={Committee} />
-            <Route path="/committee/register/:dept" exact component={CommitteeRegister} />
+            <Route path="/committee/register" exact component={CommitteeRegister} />
             <Route component={PageNotFound} />
           </Switch>
           <Footer />

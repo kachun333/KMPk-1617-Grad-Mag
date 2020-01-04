@@ -135,7 +135,7 @@ function Committee(props) {
                 <Grid item key={i} xs={12} md={6}>
                   <Card className={classes.card}>
                     <CardActionArea className={classes.card}>
-                      <Link to={dept.link} className={classes.link}>
+                      <Link to={`committee/register?dept=${dept.name.toLowerCase()}`} className={classes.link}>
                         <CardContent className={classes.card}>
                           <Typography gutterBottom variant="h4" color="primary">
                             {dept.name} Department

@@ -11,7 +11,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import makeStyles from "@material-ui/styles/makeStyles";
 import useTheme from "@material-ui/styles/useTheme";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useFirestore } from 'react-redux-firebase'
 import { useSelector } from 'react-redux';
 import CustomDialog from "../common/CustomDialog";
@@ -83,7 +83,12 @@ function CommitteeRegister() {
     concerns: "",
   };
 
-  const { dept } = useParams();
+  const location = useLocation();
+  const search = location.search; // could be '?foo=bar'
+  const params = new URLSearchParams(search);
+  const dept = params.get('dept');
+
+  // const { dept } = useParams();
   if (dept) {
     defaultData.department = dept;
   }

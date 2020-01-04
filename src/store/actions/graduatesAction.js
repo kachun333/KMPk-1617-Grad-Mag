@@ -1,5 +1,3 @@
-import AwesomeDebouncePromise from 'awesome-debounce-promise';
-
 export const setGraduates = ({ firebase }, datasource) => {
   return (dispatch) => {
     const graduates = getImages(firebase, datasource);
@@ -9,13 +7,10 @@ export const setGraduates = ({ firebase }, datasource) => {
 
 export const filterGraduates = (searchOptions) => {
   return (dispatch, getState) => {
+    console.log("inside filter graduates ");
     const graduates = getState().graduates.data;
     const filteredItems = filterItems(graduates, searchOptions)
-    const asyncFunction = () => dispatch({ type: "FILTER_GRADUATES", filteredItems });
-    AwesomeDebouncePromise(
-      asyncFunction,
-      500
-    );
+    dispatch({ type: "FILTER_GRADUATES", filteredItems });
   }
 };
 

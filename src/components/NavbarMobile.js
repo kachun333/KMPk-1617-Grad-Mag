@@ -145,7 +145,7 @@ function NavbarMobile() {
         >
           committee
           </Button>
-        {!verified ? 
+        {(!verified && isLoggedin) ? 
           (<Button
             component={NavLink}
             to="/auth/verify"

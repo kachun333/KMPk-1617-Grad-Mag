@@ -69,6 +69,9 @@ function Verify() {
   const [dialog, setDialog] = useState(null);
   const [credentials, setCredentials] = useState({ uid: "", event1: "", event2: "" });
   const handleSubmit = (e) => {
+    if (!uid) {
+      history.push("/")
+    }
     credentials.uid = uid;
     axios.post(
       "https://us-central1-ourpromise.cloudfunctions.net/api/verify",

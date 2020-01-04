@@ -3,8 +3,8 @@ const admin = require('firebase-admin');
 const credentials = require('./credentials.json')
 const express = require('express');
 const cors = require('cors');
-const {Storage} = require('@google-cloud/storage')
-const gcs = new Storage ({keyFilename: './ourpromise-25c45a080fbc.json' });
+const { Storage } = require('@google-cloud/storage')
+const gcs = new Storage({ keyFilename: './ourpromise-25c45a080fbc.json' });
 const serviceAccount = require("./ourpromise-25c45a080fbc.json");
 
 admin.initializeApp({
@@ -36,11 +36,46 @@ app.post('/verify', (req, res) => {
   });
 });
 
+app.get('/graduates', (req, res) => {
+  let docCount = 0;
+  let result = [];
+  return new Promise((resolve, reject) => {
+    admin.firestore().collection('graduates').get()
+      .then(snapshot => {
+        snapshot.forEach(doc => {
+          let data = doc.data();
+          let birthday = new Date(data.birthday._seconds * 1000 + 28800000); //add 8 hours
+          data = {
+            ...data,
+            birthday: birthday.toDateString(),
+            id: doc.id,
+          }
+          const bucket = gcs.bucket("gs://ourpromise.appspot.com/graduates");
+          const file = bucket.file(`${data.name}.jpg`);
+          return file.getSignedUrl({
+            action: 'read',
+            expires: '03-09-2491'
+          })
+            .then(signedUrls => {
+              data.image = signedUrls[0]
+              result.push(data);
+              docCount++;
+              if (docCount === 156){
+                res.send(result);
+              }
+            })
+            .catch(err => console.log("fail to get graduate image url: ", err));
+        })
+      })
+      .catch(error => console.log("fail to get graduate info: ", error))
+  })
+});
+
 app.get('/graduates/:id', (req, res) => {
   admin.firestore().collection('graduates').doc(req.params.id).get()
     .then(snapshot => {
       let data = snapshot.data();
-      let birthday = new Date(data.birthday._seconds*1000);
+      let birthday = new Date(data.birthday._seconds * 1000 + 28800000); //add 8 hours
       data = {
         ...data,
         birthday: birthday.toDateString()
@@ -76,7 +111,7 @@ app.get('/execute', (req, res) => {
       "email": element["email"],
       "message": element["message"],
       "one-liner": element["one-liner"],
-      "describe_me": [element["describe me1"],element["describe me 2"],element["describe me 3"], ]
+      "describe_me": [element["describe me1"], element["describe me 2"], element["describe me 3"],]
     };
     admin.firestore().collection('graduates').doc(`${element.id}`).set(final);
   });
