@@ -175,7 +175,7 @@ function Login() {
       {
         dialog ?
           <CustomDialog
-            open={dialog}
+            open={Boolean(dialog)}
             onClose={() => { setDialog(null) }}
             title={dialog.title}
             description={dialog.description}

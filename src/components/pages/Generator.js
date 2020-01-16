@@ -1,5 +1,4 @@
-import React, { useState, Fragment } from "react";
-import VerticalBanner from "../common/VerticalBanner";
+import React, { useState } from "react";
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
@@ -7,9 +6,6 @@ import {
 import {
   Container,
   Switch,
-  createMuiTheme,
-  MuiThemeProvider,
-  Slider,
   Box,
   TextField,
   Typography,
@@ -266,7 +262,7 @@ function Generator() {
       {
         dialog ?
           <CustomDialog
-            open={dialog}
+            open={Boolean(dialog)}
             onClose={() => { setDialog(null) }}
             title={dialog.title}
             description={dialog.description}

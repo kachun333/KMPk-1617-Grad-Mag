@@ -20,7 +20,7 @@ app.use(cors({ origin: true }));
 app.post('/verify', (req, res) => {
   const { uid, event1, event2 } = req.body
   if (req.method !== 'POST') {
-    return res.status(500).send("Invalid http method");
+    return res.status(405).send("Invalid http method");
   };
 
   return new Promise((resolve, reject) => {
@@ -36,39 +36,55 @@ app.post('/verify', (req, res) => {
   });
 });
 
+// build multiple CRUD interfaces:
+app.post('/committee/registration', (req, res) => {
+  const { uid, event1, event2 } = req.body
+  if (req.method !== 'POST') {
+    return res.status(405).send("Invalid http method");
+  };
+  let userRef = admin.firestore().collection('users').doc(req.body.uid);
+  userRef.set({
+    committee_registration: true
+  }, { merge: true });
+  admin.firestore().collection('committee_registration').add(req.body)
+    .then((ref) => { res.send(ref) })
+    .catch(() => res.status(500).send("Internal problem"));
+});
+
 app.get('/graduates', (req, res) => {
-  let docCount = 0;
+  // let docCount = 0;
   let result = [];
-  return new Promise((resolve, reject) => {
-    admin.firestore().collection('graduates').get()
-      .then(snapshot => {
-        snapshot.forEach(doc => {
-          let data = doc.data();
-          let birthday = new Date(data.birthday._seconds * 1000 + 28800000); //add 8 hours
-          data = {
-            ...data,
-            birthday: birthday.toDateString(),
-            id: doc.id,
-          }
-          const bucket = gcs.bucket("gs://ourpromise.appspot.com/graduates");
-          const file = bucket.file(`${data.name}.jpg`);
-          return file.getSignedUrl({
-            action: 'read',
-            expires: '03-09-2491'
-          })
-            .then(signedUrls => {
-              data.image = signedUrls[0]
-              result.push(data);
-              docCount++;
-              if (docCount === 156){
-                res.send(result);
-              }
-            })
-            .catch(err => console.log("fail to get graduate image url: ", err));
+  // return new Promise((resolve, reject) => {
+  admin.firestore().collection('graduates').get()
+    .then(snapshot => {
+      snapshot.forEach(doc => {
+        let data = doc.data();
+        let birthday = new Date(data.birthday._seconds * 1000 + 28800000); //add 8 hours
+        data = {
+          ...data,
+          birthday: birthday.toDateString(),
+          id: doc.id,
+        }
+        const bucket = gcs.bucket("gs://ourpromise.appspot.com/graduates");
+        const file = bucket.file(`${data.name}.jpg`);
+        return file.getSignedUrl({
+          action: 'read',
+          expires: '03-09-2491'
         })
+          .then(signedUrls => {
+            data.image = signedUrls[0]
+            result.push(data);
+            // docCount++;
+            // if (docCount === 156) {
+            //   res.send(result);
+            // }
+          })
+          .catch(err => console.log("fail to get graduate image url: ", err));
       })
-      .catch(error => console.log("fail to get graduate info: ", error))
-  })
+    })
+    .catch(error => console.log("fail to get graduate info: ", error))
+  res.send(result);
+  // })
 });
 
 app.get('/graduates/:id', (req, res) => {
@@ -95,27 +111,57 @@ app.get('/graduates/:id', (req, res) => {
     .catch(error => console.log("fail to get graduate info: ", error))
 });
 
-app.get('/execute', (req, res) => {
-  // const test = csvdata.slice(0,1);
-  csvdata.forEach((element) => {
-    const splitting = element["birthday"].split("-");
-    let birthday = new Date(splitting[0], splitting[1], splitting[2]);
-    let final = {
-      "name_ch": element["name_ch"],
-      "name": element["name"],
-      "gender": element["gender"],
-      "lecture": element["lecture"],
-      "tutorial": element["tutorial"],
-      "phone": element["phone"],
-      "birthday": birthday,
-      "email": element["email"],
-      "message": element["message"],
-      "one-liner": element["one-liner"],
-      "describe_me": [element["describe me1"], element["describe me 2"], element["describe me 3"],]
-    };
-    admin.firestore().collection('graduates').doc(`${element.id}`).set(final);
-  });
+// app.get('/execute', (req, res) => {
+//   // const test = csvdata.slice(0,1);
+//   csvdata.forEach((element) => {
+//     const splitting = element["birthday"].split("-");
+//     let birthday = new Date(splitting[0], splitting[1], splitting[2]);
+//     let final = {
+//       "name_ch": element["name_ch"],
+//       "name": element["name"],
+//       "gender": element["gender"],
+//       "lecture": element["lecture"],
+//       "tutorial": element["tutorial"],
+//       "phone": element["phone"],
+//       "birthday": birthday,
+//       "email": element["email"],
+//       "message": element["message"],
+//       "one-liner": element["one-liner"],
+//       "describe_me": [element["describe me1"], element["describe me 2"], element["describe me 3"],]
+//     };
+//     admin.firestore().collection('graduates').doc(`${element.id}`).set(final);
+//   });
+// });
+
+app.get('/graduates/speical', (req, res) => {
+  // return new Promise((resolve, reject) => {
+  getGraduatesSpecial().then(res.send(result));
+  // })
+
 });
+function getGraduatesSpecial() {
+  let result = [];
+  admin.firestore().collection('graduates').get()
+    .then(snapshot => {
+      snapshot.forEach(doc => {
+        if (doc.id.toString.length > 4) {
+          console.log(data);
+          let data = doc.data();
+          let birthday = new Date(data.birthday._seconds * 1000);
+          data = {
+            ...data,
+            birthday: birthday.toDateString(),
+            id: doc.id,
+          }
+          result.push(data);
+          docCount++;
+        }
+      })
+    })
+    .catch(error => console.log("fail to get graduate info: ", error))
+
+  return result;
+}
 
 app.post('/', (req, res) => res.send(Widgets.create()));
 // Expose Express API as a single Cloud Function:
