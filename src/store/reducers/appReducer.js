@@ -1,17 +1,14 @@
 const initState = {
-  title: "Our Promise",
-  cards: null,
+  appTitle: "Our Promise",
 }
 
 const appReducer = (state = initState, action) => {
   switch (action.type) {
-    case 'SET_TITLE':
-      return state;
-    case 'SET_CARDS':
+    case 'SET_APPTITLE':
       return {
         ...state,
-        cards: action.cards,
-      }
+        appTitle: action.newAppTitle,
+      };
     default:
       return state;
   }

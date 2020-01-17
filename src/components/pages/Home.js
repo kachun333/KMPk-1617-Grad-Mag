@@ -73,19 +73,20 @@ const features = [
 ]
 function Home() {
   const displayName = useSelector(state => state.firebase.profile.displayName);
-
   const classes = useStyles();
   return (
-    <div>
+    <>
       <Banner banner="home" />
       <Container className={classes.container}>
-        {displayName ? (
-          <Box id="greet" className={classes.section}>
-            <Typography variant="h3" className={classes.paragraph}>
-              {displayName || "Hey guys"}, 别来无恙？
+        {displayName ?
+          <>
+            <Box id="greet" className={classes.section}>
+              <Typography variant="h3" className={classes.paragraph}>
+                {displayName || "Hey guys"}, 别来无恙？
             </Typography>
-          </Box>
-        ) : null
+            </Box>
+          </>
+          : null
         }
         <Box id="home-introduction" className={classes.section}>
           <Typography variant="h3" className={classes.paragraph}>
@@ -138,45 +139,46 @@ function Home() {
         <Box id="new" className={classes.section}>
           <Typography variant="h3" className={classes.paragraph}>
             What's new!
-            </Typography>
+          </Typography>
           <ul>
             {
               features.map((feature, i) => (
-                (<li key={i}><Typography variant="subtitle1">{feature}</Typography></li>)
+                <>
+                  <li key={i}><Typography variant="subtitle1">{feature}</Typography></li>
+                </>
               ))
             }
           </ul>
         </Box>
         <Box id="content-cards" className={classes.section}>
           <Grid container spacing={4}>
-            {cards ? (
-              cards.map((card, i) => (
-                <Grid item key={i} xs={12} md={6}>
-                  <Card>
-                    <CardActionArea className={classes.card}>
-                      <Link to={card.link}>
-                        <CardMedia
-                          className={classes.cardMedia}
-                          image={card.image}
-                          title={card.title}
-                        />
-                        {/* <div className={classes.overlay}></div>
-                          <div className={classes.cardContent}>
-                            <Typography gutterBottom variant="h5" color="primary">
-                              {card.title}
-                            </Typography>
-                          </div> */}
-                      </Link>
-                    </CardActionArea>
-                  </Card>
-                </Grid>
-              ))) : (
-                <CircularProgress />
-              )}
+            {cards ?
+              <>
+                {
+                  cards.map((card, i) => (
+                    <Grid item key={i} xs={12} md={6}>
+                      <Card>
+                        <CardActionArea className={classes.card}>
+                          <Link to={card.link}>
+                            <CardMedia
+                              className={classes.cardMedia}
+                              image={card.image}
+                              title={card.title}
+                            />
+                          </Link>
+                        </CardActionArea>
+                      </Card>
+                    </Grid>
+                  ))
+                }
+              </>
+              :
+              <CircularProgress />
+            }
           </Grid>
         </Box>
       </Container>
-    </div >
+    </>
   );
 }
 

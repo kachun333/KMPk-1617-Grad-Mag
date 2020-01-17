@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import Drawer from '@material-ui/core/Drawer';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
@@ -13,12 +13,12 @@ import ArrowForward from '@material-ui/icons/ArrowForward';
 // import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 // import Brightness4 from '@material-ui/icons/Brightness4';
 // import Brightness7 from '@material-ui/icons/Brightness7';
-import { NavLink } from "react-router-dom";
-import { useSelector } from 'react-redux'
+import { NavLink, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
+import { useFirebase } from 'react-redux-firebase';
+import { setAppTitle } from '../store/actions/appActions';
 import Logo from '../assets/images/logo.png';
 import DefaultAvatar from '../assets/images/favicon.png';
-import { useFirebase } from 'react-redux-firebase';
-
 // component level styling using withStyles
 const useStyles = makeStyles((theme) => ({
   appbar: {
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     height: "40px",
   },
-  title: {
+  appTitle: {
     margin: `0 ${theme.spacing(2)}px`,
     flexGrow: 1,
   },
@@ -57,12 +57,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function NavbarMobile() {
-  const verified = useSelector(state => state.firebase.profile.verified);
-  //set AppBar Title
-  const [title] = useState("Our Promise");
-
-  const [isOpen, setIsOpen] = useState(false);
   const classes = useStyles();
+  const [isOpen, setIsOpen] = useState(false);
+  const verified = useSelector(state => state.firebase.profile.verified);
+  const isLoggedin = useSelector(state => state.firebase.auth.uid);
+  const avatar = useSelector(state => state.firebase.profile.avatarUrl);
+  //set AppBar Title
+  const dispatch = useDispatch();
+  const appTitle = useSelector(state => state.app.appTitle);
+  const location = useLocation();
+  const currentUrl = location.pathname;
+  useEffect(() => {
+    dispatch(setAppTitle(currentUrl))
+  }, [currentUrl])
 
   const handleOpenMenu = () => {
     setIsOpen(true)
@@ -70,9 +77,6 @@ function NavbarMobile() {
   const handleCloseMenu = () => {
     setIsOpen(false)
   };
-
-  const isLoggedin = useSelector(state => state.firebase.auth.uid);
-  const avatar = useSelector(state => state.firebase.profile.avatarUrl);
 
   const firebase = useFirebase();
   const handleLogout = () => {
@@ -85,8 +89,8 @@ function NavbarMobile() {
         <IconButton id="logo" component={NavLink} to="/">
           <img alt="logo" src={Logo} className={classes.logo} />
         </IconButton>
-        <Typography variant="h5" className={classes.title}>
-          {title}
+        <Typography variant="h5" className={classes.appTitle}>
+          {appTitle}
         </Typography>
         <IconButton id="sidenav-btn" onClick={handleOpenMenu}>
           <MenuIcon />
