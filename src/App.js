@@ -35,6 +35,15 @@ function HideOnScroll(props) {
     </Slide>
   );
 }
+function ShowOnScroll(props) {
+  const { children } = props;
+  const trigger = useScrollTrigger();
+  return (
+    <Slide appear={false} direction="up" in={trigger}>
+      {children}
+    </Slide>
+  );
+}
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -49,9 +58,6 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
   },
   fab: {
-    // position: 'absolute',
-    // bottom: '16px',
-    // right: '16px',
     position: 'fixed',
     top: 'auto',
     right: 20,
@@ -103,30 +109,30 @@ function App(props) {
     <Router>
       <MuiThemeProvider theme={muiTheme}>
         <Suspense fallback={null}>
-          <div className={classes.root}>
-            <CssBaseline />
-            <ScrollToTop />
-            <HideOnScroll {...props}>
-              <AppBar color="inherit">
-                <Hidden smDown><NavbarDesktop /></Hidden>
-                <Hidden mdUp><NavbarMobile /></Hidden>
-              </AppBar>
-            </HideOnScroll>
-            {/* blank space under appbar & above banner */}
-            <Toolbar />
-            <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/auth/login" exact component={Login} />
-              <Route path="/auth/verify" exact component={Verify} />
-              <Route path="/auth/create" exact component={Create} />
-              <Route path="/auth/reset" exact component={Reset} />
-              <Route path="/graduates" exact component={Graduates} />
-              <Route path="/graduates/:id" exact component={GraduateDetails} />
-              <Route path="/committee" exact component={Committee} />
-              <Route path="/committee/register" exact component={CommitteeRegister} />
-              <Route component={PageNotFound} />
-            </Switch>
-            <Footer />
+          <CssBaseline />
+          <ScrollToTop />
+          <HideOnScroll {...props}>
+            <AppBar color="inherit">
+              <Hidden smDown><NavbarDesktop /></Hidden>
+              <Hidden mdUp><NavbarMobile /></Hidden>
+            </AppBar>
+          </HideOnScroll>
+          {/* blank space under appbar & above banner */}
+          <Toolbar />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/auth/login" exact component={Login} />
+            <Route path="/auth/verify" exact component={Verify} />
+            <Route path="/auth/create" exact component={Create} />
+            <Route path="/auth/reset" exact component={Reset} />
+            <Route path="/graduates" exact component={Graduates} />
+            <Route path="/graduates/:id" exact component={GraduateDetails} />
+            <Route path="/committee" exact component={Committee} />
+            <Route path="/committee/register" exact component={CommitteeRegister} />
+            <Route component={PageNotFound} />
+          </Switch>
+          <Footer />
+          <ShowOnScroll>
             <Fab 
             className={classes.fab} 
             color="primary" 
@@ -140,7 +146,7 @@ function App(props) {
             >
               <KeyboardArrowUp />
             </Fab>
-          </div>
+          </ShowOnScroll>
         </Suspense>
       </MuiThemeProvider>
     </Router>

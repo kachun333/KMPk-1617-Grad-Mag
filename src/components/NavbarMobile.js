@@ -114,9 +114,11 @@ function NavbarMobile() {
           <IconButton onClick={handleCloseMenu}>
             <ArrowForward />
           </IconButton>
-          {isLoggedin ? (
-            <Avatar alt="me" src={avatar || DefaultAvatar} className={classes.avatar} />
-          ) :
+          {isLoggedin ?
+            <>
+              <Avatar alt="me" src={avatar || DefaultAvatar} className={classes.avatar} />
+            </>
+            :
             <Button className={classes.login} component={NavLink} to="/auth/login" variant="contained" color="primary">
               Login
             </Button>
@@ -149,26 +151,30 @@ function NavbarMobile() {
         >
           committee
           </Button>
-        {(!verified && isLoggedin) ? 
-          (<Button
-            component={NavLink}
-            to="/auth/verify"
-            activeClassName={classes.active}
-            className={classes.tab}
-            onClick={handleCloseMenu}
-          >
-            verify
-          </Button>)
+        {(!verified && isLoggedin) ?
+          <>
+            <Button
+              component={NavLink}
+              to="/auth/verify"
+              activeClassName={classes.active}
+              className={classes.tab}
+              onClick={handleCloseMenu}
+            >
+              verify
+          </Button>
+          </>
           : null
         }
-        {isLoggedin ? 
-          (<Button
-            activeClassName={classes.active}
-            className={classes.tab}
-            onClick={handleLogout}
-          >
-            logout
-          </Button>)
+        {isLoggedin ?
+          <>
+            <Button
+              activeClassName={classes.active}
+              className={classes.tab}
+              onClick={handleLogout}
+            >
+              logout
+          </Button>
+          </>
           : null
         }
         {/* <Typography className={classes.tab} variant="overline">
