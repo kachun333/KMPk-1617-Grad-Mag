@@ -112,18 +112,18 @@ function GraduateDetails() {
         <img className={classes.image} src={graduate.image || null} alt={graduate ? graduate.name : ""} />
       </Box>
       <Box className={classes.list}>
-        {
-          verified ?
-            <>
-              <Box id="graduate-name" className={classes.listHeader}>
-                <Typography variant="h4">
-                  {graduate ? graduate.name_ch : ""}
-                </Typography>
-                <Typography variant="subtitle1">
-                  {graduate ? graduate.name : ""}
-                </Typography>
-              </Box>
-              <List>
+        <Box id="graduate-name" className={classes.listHeader}>
+          <Typography variant="h4">
+            {graduate ? graduate.name_ch : ""}
+          </Typography>
+          <Typography variant="subtitle1">
+            {graduate ? graduate.name : ""}
+          </Typography>
+        </Box>
+        <List>
+          {
+            verified ?
+              <>
                 <ListItem id="graduate-phone">
                   <ListItemIcon><Phone /></ListItemIcon>
                   <ListItemText primary="Phone" secondary={graduate ? graduate.phone : ""} />
@@ -140,37 +140,41 @@ function GraduateDetails() {
                   <ListItemIcon><Domain /></ListItemIcon>
                   <ListItemText primary="Tutorial Class" secondary={graduate ? graduate.tutorial : ""} />
                 </ListItem>
-                <ListItem id="graduate-one_liner">
-                  <ListItemIcon><PanTool /></ListItemIcon>
-                  <ListItemText primary="One Liner" secondary={graduate ? graduate.one_liner : ""} />
-                </ListItem>
-                <ListItem id="graduate-message-title">
-                  <ListItemIcon><Sms /></ListItemIcon>
-                  <ListItemText primary="Message" />
-                </ListItem>
-                <ListItem id="graduate-message-content">
-                  <ListItemText secondary={graduate ? graduate.message : ""} />
-                </ListItem>
-                <ListItem id="graduate-describe_me">
-                  <ListItemIcon><LocalFlorist /></ListItemIcon>
-                  <ListItemText primary="Describe me" />
-                </ListItem>
-                <List component="div" disablePadding>
-                  {
-                    graduate.describe_me ?
-                      graduate.describe_me.map((description, i) => {
-                        return (
-                          <ListItem key={`graduate-describe_me-${i}`}>
-                            <ListItemText secondary={description} />
-                          </ListItem>
-                        );
-                      })
-                      : null
-                  }
-                </List>
-              </List>
-            </>
-            : <Unauthorized type={uid ? "verify" : "login"} />
+              </>
+              : null
+          }
+          <ListItem id="graduate-one_liner">
+            <ListItemIcon><PanTool /></ListItemIcon>
+            <ListItemText primary="One Liner" secondary={graduate ? graduate.one_liner : ""} />
+          </ListItem>
+          <ListItem id="graduate-message-title">
+            <ListItemIcon><Sms /></ListItemIcon>
+            <ListItemText primary="Message" />
+          </ListItem>
+          <ListItem id="graduate-message-content">
+            <ListItemText secondary={graduate ? graduate.message : ""} />
+          </ListItem>
+          <ListItem id="graduate-describe_me">
+            <ListItemIcon><LocalFlorist /></ListItemIcon>
+            <ListItemText primary="Describe me" />
+          </ListItem>
+          <List component="div" disablePadding>
+            {
+              graduate.describe_me ?
+                graduate.describe_me.map((description, i) => {
+                  return (
+                    <ListItem key={`graduate-describe_me-${i}`}>
+                      <ListItemText secondary={description} />
+                    </ListItem>
+                  );
+                })
+                : null
+            }
+          </List>
+        </List>
+        {
+          verified ?
+            null : <Unauthorized type={uid ? "verify" : "login"} />
         }
       </Box>
     </Box>

@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -11,7 +12,9 @@ import Container from '@material-ui/core/Container';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import makeStyles from "@material-ui/styles/makeStyles";
 import useTheme from '@material-ui/styles/useTheme';
+import Tune from '@material-ui/icons/Tune';
 import Banner from '../common/Banner';
+import CustomDialog from "../common/CustomDialog";
 import { Link } from "react-router-dom";
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
 import axios from 'axios';
@@ -33,6 +36,11 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       width: "72%",
     }
+  },
+  advancedSearch: {
+    margin: theme.spacing(1),
+    marginTop: theme.spacing(2),
+    padding: theme.spacing(2),
   },
   card: {
     margin: "4px",
@@ -116,6 +124,8 @@ function Graduates(props) {
     }, []);
   }
 
+  const [dialog, setDialog] = useState(null);
+
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
@@ -125,6 +135,9 @@ function Graduates(props) {
       <Container className={classes.container} >
         <Box id="graduates-filterOption" className={classes.section}>
           <TextField className={classes.searchBar} label="Search" margin="normal" variant="outlined" onChange={(e) => { handleChange(e.currentTarget.value) }} />
+          <Button className={classes.advancedSearch} onClick={() => { setDialog({title:"Oops.. Advanced Search Is Not For You", description:"You are required to login & verify before using this feature"}) }} >
+            <Tune />
+          </Button>
         </Box>
         <Box id="graduates-images" className={classes.section}>
           {graduatesOrdered ?
@@ -152,6 +165,17 @@ function Graduates(props) {
           }
         </Box>
       </Container>
+      {/* Display if advanced search button is clicked */}
+      {
+        dialog ?
+          <CustomDialog
+            open={Boolean(dialog)}
+            onClose={() => { setDialog(null) }}
+            title={dialog.title}
+            description={dialog.description}
+          />
+          : null
+      }
     </>
   );
 }

@@ -24,13 +24,10 @@ export default function Unauthorized(props) {
 
   let title = "";
   let buttonTitle = props.type;
-  switch (buttonTitle) {
-    case "login":
-      title = "You are required to login & verify before proceeding";
-      break;
-    case "verify":
-      title = "Please verify that you are a KMPkian before proceeding";
-      break;
+  if (buttonTitle === "login") {
+    title = "You are required to login & verify to view more content";
+  } else if (buttonTitle === "verify") {
+    title = "Please verify that you are a KMPkian to view more content";
   }
   return (
     <Card className={classes.card}>
@@ -49,11 +46,6 @@ export default function Unauthorized(props) {
         >
           {buttonTitle}
         </Button>
-        {/* <CardActions>
-          <Button size="medium" color="primary">
-            {buttonTitle}
-          </Button>
-        </CardActions> */}
       </CardContent>
     </Card>
   );

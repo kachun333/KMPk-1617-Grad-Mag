@@ -86,9 +86,9 @@ function NavbarMobile() {
   return (
     <Fragment>
       <Toolbar className={classes.appbar}>
-        <IconButton id="logo" component={NavLink} to="/">
+        <Button id="logo" component={NavLink} to="/">
           <img alt="logo" src={Logo} className={classes.logo} />
-        </IconButton>
+        </Button>
         <Typography variant="h5" className={classes.appTitle}>
           {appTitle}
         </Typography>
