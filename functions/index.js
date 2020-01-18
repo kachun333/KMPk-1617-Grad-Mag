@@ -19,151 +19,142 @@ app.use(cors({ origin: true }));
 // build multiple CRUD interfaces:
 app.post('/verify', (req, res) => {
   const { uid, event1, event2 } = req.body
-  if (req.method !== 'POST') {
-    return res.status(405).send("Invalid http method");
-  };
+  console.log("operation verify user with uid ", uid, " started");
 
-  return new Promise((resolve, reject) => {
+  res.send(new Promise((resolve, reject) => {
     if (event1 == credentials.event1 && event2 == credentials.event2) {
-      let userRef = admin.firestore().collection('users').doc(uid);
+      const userRef = admin.firestore().collection('users').doc(uid);
       userRef.set({
         verified: true
       }, { merge: true });
+      console.log("uid ", uid, "successfully verified");
       resolve(userRef.get());
     } else {
-      reject("Wrong credentials event 1:");
+      console.log("uid ", uid, "successfully verified");
+      console.log("Failed credentials are ", event1, event2);
+      reject("Invalid credentials");
     }
-  });
+  }));
 });
 
-// build multiple CRUD interfaces:
 app.post('/committee/registration', (req, res) => {
-  const { uid, event1, event2 } = req.body
-  if (req.method !== 'POST') {
-    return res.status(405).send("Invalid http method");
-  };
-  let userRef = admin.firestore().collection('users').doc(req.body.uid);
-  userRef.set({
-    committee_registration: true
-  }, { merge: true });
+  console.log("operation submit committe registration form started");
+  const { uid } = req.body
+  const userRef = admin.firestore().collection('users').doc(uid);
   admin.firestore().collection('committee_registration').add(req.body)
-    .then((ref) => { res.send(ref) })
-    .catch(() => res.status(500).send("Internal problem"));
+    .then((ref) => {
+      res.send(ref)
+      userRef.set({
+        committee_registration: true
+      }, { merge: true });
+      console.log("uid ", uid, " has successfully registered as committee");
+    })
+    .catch((e) => {
+      res.status(500).send("Internal problem")
+      console.log("uid ", uid, " fail to register as committe");
+    });
 });
 
 app.get('/graduates', (req, res) => {
-  // let docCount = 0;
-  let result = [];
-  // return new Promise((resolve, reject) => {
+  console.log("operation get all graduates started");
+  const uid = req.query.uid;
+  const authenticated = authenticatedUser(uid);
   admin.firestore().collection('graduates').get()
     .then(snapshot => {
-      snapshot.forEach(doc => {
-        let data = doc.data();
-        let birthday = new Date(data.birthday._seconds * 1000 + 28800000); //add 8 hours
-        data = {
-          ...data,
-          birthday: birthday.toDateString(),
-          id: doc.id,
-        }
-        const bucket = gcs.bucket("gs://ourpromise.appspot.com/graduates");
-        const file = bucket.file(`${data.name}.jpg`);
-        return file.getSignedUrl({
-          action: 'read',
-          expires: '03-09-2491'
-        })
-          .then(signedUrls => {
-            data.image = signedUrls[0]
-            result.push(data);
-            // docCount++;
-            // if (docCount === 156) {
-            //   res.send(result);
-            // }
+      let actions = snapshot.docs.map(doc => {
+        return new Promise((resolve, reject) => {
+          let data = doc.data();
+          const birthday = new Date(data.birthday._seconds * 1000);
+          data.birthday = birthday.toDateString();
+          data.id = doc.id;
+          const bucket = gcs.bucket("gs://ourpromise.appspot.com/graduates");
+          const file = bucket.file(`${data.name}.jpg`);
+          file.getSignedUrl({
+            action: 'read',
+            expires: '03-09-2025'
           })
-          .catch(err => console.log("fail to get graduate image url: ", err));
+            .then(signedUrls => {
+              data.image = signedUrls[0]
+              if (!authenticated) {
+                delete data.lecture;
+                delete data.tutorial;
+                delete data.phone;
+                delete data.birthday;
+                delete data.email;
+              }
+              resolve(data);
+            })
+            .catch(() => reject("fail to get graduate image url for " + data.name));
+        })
       })
+      Promise.all(actions)
+        .then(results => res.send(results))
+        .catch((e) => {
+          res.status(500).send("Internal problem")
+        });
     })
-    .catch(error => console.log("fail to get graduate info: ", error))
-  res.send(result);
-  // })
+    .catch(() => {
+      console.log("fail to get graduates info")
+      res.status(500).send([]);
+    });
 });
 
 app.get('/graduates/:id', (req, res) => {
-  admin.firestore().collection('graduates').doc(req.params.id).get()
+  const requestId = req.params.id;
+  console.log("operation get graduate with id ", requestId, " started");
+  const uid = req.query.uid;
+  const authenticated = authenticatedUser(uid);
+  admin.firestore().collection('graduates').doc(requestId).get()
     .then(snapshot => {
       let data = snapshot.data();
-      let birthday = new Date(data.birthday._seconds * 1000 + 28800000); //add 8 hours
-      data = {
-        ...data,
-        birthday: birthday.toDateString()
-      }
+      const birthday = new Date(data.birthday._seconds * 1000);
+      data.birthday = birthday.toDateString();
+      data.id = doc.id;
       const bucket = gcs.bucket("gs://ourpromise.appspot.com/graduates");
       const file = bucket.file(`${data.name}.jpg`);
-      return file.getSignedUrl({
+      file.getSignedUrl({
         action: 'read',
-        expires: '03-09-2491'
+        expires: '03-09-2025'
       })
         .then(signedUrls => {
           data.image = signedUrls[0]
+          if (!authenticated) {
+            delete data.lecture;
+            delete data.tutorial;
+            delete data.phone;
+            delete data.birthday;
+            delete data.email;
+          }
           res.send(data);
         })
-        .catch(err => console.log("fail to get graduate image url: ", err));
+        .catch(() => {
+          console.log("fail to get graduate image url for ", data.name)
+          res.status(500).send("Internal problem")
+        });
     })
-    .catch(error => console.log("fail to get graduate info: ", error))
+    .catch(error => {
+      console.log("fail to get graduates info")
+      res.status(500).send("Internal problem");
+    })
 });
 
-// app.get('/execute', (req, res) => {
-//   // const test = csvdata.slice(0,1);
-//   csvdata.forEach((element) => {
-//     const splitting = element["birthday"].split("-");
-//     let birthday = new Date(splitting[0], splitting[1], splitting[2]);
-//     let final = {
-//       "name_ch": element["name_ch"],
-//       "name": element["name"],
-//       "gender": element["gender"],
-//       "lecture": element["lecture"],
-//       "tutorial": element["tutorial"],
-//       "phone": element["phone"],
-//       "birthday": birthday,
-//       "email": element["email"],
-//       "message": element["message"],
-//       "one-liner": element["one-liner"],
-//       "describe_me": [element["describe me1"], element["describe me 2"], element["describe me 3"],]
-//     };
-//     admin.firestore().collection('graduates').doc(`${element.id}`).set(final);
-//   });
-// });
-
-app.get('/graduates/speical', (req, res) => {
-  // return new Promise((resolve, reject) => {
-  getGraduatesSpecial().then(res.send(result));
-  // })
-
-});
-function getGraduatesSpecial() {
-  let result = [];
-  admin.firestore().collection('graduates').get()
-    .then(snapshot => {
-      snapshot.forEach(doc => {
-        if (doc.id.toString.length > 4) {
-          console.log(data);
-          let data = doc.data();
-          let birthday = new Date(data.birthday._seconds * 1000);
-          data = {
-            ...data,
-            birthday: birthday.toDateString(),
-            id: doc.id,
-          }
-          result.push(data);
-          docCount++;
-        }
-      })
-    })
-    .catch(error => console.log("fail to get graduate info: ", error))
-
-  return result;
-}
-
-app.post('/', (req, res) => res.send(Widgets.create()));
 // Expose Express API as a single Cloud Function:
 exports.api = functions.https.onRequest(app);
+
+//authenticate user
+function authenticatedUser(uid) {
+  let authenticated = false;
+  admin.firestore().collection('users').get()
+    .then(snapshot => {
+      snapshot.forEach(doc => {
+        if (doc.id == uid) {
+          authenticated = true;
+        }
+      });
+    })
+    .catch(err => {
+      console.log('Authentication checking fail with user', uid);
+    });
+  return authenticated;
+}
 

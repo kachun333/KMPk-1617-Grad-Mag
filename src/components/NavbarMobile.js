@@ -69,7 +69,7 @@ function NavbarMobile() {
   const currentUrl = location.pathname;
   useEffect(() => {
     dispatch(setAppTitle(currentUrl))
-  }, [currentUrl])
+  }, [currentUrl, dispatch])
 
   const handleOpenMenu = () => {
     setIsOpen(true)

@@ -6,10 +6,8 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import makeStyles from "@material-ui/styles/makeStyles";
 import { Link } from "react-router-dom";
-import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import Banner from '../common/Banner';
 
@@ -54,12 +52,25 @@ const eventDetails = [
   "筹备难度： 主要能让活动顺利举行即可 （在线上开会）",
   "筹委会报名截止日期： 2020年1月15日",
 ];
-
+const departments = [{
+  name: "Marketing",
+  jd: ["Attract KMPKians to join", "Engage & deliver information to participants", "Produce digital media"],
+  preference: ["Good at jio-ing people", "Computer literate. able to design poster and create videos"],
+}, {
+  name: "Treasury",
+  jd: ["Budgeting. Ensure the efficient use of resources", "Accounting. Track Expenses and record down for future references"],
+  preference: ["Stingy", "Won't involve in corruption"],
+}, {
+  name: "Program",
+  jd: ["Design the agenda of the event", "Make the event happen"],
+  preference: ["Inclusive. Able to design the agenda that suits every participants", "Resourceful. able the react to sudden change of the event"],
+}, {
+  name: "Operation",
+  jd: ["Ensure venue, food & transportation is well arranged", "Prepare tools and equipments"],
+  preference: ["Responsible"],
+}]
 function Committee(props) {
-
   useFirestoreConnect('committee_depts');
-  const departments = useSelector(state => state.firestore.ordered.committee_depts);
-
   const classes = useStyles();
   return (
     <div>
@@ -68,13 +79,13 @@ function Committee(props) {
         <Box id="committee-intrleio" className={classes.section}>
           <Typography variant="h3" className={classes.paragraph}>
             活动大略
-          </Typography>
+            </Typography>
           <ul>
-            {
-              eventDetails.map((details, i) => (
-                (<li key={i}><Typography variant="subtitle1">{details}</Typography></li>)
-              ))
-            }
+            {eventDetails.map((details, i) =>
+              <li key={i}>
+                <Typography variant="subtitle1">{details}</Typography>
+              </li>
+            )}
           </ul>
           <Typography variant="body1" className={classes.paragraph}>
             不必担心太多，船头自然直， 在以下选择一个部门并完成筹委会报名表格吧！
@@ -82,8 +93,8 @@ function Committee(props) {
         </Box>
         <Box id="committee-positions" className={classes.section}>
           <Grid container spacing={4}>
-            {departments ? (
-              departments.map((dept, i) => (
+            {departments.map((dept, i) =>
+              <>
                 <Grid item key={i} xs={12} md={6}>
                   <Card className={classes.card}>
                     <CardActionArea className={classes.card}>
@@ -91,33 +102,34 @@ function Committee(props) {
                         <CardContent className={classes.card}>
                           <Typography gutterBottom variant="h4" color="primary">
                             {dept.name} Department
-                        </Typography>
+                              </Typography>
                           <Typography gutterBottom variant="subtitle2">
                             Roles & Responsibilities
-                        </Typography>
+                              </Typography>
                           <ul>
-                            {dept.jd.map((role, i) => (
-                              <li key={i} ><Typography variant="body2">
-                                {role}</Typography></li>
-                            ))}
+                            {dept.jd.map((role, i) =>
+                              <li key={i} >
+                                <Typography variant="body2">{role}</Typography>
+                              </li>
+                            )}
                           </ul>
                           <Typography gutterBottom variant="subtitle2">
                             Preferences
-                        </Typography>
+                              </Typography>
                           <ul>
-                            {dept.preference.map((pref, i) => (
-                              <li key={i} ><Typography variant="body2">
-                                {pref}</Typography></li>
-                            ))}
+                            {dept.preference.map((pref, i) =>
+                              <li key={i} >
+                                <Typography variant="body2">{pref}</Typography>
+                              </li>
+                            )}
                           </ul>
                         </CardContent>
                       </Link>
                     </CardActionArea>
                   </Card>
                 </Grid>
-              )))
-              : <CircularProgress />
-            }
+              </>
+            )}
           </Grid>
         </Box>
       </Container>

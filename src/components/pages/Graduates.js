@@ -76,7 +76,7 @@ function Graduates(props) {
       });
   }, []);
 
-  const searchAPI = (items,searchOptions) => filterItems(items, searchOptions);
+  const searchAPI = (items, searchOptions) => filterItems(items, searchOptions);
   const searchAPIDebounced = useCallback(AwesomeDebouncePromise(searchAPI, 500), []);
 
   const handleChange = async text => {
@@ -94,10 +94,10 @@ function Graduates(props) {
   const filterItem = (item, searchOptions) => {
     if (
       Object.values(item).some(values => {
-          return values
-            .toString()
-            .toLowerCase()
-            .includes(searchOptions.searchTerm.toLowerCase())
+        return values
+          .toString()
+          .toLowerCase()
+          .includes(searchOptions.searchTerm.toLowerCase())
       })
     ) {
       return item;
@@ -120,37 +120,39 @@ function Graduates(props) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
   return (
-    <div>
+    <>
       <Banner banner="graduates" />
       <Container className={classes.container} >
         <Box id="graduates-filterOption" className={classes.section}>
           <TextField className={classes.searchBar} label="Search" margin="normal" variant="outlined" onChange={(e) => { handleChange(e.currentTarget.value) }} />
         </Box>
         <Box id="graduates-images" className={classes.section}>
-          {graduatesOrdered ? (
-            graduatesOrdered.map(graduate => (
-              <Card key={graduate.id} className={classes.card}>
-                <CardActionArea>
-                  <Link className={classes.link} to={`/graduates/${graduate.id}`}>
-                    <CardMedia
-                      className={classes.cardMedia}
-                      image={graduate.image || null}
-                      title={graduate.name}
-                    />
-                    <CardContent className={classes.cardContent}>
-                      <Typography variant="subtitle1">{graduate.name_ch}</Typography>
-                      <Typography variant={matches ? "subtitle1" : "body2"} component="div">{graduate.name}</Typography>
-                    </CardContent>
-                  </Link>
-                </CardActionArea>
-              </Card>
-            ))) : (
-              <CircularProgress />
+          {graduatesOrdered ?
+            graduatesOrdered.map(graduate =>
+              <>
+                <Card key={graduate.id} className={classes.card}>
+                  <CardActionArea>
+                    <Link className={classes.link} to={`/graduates/${graduate.id}`}>
+                      <CardMedia
+                        className={classes.cardMedia}
+                        image={graduate.image || null}
+                        title={graduate.name}
+                      />
+                    </Link>
+                  </CardActionArea>
+                  <CardContent className={classes.cardContent}>
+                    <Typography variant="subtitle1">{graduate.name_ch}</Typography>
+                    <Typography variant={matches ? "subtitle1" : "body2"} component="div">{graduate.name}</Typography>
+                  </CardContent>
+                </Card>
+              </>
             )
+            :
+            <CircularProgress />
           }
         </Box>
       </Container>
-    </div>
+    </>
   );
 }
 

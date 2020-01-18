@@ -19,9 +19,9 @@ export const setAppTitle = (currentUrl) => {
         case '/auth/verify':
           newAppTitle = 'Verify'
           break;
+        default:
       }
     }
-    debugger
     dispatch({ type: 'SET_APPTITLE', newAppTitle });
   }
 };

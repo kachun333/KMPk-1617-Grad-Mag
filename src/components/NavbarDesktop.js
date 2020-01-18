@@ -65,7 +65,7 @@ function NavbarDesktop() {
   const currentUrl = location.pathname;
   useEffect(() => {
     dispatch(setAppTitle(currentUrl))
-  }, [currentUrl])
+  }, [currentUrl, dispatch])
   //Handle Logout
   const firebase = useFirebase();
   const handleLogout = () => {
