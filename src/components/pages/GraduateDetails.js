@@ -89,14 +89,18 @@ function GraduateDetails() {
   const uid = useSelector(state => state.firebase.auth.uid);
   const [graduate, setGraduate] = useState({});
   useEffect(() => {
-    axios.get(`https://us-central1-ourpromise.cloudfunctions.net/api/graduates/${id}`)
+    let url = `https://us-central1-ourpromise.cloudfunctions.net/api/graduates/${id}`;
+    if (verified) {
+      url += `?uid=${uid}`;
+    }
+    axios.get(url)
       .then(res => {
         setGraduate(res.data);
       })
       .catch(error => {
         console.log(error);
       });
-  }, [id]);
+  }, [id, verified, uid]);
 
   const classes = useStyles();
   return (

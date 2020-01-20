@@ -94,7 +94,6 @@ function Committee(props) {
         <Box id="committee-positions" className={classes.section}>
           <Grid container spacing={4}>
             {departments.map((dept, i) =>
-              <>
                 <Grid item key={i} xs={12} md={6}>
                   <Card className={classes.card}>
                     <CardActionArea className={classes.card}>
@@ -128,7 +127,6 @@ function Committee(props) {
                     </CardActionArea>
                   </Card>
                 </Grid>
-              </>
             )}
           </Grid>
         </Box>

@@ -143,9 +143,7 @@ function Home() {
           <ul>
             {
               features.map((feature, i) => (
-                <>
-                  <li key={i}><Typography variant="subtitle1">{feature}</Typography></li>
-                </>
+                <li key={i}><Typography variant="subtitle1">{feature}</Typography></li>
               ))
             }
           </ul>
