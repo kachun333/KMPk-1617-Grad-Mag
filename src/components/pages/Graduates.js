@@ -212,9 +212,9 @@ function Graduates(props) {
       <Container className={classes.container} >
         <Box id="graduates-filterOption" className={classes.section}>
           <TextField className={classes.searchBar} label="Search" margin="normal" variant="outlined" onChange={(e) => { handleChange(e.currentTarget.value) }} />
-          <Button className={classes.advancedSearch} onClick={() => { setDialog({ title: "Oops.. Advanced Search Is Not For You", description: "You are required to login & verify before using this feature" }) }} >
+          {/* <Button className={classes.advancedSearch} onClick={() => { setDialog({ title: "Oops.. Advanced Search Is Not For You", description: "You are required to login & verify before using this feature" }) }} >
             <Tune />
-          </Button>
+          </Button> */}
           <Button className={classes.sortBy} aria-controls="graduates-sortBy" aria-haspopup="true" onClick={handleSortByOpen}>
             {sortBy.label}
             {sortBy.ascending ? <ExpandMore /> : <ExpandLess />}

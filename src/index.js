@@ -27,8 +27,8 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 firebase.firestore();
-// firebase.functions();
-// firebase.storage();
+firebase.functions();
+firebase.storage();
 
 const initialState = {}
 const store = createStore(rootReducer, initialState, applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})));
@@ -57,4 +57,4 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.register();

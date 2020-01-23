@@ -66,10 +66,10 @@ const cards = [
   },
 ];
 const features = [
-  "Search graduates",
-  "View graduates details",
-  "Register as committee team",
-  "Authenticate to view private information"
+  "Progressive Web App. Installable & works offline",
+  "Unauthenticated user can view more grauduates info",
+  "Scroll to top button",
+  "Bug fixes",
 ]
 function Home() {
   const displayName = useSelector(state => state.firebase.profile.displayName);
@@ -139,6 +139,9 @@ function Home() {
         <Box id="new" className={classes.section}>
           <Typography variant="h3" className={classes.paragraph}>
             What's new!
+          </Typography>
+          <Typography variant="subtitle1" className={classes.paragraph}>
+            Version 1.1
           </Typography>
           <ul>
             {
