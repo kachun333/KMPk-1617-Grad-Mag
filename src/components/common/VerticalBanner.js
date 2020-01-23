@@ -3,18 +3,25 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import { useFirebase } from 'react-redux-firebase';
 
 const useStyles = makeStyles((theme) => ({
-  bannerBox: {
+  imageBox: {
+    position: "relative",
+    margin: "auto 0",
+    backgroundPositionX: "center",
+    backgroundPositionY: "center",
+    backgroundRepeat: "no-repeat",
     [theme.breakpoints.up('md')]: {
+      height: "100vh",
       display: "flex",
-      alignItems: "center",
       minHeight: "calc(100vh - 64px)",
-      width: "60vw",
       overflow: "hidden",
-    }
+    },
   },
-  banner: {
-    width: "100%",
-    height: "100%",
+  image: {
+    maxWidth: "100%",
+    [theme.breakpoints.up('md')]: {
+      maxWidth: "fit-content",
+      maxHeight: "calc(100vh - 64px)",
+    }
   },
 }));
 
@@ -31,9 +38,9 @@ function VerticalBanner(props) {
   return (
     <>
       {banner ? 
-        (<div className={classes.bannerBox}>
-          <img className={classes.banner} src={banner} alt="banner"></img>
-        </div>)
+        <div className={classes.imageBox}>
+          <img className={classes.image} src={banner} alt="banner"></img>
+        </div>
           :
           null
         }

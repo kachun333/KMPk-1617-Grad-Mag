@@ -72,7 +72,7 @@ app.get('/graduates', (req, res) => {
             return new Promise((resolve, reject) => {
               let data = doc.data();
               if (data.birthday) {
-                const birthday = new Date(data.birthday._seconds * 1000);
+                const birthday = new Date(data.birthday._seconds * 1000 + 10800); //add two hours
                 data.birthday = birthday.toDateString();
               }
               data.id = doc.id;
@@ -129,7 +129,7 @@ app.get('/graduates/:id', (req, res) => {
       admin.firestore().collection('graduates').doc(requestId).get()
         .then(snapshot => {
           let data = snapshot.data();
-          const birthday = new Date(data.birthday._seconds * 1000);
+          const birthday = new Date(data.birthday._seconds * 1000 + 10800); //add two hours
           data.birthday = birthday.toDateString();
           data.id = requestId;
           const bucket = gcs.bucket("gs://ourpromise.appspot.com/graduates");

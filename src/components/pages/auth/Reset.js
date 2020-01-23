@@ -21,8 +21,14 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    flex: 1,
     padding: theme.spacing(2),
+    height: "100%",
+    [theme.breakpoints.up('md')]: {
+      flex: 1,
+      minWidth: "400px",
+      height: "calc(100vh - 64px)",
+      overflow: "auto",
+    },
   },
   title: {
     width: "80%",
@@ -46,6 +52,7 @@ function Create() {
   return (
     <div className={classes.container}>
       <VerticalBanner banner="login" />
+      {/* <img className={classes.image} src={graduate.image || null} alt={graduate ? graduate.name : ""} /> */}
       <Box className={classes.sidebox}>
         <Box id="title" className={classes.title}>
           <Typography variant="h4" color="inherit" align="center" >

@@ -79,7 +79,7 @@ function Graduates(props) {
 
   const verified = useSelector(state => state.firebase.profile.verified);
   const uid = useSelector(state => state.firebase.auth.uid);
-  const [searchTerm, setSearchTerm] = useState(null);
+  // const [searchTerm, setSearchTerm] = useState(null);
   const [graduates, setGraduates] = useState({ data: null, ordered: null })
   // const [graduatesOrdered, setGraduatesOrdered] = useState(null);
 
@@ -90,7 +90,10 @@ function Graduates(props) {
     }
     axios.get(url)
       .then(res => {
-        setGraduates({ data: res.data, ordered: res.data })
+        //to perform value copy instead of reference copy for Array Object
+        const graduatesData = res.data.slice();
+        const graduatesOrdered = res.data.slice();
+        setGraduates({ data: graduatesData, ordered: graduatesOrdered })
       })
       .catch(error => {
         console.log(error);
@@ -101,26 +104,32 @@ function Graduates(props) {
   const searchAPIDebounced = useCallback(AwesomeDebouncePromise(searchAPI, 500), []);
 
   const handleChange = async text => {
-    setSearchTerm(text);
+    // setSearchTerm(text);
     let searchOptions = {
       searchTerm: text,
     };
-    if (graduates.data) {
-      let result = graduates.data
-      result = await searchAPIDebounced(graduates.ordered, searchOptions);
-      setGraduates({ ...graduates, ordered: result })
-      setSortBy({ label: "Sort By", value: "Default", ascending: true, anchorEl: null });
+    if (searchOptions.searchTerm) {
+      if (graduates.data) {
+        const result = await searchAPIDebounced(graduates.data, searchOptions);
+        setGraduates({ ...graduates, ordered: result })
+        setSortBy({ label: "Sort By", value: "Default", ascending: true, anchorEl: null });
+      }
+    } else {
+      setGraduates({ ...graduates, ordered: graduates.data })
     }
   };
 
   const filterItem = (item, searchOptions) => {
     if (
       Object.values(item).some(values => {
-        return values
+        return (values) ? values
           .toString()
           .toLowerCase()
           .includes(searchOptions.searchTerm.toLowerCase())
-      })
+          :
+          false
+      }
+      )
     ) {
       return item;
     } else {
@@ -150,11 +159,14 @@ function Graduates(props) {
       setSortBy({ ...sortBy, anchorEl: null });
     } else if (sortCriteria === sortBy.value) {
       //select the same sortCriteria
-      setGraduates({ ...graduates, ordered: graduates.ordered.reverse() });
+      const sortedData = graduates.data.reverse();
+      const sortedOrdered = graduates.ordered.reverse();
+      setGraduates({ data: sortedData, ordered: sortedOrdered });
       setSortBy({ ...sortBy, ascending: !sortBy.ascending, anchorEl: null });
     } else {
-      const result = sortGraduates(graduates.data, sortCriteria);
-      setGraduates({ ...graduates, ordered: result });
+      const sortedData = sortGraduates(graduates.data, sortCriteria);
+      const sortedOrdered = sortGraduates(graduates.ordered, sortCriteria);
+      setGraduates({ data: sortedData, ordered: sortedOrdered });
       setSortBy({ label: sortCriteria, value: sortCriteria, ascending: true, anchorEl: null })
     }
   }
@@ -176,7 +188,8 @@ function Graduates(props) {
         break;
       case "Default":
       default:
-        return data;
+        fieldName = 'id';
+        break;
     }
     return data.sort((a, b) => {
       //if equal then comparison = 0
@@ -216,13 +229,13 @@ function Graduates(props) {
             <MenuItem onClick={() => { handleSortByClose("Default") }}>Default</MenuItem>
             <MenuItem onClick={() => { handleSortByClose("Name") }}>Name</MenuItem>
             <MenuItem onClick={() => { handleSortByClose("Gender") }}>Gender</MenuItem>
-            {verified ? <MenuItem onClick={() => { handleSortByClose("Birthday") }}>Birthday</MenuItem> : null }
-            {verified ? <MenuItem onClick={() => { handleSortByClose("Tutorial Group") }}>Tutorial Group</MenuItem> : null }
+            {verified ? <MenuItem onClick={() => { handleSortByClose("Birthday") }}>Birthday</MenuItem> : null}
+            {verified ? <MenuItem onClick={() => { handleSortByClose("Tutorial Group") }}>Tutorial Group</MenuItem> : null}
           </Menu>
         </Box>
         <Box id="graduates-images" className={classes.section}>
           {graduates.ordered ?
-            graduates.ordered.map(graduate =>
+            graduates.ordered.map((graduate, index) =>
               <Card key={graduate.id} className={classes.card}>
                 <CardActionArea>
                   <Link className={classes.link} to={`/graduates/${graduate.id}`}>

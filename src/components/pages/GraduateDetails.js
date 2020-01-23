@@ -59,9 +59,9 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     maxWidth: "100%",
-    maxHeight: "calc(100vh - 64px)",
     [theme.breakpoints.up('md')]: {
       maxWidth: "fit-content",
+      maxHeight: "calc(100vh - 64px)",
     }
   },
   list: {
@@ -113,15 +113,15 @@ function GraduateDetails() {
             </Link>
           </IconButton>
         </Toolbar>
-        <img className={classes.image} src={graduate.image || null} alt={graduate ? graduate.name : ""} />
+        <img className={classes.image} src={graduate.image || null} alt={graduate.name || ""} />
       </Box>
       <Box className={classes.list}>
         <Box id="graduate-name" className={classes.listHeader}>
           <Typography variant="h4">
-            {graduate ? graduate.name_ch : ""}
+            {graduate.name_ch || ""}
           </Typography>
           <Typography variant="subtitle1">
-            {graduate ? graduate.name : ""}
+            {graduate.name || ""}
           </Typography>
         </Box>
         <List>
@@ -130,33 +130,33 @@ function GraduateDetails() {
               <>
                 <ListItem id="graduate-phone">
                   <ListItemIcon><Phone /></ListItemIcon>
-                  <ListItemText primary="Phone" secondary={graduate ? graduate.phone : ""} />
+                  <ListItemText primary="Phone" secondary={graduate.phone || ""} />
                 </ListItem>
                 <ListItem id="graduate-email">
                   <ListItemIcon><Email /></ListItemIcon>
-                  <ListItemText primary="Email" secondary={graduate ? graduate.email : ""} />
+                  <ListItemText primary="Email" secondary={graduate.email || ""} />
                 </ListItem>
                 <ListItem id="graduate-birthday">
                   <ListItemIcon><Cake /></ListItemIcon>
-                  <ListItemText primary="Birthday" secondary={graduate ? graduate.birthday : ""} />
+                  <ListItemText primary="Birthday" secondary={graduate.birthday || ""} />
                 </ListItem>
                 <ListItem id="graduate-tutorial">
                   <ListItemIcon><Domain /></ListItemIcon>
-                  <ListItemText primary="Tutorial Class" secondary={graduate ? graduate.tutorial : ""} />
+                  <ListItemText primary="Tutorial Class" secondary={graduate.tutorial || ""} />
                 </ListItem>
               </>
               : null
           }
           <ListItem id="graduate-one_liner">
             <ListItemIcon><PanTool /></ListItemIcon>
-            <ListItemText primary="One Liner" secondary={graduate ? graduate.one_liner : ""} />
+            <ListItemText primary="One Liner" secondary={ graduate.one_liner || ""} />
           </ListItem>
           <ListItem id="graduate-message-title">
             <ListItemIcon><Sms /></ListItemIcon>
             <ListItemText primary="Message" />
           </ListItem>
           <ListItem id="graduate-message-content">
-            <ListItemText secondary={graduate ? graduate.message : ""} />
+            <ListItemText secondary={graduate.message || ""} />
           </ListItem>
           <ListItem id="graduate-describe_me">
             <ListItemIcon><LocalFlorist /></ListItemIcon>

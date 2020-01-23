@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import "./i18n";
 import * as serviceWorker from "./serviceWorker";
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
