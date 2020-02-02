@@ -36,15 +36,13 @@ function VerticalBanner(props) {
     .catch(err => console.log('Fail to load banner: ', err))
   const classes = useStyles();
   return (
-    <>
-      {banner ? 
-        <div className={classes.imageBox}>
+      <div className={classes.imageBox}>
+        {banner ?
           <img className={classes.image} src={banner} alt="banner"></img>
-        </div>
           :
           null
         }
-    </>
+      </div>
   );
 }
 

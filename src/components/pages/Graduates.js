@@ -14,7 +14,7 @@ import Container from '@material-ui/core/Container';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import makeStyles from "@material-ui/styles/makeStyles";
 import useTheme from '@material-ui/styles/useTheme';
-import Tune from '@material-ui/icons/Tune';
+// import Tune from '@material-ui/icons/Tune';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import Banner from '../common/Banner';
@@ -79,9 +79,7 @@ function Graduates(props) {
 
   const verified = useSelector(state => state.firebase.profile.verified);
   const uid = useSelector(state => state.firebase.auth.uid);
-  // const [searchTerm, setSearchTerm] = useState(null);
   const [graduates, setGraduates] = useState({ data: null, ordered: null })
-  // const [graduatesOrdered, setGraduatesOrdered] = useState(null);
 
   useEffect(() => {
     let url = 'https://us-central1-ourpromise.cloudfunctions.net/api/graduates'
@@ -208,7 +206,6 @@ function Graduates(props) {
   const matches = useMediaQuery(theme.breakpoints.up('md'));
   return (
     <>
-      <Banner banner="graduates" />
       <Container className={classes.container} >
         <Box id="graduates-filterOption" className={classes.section}>
           <TextField className={classes.searchBar} label="Search" margin="normal" variant="outlined" onChange={(e) => { handleChange(e.currentTarget.value) }} />
@@ -233,6 +230,7 @@ function Graduates(props) {
             {verified ? <MenuItem onClick={() => { handleSortByClose("Tutorial Group") }}>Tutorial Group</MenuItem> : null}
           </Menu>
         </Box>
+        
         <Box id="graduates-images" className={classes.section}>
           {graduates.ordered ?
             graduates.ordered.map((graduate, index) =>

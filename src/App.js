@@ -22,8 +22,9 @@ import Reset from './components/pages/auth/Reset';
 import PageNotFound from './components/pages/PageNotFound';
 import Graduates from './components/pages/Graduates';
 import GraduateDetails from './components/pages/GraduateDetails';
-import Committee from './components/pages/Committee';
-import CommitteeRegister from './components/pages/CommitteeRegister';
+import Lecturers from './components/pages/Lecturers';
+import Videos from './components/pages/Videos';
+import Jpp from './components/pages/magazine/chapOne/Jpp';
 import Footer from "./components/Footer";
 
 function HideOnScroll(props) {
@@ -127,8 +128,9 @@ function App(props) {
             <Route path="/auth/reset" exact component={Reset} />
             <Route path="/graduates" exact component={Graduates} />
             <Route path="/graduates/:id" exact component={GraduateDetails} />
-            <Route path="/committee" exact component={Committee} />
-            <Route path="/committee/register" exact component={CommitteeRegister} />
+            <Route path="/Lecturers" exact component={Lecturers} />
+            <Route path="/videos" exact component={Videos} />
+            <Route path="/magazine/chapOne/jpp" exact component={Jpp} />
             <Route component={PageNotFound} />
           </Switch>
           <Footer />

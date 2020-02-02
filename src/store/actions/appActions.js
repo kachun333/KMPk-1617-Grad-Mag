@@ -5,6 +5,10 @@ export const setAppTitle = (currentUrl) => {
       newAppTitle = 'Graduates';
     } else if (currentUrl.startsWith('/committee')) {
       newAppTitle = 'Committee';
+    } else if (currentUrl.startsWith('/lecturers')) {
+      newAppTitle = 'Lecturers';
+    } else if (currentUrl.startsWith('/videos')) {
+      newAppTitle = 'KMPk TV';
     } else {
       switch (currentUrl) {
         case '/auth/create':

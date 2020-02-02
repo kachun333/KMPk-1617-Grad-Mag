@@ -71,10 +71,7 @@ app.get('/graduates', (req, res) => {
           let actions = snapshot.docs.map(doc => {
             return new Promise((resolve, reject) => {
               let data = doc.data();
-              if (data.birthday) {
-                const birthday = new Date(data.birthday._seconds * 1000 + 10800); //add two hours
-                data.birthday = birthday.toDateString();
-              }
+              data.birthday = (data.birthday._seconds + 3600 * 9) * 1000;
               data.id = doc.id;
               const bucket = gcs.bucket("gs://ourpromise.appspot.com/graduates");
               const file = bucket.file(`${data.name}.jpg`);
@@ -129,8 +126,7 @@ app.get('/graduates/:id', (req, res) => {
       admin.firestore().collection('graduates').doc(requestId).get()
         .then(snapshot => {
           let data = snapshot.data();
-          const birthday = new Date(data.birthday._seconds * 1000 + 10800); //add two hours
-          data.birthday = birthday.toDateString();
+          data.birthday = (data.birthday._seconds + 3600 * 9) * 1000;
           data.id = requestId;
           const bucket = gcs.bucket("gs://ourpromise.appspot.com/graduates");
           const file = bucket.file(`${data.name}.jpg`);

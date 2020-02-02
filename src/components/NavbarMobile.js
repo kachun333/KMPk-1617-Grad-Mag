@@ -6,9 +6,20 @@ import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 import makeStyles from "@material-ui/styles/makeStyles";
 import MenuIcon from '@material-ui/icons/Menu';
 import ArrowForward from '@material-ui/icons/ArrowForward';
+import Home from '@material-ui/icons/Home';
+import Person from '@material-ui/icons/Person';
+import Group from '@material-ui/icons/Group';
+import Book from '@material-ui/icons/Book';
+import LiveTv from '@material-ui/icons/LiveTv';
+import VerifiedUser from '@material-ui/icons/VerifiedUser';
+import ExitToApp from '@material-ui/icons/ExitToApp';
 // import  Menu as MenuIcon from '@material-ui/icons/Translate';
 // import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 // import Brightness4 from '@material-ui/icons/Brightness4';
@@ -36,23 +47,20 @@ const useStyles = makeStyles((theme) => ({
     margin: `0 ${theme.spacing(2)}px`,
     flexGrow: 1,
   },
+  avatar: {
+    margin: theme.spacing(1),
+  },
   login: {
     margin: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
+  },
+  drawerPaper: {
+    width: 220,
   },
   active: {
     borderLeft: `3px solid ${theme.palette.primary.main}`
   },
-  tab: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    minWidth: "180px",
-  },
   icon: {
-    margin: theme.spacing(0.5),
-  },
-  avatar: {
-    margin: theme.spacing(1),
+    marginLeft: theme.spacing(2)
   }
 }));
 
@@ -98,6 +106,9 @@ function NavbarMobile() {
       </Toolbar>
       {/* the side navigavtion menu */}
       <Drawer
+        classes={{
+          paper: classes.drawerPaper,
+        }}
         anchor="right"
         open={isOpen}
         onClose={handleCloseMenu}
@@ -124,59 +135,76 @@ function NavbarMobile() {
             </Button>
           }
         </Box>
-        <Button
-          component={NavLink}
-          exact
-          to="/"
-          activeClassName={classes.active}
-          onClick={handleCloseMenu}
-        >
-          home
-          </Button>
-        <Button
-          component={NavLink}
-          to="/graduates"
-          activeClassName={classes.active}
-          className={classes.tab}
-          onClick={handleCloseMenu}
-        >
-          graduates
-          </Button>
-        <Button
-          component={NavLink}
-          to="/committee"
-          activeClassName={classes.active}
-          className={classes.tab}
-          onClick={handleCloseMenu}
-        >
-          committee
-          </Button>
-        {(!verified && isLoggedin) ?
-          <>
-            <Button
+        <List>
+          <ListItem
+            component={NavLink}
+            exact
+            to="/graduates"
+            activeClassName={classes.active}
+            onClick={handleCloseMenu}
+            button
+          >
+            <ListItemIcon className={classes.icon}><Person /></ListItemIcon>
+            <ListItemText primary="Graduates" />
+          </ListItem>
+          <ListItem
+            component={NavLink}
+            exact
+            to="/lecturers"
+            activeClassName={classes.active}
+            onClick={handleCloseMenu}
+            button
+          >
+            <ListItemIcon className={classes.icon}><Group /></ListItemIcon>
+            <ListItemText primary="Lecturers" />
+          </ListItem>
+          <ListItem
+            component={NavLink}
+            exact
+            to="/magazine"
+            activeClassName={classes.active}
+            onClick={handleCloseMenu}
+            button
+          >
+            <ListItemIcon className={classes.icon}><Book /></ListItemIcon>
+            <ListItemText primary="Magazine" />
+          </ListItem>
+          <ListItem
+            component={NavLink}
+            exact
+            to="/videos"
+            activeClassName={classes.active}
+            onClick={handleCloseMenu}
+            button
+          >
+            <ListItemIcon className={classes.icon}><LiveTv /></ListItemIcon>
+            <ListItemText primary="KMPk TV" />
+          </ListItem>
+          {(!verified && isLoggedin) ?
+            <ListItem
               component={NavLink}
+              exact
               to="/auth/verify"
               activeClassName={classes.active}
-              className={classes.tab}
               onClick={handleCloseMenu}
+              button
             >
-              verify
-          </Button>
-          </>
-          : null
-        }
-        {isLoggedin ?
-          <>
-            <Button
-              activeClassName={classes.active}
-              className={classes.tab}
+              <ListItemIcon className={classes.icon}><VerifiedUser /></ListItemIcon>
+              <ListItemText primary="Verify" />
+            </ListItem>
+            : null
+          }
+          {isLoggedin ?
+            <ListItem
               onClick={handleLogout}
+              button
             >
-              logout
-          </Button>
-          </>
-          : null
-        }
+              <ListItemIcon className={classes.icon}><ExitToApp /></ListItemIcon>
+              <ListItemText primary="Logout" />
+            </ListItem>
+            : null
+          }
+        </List>
         {/* <Typography className={classes.tab} variant="overline">
           Toggle light
         </Typography>

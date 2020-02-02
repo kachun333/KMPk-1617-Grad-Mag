@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
   },
 }));
-function Create() {
+function Reset() {
   const history = useHistory();
   const isLoggedin = useSelector(state => state.firebase.auth.uid);
   if (isLoggedin) {
@@ -76,4 +76,4 @@ function Create() {
   );
 }
 
-export default Create;
+export default Reset;

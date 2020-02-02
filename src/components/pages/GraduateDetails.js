@@ -138,7 +138,7 @@ function GraduateDetails() {
                 </ListItem>
                 <ListItem id="graduate-birthday">
                   <ListItemIcon><Cake /></ListItemIcon>
-                  <ListItemText primary="Birthday" secondary={graduate.birthday || ""} />
+                  <ListItemText primary="Birthday" secondary={new Date(graduate.birthday).toDateString() || ""} />
                 </ListItem>
                 <ListItem id="graduate-tutorial">
                   <ListItemIcon><Domain /></ListItemIcon>

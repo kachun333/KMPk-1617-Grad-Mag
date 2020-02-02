@@ -91,15 +91,6 @@ function NavbarDesktop() {
         <Box>
           <Button
             component={NavLink}
-            exact
-            to="/"
-            activeClassName={classes.active}
-            className={classes.tab}
-          >
-            home
-          </Button>
-          <Button
-            component={NavLink}
             to="/graduates"
             activeClassName={classes.active}
             className={classes.tab}
@@ -108,11 +99,27 @@ function NavbarDesktop() {
           </Button>
           <Button
             component={NavLink}
-            to="/committee"
+            to="/lecturers"
             activeClassName={classes.active}
             className={classes.tab}
           >
-            committee
+            lecturers
+          </Button>
+          <Button
+            component={NavLink}
+            to="/magazine"
+            activeClassName={classes.active}
+            className={classes.tab}
+          >
+            Magazine
+          </Button>
+          <Button
+            component={NavLink}
+            to="/videos"
+            activeClassName={classes.active}
+            className={classes.tab}
+          >
+            KMPk TV
           </Button>
           {/* <IconButton>
             <Brightness7 />
