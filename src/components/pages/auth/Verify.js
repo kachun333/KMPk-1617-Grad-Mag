@@ -82,7 +82,7 @@ function Verify() {
         history.push("/")
       })
       .catch(() => {
-        setDialog({ title: "Verification Fail..", description: "Incorrect credentials or check your internet connection" });
+        setDialog({ title: "Verification Fail..", description: ["Fail to verify, please try again later"] });
       })
     e.preventDefault();
   }
@@ -119,7 +119,7 @@ function Verify() {
             />
             <Box id="login-help" className={classes.help}>
               <Typography component="div" variant="body2" color="inherit">
-                <Link href="#" onClick={() => { setDialog({title:"Need Hint?", description:"Cultural Event Name: TrailsO*C****** & CNY Event Event Name: B**ss** "}) }}>
+                <Link href="#" onClick={() => { setDialog({title:"Need Hint?", description:["Cultural Event Name:", "TrailsO*C******" , "CNY Event Name:", "B**ss**"]}) }}>
                   Need hint?
                 </Link>
               </Typography>

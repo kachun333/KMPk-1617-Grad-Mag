@@ -161,17 +161,6 @@ function NavbarMobile() {
           <ListItem
             component={NavLink}
             exact
-            to="/magazine"
-            activeClassName={classes.active}
-            onClick={handleCloseMenu}
-            button
-          >
-            <ListItemIcon className={classes.icon}><Book /></ListItemIcon>
-            <ListItemText primary="Magazine" />
-          </ListItem>
-          <ListItem
-            component={NavLink}
-            exact
             to="/videos"
             activeClassName={classes.active}
             onClick={handleCloseMenu}
@@ -179,6 +168,17 @@ function NavbarMobile() {
           >
             <ListItemIcon className={classes.icon}><LiveTv /></ListItemIcon>
             <ListItemText primary="KMPk TV" />
+          </ListItem>
+          <ListItem
+            component={NavLink}
+            exact
+            to="/magazine"
+            activeClassName={classes.active}
+            onClick={handleCloseMenu}
+            button
+          >
+            <ListItemIcon className={classes.icon}><Book /></ListItemIcon>
+            <ListItemText primary="Magazine" />
           </ListItem>
           {(!verified && isLoggedin) ?
             <ListItem

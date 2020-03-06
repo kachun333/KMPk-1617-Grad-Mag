@@ -13,10 +13,19 @@ function CustomDialog(props) {
     <Dialog onClose={props.onClose} aria-labelledby="dialog-title" open={props.open}>
       <DialogTitle id="dialog-title">{props.title}</DialogTitle>
       <DialogContent>
-        <DialogContentText id="dialog-description">{props.description}</DialogContentText>
+        {props.description.map((text, i) =>
+          <DialogContentText id={`dialog-description-${i}`}>{text}</DialogContentText>
+        )}
+
+        {props.footer ?
+          props.footer.map((text, i) =>
+            <DialogContentText id={`dialog-footer-${i}`} style={{ textAlign: "right" }}>{text}</DialogContentText>
+          )
+          : null
+        }
       </DialogContent>
       <DialogActions>
-        <Button onClick={props.onClose} color="primary" autoFocus>Okay</Button>
+        <Button onClick={props.onClose} color="primary" size="large" autoFocus>{props.dismissText || "Okay"}</Button>
       </DialogActions>
     </Dialog>
   );

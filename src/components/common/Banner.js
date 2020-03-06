@@ -8,7 +8,9 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       alignItems: "center",
       height: "calc(100vh - 64px)",
+      // height: "calc(100vw - 280px)",
       overflow: "hidden",
+      width: "100%"
     }
   },
   banner: {

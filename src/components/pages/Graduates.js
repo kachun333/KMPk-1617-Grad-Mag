@@ -98,37 +98,30 @@ function Graduates(props) {
       });
   }, [verified, uid]);
 
-  const searchAPI = (items, searchOptions) => filterItems(items, searchOptions);
+  const searchAPI = (items, searchOptions) => {
+    if (searchOptions.searchTerm) {
+      if (items) {
+        return filterItems(items, searchOptions);
+      }
+    } else {
+      return items;
+    }
+  }
   const searchAPIDebounced = useCallback(AwesomeDebouncePromise(searchAPI, 500), []);
 
   const handleChange = async text => {
-    // setSearchTerm(text);
     let searchOptions = {
       searchTerm: text,
     };
-    if (searchOptions.searchTerm) {
-      if (graduates.data) {
-        const result = await searchAPIDebounced(graduates.data, searchOptions);
-        setGraduates({ ...graduates, ordered: result })
-        setSortBy({ label: "Sort By", value: "Default", ascending: true, anchorEl: null });
-      }
-    } else {
-      setGraduates({ ...graduates, ordered: graduates.data })
-    }
+    const result = await searchAPIDebounced(graduates.data, searchOptions);
+    setGraduates({ ...graduates, ordered: result })
+    setSortBy({ label: "Sort By", value: "Default", ascending: true, anchorEl: null });
+
   };
 
   const filterItem = (item, searchOptions) => {
-    if (
-      Object.values(item).some(values => {
-        return (values) ? values
-          .toString()
-          .toLowerCase()
-          .includes(searchOptions.searchTerm.toLowerCase())
-          :
-          false
-      }
-      )
-    ) {
+    const searchTerm = searchOptions.searchTerm.toLowerCase();
+    if (item.name.toLowerCase().includes(searchTerm) || item.name_ch.includes(searchTerm)) {
       return item;
     } else {
       return null;

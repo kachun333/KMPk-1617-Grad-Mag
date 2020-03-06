@@ -24,7 +24,8 @@ import Graduates from './components/pages/Graduates';
 import GraduateDetails from './components/pages/GraduateDetails';
 import Lecturers from './components/pages/Lecturers';
 import Videos from './components/pages/Videos';
-import Jpp from './components/pages/magazine/chapOne/Jpp';
+import Jpp from './components/pages/magazine/chap1/Jpp';
+import Chap1Intro from './components/pages/magazine/chap1/Chap1Intro';
 import Footer from "./components/Footer";
 
 function HideOnScroll(props) {
@@ -87,6 +88,9 @@ function App(props) {
       h4: {
         fontSize: "1.6rem"
       },
+      h5: {
+        fontSize: "1.4rem"
+      },
       h6: {
         fontSize: "1.3rem"
       },
@@ -98,6 +102,9 @@ function App(props) {
       },
       body1: {
         fontSize: "1.1rem"
+      },
+      body2: {
+        fontSize: "0.9rem"
       },
       overline: {
         fontSize: "0.8rem"
@@ -130,7 +137,8 @@ function App(props) {
             <Route path="/graduates/:id" exact component={GraduateDetails} />
             <Route path="/Lecturers" exact component={Lecturers} />
             <Route path="/videos" exact component={Videos} />
-            <Route path="/magazine/chapOne/jpp" exact component={Jpp} />
+            <Route path="/magazine/chap1" exact component={Chap1Intro} />
+            <Route path="/magazine/chap1/jpp" exact component={Jpp} />
             <Route component={PageNotFound} />
           </Switch>
           <Footer />

@@ -107,19 +107,19 @@ function NavbarDesktop() {
           </Button>
           <Button
             component={NavLink}
-            to="/magazine"
-            activeClassName={classes.active}
-            className={classes.tab}
-          >
-            Magazine
-          </Button>
-          <Button
-            component={NavLink}
             to="/videos"
             activeClassName={classes.active}
             className={classes.tab}
           >
             KMPk TV
+          </Button>
+          <Button
+            component={NavLink}
+            to="/magazine"
+            activeClassName={classes.active}
+            className={classes.tab}
+          >
+            Magazine
           </Button>
           {/* <IconButton>
             <Brightness7 />

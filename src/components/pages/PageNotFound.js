@@ -7,7 +7,8 @@ const useStyles = makeStyles(theme => ({
  container: {
   display: "flex",
   flexDirection: "column",
-  flex: 1,
+  //full screen - appbar height - marginTop - footer MarginTop - footer height
+  minHeight: "calc(100vh - 64px - 20px - 256px - 64px)", 
   marginTop: "20px",
  },
 }));

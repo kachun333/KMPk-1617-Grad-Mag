@@ -163,16 +163,126 @@ app.get('/graduates/:id', (req, res) => {
     });
 });
 
+app.get('/lecturers', (req, res) => {
+  console.log("operation get all lecturers started");
+  let uid = req.query.uid;
+  if (!uid) {
+    uid = 'default';
+  }
+  admin.firestore().collection('users').doc(uid).get()
+    .then((snapshot) => {
+      const authenticated = snapshot.exists;
+      console.log("fetching data for ", authenticated ? "successfully" : "NOT", "AUTHENTICATED user");
+      if (!authenticated) {
+        res.sendStatus(403);
+      } else {
+        admin.firestore().collection('lecturers').get()
+          .then(snapshot => {
+            let actions = snapshot.docs.map(doc => {
+              return new Promise((resolve, reject) => {
+                admin.firestore().collection('lecturers').doc(doc.id).collection('lecturers').get()
+                  .then(snapshot => {
+                    let actions = snapshot.docs.map(doc => {
+                      return new Promise((resolve, reject) => {
+                        let innerData = doc.data();
+                        innerData.id = doc.id;
+                        const bucket = gcs.bucket("gs://ourpromise.appspot.com/lecturers");
+                        const file = bucket.file(`${innerData.name}.jpg`);
+                        if (!file) {
+                          console.log("image file not found");
+                          resolve(innerData);
+                        } else {
+                          file.getSignedUrl({
+                            action: 'read',
+                            expires: '03-09-2025'
+                          })
+                            .then(signedUrls => {
+                              innerData.image = signedUrls[0]
+                              resolve(innerData);
+                            })
+                            .catch(() => reject("fail to get graduate image url for " + data.name));
+                        }
+                      })
+                    })
+                    let outerData = doc.data();
+                    outerData.id = doc.id;
+                    Promise.all(actions)
+                      .then(results => {
+                        outerData.lecturers = results
+                        resolve(outerData);
+                      })
+                      .catch((e) => {
+                        res.status(500).send("Internal problem")
+                        console.log("Error Message ", e);
+                      });
+                  })
+              })
+            })
+            Promise.all(actions)
+              .then(results => res.send(results))
+              .catch((e) => {
+                res.status(500).send("Internal problem")
+                console.log("Error Message ", e);
+              });
+          })
+          .catch((e) => {
+            console.log("fail to get graduates info")
+            res.status(500).send([]);
+            console.log("Error Message ", e);
+          })
+      }
+    })
+    .catch(e => {
+      console.error("fail to authenticated user with uid ", uid);
+      console.log(e)
+    });
+});
+
 // Expose Express API as a single Cloud Function:
 exports.api = functions.https.onRequest(app);
 
-function authenticateUser(uid) {
-  return new Promise((resolve, reject) => {
-    admin.firestore().collection('users').doc(uid).get()
-      .then(snapshot => {
-        resolve(snapshot.exists)
-      })
-      .catch(err => reject(err));
-  });
-}
 
+// app.get('/execute/get', (req, res) => {
+//   admin.firestore().collection('lecturers').get()
+//     .then(snapshot => {
+//       let actions = snapshot.docs.map(doc => {
+//         return new Promise((resolve, reject) => {
+//           let data = doc.data();
+//           data.id = doc.id;
+//           resolve(data);
+//         })
+//       })
+//       Promise.all(actions)
+//         .then(results => res.send(results))
+//         .catch((e) => {
+//           res.status(500).send("Internal problem")
+//           console.log("Error Message ", e);
+//         });
+//     })
+//     .catch((e) => {
+//       console.log("fail to get graduates info")
+//       res.status(500).send([]);
+//       console.log("Error Message ", e);
+//     })
+// });
+
+// app.post('/execute/post', (req, res) => {
+//   const lectRefId = 5;
+//   let counter = 12;
+//   const lectRef = admin.firestore().collection('lecturers').doc("" + lectRefId).collection('lecturers')
+
+//   lecturer_data.forEach((lecturer) => {
+//     const sign_off = lecturer.sign_off || "";
+//     const result = {
+//       name_ch: lecturer.name_ch + "师",
+//       name: `${lecturer.honorific} ${lecturer.name}`,
+//       sign_off: sign_off,
+//       message: lecturer.message
+//     }
+//     lectRef.doc("" + counter).set(result);
+//     counter++;
+//   });
+
+//   res.status(200);
+
+// });

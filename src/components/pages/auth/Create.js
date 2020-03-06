@@ -70,11 +70,11 @@ function Create() {
       { displayName, email }
     )
       .then(() => {
-        setDialog({ title: "Account Created!", description: "You will be redirect to login page soon" });
+        setDialog({ title: "Account Created!", description: ["You will be redirect to login page soon"] });
         history.push("/auth/login")
       })
       .catch(() => {
-        setDialog({ title: "Account Fail to create", description: "Please try again.." });
+        setDialog({ title: "Account Fail to create", description: ["Please try again.."] });
       })
   }
 

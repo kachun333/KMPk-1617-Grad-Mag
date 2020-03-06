@@ -94,13 +94,15 @@ function Login() {
         }
       })
       .catch(() => {
-        setDialog({ title: "Login Fail..", description: "Incorrect credentials or account doesn't exist" });
+        setDialog({ title: "Login Fail..", description: ["Fail to login, please try again later"] });
       })
   }
 
   return (
     <div className={classes.container}>
-      <VerticalBanner banner="login" />
+      <Box>
+        <VerticalBanner banner="login" />
+      </Box>
       <Box className={classes.sidebox}>
         <Box id="social-login" className={classes.socialLogin}>
           <GoogleButton
@@ -122,7 +124,7 @@ function Login() {
                 e.preventDefault()
                 setDialog({
                   title: "Why do I need to login?",
-                  description: "This is to avoid sensitive informations to be expose publicy by allowing authenticated user to view it only. Certain actions, such as submitting a form, also required authentication."
+                  description: ["This is to avoid sensitive informations to be expose publicy by allowing authenticated user to view it only. Certain actions, such as submitting a form, also required authentication."]
                 });
               }}
             >
