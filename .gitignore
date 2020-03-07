@@ -24,3 +24,7 @@ yarn-error.log*
 
 #credentials
 /functions/credentials.json
+
+#firebase
+/.firebase
+firebase-debug.log

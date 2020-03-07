@@ -17,7 +17,6 @@ import useTheme from '@material-ui/styles/useTheme';
 // import Tune from '@material-ui/icons/Tune';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import ExpandLess from '@material-ui/icons/ExpandLess';
-import Banner from '../common/Banner';
 import CustomDialog from "../common/CustomDialog";
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";

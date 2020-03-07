@@ -13,17 +13,12 @@ import ListItemText from '@material-ui/core/ListItemText';
 import makeStyles from "@material-ui/styles/makeStyles";
 import MenuIcon from '@material-ui/icons/Menu';
 import ArrowForward from '@material-ui/icons/ArrowForward';
-import Home from '@material-ui/icons/Home';
 import Person from '@material-ui/icons/Person';
 import Group from '@material-ui/icons/Group';
 import Book from '@material-ui/icons/Book';
 import LiveTv from '@material-ui/icons/LiveTv';
 import VerifiedUser from '@material-ui/icons/VerifiedUser';
 import ExitToApp from '@material-ui/icons/ExitToApp';
-// import  Menu as MenuIcon from '@material-ui/icons/Translate';
-// import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
-// import Brightness4 from '@material-ui/icons/Brightness4';
-// import Brightness7 from '@material-ui/icons/Brightness7';
 import { NavLink, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { useFirebase } from 'react-redux-firebase';
@@ -205,32 +200,6 @@ function NavbarMobile() {
             : null
           }
         </List>
-        {/* <Typography className={classes.tab} variant="overline">
-          Toggle light
-        </Typography>
-        <div className={classes.tab}>
-          <Brightness4 className={classes.icon} />
-          <Switch
-            checked={true}
-            // onChange={toggleTheme()}
-            color="primary"
-            inputProps={{ 'aria-label': 'toggle theme' }}
-          />
-          <Brightness7 className={classes.icon} />
-        </div>
-        <Typography className={classes.tab} variant="overline">
-          Language
-        </Typography>
-        <div className={classes.tab}>
-          中文
-          <Switch
-            checked={true}
-            // onChange={toggleTheme()}
-            color="primary"
-            inputProps={{ 'aria-label': 'toggle theme' }}
-          />
-          Eng
-        </div> */}
       </Drawer>
     </Fragment>
   );

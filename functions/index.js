@@ -163,6 +163,28 @@ app.get('/graduates/:id', (req, res) => {
     });
 });
 
+app.get('/magazine/chapIntro/:chapId', (req, res) => {
+  const chapId = req.params.chapId;
+  console.log("what I got form the url param is ", chapId);
+  if (!chapId) {
+    chapId = 1;
+  }
+  console.log("operation get chapIntro ", chapId, " started");
+  admin.firestore().collection('magazine_chap_intro').doc(chapId).get()
+        .then(snapshot => {
+          let data = snapshot.data();
+          data.poem = data.poem.map((paragraph) => {
+            return paragraph.split(", ");
+          });
+          res.send(data);
+        })
+        .catch(e => {
+          console.log("fail to get chapIntro", chapId," info")
+          res.status(500).send("Internal problem");
+          console.log("Error Message ", e);
+        })
+})
+
 app.get('/lecturers', (req, res) => {
   console.log("operation get all lecturers started");
   let uid = req.query.uid;

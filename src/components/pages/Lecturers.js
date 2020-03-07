@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect } from "react";
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
@@ -10,7 +9,6 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import makeStyles from "@material-ui/styles/makeStyles";
-import useTheme from '@material-ui/styles/useTheme';
 import CustomDialog from "../common/CustomDialog";
 import Unauthorized from '../common/Unauthorized';
 import { useSelector } from 'react-redux';
@@ -72,7 +70,6 @@ const useStyles = makeStyles(theme => ({
     textAlign: "left",
     display: "flex",
     flexDirection: "column",
-    flex: 1,
     maxHeight: "240px"
   },
   messageBox: {
@@ -91,8 +88,6 @@ const useStyles = makeStyles(theme => ({
 
 function Lecturers() {
   const classes = useStyles();
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up('md'));
 
   const verified = useSelector(state => state.firebase.profile.verified);
   const uid = useSelector(state => state.firebase.auth.uid);

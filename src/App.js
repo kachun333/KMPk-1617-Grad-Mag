@@ -24,8 +24,9 @@ import Graduates from './components/pages/Graduates';
 import GraduateDetails from './components/pages/GraduateDetails';
 import Lecturers from './components/pages/Lecturers';
 import Videos from './components/pages/Videos';
+import ChapIntro from './components/pages/magazine/ChapIntro';
+import Magazine from './components/pages/magazine/Magazine';
 import Jpp from './components/pages/magazine/chap1/Jpp';
-import Chap1Intro from './components/pages/magazine/chap1/Chap1Intro';
 import Footer from "./components/Footer";
 
 function HideOnScroll(props) {
@@ -137,8 +138,9 @@ function App(props) {
             <Route path="/graduates/:id" exact component={GraduateDetails} />
             <Route path="/Lecturers" exact component={Lecturers} />
             <Route path="/videos" exact component={Videos} />
-            <Route path="/magazine/chap1" exact component={Chap1Intro} />
-            <Route path="/magazine/chap1/jpp" exact component={Jpp} />
+            <Route path="/magazine" exact component={Magazine} />
+            <Route path="/magazine/chap/:chapId" exact component={ChapIntro} />
+            <Route path="/magazine/chap/1/jpp" exact component={Jpp} />
             <Route component={PageNotFound} />
           </Switch>
           <Footer />

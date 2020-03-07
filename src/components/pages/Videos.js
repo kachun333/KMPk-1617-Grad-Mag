@@ -75,14 +75,14 @@ function Videos() {
     <Container className={classes.container}>
       {
         videosData.map((video) =>
-          <div className={classes.row}>
+          <div key={video.title} className={classes.row}>
             <Typography variant="h4" className={classes.typography}>
               {video.title}
             </Typography>
             <Grid container spacing={2}>
               {
                 video.iframes.map((iframe) =>
-                  <Grid className={classes.gridItem} item xs={iframe.xs ||12 } md={iframe.md || 4}>
+                  <Grid key={iframe.id} className={classes.gridItem} item xs={iframe.xs ||12 } md={iframe.md || 4}>
                     <YouTube
                       videoId={iframe.id}
                       opts={opts}
