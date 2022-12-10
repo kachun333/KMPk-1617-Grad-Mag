@@ -8,11 +8,11 @@ import rootReducer from './store/reducers/rootReducer'
 import thunk from 'redux-thunk'
 import { createFirestoreInstance, getFirestore } from 'redux-firestore';
 import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/functions';
-import 'firebase/storage';
-import 'firebase/auth';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/functions';
+import 'firebase/compat/storage';
+import 'firebase/compat/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyB6X85xsX2Ka357ePsdqE2dvi6InReQ3AY",
