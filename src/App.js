@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import makeStyles from "@material-ui/styles/makeStyles";
-import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
+import createTheme from '@material-ui/core/styles/createTheme';
 import Hidden from '@material-ui/core/Hidden';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -112,7 +112,7 @@ function App(props) {
       }
     },
   });
-  const muiTheme = createMuiTheme(theme);
+  const muiTheme = createTheme(theme);
   const classes = useStyles();
   return (
     <Router>
