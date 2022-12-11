@@ -8,14 +8,9 @@ import Typography from "@material-ui/core/Typography";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import makeStyles from "@material-ui/styles/makeStyles";
-// import Translate from '@material-ui/icons/Translate';
-// import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
-// import Brightness4 from '@material-ui/icons/Brightness4';
-// import Brightness7 from '@material-ui/icons/Brightness7';
-import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useFirebase } from "react-redux-firebase";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation, useNavigate, NavLink } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import DefaultAvatar from "../assets/images/favicon.png";
 import { setAppTitle } from "../store/actions/appActions";
@@ -51,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
 
 function NavbarDesktop() {
   const classes = useStyles();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const isLoggedin = useSelector((state) => state.firebase.auth.uid);
   const verified = useSelector((state) => state.firebase.profile.verified);
@@ -119,31 +114,6 @@ function NavbarDesktop() {
           >
             Magazine
           </Button>
-          {/* <IconButton>
-            <Brightness7 />
-          </IconButton>
-          <Button onClick={(e) => { setLanguageMenu(e.currentTarget) }}>
-            <Translate />
-            <ArrowDropDown />
-          </Button>
-          <Menu
-            anchorEl={languageMenu}
-            open={Boolean(languageMenu)}
-            onClose={() => { setLanguageMenu(null) }}
-          >
-            <MenuItem
-              component={Button}
-              onClick={() => handleLanguageChange("ch")}
-            >
-              中文
-                </MenuItem>
-            <MenuItem
-              component={Button}
-              onClick={() => handleLanguageChange("en")}
-            >
-              English
-                </MenuItem>
-          </Menu> */}
           {isLoggedin ? (
             <>
               <IconButton
@@ -164,7 +134,7 @@ function NavbarDesktop() {
                   <MenuItem
                     component={Button}
                     onClick={() => {
-                      history.push("/auth/verify");
+                      navigate("/auth/verify");
                     }}
                   >
                     Verify

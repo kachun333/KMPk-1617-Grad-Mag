@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import Link from "@material-ui/core/Link";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
@@ -8,10 +7,16 @@ import Box from "@material-ui/core/Box";
 import makeStyles from "@material-ui/styles/makeStyles";
 import useTheme from "@material-ui/styles/useTheme";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import VerticalBanner from "../../common/VerticalBanner";
 import CustomDialog from "../../common/CustomDialog";
+
+interface DialogState {
+  isOpen: boolean;
+  title?: string;
+  description?: string[];
+}
 
 // component level styling
 const useStyles = makeStyles((theme) => ({
@@ -59,14 +64,16 @@ function Verify() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const uid = useSelector((state) => state.firebase.auth.uid);
   const verified = useSelector((state) => state.firebase.profile.verified);
   if (verified) {
-    history.push("/");
+    navigate("/", { replace: true });
   }
 
-  const [dialog, setDialog] = useState(null);
+  const [dialog, setDialog] = useState<DialogState>({
+    isOpen: false,
+  });
   const [credentials, setCredentials] = useState({
     uid: "",
     event1: "",
@@ -74,7 +81,7 @@ function Verify() {
   });
   const handleSubmit = (e) => {
     if (!uid) {
-      history.push("/");
+      navigate("/");
     }
     credentials.uid = uid;
     axios
@@ -89,10 +96,11 @@ function Verify() {
         }
       )
       .then(() => {
-        history.push("/");
+        navigate("/");
       })
       .catch(() => {
         setDialog({
+          isOpen: true,
           title: "Verification Fail..",
           description: ["Fail to verify, please try again later"],
         });
@@ -142,10 +150,10 @@ function Verify() {
             />
             <Box id="login-help" className={classes.help}>
               <Typography component="div" variant="body2" color="inherit">
-                <Link
-                  href="#"
+                <Button
                   onClick={() => {
                     setDialog({
+                      isOpen: true,
                       title: "Need Hint?",
                       description: [
                         "Cultural Event Name:",
@@ -157,7 +165,7 @@ function Verify() {
                   }}
                 >
                   Need hint?
-                </Link>
+                </Button>
               </Typography>
             </Box>
             <Button
@@ -176,7 +184,7 @@ function Verify() {
         <CustomDialog
           open={Boolean(dialog)}
           onClose={() => {
-            setDialog(null);
+            setDialog({ isOpen: false });
           }}
           title={dialog.title}
           description={dialog.description}
