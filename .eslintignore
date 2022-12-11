@@ -1,0 +1,5 @@
+# 'functions' will have its specific eslint config in future
+functions/*
+
+# ignore build artifacts
+build/*
