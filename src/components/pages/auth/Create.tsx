@@ -1,15 +1,27 @@
 import React, { useState } from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import makeStyles from "@material-ui/styles/makeStyles";
 import { useFirebase } from "react-redux-firebase";
-import { useHistory } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import CustomDialog from "../../common/CustomDialog";
 import VerticalBanner from "../../common/VerticalBanner";
+
+interface DialogState {
+  isOpen: boolean;
+  title?: string;
+  description?: string[];
+}
+
+interface CreateUserCredentials {
+  email: string;
+  password: string;
+  signIn?: boolean; // default true
+  displayName: string;
+}
 
 // component level styling
 const useStyles = makeStyles((theme) => ({
@@ -53,40 +65,44 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function Create() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const isLoggedin = useSelector((state) => state.firebase.auth.uid);
   if (isLoggedin) {
-    history.push("/");
+    navigate("/", { replace: true });
   }
 
   const classes = useStyles();
-
-  const [credentials, setCredentials] = useState({
+  const [dialog, setDialog] = useState<DialogState>({ isOpen: false });
+  const [credentials, setCredentials] = useState<CreateUserCredentials>({
     email: "",
     password: "",
     displayName: "",
   });
 
   const firebase = useFirebase();
-  const handleCreate = ({ email, password, displayName }) => {
+  const handleCreate = ({
+    email,
+    password,
+    displayName,
+  }: CreateUserCredentials) => {
     firebase
       .createUser({ email, password }, { displayName, email })
       .then(() => {
         setDialog({
+          isOpen: true,
           title: "Account Created!",
           description: ["You will be redirect to login page soon"],
         });
-        history.push("/auth/login");
+        navigate("/auth/login");
       })
       .catch(() => {
         setDialog({
+          isOpen: true,
           title: "Account Fail to create",
           description: ["Please try again.."],
         });
       });
   };
-
-  const [dialog, setDialog] = useState(null);
 
   return (
     <div className={classes.container}>
@@ -144,24 +160,10 @@ function Create() {
           />
           <Box id="create-help" className={classes.help}>
             <Typography component="div" variant="body2" color="inherit">
-              <Link
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  history.push("/auth/reset");
-                }}
-              >
-                Forget password
-              </Link>
+              <Link to="/auth/reset">Forget password</Link>
             </Typography>
             <Typography component="div" variant="body2" color="inherit">
-              <Link
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  history.push("/auth/login");
-                }}
-              >
+              <Link to="/auth/login">
                 Already have an account? Sign in instead
               </Link>
             </Typography>
@@ -181,7 +183,7 @@ function Create() {
         <CustomDialog
           open={Boolean(dialog)}
           onClose={() => {
-            setDialog(null);
+            setDialog({ isOpen: false });
           }}
           title={dialog.title}
           description={dialog.description}
