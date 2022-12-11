@@ -1,9 +1,8 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
 import makeStyles from "@material-ui/styles/makeStyles";
-import { useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import VerticalBanner from "../../common/VerticalBanner";
 
@@ -42,10 +41,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function Reset() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const isLoggedin = useSelector((state) => state.firebase.auth.uid);
   if (isLoggedin) {
-    history.push("/");
+    navigate("/", { replace: true });
   }
   const classes = useStyles();
 
@@ -56,28 +55,15 @@ function Reset() {
       <Box className={classes.sidebox}>
         <Box id="title" className={classes.title}>
           <Typography variant="h4" color="inherit" align="center">
-            This feature is not yet ready, so please don't lost your password
+            This feature is not yet ready, so please don&apos;t lost your
+            password
           </Typography>
           <Box id="create-help" className={classes.help}>
             <Typography component="div" variant="body2" color="inherit">
-              <Link
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  history.push("/auth/create");
-                }}
-              >
-                Create new account
-              </Link>
+              <Link to="/auth/create">Create new account</Link>
             </Typography>
             <Typography component="div" variant="body2" color="inherit">
-              <Link
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  history.push("/auth/login");
-                }}
-              >
+              <Link to="/auth/login">
                 Already have an account? Sign in instead
               </Link>
             </Typography>
