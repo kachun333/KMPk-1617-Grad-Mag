@@ -10,12 +10,7 @@ import Slide from "@material-ui/core/Slide";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUp from "@material-ui/icons/KeyboardArrowUp";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter as Router, useLocation } from "react-router-dom";
 import NavbarDesktop from "./components/NavbarDesktop";
 import NavbarMobile from "./components/NavbarMobile";
 import Footer from "./components/Footer";
