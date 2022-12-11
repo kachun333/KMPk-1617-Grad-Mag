@@ -1,18 +1,43 @@
 import React, { useState } from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import makeStyles from "@material-ui/styles/makeStyles";
-
 import GoogleButton from "react-google-button";
 import { FacebookLoginButton } from "react-social-login-buttons";
 import { useFirebase } from "react-redux-firebase";
-import { useHistory } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import CustomDialog from "../../common/CustomDialog";
 import VerticalBanner from "../../common/VerticalBanner";
+
+interface DialogState {
+  isOpen: boolean;
+  title?: string;
+  description?: string[];
+}
+
+interface ReactReduxFirebaseCreateUserCredentials {
+  email: string;
+  password: string;
+  signIn?: boolean; // default true
+}
+
+type ReactReduxFirebaseCredentials =
+  | {
+      provider:
+        | "facebook"
+        | "google"
+        | "twitter"
+        | "github"
+        | "microsoft.com"
+        | "apple.com"
+        | "yahoo.com";
+      type: "popup" | "redirect";
+      scopes?: string[];
+    }
+  | ReactReduxFirebaseCreateUserCredentials;
 
 // component level styling
 const useStyles = makeStyles((theme) => ({
@@ -72,30 +97,35 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function Login() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const isLoggedin = useSelector((state) => state.firebase.auth.uid);
   const verified = useSelector((state) => state.firebase.profile.verified);
   if (isLoggedin) {
-    history.push("/");
+    navigate("/", { replace: true });
   }
   const classes = useStyles();
 
-  const [dialog, setDialog] = useState(null);
-  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const [dialog, setDialog] = useState<DialogState>({ isOpen: false });
+  const [credentials, setCredentials] =
+    useState<ReactReduxFirebaseCreateUserCredentials>({
+      email: "",
+      password: "",
+    });
 
   const firebase = useFirebase();
-  const handleLogin = (loginObject) => {
+  const handleLogin = (loginObject: ReactReduxFirebaseCredentials) => {
     firebase
       .login(loginObject)
       .then(() => {
         if (verified) {
-          history.push("/");
+          navigate("/");
         } else {
-          history.push("/auth/verify");
+          navigate("/auth/verify");
         }
       })
       .catch(() => {
         setDialog({
+          isOpen: true,
           title: "Login Fail..",
           description: ["Fail to login, please try again later"],
         });
@@ -134,11 +164,10 @@ function Login() {
             color="inherit"
             align="center"
           >
-            <Link
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
+            <Button
+              onClick={() => {
                 setDialog({
+                  isOpen: true,
                   title: "Why do I need to login?",
                   description: [
                     "This is to avoid sensitive informations to be expose publicy by allowing authenticated user to view it only. Certain actions, such as submitting a form, also required authentication.",
@@ -147,7 +176,7 @@ function Login() {
               }}
             >
               Why do I need to login?
-            </Link>
+            </Button>
           </Typography>
         </Box>
         <form
@@ -184,26 +213,10 @@ function Login() {
           />
           <Box id="login-help" className={classes.help}>
             <Typography component="div" variant="body2" color="inherit">
-              <Link
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  history.push("/auth/reset");
-                }}
-              >
-                Forget password
-              </Link>
+              <Link to="/auth/reset">Forget password</Link>
             </Typography>
             <Typography component="div" variant="body2" color="inherit">
-              <Link
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  history.push("/auth/create");
-                }}
-              >
-                Create new account
-              </Link>
+              <Link to="/auth/create">Create new account</Link>
             </Typography>
           </Box>
           <Button
@@ -221,7 +234,7 @@ function Login() {
         <CustomDialog
           open={Boolean(dialog)}
           onClose={() => {
-            setDialog(null);
+            setDialog({ isOpen: false });
           }}
           title={dialog.title}
           description={dialog.description}
