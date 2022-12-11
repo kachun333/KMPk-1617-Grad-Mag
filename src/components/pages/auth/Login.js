@@ -1,28 +1,28 @@
 import React, { useState } from "react";
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 import makeStyles from "@material-ui/styles/makeStyles";
 
-import GoogleButton from 'react-google-button';
+import GoogleButton from "react-google-button";
 import { FacebookLoginButton } from "react-social-login-buttons";
-import VerticalBanner from "../../common/VerticalBanner";
-import CustomDialog from "../../common/CustomDialog";
-import { useFirebase } from 'react-redux-firebase';
+import { useFirebase } from "react-redux-firebase";
 import { useHistory } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
+import CustomDialog from "../../common/CustomDialog";
+import VerticalBanner from "../../common/VerticalBanner";
 
 // component level styling
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     flexDirection: "column",
     flex: 1,
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up("md")]: {
       flexDirection: "row",
-    }
+    },
   },
   sidebox: {
     display: "flex",
@@ -46,9 +46,9 @@ const useStyles = makeStyles(theme => ({
   title: {
     width: "80%",
     margin: "16px",
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up("md")]: {
       width: "70%",
-    }
+    },
   },
   help: {
     width: "100%",
@@ -69,14 +69,14 @@ const useStyles = makeStyles(theme => ({
     fontSize: "16px !important",
     fontFamily: "Roboto, arial, sans-serif !important",
     marginTop: "12px !important",
-  }
+  },
 }));
 function Login() {
   const history = useHistory();
-  const isLoggedin = useSelector(state => state.firebase.auth.uid);
-  const verified = useSelector(state => state.firebase.profile.verified);
+  const isLoggedin = useSelector((state) => state.firebase.auth.uid);
+  const verified = useSelector((state) => state.firebase.profile.verified);
   if (isLoggedin) {
-    history.push("/")
+    history.push("/");
   }
   const classes = useStyles();
 
@@ -85,18 +85,22 @@ function Login() {
 
   const firebase = useFirebase();
   const handleLogin = (loginObject) => {
-    firebase.login(loginObject)
+    firebase
+      .login(loginObject)
       .then(() => {
         if (verified) {
-          history.push("/")
+          history.push("/");
         } else {
-          history.push("/auth/verify")
+          history.push("/auth/verify");
         }
       })
       .catch(() => {
-        setDialog({ title: "Login Fail..", description: ["Fail to login, please try again later"] });
-      })
-  }
+        setDialog({
+          title: "Login Fail..",
+          description: ["Fail to login, please try again later"],
+        });
+      });
+  };
 
   return (
     <div className={classes.container}>
@@ -107,39 +111,61 @@ function Login() {
         <Box id="social-login" className={classes.socialLogin}>
           <GoogleButton
             type="light"
-            onClick={() => { handleLogin({ provider: 'google', type: 'popup' }) }}
+            onClick={() => {
+              handleLogin({ provider: "google", type: "popup" });
+            }}
           />
-          <FacebookLoginButton className={classes.facebookLogin} onClick={() => { handleLogin({ provider: 'facebook', type: 'popup' }) }}>
-            <span style={{ paddingLeft: '12px' }}>Sign in with Facebook</span>
+          <FacebookLoginButton
+            className={classes.facebookLogin}
+            onClick={() => {
+              handleLogin({ provider: "facebook", type: "popup" });
+            }}
+          >
+            <span style={{ paddingLeft: "12px" }}>Sign in with Facebook</span>
           </FacebookLoginButton>
         </Box>
         <Box id="title" className={classes.title}>
-          <Typography variant="h5" color="inherit" align="center" >
+          <Typography variant="h5" color="inherit" align="center">
             Traditional Login
-            </Typography>
-          <Typography component="div" variant="caption" color="inherit" align="center" >
+          </Typography>
+          <Typography
+            component="div"
+            variant="caption"
+            color="inherit"
+            align="center"
+          >
             <Link
               href="#"
               onClick={(e) => {
-                e.preventDefault()
+                e.preventDefault();
                 setDialog({
                   title: "Why do I need to login?",
-                  description: ["This is to avoid sensitive informations to be expose publicy by allowing authenticated user to view it only. Certain actions, such as submitting a form, also required authentication."]
+                  description: [
+                    "This is to avoid sensitive informations to be expose publicy by allowing authenticated user to view it only. Certain actions, such as submitting a form, also required authentication.",
+                  ],
                 });
               }}
             >
               Why do I need to login?
-              </Link>
+            </Link>
           </Typography>
         </Box>
-        <form className={classes.form} onSubmit={(e) => { e.preventDefault(); handleLogin(credentials); }}>
+        <form
+          className={classes.form}
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleLogin(credentials);
+          }}
+        >
           <TextField
             className={classes.textfield}
             label="Email"
             type="email"
             variant="outlined"
             value={credentials.email}
-            onChange={(e) => setCredentials({ ...credentials, email: e.currentTarget.value })}
+            onChange={(e) =>
+              setCredentials({ ...credentials, email: e.currentTarget.value })
+            }
             required
           />
           <TextField
@@ -148,17 +174,34 @@ function Login() {
             type="password"
             variant="outlined"
             value={credentials.password}
-            onChange={(e) => setCredentials({ ...credentials, password: e.currentTarget.value })}
+            onChange={(e) =>
+              setCredentials({
+                ...credentials,
+                password: e.currentTarget.value,
+              })
+            }
             required
           />
           <Box id="login-help" className={classes.help}>
             <Typography component="div" variant="body2" color="inherit">
-              <Link href="#" onClick={(e) => { e.preventDefault(); history.push("/auth/reset"); }}>
+              <Link
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  history.push("/auth/reset");
+                }}
+              >
                 Forget password
               </Link>
             </Typography>
             <Typography component="div" variant="body2" color="inherit">
-              <Link href="#" onClick={(e) => { e.preventDefault(); history.push("/auth/create"); }}>
+              <Link
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  history.push("/auth/create");
+                }}
+              >
                 Create new account
               </Link>
             </Typography>
@@ -171,19 +214,19 @@ function Login() {
             type="submit"
           >
             Login
-            </Button>
+          </Button>
         </form>
       </Box>
-      {
-        dialog ?
-          <CustomDialog
-            open={Boolean(dialog)}
-            onClose={() => { setDialog(null) }}
-            title={dialog.title}
-            description={dialog.description}
-          />
-          : null
-      }
+      {dialog ? (
+        <CustomDialog
+          open={Boolean(dialog)}
+          onClose={() => {
+            setDialog(null);
+          }}
+          title={dialog.title}
+          description={dialog.description}
+        />
+      ) : null}
     </div>
   );
 }

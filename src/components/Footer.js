@@ -1,12 +1,12 @@
 import React from "react";
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
 import makeStyles from "@material-ui/styles/makeStyles";
-import GitHub from '@material-ui/icons/GitHub';
-import Email from '@material-ui/icons/Email';
-import Bottle from '../assets/images/bottle.png';
-import FooterImg from '../assets/images/footer.png';
+import GitHub from "@material-ui/icons/GitHub";
+import Email from "@material-ui/icons/Email";
+import Bottle from "../assets/images/bottle.png";
+import FooterImg from "../assets/images/footer.png";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
   },
   overlay: {
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     bottom: 0,
     right: 0,
@@ -52,29 +52,47 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     margin: theme.spacing(0.5),
-  }
+  },
 }));
 
 function Footer() {
   const classes = useStyles();
   return (
     <footer id="footer" className={classes.footer}>
-      <img className={classes.bottle} src={Bottle} alt="bottle-icon"></img>
-      <div className={classes.overlay}></div>
+      <img className={classes.bottle} src={Bottle} alt="bottle-icon" />
+      <div className={classes.overlay} />
       <Box id="footer-content" className={classes.box}>
-        <Typography variant="h6" gutterBottom>三年之约 Our Promise</Typography>
-        <Link href="mailto: gmagazinekmpk@gmail.com" className={classes.boxItem} color="inherit">
+        <Typography variant="h6" gutterBottom>
+          三年之约 Our Promise
+        </Typography>
+        <Link
+          href="mailto: gmagazinekmpk@gmail.com"
+          className={classes.boxItem}
+          color="inherit"
+        >
           <Email className={classes.icon} />
           <Typography variant="overline">gmagazinekmpk@gmail.com</Typography>
         </Link>
-        <Link href="https://github.com/1998chun/OurPromise" className={classes.boxItem} color="inherit">
+        <Link
+          href="https://github.com/1998chun/OurPromise"
+          className={classes.boxItem}
+          color="inherit"
+        >
           <GitHub className={classes.icon} />
           <Typography variant="overline">Github</Typography>
         </Link>
-        <Link href="https://www.privacypolicygenerator.info/live.php?token=12TSXce3RJFkpRpBfiN3kOLlK0Jz1kWt" className={classes.boxItem} color="inherit">
+        <Link
+          href="https://www.privacypolicygenerator.info/live.php?token=12TSXce3RJFkpRpBfiN3kOLlK0Jz1kWt"
+          className={classes.boxItem}
+          color="inherit"
+        >
           <Typography variant="overline">Privacy Policy</Typography>
         </Link>
-        <Link href="https://www.termsandconditionsgenerator.com/live.php?token=CRsPFRs0oVlHD9hs1EYvWE0KEnQdLph9" className={classes.boxItem} color="inherit">
+        <Link
+          href="https://www.termsandconditionsgenerator.com/live.php?token=CRsPFRs0oVlHD9hs1EYvWE0KEnQdLph9"
+          className={classes.boxItem}
+          color="inherit"
+        >
           <Typography variant="overline">Terms of Service</Typography>
         </Link>
       </Box>

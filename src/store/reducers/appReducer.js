@@ -1,10 +1,10 @@
 const initState = {
   appTitle: "Our Promise",
-}
+};
 
 const appReducer = (state = initState, action) => {
   switch (action.type) {
-    case 'SET_APPTITLE':
+    case "SET_APPTITLE":
       return {
         ...state,
         appTitle: action.newAppTitle,
