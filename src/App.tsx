@@ -16,23 +16,10 @@ import {
   Switch,
   useLocation,
 } from "react-router-dom";
-
-import Home from "./components/pages/Home";
 import NavbarDesktop from "./components/NavbarDesktop";
 import NavbarMobile from "./components/NavbarMobile";
-import Login from "./components/pages/auth/Login";
-import Verify from "./components/pages/auth/Verify";
-import Create from "./components/pages/auth/Create";
-import Reset from "./components/pages/auth/Reset";
-import PageNotFound from "./components/pages/PageNotFound";
-import Graduates from "./components/pages/Graduates";
-import GraduateDetails from "./components/pages/GraduateDetails";
-import Lecturers from "./components/pages/Lecturers";
-import Videos from "./components/pages/Videos";
-import ChapIntro from "./components/pages/magazine/ChapIntro";
-import Magazine from "./components/pages/magazine/Magazine";
-import Jpp from "./components/pages/magazine/chap1/Jpp";
 import Footer from "./components/Footer";
+import AppRoutes from "./routes/AppRoutes";
 
 function HideOnScroll(props) {
   const { children } = props;
@@ -142,21 +129,7 @@ function App(props) {
           </HideOnScroll>
           {/* blank space under appbar & above banner */}
           <Toolbar />
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/auth/login" exact component={Login} />
-            <Route path="/auth/verify" exact component={Verify} />
-            <Route path="/auth/create" exact component={Create} />
-            <Route path="/auth/reset" exact component={Reset} />
-            <Route path="/graduates" exact component={Graduates} />
-            <Route path="/graduates/:id" exact component={GraduateDetails} />
-            <Route path="/Lecturers" exact component={Lecturers} />
-            <Route path="/videos" exact component={Videos} />
-            <Route path="/magazine" exact component={Magazine} />
-            <Route path="/magazine/chap/:chapId" exact component={ChapIntro} />
-            <Route path="/magazine/chap/1/jpp" exact component={Jpp} />
-            <Route component={PageNotFound} />
-          </Switch>
+          <AppRoutes />
           <Footer />
           <ShowOnScroll>
             <Fab
