@@ -1,29 +1,29 @@
-import React from 'react';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
+import Drawer from "@material-ui/core/Drawer";
+import Hidden from "@material-ui/core/Hidden";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
 import { NavLink } from "react-router-dom";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   magazineNav: {
     // minWidth: 160,
     // maxWidth: 280
     // width: 180
-    width: 248
+    width: 248,
   },
   h100: {
-    height: '100%'
+    height: "100%",
   },
   drawerPaper: {
-    position: 'static',
-    height: '100%',
-    width: '100%',
+    position: "static",
+    height: "100%",
+    width: "100%",
   },
   parentListItem: {
-    padding: `12px 16px 12px ${theme.spacing(5)}px`
+    padding: `12px 16px 12px ${theme.spacing(5)}px`,
     // paddingLeft: theme.spacing(4)
   },
   childListItem: {
@@ -37,38 +37,46 @@ const useStyles = makeStyles(theme => ({
 
 function MagazineNav(props) {
   const classes = useStyles();
-  const navs = [{
-    title: "封面",
-    link: "/magazine",
-  }, {
-    title: "叙憶",
-    link: "/magazine/chap/1",
-    // children: [{
-    //   title: "老师赠言",
-    //   link: ""
-    // }, {
-    //   title: "学生代表",
-    //   link: ""
-    // }, {
-    //   title: "活动主席",
-    //   link: ""
-    // }]
-  }, {
-    title: "華憶",
-    link: "/magazine/chap/2",
-  }, {
-    title: "迴憶",
-    link: "/magazine/chap/3",
-  }, {
-    title: "筆憶",
-    link: "/magazine/chap/4",
-  }, {
-    title: "酣憶",
-    link: "/magazine/chap/5",
-  }, {
-    title: "醇憶",
-    link: "/magazine/chap/6",
-  }]
+  const navs = [
+    {
+      title: "封面",
+      link: "/magazine",
+    },
+    {
+      title: "叙憶",
+      link: "/magazine/chap/1",
+      // children: [{
+      //   title: "老师赠言",
+      //   link: ""
+      // }, {
+      //   title: "学生代表",
+      //   link: ""
+      // }, {
+      //   title: "活动主席",
+      //   link: ""
+      // }]
+    },
+    {
+      title: "華憶",
+      link: "/magazine/chap/2",
+    },
+    {
+      title: "迴憶",
+      link: "/magazine/chap/3",
+    },
+    {
+      title: "筆憶",
+      link: "/magazine/chap/4",
+    },
+    {
+      title: "酣憶",
+      link: "/magazine/chap/5",
+    },
+    {
+      title: "醇憶",
+      link: "/magazine/chap/6",
+    },
+  ];
 
   const drawer = (
     <List>
@@ -86,22 +94,21 @@ function MagazineNav(props) {
             <Typography variant="h4">{nav.title}</Typography>
           </ListItem>
           <List component="div" disablePadding>
-            {nav.children ?
-              nav.children.map((childNav) =>
-                <ListItem
-                  component={NavLink}
-                  key={childNav.title}
-                  className={classes.childListItem}
-                  exact
-                  to={childNav.link}
-                  activeClassName={classes.active}
-                  button
-                >
-                  <Typography variant="body1">{childNav.title}</Typography>
-                </ListItem>
-              )
-              : null
-            }
+            {nav.children
+              ? nav.children.map((childNav) => (
+                  <ListItem
+                    component={NavLink}
+                    key={childNav.title}
+                    className={classes.childListItem}
+                    exact
+                    to={childNav.link}
+                    activeClassName={classes.active}
+                    button
+                  >
+                    <Typography variant="body1">{childNav.title}</Typography>
+                  </ListItem>
+                ))
+              : null}
           </List>
         </>
       ))}
