@@ -1,8 +1,8 @@
-import graduateReducer from './graduateReducer'
-import appReducer from './appReducer'
-import { firebaseReducer } from 'react-redux-firebase'
-import { firestoreReducer } from 'redux-firestore'
-import { combineReducers } from 'redux'
+import { firebaseReducer } from "react-redux-firebase";
+import { firestoreReducer } from "redux-firestore";
+import { combineReducers } from "redux";
+import appReducer from "./appReducer";
+import graduateReducer from "./graduateReducer";
 
 const rootReducer = combineReducers({
   graduates: graduateReducer,
@@ -11,4 +11,4 @@ const rootReducer = combineReducers({
   firestore: firestoreReducer,
 });
 
-export default rootReducer
+export default rootReducer;

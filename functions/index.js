@@ -1,9 +1,10 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-const credentials = require('./credentials.json')
 const express = require('express');
 const cors = require('cors');
 const { Storage } = require('@google-cloud/storage')
+const credentials = require('./credentials.json')
+
 const gcs = new Storage({ keyFilename: './ourpromise-25c45a080fbc.json' });
 const serviceAccount = require("./ourpromise-25c45a080fbc.json");
 
@@ -58,7 +59,7 @@ app.post('/committee/registration', (req, res) => {
 
 app.get('/graduates', (req, res) => {
   console.log("operation get all graduates started");
-  let uid = req.query.uid;
+  let {uid} = req.query;
   if (!uid) {
     uid = 'default';
   }
@@ -68,9 +69,8 @@ app.get('/graduates', (req, res) => {
       console.log("fetching data for ", authenticated ? "successfully" : "NOT", "AUTHENTICATED user");
       admin.firestore().collection('graduates').get()
         .then(snapshot => {
-          let actions = snapshot.docs.map(doc => {
-            return new Promise((resolve, reject) => {
-              let data = doc.data();
+          const actions = snapshot.docs.map(doc => new Promise((resolve, reject) => {
+              const data = doc.data();
               data.birthday = (data.birthday._seconds + 3600 * 9) * 1000;
               data.id = doc.id;
               const bucket = gcs.bucket("gs://ourpromise.appspot.com/graduates");
@@ -90,9 +90,8 @@ app.get('/graduates', (req, res) => {
                   }
                   resolve(data);
                 })
-                .catch(() => reject("fail to get graduate image url for " + data.name));
-            })
-          })
+                .catch(() => reject(`fail to get graduate image url for ${  data.name}`));
+            }))
           Promise.all(actions)
             .then(results => res.send(results))
             .catch((e) => {
@@ -115,7 +114,7 @@ app.get('/graduates', (req, res) => {
 app.get('/graduates/:id', (req, res) => {
   const requestId = req.params.id;
   console.log("operation get graduate with id ", requestId, " started");
-  let uid = req.query.uid;
+  let {uid} = req.query;
   if (!uid) {
     uid = 'default';
   }
@@ -125,7 +124,7 @@ app.get('/graduates/:id', (req, res) => {
       console.log("fetching data for ", authenticated ? "successfully" : "NOT", "AUTHENTICATED user");
       admin.firestore().collection('graduates').doc(requestId).get()
         .then(snapshot => {
-          let data = snapshot.data();
+          const data = snapshot.data();
           data.birthday = (data.birthday._seconds + 3600 * 9) * 1000;
           data.id = requestId;
           const bucket = gcs.bucket("gs://ourpromise.appspot.com/graduates");
@@ -164,7 +163,7 @@ app.get('/graduates/:id', (req, res) => {
 });
 
 app.get('/magazine/chapIntro/:chapId', (req, res) => {
-  const chapId = req.params.chapId;
+  const {chapId} = req.params;
   console.log("what I got form the url param is ", chapId);
   if (!chapId) {
     chapId = 1;
@@ -172,10 +171,8 @@ app.get('/magazine/chapIntro/:chapId', (req, res) => {
   console.log("operation get chapIntro ", chapId, " started");
   admin.firestore().collection('magazine_chap_intro').doc(chapId).get()
         .then(snapshot => {
-          let data = snapshot.data();
-          data.poem = data.poem.map((paragraph) => {
-            return paragraph.split(", ");
-          });
+          const data = snapshot.data();
+          data.poem = data.poem.map((paragraph) => paragraph.split(", "));
           res.send(data);
         })
         .catch(e => {
@@ -187,7 +184,7 @@ app.get('/magazine/chapIntro/:chapId', (req, res) => {
 
 app.get('/lecturers', (req, res) => {
   console.log("operation get all lecturers started");
-  let uid = req.query.uid;
+  let {uid} = req.query;
   if (!uid) {
     uid = 'default';
   }
@@ -200,13 +197,11 @@ app.get('/lecturers', (req, res) => {
       } else {
         admin.firestore().collection('lecturers').get()
           .then(snapshot => {
-            let actions = snapshot.docs.map(doc => {
-              return new Promise((resolve, reject) => {
+            const actions = snapshot.docs.map(doc => new Promise((resolve, reject) => {
                 admin.firestore().collection('lecturers').doc(doc.id).collection('lecturers').get()
                   .then(snapshot => {
-                    let actions = snapshot.docs.map(doc => {
-                      return new Promise((resolve, reject) => {
-                        let innerData = doc.data();
+                    const actions = snapshot.docs.map(doc => new Promise((resolve, reject) => {
+                        const innerData = doc.data();
                         innerData.id = doc.id;
                         const bucket = gcs.bucket("gs://ourpromise.appspot.com/lecturers");
                         const file = bucket.file(`${innerData.name}.jpg`);
@@ -222,11 +217,10 @@ app.get('/lecturers', (req, res) => {
                               innerData.image = signedUrls[0]
                               resolve(innerData);
                             })
-                            .catch(() => reject("fail to get graduate image url for " + data.name));
+                            .catch(() => reject(`fail to get graduate image url for ${  data.name}`));
                         }
-                      })
-                    })
-                    let outerData = doc.data();
+                      }))
+                    const outerData = doc.data();
                     outerData.id = doc.id;
                     Promise.all(actions)
                       .then(results => {
@@ -238,8 +232,7 @@ app.get('/lecturers', (req, res) => {
                         console.log("Error Message ", e);
                       });
                   })
-              })
-            })
+              }))
             Promise.all(actions)
               .then(results => res.send(results))
               .catch((e) => {

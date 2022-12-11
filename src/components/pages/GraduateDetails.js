@@ -10,25 +10,25 @@ import {
   IconButton,
   Box,
 } from "@material-ui/core";
-import ArrowBack from '@material-ui/icons/ArrowBack';
-import Cake from '@material-ui/icons/Cake';
-import Email from '@material-ui/icons/Email';
-import Phone from '@material-ui/icons/Phone';
-import Domain from '@material-ui/icons/Domain';
-import Sms from '@material-ui/icons/Sms';
-import LocalFlorist from '@material-ui/icons/People';
-import PanTool from '@material-ui/icons/PanTool';
-import axios from 'axios';
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { useSelector } from 'react-redux';
-import Unauthorized from '../common/Unauthorized';
+import ArrowBack from "@material-ui/icons/ArrowBack";
+import Cake from "@material-ui/icons/Cake";
+import Email from "@material-ui/icons/Email";
+import Phone from "@material-ui/icons/Phone";
+import Domain from "@material-ui/icons/Domain";
+import Sms from "@material-ui/icons/Sms";
+import LocalFlorist from "@material-ui/icons/People";
+import PanTool from "@material-ui/icons/PanTool";
+import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 
-const useStyles = makeStyles(theme => ({
+import { useSelector } from "react-redux";
+import Unauthorized from "../common/Unauthorized";
+
+const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     flexDirection: "column",
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up("md")]: {
       flexDirection: "row",
       height: "100vh",
     },
@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     backgroundPositionX: "center",
     backgroundPositionY: "center",
     backgroundRepeat: "no-repeat",
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up("md")]: {
       height: "100vh",
       display: "flex",
       minHeight: "calc(100vh - 64px)",
@@ -51,23 +51,23 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     right: 0,
     justifyContent: "space-between",
-    background: 'transparent',
-    boxShadow: 'none'
+    background: "transparent",
+    boxShadow: "none",
   },
   icon: {
     color: "#FFF",
   },
   image: {
     maxWidth: "100%",
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up("md")]: {
       maxWidth: "fit-content",
       maxHeight: "calc(100vh - 64px)",
-    }
+    },
   },
   list: {
     height: "100%",
     padding: theme.spacing(2),
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up("md")]: {
       flex: 1,
       minWidth: "400px",
       height: "calc(100vh - 64px)",
@@ -83,21 +83,21 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function GraduateDetails() {
-
   const { id } = useParams();
-  const verified = useSelector(state => state.firebase.profile.verified);
-  const uid = useSelector(state => state.firebase.auth.uid);
+  const verified = useSelector((state) => state.firebase.profile.verified);
+  const uid = useSelector((state) => state.firebase.auth.uid);
   const [graduate, setGraduate] = useState({});
   useEffect(() => {
     let url = `https://us-central1-ourpromise.cloudfunctions.net/api/graduates/${id}`;
     if (verified) {
       url += `?uid=${uid}`;
     }
-    axios.get(url)
-      .then(res => {
+    axios
+      .get(url)
+      .then((res) => {
         setGraduate(res.data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   }, [id, verified, uid]);
@@ -113,73 +113,93 @@ function GraduateDetails() {
             </Link>
           </IconButton>
         </Toolbar>
-        <img className={classes.image} src={graduate.image || null} alt={graduate.name || ""} />
+        <img
+          className={classes.image}
+          src={graduate.image || null}
+          alt={graduate.name || ""}
+        />
       </Box>
       <Box className={classes.list}>
         <Box id="graduate-name" className={classes.listHeader}>
-          <Typography variant="h4">
-            {graduate.name_ch || ""}
-          </Typography>
-          <Typography variant="subtitle1">
-            {graduate.name || ""}
-          </Typography>
+          <Typography variant="h4">{graduate.name_ch || ""}</Typography>
+          <Typography variant="subtitle1">{graduate.name || ""}</Typography>
         </Box>
         <List>
-          {
-            verified ?
-              <>
-                <ListItem id="graduate-phone">
-                  <ListItemIcon><Phone /></ListItemIcon>
-                  <ListItemText primary="Phone" secondary={graduate.phone || ""} />
-                </ListItem>
-                <ListItem id="graduate-email">
-                  <ListItemIcon><Email /></ListItemIcon>
-                  <ListItemText primary="Email" secondary={graduate.email || ""} />
-                </ListItem>
-                <ListItem id="graduate-birthday">
-                  <ListItemIcon><Cake /></ListItemIcon>
-                  <ListItemText primary="Birthday" secondary={new Date(graduate.birthday).toDateString() || ""} />
-                </ListItem>
-                <ListItem id="graduate-tutorial">
-                  <ListItemIcon><Domain /></ListItemIcon>
-                  <ListItemText primary="Tutorial Class" secondary={graduate.tutorial || ""} />
-                </ListItem>
-              </>
-              : null
-          }
+          {verified ? (
+            <>
+              <ListItem id="graduate-phone">
+                <ListItemIcon>
+                  <Phone />
+                </ListItemIcon>
+                <ListItemText
+                  primary="Phone"
+                  secondary={graduate.phone || ""}
+                />
+              </ListItem>
+              <ListItem id="graduate-email">
+                <ListItemIcon>
+                  <Email />
+                </ListItemIcon>
+                <ListItemText
+                  primary="Email"
+                  secondary={graduate.email || ""}
+                />
+              </ListItem>
+              <ListItem id="graduate-birthday">
+                <ListItemIcon>
+                  <Cake />
+                </ListItemIcon>
+                <ListItemText
+                  primary="Birthday"
+                  secondary={new Date(graduate.birthday).toDateString() || ""}
+                />
+              </ListItem>
+              <ListItem id="graduate-tutorial">
+                <ListItemIcon>
+                  <Domain />
+                </ListItemIcon>
+                <ListItemText
+                  primary="Tutorial Class"
+                  secondary={graduate.tutorial || ""}
+                />
+              </ListItem>
+            </>
+          ) : null}
           <ListItem id="graduate-one_liner">
-            <ListItemIcon><PanTool /></ListItemIcon>
-            <ListItemText primary="One Liner" secondary={ graduate.one_liner || ""} />
+            <ListItemIcon>
+              <PanTool />
+            </ListItemIcon>
+            <ListItemText
+              primary="One Liner"
+              secondary={graduate.one_liner || ""}
+            />
           </ListItem>
           <ListItem id="graduate-message-title">
-            <ListItemIcon><Sms /></ListItemIcon>
+            <ListItemIcon>
+              <Sms />
+            </ListItemIcon>
             <ListItemText primary="Message" />
           </ListItem>
           <ListItem id="graduate-message-content">
             <ListItemText secondary={graduate.message || ""} />
           </ListItem>
           <ListItem id="graduate-describe_me">
-            <ListItemIcon><LocalFlorist /></ListItemIcon>
+            <ListItemIcon>
+              <LocalFlorist />
+            </ListItemIcon>
             <ListItemText primary="Describe me" />
           </ListItem>
           <List component="div" disablePadding>
-            {
-              graduate.describe_me ?
-                graduate.describe_me.map((description, i) => {
-                  return (
-                    <ListItem key={`graduate-describe_me-${i}`}>
-                      <ListItemText secondary={description} />
-                    </ListItem>
-                  );
-                })
-                : null
-            }
+            {graduate.describe_me
+              ? graduate.describe_me.map((description, i) => (
+                  <ListItem key={`graduate-describe_me-${i}`}>
+                    <ListItemText secondary={description} />
+                  </ListItem>
+                ))
+              : null}
           </List>
         </List>
-        {
-          verified ?
-            null : <Unauthorized type={uid ? "verify" : "login"} />
-        }
+        {verified ? null : <Unauthorized type={uid ? "verify" : "login"} />}
       </Box>
     </Box>
   );
