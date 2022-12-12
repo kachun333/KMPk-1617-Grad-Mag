@@ -13,6 +13,10 @@ import "firebase/compat/firestore";
 import "firebase/compat/functions";
 import "firebase/compat/storage";
 import "firebase/compat/auth";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB6X85xsX2Ka357ePsdqE2dvi6InReQ3AY",
