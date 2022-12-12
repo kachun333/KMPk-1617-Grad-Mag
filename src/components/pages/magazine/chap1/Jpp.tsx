@@ -1,9 +1,18 @@
 import React from "react";
-import makeStyles from "@material-ui/styles/makeStyles";
+import { styled } from "@mui/material/styles";
 import MagazineNav from "../../../common/MagazineNav";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
+const PREFIX = "Jpp";
+
+const classes = {
+  container: `${PREFIX}-container`,
+  sidebox: `${PREFIX}-sidebox`,
+  title: `${PREFIX}-title`,
+  help: `${PREFIX}-help`,
+};
+
+const Root = styled("div")(({ theme }) => ({
+  [`&.${classes.container}`]: {
     display: "flex",
     flexDirection: "column",
     flex: 1,
@@ -12,7 +21,8 @@ const useStyles = makeStyles((theme) => ({
       minHeight: "calc(100vh - 16px)",
     },
   },
-  sidebox: {
+
+  [`& .${classes.sidebox}`]: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -26,25 +36,26 @@ const useStyles = makeStyles((theme) => ({
       overflow: "auto",
     },
   },
-  title: {
+
+  [`& .${classes.title}`]: {
     width: "80%",
     margin: "16px",
     [theme.breakpoints.up("md")]: {
       width: "70%",
     },
   },
-  help: {
+
+  [`& .${classes.help}`]: {
     width: "100%",
   },
 }));
-function Jpp() {
-  const classes = useStyles();
 
+function Jpp() {
   return (
-    <div className={classes.container}>
+    <Root className={classes.container}>
       <MagazineNav />
       <div className={classes.container}>hello world</div>
-    </div>
+    </Root>
   );
 }
 
