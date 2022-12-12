@@ -9,7 +9,7 @@ import {
   Typography,
   IconButton,
   Box,
-} from "@material-ui/core";
+} from "@mui/material";
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import Cake from "@material-ui/icons/Cake";
 import Email from "@material-ui/icons/Email";

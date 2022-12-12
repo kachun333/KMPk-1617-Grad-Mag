@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 import makeStyles from "@material-ui/styles/makeStyles";
-import { CircularProgress } from "@material-ui/core";
+import { CircularProgress } from "@mui/material";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import VerticalBanner from "../../common/VerticalBanner";

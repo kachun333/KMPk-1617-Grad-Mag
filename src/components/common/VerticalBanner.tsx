@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import Box from "@material-ui/core/Box";
+import makeStyles from "@mui/material/styles/makeStyles";
+import Box from "@mui/material/Box";
 import { useFirebase } from "react-redux-firebase";
 
 const useStyles = makeStyles((theme) => ({

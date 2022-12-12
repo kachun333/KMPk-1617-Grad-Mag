@@ -1,6 +1,6 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
 import makeStyles from "@material-ui/styles/makeStyles";
 
 const useStyles = makeStyles((theme) => ({
