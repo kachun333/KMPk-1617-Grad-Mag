@@ -1,6 +1,8 @@
 import React, { useState, useEffect, Suspense } from "react";
-import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
-import makeStyles from "@material-ui/styles/makeStyles";
+import {
+  styled,
+  ThemeProvider as MuiThemeProvider,
+} from "@mui/material/styles";
 import createTheme from "@mui/material/styles/createTheme";
 import Hidden from "@mui/material/Hidden";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -15,6 +17,27 @@ import NavbarDesktop from "./components/NavbarDesktop";
 import NavbarMobile from "./components/NavbarMobile";
 import Footer from "./components/Footer";
 import AppRoutes from "./routes/AppRoutes";
+
+const PREFIX = "App";
+
+const classes = {
+  root: `${PREFIX}-root`,
+  fab: `${PREFIX}-fab`,
+};
+
+const StyledRouter = styled(Router)(({ theme }) => ({
+  [`& .${classes.root}`]: {
+    position: "relative",
+  },
+
+  [`& .${classes.fab}`]: {
+    position: "fixed",
+    top: "auto",
+    right: 20,
+    bottom: 20,
+    left: "auto",
+  },
+}));
 
 function HideOnScroll(props) {
   const { children } = props;
@@ -43,18 +66,6 @@ function ScrollToTop() {
 
   return null;
 }
-const useStyles = makeStyles((theme) => ({
-  root: {
-    position: "relative",
-  },
-  fab: {
-    position: "fixed",
-    top: "auto",
-    right: 20,
-    bottom: 20,
-    left: "auto",
-  },
-}));
 function App(props) {
   const [theme] = useState({
     palette: {
@@ -105,9 +116,9 @@ function App(props) {
     },
   });
   const muiTheme = createTheme(theme);
-  const classes = useStyles();
+
   return (
-    <Router>
+    <StyledRouter>
       <MuiThemeProvider theme={muiTheme}>
         <Suspense fallback={null}>
           <CssBaseline />
@@ -144,7 +155,7 @@ function App(props) {
           </ShowOnScroll>
         </Suspense>
       </MuiThemeProvider>
-    </Router>
+    </StyledRouter>
   );
 }
 
