@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { styled } from "@mui/material/styles";
 import {
   Toolbar,
   makeStyles,
@@ -24,8 +25,21 @@ import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Unauthorized from "../common/Unauthorized";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
+const PREFIX = "GraduateDetails";
+
+const classes = {
+  container: `${PREFIX}-container`,
+  imageBox: `${PREFIX}-imageBox`,
+  toolbar: `${PREFIX}-toolbar`,
+  icon: `${PREFIX}-icon`,
+  image: `${PREFIX}-image`,
+  list: `${PREFIX}-list`,
+  listHeader: `${PREFIX}-listHeader`,
+  nestedListItem: `${PREFIX}-nestedListItem`,
+};
+
+const StyledBox = styled(Box)(({ theme }) => ({
+  [`&.${classes.container}`]: {
     display: "flex",
     flexDirection: "column",
     [theme.breakpoints.up("md")]: {
@@ -33,7 +47,8 @@ const useStyles = makeStyles((theme) => ({
       height: "100vh",
     },
   },
-  imageBox: {
+
+  [`& .${classes.imageBox}`]: {
     position: "relative",
     margin: "auto 0",
     backgroundPositionX: "center",
@@ -46,7 +61,8 @@ const useStyles = makeStyles((theme) => ({
       overflow: "hidden",
     },
   },
-  toolbar: {
+
+  [`& .${classes.toolbar}`]: {
     position: "absolute",
     left: 0,
     right: 0,
@@ -54,17 +70,20 @@ const useStyles = makeStyles((theme) => ({
     background: "transparent",
     boxShadow: "none",
   },
-  icon: {
+
+  [`& .${classes.icon}`]: {
     color: "#FFF",
   },
-  image: {
+
+  [`& .${classes.image}`]: {
     maxWidth: "100%",
     [theme.breakpoints.up("md")]: {
       maxWidth: "fit-content",
       maxHeight: "calc(100vh - 64px)",
     },
   },
-  list: {
+
+  [`& .${classes.list}`]: {
     height: "100%",
     padding: theme.spacing(2),
     [theme.breakpoints.up("md")]: {
@@ -74,11 +93,13 @@ const useStyles = makeStyles((theme) => ({
       overflow: "auto",
     },
   },
-  listHeader: {
-    margin: `${theme.spacing(2)}px ${theme.spacing(5)}px`,
+
+  [`& .${classes.listHeader}`]: {
+    margin: `${theme.spacing(2)} ${theme.spacing(5)}`,
   },
-  nestedListItem: {
-    padding: `0 ${theme.spacing(4)}px`,
+
+  [`& .${classes.nestedListItem}`]: {
+    padding: `0 ${theme.spacing(4)}`,
   },
 }));
 
@@ -102,12 +123,11 @@ function GraduateDetails() {
       });
   }, [id, verified, uid]);
 
-  const classes = useStyles();
   return (
-    <Box className={classes.container}>
+    <StyledBox className={classes.container}>
       <Box id="graduate-image" className={classes.imageBox}>
         <Toolbar className={classes.toolbar}>
-          <IconButton edge="start" aria-label="close">
+          <IconButton edge="start" aria-label="close" size="large">
             <Link to="/graduates">
               <ArrowBack className={classes.icon} />
             </Link>
@@ -201,7 +221,7 @@ function GraduateDetails() {
         </List>
         {verified ? null : <Unauthorized type={uid ? "verify" : "login"} />}
       </Box>
-    </Box>
+    </StyledBox>
   );
 }
 

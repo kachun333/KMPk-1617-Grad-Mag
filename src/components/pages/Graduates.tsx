@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
+import { styled } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -12,8 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import CircularProgress from "@mui/material/CircularProgress";
-import makeStyles from "@material-ui/styles/makeStyles";
-import useTheme from "@material-ui/styles/useTheme";
+import useTheme from "@mui/styles/useTheme";
 // import Tune from '@mui/icons-material/Tune';
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import ExpandLess from "@mui/icons-material/ExpandLess";
@@ -23,52 +23,75 @@ import AwesomeDebouncePromise from "awesome-debounce-promise";
 import axios from "axios";
 import CustomDialog from "../common/CustomDialog";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
+const PREFIX = "Graduates";
+
+const classes = {
+  container: `${PREFIX}-container`,
+  section: `${PREFIX}-section`,
+  searchBar: `${PREFIX}-searchBar`,
+  advancedSearch: `${PREFIX}-advancedSearch`,
+  sortBy: `${PREFIX}-sortBy`,
+  card: `${PREFIX}-card`,
+  cardMedia: `${PREFIX}-cardMedia`,
+  link: `${PREFIX}-link`,
+  cardContent: `${PREFIX}-cardContent`,
+};
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled("div")(({ theme }) => ({
+  [`& .${classes.container}`]: {
     display: "flex",
     flexDirection: "column",
     flex: 1,
   },
-  section: {
+
+  [`& .${classes.section}`]: {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
-    margin: `${theme.spacing(2)}px 0px`,
+    margin: `${theme.spacing(2)} 0px`,
   },
-  searchBar: {
+
+  [`& .${classes.searchBar}`]: {
     width: "96%",
     [theme.breakpoints.up("md")]: {
       width: "72%",
     },
   },
-  advancedSearch: {
+
+  [`& .${classes.advancedSearch}`]: {
     margin: theme.spacing(0.5),
     marginTop: theme.spacing(1),
     padding: theme.spacing(1),
   },
-  sortBy: {
+
+  [`& .${classes.sortBy}`]: {
     marginTop: theme.spacing(1),
   },
-  card: {
+
+  [`& .${classes.card}`]: {
     margin: "4px",
     width: "43.2vw",
     [theme.breakpoints.up("md")]: {
       width: "282px",
     },
   },
-  cardMedia: {
+
+  [`& .${classes.cardMedia}`]: {
     height: "28.8vw",
     [theme.breakpoints.up("md")]: {
       height: "188px",
     },
   },
-  link: {
+
+  [`& .${classes.link}`]: {
     textDecoration: "none",
     color: "inherit",
   },
-  cardContent: {
-    padding: `${theme.spacing(0.5)}px ${theme.spacing(2)}px`,
-    paddingBottom: `${theme.spacing(1)}px !important`,
+
+  [`& .${classes.cardContent}`]: {
+    padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
+    paddingBottom: `${theme.spacing(1)} !important`,
   },
 }));
 
@@ -209,11 +232,10 @@ function Graduates(props) {
     });
   }
 
-  const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   return (
-    <>
+    <Root>
       <Container className={classes.container}>
         <Box id="graduates-filterOption" className={classes.section}>
           <TextField
@@ -333,7 +355,7 @@ function Graduates(props) {
           description={dialog.description}
         />
       ) : null}
-    </>
+    </Root>
   );
 }
 

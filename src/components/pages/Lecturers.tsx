@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
+import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
@@ -8,47 +9,73 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import CircularProgress from "@mui/material/CircularProgress";
-import makeStyles from "@material-ui/styles/makeStyles";
 import { useSelector } from "react-redux";
 import AwesomeDebouncePromise from "awesome-debounce-promise";
 import axios from "axios";
 import Unauthorized from "../common/Unauthorized";
 import CustomDialog from "../common/CustomDialog";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
+const PREFIX = "Lecturers";
+
+const classes = {
+  container: `${PREFIX}-container`,
+  searchSection: `${PREFIX}-searchSection`,
+  searchBar: `${PREFIX}-searchBar`,
+  contentSection: `${PREFIX}-contentSection`,
+  department: `${PREFIX}-department`,
+  typography: `${PREFIX}-typography`,
+  gridItem: `${PREFIX}-gridItem`,
+  card: `${PREFIX}-card`,
+  cardImageBox: `${PREFIX}-cardImageBox`,
+  cardImage: `${PREFIX}-cardImage`,
+  cardContent: `${PREFIX}-cardContent`,
+  messageBox: `${PREFIX}-messageBox`,
+  message: `${PREFIX}-message`,
+  circularProgress: `${PREFIX}-circularProgress`,
+};
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled("div")(({ theme }) => ({
+  [`& .${classes.container}`]: {
     display: "flex",
     flexDirection: "column",
     flex: 1,
   },
-  searchSection: {
+
+  [`& .${classes.searchSection}`]: {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
-    margin: `${theme.spacing(2)}px 0px`,
+    margin: `${theme.spacing(2)} 0px`,
   },
-  searchBar: {
+
+  [`& .${classes.searchBar}`]: {
     width: "96%",
     [theme.breakpoints.up("md")]: {
       width: "72%",
     },
   },
-  contentSection: {
+
+  [`& .${classes.contentSection}`]: {
     display: "flex",
     flexWrap: "wrap",
     flexDirection: "column",
   },
-  department: {
-    margin: `${theme.spacing(2)}px 0px`,
+
+  [`& .${classes.department}`]: {
+    margin: `${theme.spacing(2)} 0px`,
   },
-  typography: {
+
+  [`& .${classes.typography}`]: {
     margin: theme.spacing(2),
   },
-  gridItem: {
+
+  [`& .${classes.gridItem}`]: {
     textAlign: "center",
-    margin: `${theme.spacing(2)}px 0px`,
+    margin: `${theme.spacing(2)} 0px`,
   },
-  card: {
+
+  [`& .${classes.card}`]: {
     display: "flex",
     margin: "auto",
     width: "90%",
@@ -57,36 +84,40 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "row",
     },
   },
-  cardImageBox: {
+
+  [`& .${classes.cardImageBox}`]: {
     display: "flex",
     overflow: "hidden",
     margin: "auto",
   },
-  cardImage: {
+
+  [`& .${classes.cardImage}`]: {
     height: "240px",
   },
-  cardContent: {
+
+  [`& .${classes.cardContent}`]: {
     flex: 1,
     textAlign: "left",
     display: "flex",
     flexDirection: "column",
     maxHeight: "240px",
   },
-  messageBox: {
+
+  [`& .${classes.messageBox}`]: {
     flex: 1,
     overflow: "hidden",
   },
-  message: {
+
+  [`& .${classes.message}`]: {
     margin: theme.spacing(2),
   },
-  circularProgress: {
+
+  [`& .${classes.circularProgress}`]: {
     margin: "auto",
   },
 }));
 
 function Lecturers() {
-  const classes = useStyles();
-
   const verified = useSelector((state) => state.firebase.profile.verified);
   const uid = useSelector((state) => state.firebase.auth.uid);
   const [lecturers, setLecturers] = useState({ data: null, ordered: null });
@@ -156,7 +187,7 @@ function Lecturers() {
   const [dialog, setDialog] = useState(null);
 
   return (
-    <>
+    <Root>
       <Container className={classes.container}>
         <Box id="lecturers-filterOption" className={classes.searchSection}>
           <TextField
@@ -242,7 +273,7 @@ function Lecturers() {
           dismissText="谢谢"
         />
       ) : null}
-    </>
+    </Root>
   );
 }
 

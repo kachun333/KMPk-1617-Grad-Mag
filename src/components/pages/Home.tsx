@@ -1,4 +1,5 @@
 import React from "react";
+import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
@@ -6,41 +7,60 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import makeStyles from "@material-ui/styles/makeStyles";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Banner from "../common/Banner";
 
-// component level styling
-const useStyles = makeStyles((theme) => ({
-  container: {
+const PREFIX = "Home";
+
+const classes = {
+  container: `${PREFIX}-container`,
+  section: `${PREFIX}-section`,
+  button: `${PREFIX}-button`,
+  paragraph: `${PREFIX}-paragraph`,
+  card: `${PREFIX}-card`,
+  cardMedia: `${PREFIX}-cardMedia`,
+  cardContent: `${PREFIX}-cardContent`,
+  overlay: `${PREFIX}-overlay`,
+};
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled("div")(({ theme }) => ({
+  [`& .${classes.container}`]: {
     display: "flex",
     flexDirection: "column",
     flex: 1,
   },
-  section: {
-    margin: `${theme.spacing(2)}px 0px`,
+
+  [`& .${classes.section}`]: {
+    margin: `${theme.spacing(2)} 0px`,
   },
-  button: {
+
+  [`& .${classes.button}`]: {
     width: "fit-content",
     margin: "auto",
   },
-  paragraph: {
+
+  [`& .${classes.paragraph}`]: {
     margin: theme.spacing(2),
   },
-  card: {
+
+  [`& .${classes.card}`]: {
     position: "relative",
   },
-  cardMedia: {
+
+  [`& .${classes.cardMedia}`]: {
     height: "280px",
   },
-  cardContent: {
+
+  [`& .${classes.cardContent}`]: {
     position: "absolute",
     bottom: 0,
     margin: "0 32px",
     marginBottom: "8px",
   },
-  overlay: {
+
+  [`& .${classes.overlay}`]: {
     position: "absolute",
     bottom: 0,
     right: 0,
@@ -86,9 +106,9 @@ function Home() {
   const displayName = useSelector(
     (state) => state.firebase.profile.displayName
   );
-  const classes = useStyles();
+
   return (
-    <>
+    <Root>
       <Banner banner="home" />
       <Container className={classes.container}>
         {displayName ? (
@@ -147,7 +167,7 @@ function Home() {
           </Grid>
         </Box>
       </Container>
-    </>
+    </Root>
   );
 }
 
