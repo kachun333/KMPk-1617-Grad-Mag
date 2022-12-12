@@ -1,14 +1,73 @@
 import React, { useState } from "react";
+import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import makeStyles from "@material-ui/styles/makeStyles";
 import { useFirebase } from "react-redux-firebase";
 import { useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import CustomDialog from "../../common/CustomDialog";
 import VerticalBanner from "../../common/VerticalBanner";
+
+const PREFIX = "Create";
+
+const classes = {
+  container: `${PREFIX}-container`,
+  sidebox: `${PREFIX}-sidebox`,
+  form: `${PREFIX}-form`,
+  title: `${PREFIX}-title`,
+  help: `${PREFIX}-help`,
+  textfield: `${PREFIX}-textfield`,
+  button: `${PREFIX}-button`,
+};
+
+const Root = styled("div")(({ theme }) => ({
+  [`&.${classes.container}`]: {
+    display: "flex",
+    flexDirection: "column",
+    flex: 1,
+    [theme.breakpoints.up("md")]: {
+      flexDirection: "row",
+    },
+  },
+
+  [`& .${classes.sidebox}`]: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
+    padding: theme.spacing(2),
+  },
+
+  [`& .${classes.form}`]: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+
+  [`& .${classes.title}`]: {
+    width: "80%",
+    margin: "16px",
+    [theme.breakpoints.up("md")]: {
+      width: "70%",
+    },
+  },
+
+  [`& .${classes.help}`]: {
+    width: "100%",
+  },
+
+  [`& .${classes.textfield}`]: {
+    margin: theme.spacing(1),
+    width: "100%",
+  },
+
+  [`& .${classes.button}`]: {
+    margin: theme.spacing(2),
+  },
+}));
 
 interface DialogState {
   isOpen: boolean;
@@ -23,47 +82,6 @@ interface CreateUserCredentials {
   displayName: string;
 }
 
-// component level styling
-const useStyles = makeStyles((theme) => ({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    flex: 1,
-    [theme.breakpoints.up("md")]: {
-      flexDirection: "row",
-    },
-  },
-  sidebox: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    flex: 1,
-    padding: theme.spacing(2),
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  title: {
-    width: "80%",
-    margin: "16px",
-    [theme.breakpoints.up("md")]: {
-      width: "70%",
-    },
-  },
-  help: {
-    width: "100%",
-  },
-  textfield: {
-    margin: theme.spacing(1),
-    width: "100%",
-  },
-  button: {
-    margin: theme.spacing(2),
-  },
-}));
 function Create() {
   const navigate = useNavigate();
   const isLoggedin = useSelector((state) => state.firebase.auth.uid);
@@ -71,7 +89,6 @@ function Create() {
     navigate("/", { replace: true });
   }
 
-  const classes = useStyles();
   const [dialog, setDialog] = useState<DialogState>({ isOpen: false });
   const [credentials, setCredentials] = useState<CreateUserCredentials>({
     email: "",
@@ -105,7 +122,7 @@ function Create() {
   };
 
   return (
-    <div className={classes.container}>
+    <Root className={classes.container}>
       <VerticalBanner banner="login" />
       <Box className={classes.sidebox}>
         <Box id="title" className={classes.title}>
@@ -189,7 +206,7 @@ function Create() {
           description={dialog.description}
         />
       ) : null}
-    </div>
+    </Root>
   );
 }
 

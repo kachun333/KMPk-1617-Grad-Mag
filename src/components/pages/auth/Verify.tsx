@@ -1,26 +1,32 @@
 import React, { useState } from "react";
+import { styled } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import makeStyles from "@material-ui/styles/makeStyles";
-import useTheme from "@material-ui/styles/useTheme";
+import useTheme from "@mui/styles/useTheme";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import VerticalBanner from "../../common/VerticalBanner";
 import CustomDialog from "../../common/CustomDialog";
 
-interface DialogState {
-  isOpen: boolean;
-  title?: string;
-  description?: string[];
-}
+const PREFIX = "Verify";
 
-// component level styling
-const useStyles = makeStyles((theme) => ({
-  container: {
+const classes = {
+  container: `${PREFIX}-container`,
+  sidebox: `${PREFIX}-sidebox`,
+  form: `${PREFIX}-form`,
+  title: `${PREFIX}-title`,
+  textfield: `${PREFIX}-textfield`,
+  button: `${PREFIX}-button`,
+  help: `${PREFIX}-help`,
+};
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled("div")(({ theme }) => ({
+  [`& .${classes.container}`]: {
     display: "flex",
     flexDirection: "column",
     flex: 1,
@@ -28,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "row",
     },
   },
-  sidebox: {
+
+  [`& .${classes.sidebox}`]: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -36,31 +43,42 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     padding: theme.spacing(2),
   },
-  form: {
+
+  [`& .${classes.form}`]: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
-  title: {
+
+  [`& .${classes.title}`]: {
     width: "80%",
     margin: "16px",
     [theme.breakpoints.up("md")]: {
       width: "70%",
     },
   },
-  textfield: {
+
+  [`& .${classes.textfield}`]: {
     margin: theme.spacing(1),
     width: "100%",
   },
-  button: {
+
+  [`& .${classes.button}`]: {
     margin: theme.spacing(2),
   },
-  help: {
+
+  [`& .${classes.help}`]: {
     width: "100%",
   },
 }));
+
+interface DialogState {
+  isOpen: boolean;
+  title?: string;
+  description?: string[];
+}
+
 function Verify() {
-  const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
@@ -108,7 +126,7 @@ function Verify() {
     e.preventDefault();
   };
   return (
-    <>
+    <Root>
       <Box id="verify" className={classes.container}>
         <VerticalBanner banner="verify" />
         <Box className={classes.sidebox}>
@@ -190,7 +208,7 @@ function Verify() {
           description={dialog.description}
         />
       ) : null}
-    </>
+    </Root>
   );
 }
 

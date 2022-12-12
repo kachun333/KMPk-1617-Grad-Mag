@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import makeStyles from "@material-ui/styles/makeStyles";
 import GoogleButton from "react-google-button";
 import { FacebookLoginButton } from "react-social-login-buttons";
 import { useFirebase } from "react-redux-firebase";
@@ -11,6 +11,87 @@ import { useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import CustomDialog from "../../common/CustomDialog";
 import VerticalBanner from "../../common/VerticalBanner";
+
+const PREFIX = "Login";
+
+const classes = {
+  container: `${PREFIX}-container`,
+  sidebox: `${PREFIX}-sidebox`,
+  form: `${PREFIX}-form`,
+  socialLogin: `${PREFIX}-socialLogin`,
+  title: `${PREFIX}-title`,
+  help: `${PREFIX}-help`,
+  textfield: `${PREFIX}-textfield`,
+  button: `${PREFIX}-button`,
+  caption: `${PREFIX}-caption`,
+  facebookLogin: `${PREFIX}-facebookLogin`,
+};
+
+const Root = styled("div")(({ theme }) => ({
+  [`&.${classes.container}`]: {
+    display: "flex",
+    flexDirection: "column",
+    flex: 1,
+    [theme.breakpoints.up("md")]: {
+      flexDirection: "row",
+    },
+  },
+
+  [`& .${classes.sidebox}`]: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
+    padding: theme.spacing(2),
+  },
+
+  [`& .${classes.form}`]: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+
+  [`& .${classes.socialLogin}`]: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    margin: "16px",
+  },
+
+  [`& .${classes.title}`]: {
+    width: "80%",
+    margin: "16px",
+    [theme.breakpoints.up("md")]: {
+      width: "70%",
+    },
+  },
+
+  [`& .${classes.help}`]: {
+    width: "100%",
+  },
+
+  [`& .${classes.textfield}`]: {
+    margin: theme.spacing(1),
+    width: "100%",
+  },
+
+  [`& .${classes.button}`]: {
+    margin: theme.spacing(2),
+  },
+
+  [`& .${classes.caption}`]: {
+    width: "100%",
+    height: "100%",
+  },
+
+  [`& .${classes.facebookLogin}`]: {
+    width: "240px !important",
+    fontSize: "16px !important",
+    fontFamily: "Roboto, arial, sans-serif !important",
+    marginTop: "12px !important",
+  },
+}));
 
 interface DialogState {
   isOpen: boolean;
@@ -39,63 +120,6 @@ type ReactReduxFirebaseCredentials =
     }
   | ReactReduxFirebaseCreateUserCredentials;
 
-// component level styling
-const useStyles = makeStyles((theme) => ({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    flex: 1,
-    [theme.breakpoints.up("md")]: {
-      flexDirection: "row",
-    },
-  },
-  sidebox: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    flex: 1,
-    padding: theme.spacing(2),
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  socialLogin: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    margin: "16px",
-  },
-  title: {
-    width: "80%",
-    margin: "16px",
-    [theme.breakpoints.up("md")]: {
-      width: "70%",
-    },
-  },
-  help: {
-    width: "100%",
-  },
-  textfield: {
-    margin: theme.spacing(1),
-    width: "100%",
-  },
-  button: {
-    margin: theme.spacing(2),
-  },
-  caption: {
-    width: "100%",
-    height: "100%",
-  },
-  facebookLogin: {
-    width: "240px !important",
-    fontSize: "16px !important",
-    fontFamily: "Roboto, arial, sans-serif !important",
-    marginTop: "12px !important",
-  },
-}));
 function Login() {
   const navigate = useNavigate();
   const isLoggedin = useSelector((state) => state.firebase.auth.uid);
@@ -103,7 +127,6 @@ function Login() {
   if (isLoggedin) {
     navigate("/", { replace: true });
   }
-  const classes = useStyles();
 
   const [dialog, setDialog] = useState<DialogState>({ isOpen: false });
   const [credentials, setCredentials] =
@@ -133,7 +156,7 @@ function Login() {
   };
 
   return (
-    <div className={classes.container}>
+    <Root className={classes.container}>
       <Box>
         <VerticalBanner banner="login" />
       </Box>
@@ -240,7 +263,7 @@ function Login() {
           description={dialog.description}
         />
       ) : null}
-    </div>
+    </Root>
   );
 }
 
