@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Avatar from "@mui/material/Avatar";
@@ -7,7 +8,6 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import makeStyles from "@material-ui/styles/makeStyles";
 import { useSelector, useDispatch } from "react-redux";
 import { useFirebase } from "react-redux-firebase";
 import { useLocation, useNavigate, NavLink } from "react-router-dom";
@@ -15,8 +15,19 @@ import Logo from "../assets/images/logo.png";
 import DefaultAvatar from "../assets/images/favicon.png";
 import { setAppTitle } from "../store/actions/appActions";
 
-const useStyles = makeStyles((theme) => ({
-  appbar: {
+const PREFIX = "NavbarDesktop";
+
+const classes = {
+  appbar: `${PREFIX}-appbar`,
+  logo: `${PREFIX}-logo`,
+  appTitle: `${PREFIX}-appTitle`,
+  active: `${PREFIX}-active`,
+  tab: `${PREFIX}-tab`,
+  login: `${PREFIX}-login`,
+};
+
+const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+  [`&.${classes.appbar}`]: {
     width: "100%",
     maxWidth: "100vw",
     display: "flex",
@@ -24,28 +35,32 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "nowrap",
     alignItems: "center",
   },
-  logo: {
+
+  [`& .${classes.logo}`]: {
     height: "40px",
   },
-  appTitle: {
-    margin: `0 ${theme.spacing(2)}px`,
+
+  [`& .${classes.appTitle}`]: {
+    margin: `0 ${theme.spacing(2)}`,
     flexGrow: 1,
   },
-  active: {
+
+  [`& .${classes.active}`]: {
     color: theme.palette.primary.main,
     fontWeight: "bold",
   },
-  tab: {
-    margin: `0 ${theme.spacing(0.5)}px`,
+
+  [`& .${classes.tab}`]: {
+    margin: `0 ${theme.spacing(0.5)}`,
     minWidth: "60px",
   },
-  login: {
-    margin: `0 ${theme.spacing(1.5)}px`,
+
+  [`& .${classes.login}`]: {
+    margin: `0 ${theme.spacing(1.5)}`,
   },
 }));
 
 function NavbarDesktop() {
-  const classes = useStyles();
   const navigate = useNavigate();
 
   const isLoggedin = useSelector((state) => state.firebase.auth.uid);
@@ -67,7 +82,7 @@ function NavbarDesktop() {
     firebase.logout();
   };
   return (
-    <Toolbar className={classes.appbar}>
+    <StyledToolbar className={classes.appbar}>
       <Button id="logo" component={NavLink} to="/">
         <img alt="logo" src={Logo} className={classes.logo} />
       </Button>
@@ -120,6 +135,7 @@ function NavbarDesktop() {
                 onClick={(e) => {
                   setAvatarMenu(e.currentTarget);
                 }}
+                size="large"
               >
                 <Avatar alt="me" src={avatar || DefaultAvatar} />
               </IconButton>
@@ -158,7 +174,7 @@ function NavbarDesktop() {
           )}
         </Box>
       </Box>
-    </Toolbar>
+    </StyledToolbar>
   );
 }
 
