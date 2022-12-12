@@ -3,8 +3,8 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import makeStyles from "@material-ui/styles/makeStyles";
-import GitHub from "@material-ui/icons/GitHub";
-import Email from "@material-ui/icons/Email";
+import GitHub from "@mui/icons-material/GitHub";
+import Email from "@mui/icons-material/Email";
 import Bottle from "../assets/images/bottle.png";
 import FooterImg from "../assets/images/footer.png";
 

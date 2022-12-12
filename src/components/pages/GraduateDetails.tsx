@@ -10,14 +10,14 @@ import {
   IconButton,
   Box,
 } from "@mui/material";
-import ArrowBack from "@material-ui/icons/ArrowBack";
-import Cake from "@material-ui/icons/Cake";
-import Email from "@material-ui/icons/Email";
-import Phone from "@material-ui/icons/Phone";
-import Domain from "@material-ui/icons/Domain";
-import Sms from "@material-ui/icons/Sms";
-import LocalFlorist from "@material-ui/icons/People";
-import PanTool from "@material-ui/icons/PanTool";
+import ArrowBack from "@mui/icons-material/ArrowBack";
+import Cake from "@mui/icons-material/Cake";
+import Email from "@mui/icons-material/Email";
+import Phone from "@mui/icons-material/Phone";
+import Domain from "@mui/icons-material/Domain";
+import Sms from "@mui/icons-material/Sms";
+import LocalFlorist from "@mui/icons-material/People";
+import PanTool from "@mui/icons-material/PanTool";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 

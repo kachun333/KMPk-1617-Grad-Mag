@@ -8,7 +8,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Slide from "@mui/material/Slide";
 import Fab from "@mui/material/Fab";
-import KeyboardArrowUp from "@material-ui/icons/KeyboardArrowUp";
+import KeyboardArrowUp from "@mui/icons-material/KeyboardArrowUp";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
 import NavbarDesktop from "./components/NavbarDesktop";
