@@ -1,9 +1,18 @@
 import React, { useState } from "react";
+import { styled } from "@mui/material/styles";
 import makeStyles from "@mui/material/styles/makeStyles";
 import { useFirebase } from "react-redux-firebase";
 
-const useStyles = makeStyles((theme) => ({
-  bannerBox: {
+const PREFIX = "Banner";
+
+const classes = {
+  bannerBox: `${PREFIX}-bannerBox`,
+  banner: `${PREFIX}-banner`,
+};
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled("div")(({ theme }) => ({
+  [`& .${classes.bannerBox}`]: {
     [theme.breakpoints.up("md")]: {
       display: "flex",
       alignItems: "center",
@@ -13,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
   },
-  banner: {
+
+  [`& .${classes.banner}`]: {
     width: "100%",
   },
 }));
@@ -28,15 +38,15 @@ function Banner(props) {
     .getDownloadURL()
     .then((url) => setBanner(url))
     .catch((err) => console.log("Fail to load banner: ", err));
-  const classes = useStyles();
+
   return (
-    <>
+    <Root>
       {banner ? (
         <div className={classes.bannerBox}>
           <img className={classes.banner} src={banner} alt="banner" />
         </div>
       ) : null}
-    </>
+    </Root>
   );
 }
 

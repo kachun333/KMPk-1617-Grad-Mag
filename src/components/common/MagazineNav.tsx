@@ -1,4 +1,5 @@
 import React from "react";
+import { styled } from "@mui/material/styles";
 import Drawer from "@mui/material/Drawer";
 import Hidden from "@mui/material/Hidden";
 import List from "@mui/material/List";
@@ -7,36 +8,51 @@ import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
-  magazineNav: {
+const PREFIX = "MagazineNav";
+
+const classes = {
+  magazineNav: `${PREFIX}-magazineNav`,
+  h100: `${PREFIX}-h100`,
+  drawerPaper: `${PREFIX}-drawerPaper`,
+  parentListItem: `${PREFIX}-parentListItem`,
+  childListItem: `${PREFIX}-childListItem`,
+  active: `${PREFIX}-active`,
+};
+
+const Root = styled("nav")(({ theme }) => ({
+  [`&.${classes.magazineNav}`]: {
     // minWidth: 160,
     // maxWidth: 280
     // width: 180
     width: 248,
   },
-  h100: {
+
+  [`& .${classes.h100}`]: {
     height: "100%",
   },
-  drawerPaper: {
+
+  [`& .${classes.drawerPaper}`]: {
     position: "static",
     height: "100%",
     width: "100%",
   },
-  parentListItem: {
-    padding: `12px 16px 12px ${theme.spacing(5)}px`,
+
+  [`& .${classes.parentListItem}`]: {
+    padding: `12px 16px 12px ${theme.spacing(5)}`,
     // paddingLeft: theme.spacing(4)
   },
-  childListItem: {
-    // padding: `px 0px 8px ${theme.spacing(8)}px`
+
+  [`& .${classes.childListItem}`]: {
+    // padding: `px 0px 8px ${theme.spacing(8)}`
     paddingLeft: theme.spacing(9),
   },
-  active: {
+
+  [`& .${classes.active}`]: {
     borderRight: `3px solid ${theme.palette.primary.main}`,
   },
 }));
 
 function MagazineNav(props) {
-  const classes = useStyles();
   const navs = [
     {
       title: "封面",
@@ -116,9 +132,9 @@ function MagazineNav(props) {
   );
 
   return (
-    <nav aria-label="Magazine Navigations" className={classes.magazineNav}>
+    <Root aria-label="Magazine Navigations" className={classes.magazineNav}>
       {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-      <Hidden className={classes.h100} smDown implementation="css">
+      <Hidden className={classes.h100} mdDown implementation="css">
         <Drawer
           className={classes.h100}
           classes={{
@@ -130,7 +146,7 @@ function MagazineNav(props) {
           {drawer}
         </Drawer>
       </Hidden>
-    </nav>
+    </Root>
   );
 }
 
