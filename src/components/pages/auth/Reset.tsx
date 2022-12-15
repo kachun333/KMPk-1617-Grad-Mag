@@ -1,13 +1,22 @@
 import React from "react";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
-import makeStyles from "@material-ui/styles/makeStyles";
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import VerticalBanner from "../../common/VerticalBanner";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
+const PREFIX = "Reset";
+
+const classes = {
+  container: `${PREFIX}-container`,
+  sidebox: `${PREFIX}-sidebox`,
+  title: `${PREFIX}-title`,
+  help: `${PREFIX}-help`,
+};
+
+const Root = styled("div")(({ theme }) => ({
+  [`&.${classes.container}`]: {
     display: "flex",
     flexDirection: "column",
     flex: 1,
@@ -15,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "row",
     },
   },
-  sidebox: {
+
+  [`& .${classes.sidebox}`]: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -29,27 +39,29 @@ const useStyles = makeStyles((theme) => ({
       overflow: "auto",
     },
   },
-  title: {
+
+  [`& .${classes.title}`]: {
     width: "80%",
     margin: "16px",
     [theme.breakpoints.up("md")]: {
       width: "70%",
     },
   },
-  help: {
+
+  [`& .${classes.help}`]: {
     width: "100%",
   },
 }));
+
 function Reset() {
   const navigate = useNavigate();
   const isLoggedin = useSelector((state) => state.firebase.auth.uid);
   if (isLoggedin) {
     navigate("/", { replace: true });
   }
-  const classes = useStyles();
 
   return (
-    <div className={classes.container}>
+    <Root className={classes.container}>
       <VerticalBanner banner="login" />
       {/* <img className={classes.image} src={graduate.image || null} alt={graduate ? graduate.name : ""} /> */}
       <Box className={classes.sidebox}>
@@ -70,7 +82,7 @@ function Reset() {
           </Box>
         </Box>
       </Box>
-    </div>
+    </Root>
   );
 }
 

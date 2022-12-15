@@ -1,23 +1,36 @@
 import React, { useState, useEffect } from "react";
-import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
-import makeStyles from "@material-ui/styles/makeStyles";
-import { CircularProgress } from "@material-ui/core";
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import { CircularProgress } from "@mui/material";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import VerticalBanner from "../../common/VerticalBanner";
 import MagazineNav from "../../common/MagazineNav";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
+const PREFIX = "Chap1Intro";
+
+const classes = {
+  container: `${PREFIX}-container`,
+  main: `${PREFIX}-main`,
+  sidebox: `${PREFIX}-sidebox`,
+  title: `${PREFIX}-title`,
+  poem: `${PREFIX}-poem`,
+  paragraph: `${PREFIX}-paragraph`,
+  circularProgress: `${PREFIX}-circularProgress`,
+};
+
+const Root = styled("div")(({ theme }) => ({
+  [`&.${classes.container}`]: {
     display: "flex",
     flexDirection: "column",
     [theme.breakpoints.up("md")]: {
       flexDirection: "row",
     },
   },
-  main: {
+
+  [`& .${classes.main}`]: {
     display: "flex",
     flex: 1,
     flexDirection: "column",
@@ -27,18 +40,21 @@ const useStyles = makeStyles((theme) => ({
       // minHeight: "calc(100vh - 64px)",
     },
   },
-  sidebox: {
+
+  [`& .${classes.sidebox}`]: {
     display: "flex",
     flexDirection: "column",
     // alignItems: "center",
     flex: 1,
     padding: theme.spacing(2),
   },
-  title: {
+
+  [`& .${classes.title}`]: {
     margin: "16px",
     // textAlign: "center"
   },
-  poem: {
+
+  [`& .${classes.poem}`]: {
     display: "flex",
     flexDirection: "column",
     textAlign: "center",
@@ -49,16 +65,17 @@ const useStyles = makeStyles((theme) => ({
       textAlign: "left",
     },
   },
-  paragraph: {
+
+  [`& .${classes.paragraph}`]: {
     margin: theme.spacing(2),
   },
-  circularProgress: {
+
+  [`& .${classes.circularProgress}`]: {
     margin: "auto",
   },
 }));
 
 function Chap1Intro() {
-  const classes = useStyles();
   const { chapId } = useParams();
   const [chapData, setChapData] = useState(null);
 
@@ -75,7 +92,7 @@ function Chap1Intro() {
   }, [chapId]);
 
   return (
-    <div className={classes.container}>
+    <Root className={classes.container}>
       <MagazineNav />
       {chapData ? (
         <Box className={classes.main}>
@@ -113,7 +130,7 @@ function Chap1Intro() {
       ) : (
         <CircularProgress className={classes.circularProgress} />
       )}
-    </div>
+    </Root>
   );
 }
 

@@ -1,33 +1,47 @@
-import React, { useState, useEffect, Fragment } from "react";
-import Drawer from "@material-ui/core/Drawer";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import Toolbar from "@material-ui/core/Toolbar";
-import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import makeStyles from "@material-ui/styles/makeStyles";
-import MenuIcon from "@material-ui/icons/Menu";
-import ArrowForward from "@material-ui/icons/ArrowForward";
-import Person from "@material-ui/icons/Person";
-import Group from "@material-ui/icons/Group";
-import Book from "@material-ui/icons/Book";
-import LiveTv from "@material-ui/icons/LiveTv";
-import VerifiedUser from "@material-ui/icons/VerifiedUser";
-import ExitToApp from "@material-ui/icons/ExitToApp";
+import React, { useState, useEffect } from "react";
+import { styled } from "@mui/material/styles";
+import Drawer from "@mui/material/Drawer";
+import Avatar from "@mui/material/Avatar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Toolbar from "@mui/material/Toolbar";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import MenuIcon from "@mui/icons-material/Menu";
+import ArrowForward from "@mui/icons-material/ArrowForward";
+import Person from "@mui/icons-material/Person";
+import Group from "@mui/icons-material/Group";
+import Book from "@mui/icons-material/Book";
+import LiveTv from "@mui/icons-material/LiveTv";
+import VerifiedUser from "@mui/icons-material/VerifiedUser";
+import ExitToApp from "@mui/icons-material/ExitToApp";
 import { NavLink, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useFirebase } from "react-redux-firebase";
 import { setAppTitle } from "../store/actions/appActions";
 import Logo from "../assets/images/logo.png";
 import DefaultAvatar from "../assets/images/favicon.png";
-// component level styling using withStyles
-const useStyles = makeStyles((theme) => ({
-  appbar: {
+
+const PREFIX = "NavbarMobile";
+
+const classes = {
+  appbar: `${PREFIX}-appbar`,
+  logo: `${PREFIX}-logo`,
+  appTitle: `${PREFIX}-appTitle`,
+  avatar: `${PREFIX}-avatar`,
+  login: `${PREFIX}-login`,
+  drawerPaper: `${PREFIX}-drawerPaper`,
+  active: `${PREFIX}-active`,
+  icon: `${PREFIX}-icon`,
+};
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled("div")(({ theme }) => ({
+  [`& .${classes.appbar}`]: {
     width: "100%",
     maxWidth: "100vw",
     display: "flex",
@@ -35,32 +49,38 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "nowrap",
     alignItems: "center",
   },
-  logo: {
+
+  [`& .${classes.logo}`]: {
     height: "40px",
   },
-  appTitle: {
-    margin: `0 ${theme.spacing(2)}px`,
+
+  [`& .${classes.appTitle}`]: {
+    margin: `0 ${theme.spacing(2)}`,
     flexGrow: 1,
   },
-  avatar: {
+
+  [`& .${classes.avatar}`]: {
     margin: theme.spacing(1),
   },
-  login: {
-    margin: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
+
+  [`& .${classes.login}`]: {
+    margin: `${theme.spacing(1)} ${theme.spacing(2)}`,
   },
-  drawerPaper: {
+
+  [`& .${classes.drawerPaper}`]: {
     width: 220,
   },
-  active: {
+
+  [`& .${classes.active}`]: {
     borderLeft: `3px solid ${theme.palette.primary.main}`,
   },
-  icon: {
+
+  [`& .${classes.icon}`]: {
     marginLeft: theme.spacing(2),
   },
 }));
 
 function NavbarMobile() {
-  const classes = useStyles();
   const [isOpen, setIsOpen] = useState(false);
   const verified = useSelector((state) => state.firebase.profile.verified);
   const isLoggedin = useSelector((state) => state.firebase.auth.uid);
@@ -87,7 +107,7 @@ function NavbarMobile() {
     setIsOpen(false);
   };
   return (
-    <>
+    <Root>
       <Toolbar className={classes.appbar}>
         <Button id="logo" component={NavLink} to="/">
           <img alt="logo" src={Logo} className={classes.logo} />
@@ -95,7 +115,7 @@ function NavbarMobile() {
         <Typography variant="h5" className={classes.appTitle}>
           {appTitle}
         </Typography>
-        <IconButton id="sidenav-btn" onClick={handleOpenMenu}>
+        <IconButton id="sidenav-btn" onClick={handleOpenMenu} size="large">
           <MenuIcon />
         </IconButton>
       </Toolbar>
@@ -117,7 +137,7 @@ function NavbarMobile() {
           mb={2}
           mt={2}
         >
-          <IconButton onClick={handleCloseMenu}>
+          <IconButton onClick={handleCloseMenu} size="large">
             <ArrowForward />
           </IconButton>
           {isLoggedin ? (
@@ -216,7 +236,7 @@ function NavbarMobile() {
           ) : null}
         </List>
       </Drawer>
-    </>
+    </Root>
   );
 }
 

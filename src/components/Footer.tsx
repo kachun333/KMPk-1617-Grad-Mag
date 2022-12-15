@@ -1,15 +1,26 @@
 import React from "react";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
-import makeStyles from "@material-ui/styles/makeStyles";
-import GitHub from "@material-ui/icons/GitHub";
-import Email from "@material-ui/icons/Email";
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import GitHub from "@mui/icons-material/GitHub";
+import Email from "@mui/icons-material/Email";
 import Bottle from "../assets/images/bottle.png";
 import FooterImg from "../assets/images/footer.png";
 
-const useStyles = makeStyles((theme) => ({
-  footer: {
+const PREFIX = "Footer";
+
+const classes = {
+  footer: `${PREFIX}-footer`,
+  overlay: `${PREFIX}-overlay`,
+  bottle: `${PREFIX}-bottle`,
+  box: `${PREFIX}-box`,
+  boxItem: `${PREFIX}-boxItem`,
+  icon: `${PREFIX}-icon`,
+};
+
+const Root = styled("footer")(({ theme }) => ({
+  [`&.${classes.footer}`]: {
     position: "relative",
     marginTop: "64px",
     height: "256px",
@@ -20,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   },
-  overlay: {
+
+  [`& .${classes.overlay}`]: {
     position: "absolute",
     top: 0,
     bottom: 0,
@@ -29,14 +41,16 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     opacity: 0.3,
   },
-  bottle: {
+
+  [`& .${classes.bottle}`]: {
     position: "absolute",
     left: "50%",
     transform: "translate(-50%, -50%)",
     height: "120px",
     width: "260px",
   },
-  box: {
+
+  [`& .${classes.box}`]: {
     position: "absolute",
     top: "60px",
     left: "50%",
@@ -45,20 +59,21 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     textAlign: "center",
   },
-  boxItem: {
+
+  [`& .${classes.boxItem}`]: {
     display: "flex",
     alignContent: "center",
     justifyContent: "center",
   },
-  icon: {
+
+  [`& .${classes.icon}`]: {
     margin: theme.spacing(0.5),
   },
 }));
 
 function Footer() {
-  const classes = useStyles();
   return (
-    <footer id="footer" className={classes.footer}>
+    <Root id="footer" className={classes.footer}>
       <img className={classes.bottle} src={Bottle} alt="bottle-icon" />
       <div className={classes.overlay} />
       <Box id="footer-content" className={classes.box}>
@@ -96,7 +111,7 @@ function Footer() {
           <Typography variant="overline">Terms of Service</Typography>
         </Link>
       </Box>
-    </footer>
+    </Root>
   );
 }
 

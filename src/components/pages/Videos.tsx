@@ -1,23 +1,35 @@
 import React from "react";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import makeStyles from "@material-ui/styles/makeStyles";
-import YouTube from "react-youtube";
+import { styled } from "@mui/material/styles";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import YouTube, { YouTubeEvent } from "react-youtube";
 
-const useStyles = makeStyles((theme) => ({
-  gridItem: {
+const PREFIX = "Videos";
+
+const classes = {
+  gridItem: `${PREFIX}-gridItem`,
+  container: `${PREFIX}-container`,
+  row: `${PREFIX}-row`,
+  typography: `${PREFIX}-typography`,
+};
+
+const Root = styled("div")(({ theme }) => ({
+  [`& .${classes.gridItem}`]: {
     textAlign: "center",
   },
-  container: {
+
+  [`& .${classes.container}`]: {
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(4),
   },
-  row: {
+
+  [`&.${classes.row}`]: {
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
   },
-  typography: {
+
+  [`& .${classes.typography}`]: {
     margin: theme.spacing(2),
   },
 }));
@@ -81,8 +93,7 @@ const videosData = [
 ];
 
 function Videos() {
-  const classes = useStyles();
-  const _onReady = (event) => {
+  const onReady = (event: YouTubeEvent<any>) => {
     // access to player in all event handlers via event.target
     event.target.pauseVideo();
   };
@@ -95,7 +106,7 @@ function Videos() {
   return (
     <Container className={classes.container}>
       {videosData.map((video) => (
-        <div key={video.title} className={classes.row}>
+        <Root key={video.title} className={classes.row}>
           <Typography variant="h4" className={classes.typography}>
             {video.title}
           </Typography>
@@ -108,15 +119,13 @@ function Videos() {
                 xs={iframe.xs || 12}
                 md={iframe.md || 4}
               >
-                <YouTube videoId={iframe.id} opts={opts} onReady={_onReady} />
+                <YouTube videoId={iframe.id} opts={opts} onReady={onReady} />
               </Grid>
             ))}
           </Grid>
-        </div>
+        </Root>
       ))}
     </Container>
-    // <div className={classes.container}>
-    // </div>
   );
 }
 

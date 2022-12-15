@@ -1,18 +1,23 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Snackbar from "@material-ui/core/Snackbar";
-import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/icons/Close";
+import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
-const useStyles = makeStyles((theme) => ({
-  close: {
+const PREFIX = "Snackbar";
+
+const classes = {
+  close: `${PREFIX}-close`,
+};
+
+const Root = styled("div")(({ theme }) => ({
+  [`& .${classes.close}`]: {
     padding: theme.spacing(0.5),
   },
 }));
 
 export default function SimpleSnackbar() {
-  const classes = useStyles();
   const [open, setOpen] = React.useState(true);
 
   const handleClose = (event, reason) => {
@@ -24,7 +29,7 @@ export default function SimpleSnackbar() {
   };
 
   return (
-    <div>
+    <Root>
       <Snackbar
         anchorOrigin={{
           vertical: "bottom",
@@ -52,11 +57,12 @@ export default function SimpleSnackbar() {
             color="inherit"
             className={classes.close}
             onClick={handleClose}
+            size="large"
           >
             <CloseIcon />
           </IconButton>,
         ]}
       />
-    </div>
+    </Root>
   );
 }
