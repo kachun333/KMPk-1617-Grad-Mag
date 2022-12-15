@@ -1,6 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { styled } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -13,7 +12,6 @@ import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import CircularProgress from "@mui/material/CircularProgress";
-import useTheme from "@mui/styles/useTheme";
 // import Tune from '@mui/icons-material/Tune';
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import ExpandLess from "@mui/icons-material/ExpandLess";
@@ -232,8 +230,6 @@ function Graduates(props) {
     });
   }
 
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <Root>
       <Container className={classes.container}>
@@ -330,10 +326,7 @@ function Graduates(props) {
                   <Typography variant="subtitle1">
                     {graduate.name_ch}
                   </Typography>
-                  <Typography
-                    variant={matches ? "subtitle1" : "body2"}
-                    component="div"
-                  >
+                  <Typography variant="subtitle1" component="div">
                     {graduate.name}
                   </Typography>
                 </CardContent>

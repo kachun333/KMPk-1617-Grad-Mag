@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Drawer from "@mui/material/Drawer";
 import Avatar from "@mui/material/Avatar";
@@ -25,6 +25,7 @@ import { useFirebase } from "react-redux-firebase";
 import { setAppTitle } from "../store/actions/appActions";
 import Logo from "../assets/images/logo.png";
 import DefaultAvatar from "../assets/images/favicon.png";
+
 const PREFIX = "NavbarMobile";
 
 const classes = {

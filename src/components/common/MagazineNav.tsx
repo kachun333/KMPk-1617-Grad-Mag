@@ -5,7 +5,6 @@ import Hidden from "@mui/material/Hidden";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
-import { makeStyles } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
 
 const PREFIX = "MagazineNav";

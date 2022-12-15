@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
-import makeStyles from "@mui/material/styles/makeStyles";
 import { useFirebase } from "react-redux-firebase";
 
 const PREFIX = "Banner";
