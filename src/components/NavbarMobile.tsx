@@ -1,30 +1,28 @@
-import React, { useState, useEffect } from "react";
-import { styled } from "@mui/material/styles";
-import Drawer from "@mui/material/Drawer";
+import ArrowForward from "@mui/icons-material/ArrowForward";
+import Book from "@mui/icons-material/Book";
+import ExitToApp from "@mui/icons-material/ExitToApp";
+import Group from "@mui/icons-material/Group";
+import LiveTv from "@mui/icons-material/LiveTv";
+import MenuIcon from "@mui/icons-material/Menu";
+import Person from "@mui/icons-material/Person";
+import VerifiedUser from "@mui/icons-material/VerifiedUser";
 import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MenuIcon from "@mui/icons-material/Menu";
-import ArrowForward from "@mui/icons-material/ArrowForward";
-import Person from "@mui/icons-material/Person";
-import Group from "@mui/icons-material/Group";
-import Book from "@mui/icons-material/Book";
-import LiveTv from "@mui/icons-material/LiveTv";
-import VerifiedUser from "@mui/icons-material/VerifiedUser";
-import ExitToApp from "@mui/icons-material/ExitToApp";
-import { NavLink, useLocation } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { useFirebase } from "react-redux-firebase";
-import { setAppTitle } from "../store/actions/appActions";
-import Logo from "../assets/images/logo.png";
+import { styled } from "@mui/material/styles";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import useFirebase from "providers/firebase/useFirebaseApp";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import DefaultAvatar from "../assets/images/favicon.png";
+import Logo from "../assets/images/logo.png";
 
 const PREFIX = "NavbarMobile";
 
@@ -85,15 +83,6 @@ function NavbarMobile() {
   const verified = useSelector((state) => state.firebase.profile.verified);
   const isLoggedin = useSelector((state) => state.firebase.auth.uid);
   const avatar = useSelector((state) => state.firebase.profile.avatarUrl);
-  // set AppBar Title
-  const dispatch = useDispatch();
-  const appTitle = useSelector((state) => state.app.appTitle);
-  const location = useLocation();
-  const currentUrl = location.pathname;
-  useEffect(() => {
-    dispatch(setAppTitle(currentUrl));
-  }, [currentUrl, dispatch]);
-
   const handleOpenMenu = () => {
     setIsOpen(true);
   };
@@ -103,7 +92,7 @@ function NavbarMobile() {
 
   const firebase = useFirebase();
   const handleLogout = () => {
-    firebase.logout();
+    firebase?.logout();
     setIsOpen(false);
   };
   return (

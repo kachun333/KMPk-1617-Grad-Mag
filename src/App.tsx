@@ -1,21 +1,21 @@
-import React, { useState, useEffect, Suspense } from "react";
+import KeyboardArrowUp from "@mui/icons-material/KeyboardArrowUp";
+import AppBar from "@mui/material/AppBar";
+import CssBaseline from "@mui/material/CssBaseline";
+import Fab from "@mui/material/Fab";
+import Hidden from "@mui/material/Hidden";
+import Slide from "@mui/material/Slide";
 import {
   styled,
   ThemeProvider as MuiThemeProvider,
 } from "@mui/material/styles";
 import createTheme from "@mui/material/styles/createTheme";
-import Hidden from "@mui/material/Hidden";
-import CssBaseline from "@mui/material/CssBaseline";
-import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import Slide from "@mui/material/Slide";
-import Fab from "@mui/material/Fab";
-import KeyboardArrowUp from "@mui/icons-material/KeyboardArrowUp";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
+import React, { PropsWithChildren, Suspense, useEffect, useState } from "react";
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
+import Footer from "./components/Footer";
 import NavbarDesktop from "./components/NavbarDesktop";
 import NavbarMobile from "./components/NavbarMobile";
-import Footer from "./components/Footer";
 import AppRoutes from "./routes/AppRoutes";
 
 const PREFIX = "App";
@@ -25,7 +25,7 @@ const classes = {
   fab: `${PREFIX}-fab`,
 };
 
-const StyledRouter = styled(Router)(({ theme }) => ({
+const StyledRouter = styled(Router)(() => ({
   [`& .${classes.root}`]: {
     position: "relative",
   },
@@ -39,24 +39,26 @@ const StyledRouter = styled(Router)(({ theme }) => ({
   },
 }));
 
-function HideOnScroll(props) {
-  const { children } = props;
+const HideOnScroll: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const trigger = useScrollTrigger();
   return (
     <Slide appear={false} direction="down" in={!trigger}>
-      {children}
+      {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
+      <>{children}</>
     </Slide>
   );
-}
-function ShowOnScroll(props) {
-  const { children } = props;
+};
+
+const ShowOnScroll: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const trigger = useScrollTrigger();
   return (
     <Slide appear={false} direction="up" in={trigger}>
-      {children}
+      {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
+      <>{children}</>
     </Slide>
   );
-}
+};
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -66,7 +68,7 @@ function ScrollToTop() {
 
   return null;
 }
-function App(props) {
+function App() {
   const [theme] = useState({
     palette: {
       type: "light",
@@ -123,7 +125,7 @@ function App(props) {
         <Suspense fallback={null}>
           <CssBaseline />
           <ScrollToTop />
-          <HideOnScroll {...props}>
+          <HideOnScroll>
             <AppBar color="inherit">
               <Hidden smDown>
                 <NavbarDesktop />
