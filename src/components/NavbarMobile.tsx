@@ -18,8 +18,11 @@ import ListItemText from "@mui/material/ListItemText";
 import { styled } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import useFirebase from "providers/firebase/useFirebaseApp";
-import { useState } from "react";
+import useAppTitle from "providers/app-title/useAppTitle";
+import useAuth from "providers/auth/useAuth";
+import useFirebase from "providers/firebase/useFirebase";
+import React, { useState } from "react";
+import { useSignOut } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
 import DefaultAvatar from "../assets/images/favicon.png";
 import Logo from "../assets/images/logo.png";
@@ -80,21 +83,24 @@ const Root = styled("div")(({ theme }) => ({
 
 function NavbarMobile() {
   const [isOpen, setIsOpen] = useState(false);
-  const verified = useSelector((state) => state.firebase.profile.verified);
-  const isLoggedin = useSelector((state) => state.firebase.auth.uid);
-  const avatar = useSelector((state) => state.firebase.profile.avatarUrl);
+  const { auth } = useFirebase();
+  const [signOut] = useSignOut(auth);
+  const { isVerified, isLoggedin, avatar } = useAuth();
+  const { appTitle } = useAppTitle();
+
   const handleOpenMenu = () => {
     setIsOpen(true);
   };
+
   const handleCloseMenu = () => {
     setIsOpen(false);
   };
 
-  const firebase = useFirebase();
   const handleLogout = () => {
-    firebase?.logout();
+    signOut();
     setIsOpen(false);
   };
+
   return (
     <Root>
       <Toolbar className={classes.appbar}>
@@ -200,7 +206,7 @@ function NavbarMobile() {
             </ListItemIcon>
             <ListItemText primary="Magazine" />
           </ListItem>
-          {!verified && isLoggedin ? (
+          {!isVerified && isLoggedin ? (
             <ListItem
               component={NavLink}
               exact
