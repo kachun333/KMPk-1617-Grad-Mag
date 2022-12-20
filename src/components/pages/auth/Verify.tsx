@@ -201,8 +201,8 @@ function Verify() {
           onClose={() => {
             setDialog({ isOpen: false });
           }}
-          title={dialog.title}
-          description={dialog.description}
+          title={dialog.title ?? ""}
+          description={dialog.description ?? []}
         />
       ) : null}
     </Root>

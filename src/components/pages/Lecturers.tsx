@@ -120,7 +120,7 @@ interface Lecturer {
   name: string;
   name_ch: string;
   image: string;
-  message: string;
+  message: string[];
   sign_off: string;
 }
 

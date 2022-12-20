@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 import useAuth from "providers/auth/useAuth";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import CustomDialog from "../../common/CustomDialog";
 import VerticalBanner from "../../common/VerticalBanner";
 
 const PREFIX = "Create";
@@ -68,12 +67,6 @@ const Root = styled("div")(({ theme }) => ({
   },
 }));
 
-interface DialogState {
-  isOpen: boolean;
-  title?: string;
-  description?: string[];
-}
-
 interface CreateUserCredentials {
   email: string;
   password: string;
@@ -88,7 +81,6 @@ function Create() {
     navigate("/", { replace: true });
   }
 
-  const [dialog, setDialog] = useState<DialogState>({ isOpen: false });
   const [credentials, setCredentials] = useState<CreateUserCredentials>({
     email: "",
     password: "",
@@ -175,16 +167,6 @@ function Create() {
           </Button>
         </form>
       </Box>
-      {dialog ? (
-        <CustomDialog
-          open={Boolean(dialog)}
-          onClose={() => {
-            setDialog({ isOpen: false });
-          }}
-          title={dialog.title}
-          description={dialog.description}
-        />
-      ) : null}
     </Root>
   );
 }
