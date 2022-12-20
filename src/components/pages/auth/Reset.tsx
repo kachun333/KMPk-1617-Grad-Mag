@@ -1,9 +1,9 @@
-import React from "react";
-import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
+import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import useAuth from "providers/auth/useAuth";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import VerticalBanner from "../../common/VerticalBanner";
 
 const PREFIX = "Reset";
@@ -55,7 +55,7 @@ const Root = styled("div")(({ theme }) => ({
 
 function Reset() {
   const navigate = useNavigate();
-  const isLoggedin = useSelector((state) => state.firebase.auth.uid);
+  const { isLoggedin } = useAuth();
   if (isLoggedin) {
     navigate("/", { replace: true });
   }
