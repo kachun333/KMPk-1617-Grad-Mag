@@ -5,14 +5,19 @@ export function sortGraduates(
   fieldName: keyof GraduateData
 ) {
   return data.sort((a, b) => {
-    // if equal then comparison = 0
-    let comparison = 0;
-    if (a[fieldName] > b[fieldName]) {
-      comparison = 1;
-    } else if (b[fieldName] > a[fieldName]) {
-      comparison = -1;
+    const aValue = a[fieldName];
+    const bValue = b[fieldName];
+    const isAUndefined = typeof aValue === "undefined";
+    const isBUndefined = typeof bValue === "undefined";
+    if (isAUndefined || isBUndefined) {
+      // null last
+      if (!isAUndefined) return -1;
+      if (!isBUndefined) return 1;
+      return 0;
     }
-    return comparison;
+    if (aValue > bValue) return 1;
+    if (bValue > aValue) return -1;
+    return 0;
   });
 }
 
