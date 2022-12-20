@@ -1,30 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { styled } from "@mui/material/styles";
-import Drawer from "@mui/material/Drawer";
+import ArrowForward from "@mui/icons-material/ArrowForward";
+import Book from "@mui/icons-material/Book";
+import ExitToApp from "@mui/icons-material/ExitToApp";
+import Group from "@mui/icons-material/Group";
+import LiveTv from "@mui/icons-material/LiveTv";
+import MenuIcon from "@mui/icons-material/Menu";
+import Person from "@mui/icons-material/Person";
+import VerifiedUser from "@mui/icons-material/VerifiedUser";
 import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MenuIcon from "@mui/icons-material/Menu";
-import ArrowForward from "@mui/icons-material/ArrowForward";
-import Person from "@mui/icons-material/Person";
-import Group from "@mui/icons-material/Group";
-import Book from "@mui/icons-material/Book";
-import LiveTv from "@mui/icons-material/LiveTv";
-import VerifiedUser from "@mui/icons-material/VerifiedUser";
-import ExitToApp from "@mui/icons-material/ExitToApp";
-import { NavLink, useLocation } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { useFirebase } from "react-redux-firebase";
-import { setAppTitle } from "../store/actions/appActions";
-import Logo from "../assets/images/logo.png";
+import { styled } from "@mui/material/styles";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import useAppTitle from "providers/app-title/useAppTitle";
+import useAuth from "providers/auth/useAuth";
+import useFirebase from "providers/firebase/useFirebase";
+import React, { useState } from "react";
+import { useSignOut } from "react-firebase-hooks/auth";
+import { NavLink } from "react-router-dom";
 import DefaultAvatar from "../assets/images/favicon.png";
+import Logo from "../assets/images/logo.png";
 
 const PREFIX = "NavbarMobile";
 
@@ -82,30 +83,24 @@ const Root = styled("div")(({ theme }) => ({
 
 function NavbarMobile() {
   const [isOpen, setIsOpen] = useState(false);
-  const verified = useSelector((state) => state.firebase.profile.verified);
-  const isLoggedin = useSelector((state) => state.firebase.auth.uid);
-  const avatar = useSelector((state) => state.firebase.profile.avatarUrl);
-  // set AppBar Title
-  const dispatch = useDispatch();
-  const appTitle = useSelector((state) => state.app.appTitle);
-  const location = useLocation();
-  const currentUrl = location.pathname;
-  useEffect(() => {
-    dispatch(setAppTitle(currentUrl));
-  }, [currentUrl, dispatch]);
+  const { auth } = useFirebase();
+  const [signOut] = useSignOut(auth);
+  const { isVerified, isLoggedin, avatar } = useAuth();
+  const { appTitle } = useAppTitle();
 
   const handleOpenMenu = () => {
     setIsOpen(true);
   };
+
   const handleCloseMenu = () => {
     setIsOpen(false);
   };
 
-  const firebase = useFirebase();
   const handleLogout = () => {
-    firebase.logout();
+    signOut();
     setIsOpen(false);
   };
+
   return (
     <Root>
       <Toolbar className={classes.appbar}>
@@ -211,7 +206,7 @@ function NavbarMobile() {
             </ListItemIcon>
             <ListItemText primary="Magazine" />
           </ListItem>
-          {!verified && isLoggedin ? (
+          {!isVerified && isLoggedin ? (
             <ListItem
               component={NavLink}
               exact

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
-import { useFirebase } from "react-redux-firebase";
+import React from "react";
 
 const PREFIX = "Banner";
 
@@ -27,17 +26,11 @@ const Root = styled("div")(({ theme }) => ({
   },
 }));
 
-function Banner(props) {
-  // get banner from firebase
-  const [banner, setBanner] = useState("");
-  const firebase = useFirebase();
-  const storageRef = firebase.storage().ref();
-  const fileRef = storageRef.child(`banners/${props.banner}.jpg`);
-  fileRef
-    .getDownloadURL()
-    .then((url) => setBanner(url))
-    .catch((err) => console.log("Fail to load banner: ", err));
+interface BannerProps {
+  banner: string;
+}
 
+const Banner: React.FC<BannerProps> = ({ banner }) => {
   return (
     <Root>
       {banner ? (
@@ -47,6 +40,6 @@ function Banner(props) {
       ) : null}
     </Root>
   );
-}
+};
 
 export default Banner;

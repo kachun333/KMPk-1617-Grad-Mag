@@ -1,14 +1,15 @@
-import React from "react";
+import Container from "@mui/material/Container";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+import React from "react";
+
 const PREFIX = "Login";
 
 const classes = {
   container: `${PREFIX}-container`,
 };
 
-const StyledContainer = styled(Container)(({ theme }) => ({
+const StyledContainer = styled(Container)(() => ({
   [`&.${classes.container}`]: {
     display: "flex",
     flexDirection: "column",

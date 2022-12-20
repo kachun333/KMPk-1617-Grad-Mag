@@ -1,16 +1,14 @@
-import React, { useState } from "react";
-import { styled } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import useTheme from "@mui/styles/useTheme";
+import Button from "@mui/material/Button";
+import { styled } from "@mui/material/styles";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 import axios from "axios";
+import useAuth from "providers/auth/useAuth";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import VerticalBanner from "../../common/VerticalBanner";
 import CustomDialog from "../../common/CustomDialog";
+import VerticalBanner from "../../common/VerticalBanner";
 
 const PREFIX = "Verify";
 
@@ -79,13 +77,11 @@ interface DialogState {
 }
 
 function Verify() {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
-
   const navigate = useNavigate();
-  const uid = useSelector((state) => state.firebase.auth.uid);
-  const verified = useSelector((state) => state.firebase.profile.verified);
-  if (verified) {
+  const { isVerified, userCredential } = useAuth();
+  const { uid } = userCredential?.user ?? {};
+
+  if (isVerified) {
     navigate("/", { replace: true });
   }
 
@@ -97,9 +93,10 @@ function Verify() {
     event1: "",
     event2: "",
   });
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     if (!uid) {
       navigate("/");
+      return;
     }
     credentials.uid = uid;
     axios
@@ -128,10 +125,10 @@ function Verify() {
   return (
     <Root>
       <Box id="verify" className={classes.container}>
-        <VerticalBanner banner="verify" />
+        <VerticalBanner banner="verify" alt="" />
         <Box className={classes.sidebox}>
           <Box id="title" className={classes.title}>
-            <Typography variant={matches ? "h3" : "h5"} color="inherit">
+            <Typography variant="h3" color="inherit">
               Verify That You Are A KMPKian
             </Typography>
           </Box>
@@ -204,8 +201,8 @@ function Verify() {
           onClose={() => {
             setDialog({ isOpen: false });
           }}
-          title={dialog.title}
-          description={dialog.description}
+          title={dialog.title ?? ""}
+          description={dialog.description ?? []}
         />
       ) : null}
     </Root>

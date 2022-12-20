@@ -1,29 +1,28 @@
-import React, { useState, useEffect } from "react";
-import { styled } from "@mui/material/styles";
+import ArrowBack from "@mui/icons-material/ArrowBack";
+import Cake from "@mui/icons-material/Cake";
+import Domain from "@mui/icons-material/Domain";
+import Email from "@mui/icons-material/Email";
+import PanTool from "@mui/icons-material/PanTool";
+import LocalFlorist from "@mui/icons-material/People";
+import Phone from "@mui/icons-material/Phone";
+import Sms from "@mui/icons-material/Sms";
 import {
-  Toolbar,
-  makeStyles,
+  Box,
+  IconButton,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
+  Toolbar,
   Typography,
-  IconButton,
-  Box,
 } from "@mui/material";
-import ArrowBack from "@mui/icons-material/ArrowBack";
-import Cake from "@mui/icons-material/Cake";
-import Email from "@mui/icons-material/Email";
-import Phone from "@mui/icons-material/Phone";
-import Domain from "@mui/icons-material/Domain";
-import Sms from "@mui/icons-material/Sms";
-import LocalFlorist from "@mui/icons-material/People";
-import PanTool from "@mui/icons-material/PanTool";
+import { styled } from "@mui/material/styles";
 import axios from "axios";
+import useAuth from "providers/auth/useAuth";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-
-import { useSelector } from "react-redux";
 import Unauthorized from "../common/Unauthorized";
+import { GraduateData } from "./graduates/Graduates";
 
 const PREFIX = "GraduateDetails";
 
@@ -105,12 +104,13 @@ const StyledBox = styled(Box)(({ theme }) => ({
 
 function GraduateDetails() {
   const { id } = useParams();
-  const verified = useSelector((state) => state.firebase.profile.verified);
-  const uid = useSelector((state) => state.firebase.auth.uid);
-  const [graduate, setGraduate] = useState({});
+  const { isVerified, userCredential } = useAuth();
+  const { uid } = userCredential?.user ?? {};
+
+  const [graduate, setGraduate] = useState<GraduateData | null>(null);
   useEffect(() => {
     let url = `https://us-central1-ourpromise.cloudfunctions.net/api/graduates/${id}`;
-    if (verified) {
+    if (isVerified) {
       url += `?uid=${uid}`;
     }
     axios
@@ -121,7 +121,7 @@ function GraduateDetails() {
       .catch((error) => {
         console.log(error);
       });
-  }, [id, verified, uid]);
+  }, [id, isVerified, uid]);
 
   return (
     <StyledBox className={classes.container}>
@@ -135,17 +135,17 @@ function GraduateDetails() {
         </Toolbar>
         <img
           className={classes.image}
-          src={graduate.image || null}
-          alt={graduate.name || ""}
+          src={graduate?.image ?? ""}
+          alt={graduate?.name ?? ""}
         />
       </Box>
       <Box className={classes.list}>
         <Box id="graduate-name" className={classes.listHeader}>
-          <Typography variant="h4">{graduate.name_ch || ""}</Typography>
-          <Typography variant="subtitle1">{graduate.name || ""}</Typography>
+          <Typography variant="h4">{graduate?.name_ch ?? ""}</Typography>
+          <Typography variant="subtitle1">{graduate?.name ?? ""}</Typography>
         </Box>
         <List>
-          {verified ? (
+          {isVerified && (
             <>
               <ListItem id="graduate-phone">
                 <ListItemIcon>
@@ -153,7 +153,7 @@ function GraduateDetails() {
                 </ListItemIcon>
                 <ListItemText
                   primary="Phone"
-                  secondary={graduate.phone || ""}
+                  secondary={graduate?.phone ?? ""}
                 />
               </ListItem>
               <ListItem id="graduate-email">
@@ -162,7 +162,7 @@ function GraduateDetails() {
                 </ListItemIcon>
                 <ListItemText
                   primary="Email"
-                  secondary={graduate.email || ""}
+                  secondary={graduate?.email ?? ""}
                 />
               </ListItem>
               <ListItem id="graduate-birthday">
@@ -171,7 +171,11 @@ function GraduateDetails() {
                 </ListItemIcon>
                 <ListItemText
                   primary="Birthday"
-                  secondary={new Date(graduate.birthday).toDateString() || ""}
+                  secondary={
+                    graduate?.birthday
+                      ? new Date(graduate.birthday).toDateString()
+                      : ""
+                  }
                 />
               </ListItem>
               <ListItem id="graduate-tutorial">
@@ -180,18 +184,18 @@ function GraduateDetails() {
                 </ListItemIcon>
                 <ListItemText
                   primary="Tutorial Class"
-                  secondary={graduate.tutorial || ""}
+                  secondary={graduate?.tutorial ?? ""}
                 />
               </ListItem>
             </>
-          ) : null}
+          )}
           <ListItem id="graduate-one_liner">
             <ListItemIcon>
               <PanTool />
             </ListItemIcon>
             <ListItemText
               primary="One Liner"
-              secondary={graduate.one_liner || ""}
+              secondary={graduate?.one_liner ?? ""}
             />
           </ListItem>
           <ListItem id="graduate-message-title">
@@ -201,7 +205,7 @@ function GraduateDetails() {
             <ListItemText primary="Message" />
           </ListItem>
           <ListItem id="graduate-message-content">
-            <ListItemText secondary={graduate.message || ""} />
+            <ListItemText secondary={graduate?.message ?? ""} />
           </ListItem>
           <ListItem id="graduate-describe_me">
             <ListItemIcon>
@@ -210,16 +214,15 @@ function GraduateDetails() {
             <ListItemText primary="Describe me" />
           </ListItem>
           <List component="div" disablePadding>
-            {graduate.describe_me
-              ? graduate.describe_me.map((description, i) => (
-                  <ListItem key={`graduate-describe_me-${i}`}>
-                    <ListItemText secondary={description} />
-                  </ListItem>
-                ))
-              : null}
+            {graduate?.describe_me &&
+              graduate.describe_me.map((description, i) => (
+                <ListItem key={`graduate-describe_me-${i}`}>
+                  <ListItemText secondary={description} />
+                </ListItem>
+              ))}
           </List>
         </List>
-        {verified ? null : <Unauthorized type={uid ? "verify" : "login"} />}
+        {!isVerified && <Unauthorized type={uid ? "verify" : "login"} />}
       </Box>
     </StyledBox>
   );

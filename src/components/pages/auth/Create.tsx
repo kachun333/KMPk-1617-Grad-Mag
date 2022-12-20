@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { useFirebase } from "react-redux-firebase";
-import { useNavigate, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import CustomDialog from "../../common/CustomDialog";
+import { styled } from "@mui/material/styles";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import useAuth from "providers/auth/useAuth";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import VerticalBanner from "../../common/VerticalBanner";
 
 const PREFIX = "Create";
@@ -69,12 +67,6 @@ const Root = styled("div")(({ theme }) => ({
   },
 }));
 
-interface DialogState {
-  isOpen: boolean;
-  title?: string;
-  description?: string[];
-}
-
 interface CreateUserCredentials {
   email: string;
   password: string;
@@ -84,46 +76,25 @@ interface CreateUserCredentials {
 
 function Create() {
   const navigate = useNavigate();
-  const isLoggedin = useSelector((state) => state.firebase.auth.uid);
+  const { isLoggedin } = useAuth();
   if (isLoggedin) {
     navigate("/", { replace: true });
   }
 
-  const [dialog, setDialog] = useState<DialogState>({ isOpen: false });
   const [credentials, setCredentials] = useState<CreateUserCredentials>({
     email: "",
     password: "",
     displayName: "",
   });
 
-  const firebase = useFirebase();
-  const handleCreate = ({
-    email,
-    password,
-    displayName,
-  }: CreateUserCredentials) => {
-    firebase
-      .createUser({ email, password }, { displayName, email })
-      .then(() => {
-        setDialog({
-          isOpen: true,
-          title: "Account Created!",
-          description: ["You will be redirect to login page soon"],
-        });
-        navigate("/auth/login");
-      })
-      .catch(() => {
-        setDialog({
-          isOpen: true,
-          title: "Account Fail to create",
-          description: ["Please try again.."],
-        });
-      });
+  const handleCreate = ({ displayName }: CreateUserCredentials) => {
+    // TODO: fix this
+    alert(`${displayName}, This feature is not available yet`);
   };
 
   return (
     <Root className={classes.container}>
-      <VerticalBanner banner="login" />
+      <VerticalBanner banner="login" alt="" />
       <Box className={classes.sidebox}>
         <Box id="title" className={classes.title}>
           <Typography variant="h5" color="inherit" align="center">
@@ -196,16 +167,6 @@ function Create() {
           </Button>
         </form>
       </Box>
-      {dialog ? (
-        <CustomDialog
-          open={Boolean(dialog)}
-          onClose={() => {
-            setDialog({ isOpen: false });
-          }}
-          title={dialog.title}
-          description={dialog.description}
-        />
-      ) : null}
     </Root>
   );
 }

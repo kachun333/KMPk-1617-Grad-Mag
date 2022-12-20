@@ -1,14 +1,14 @@
-import React from "react";
-import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import { styled } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+import useAuth from "providers/auth/useAuth";
+import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import Banner from "../common/Banner";
 
 const PREFIX = "Home";
@@ -103,9 +103,8 @@ const features = [
   "Magazine: migrating physical magazine",
 ];
 function Home() {
-  const displayName = useSelector(
-    (state) => state.firebase.profile.displayName
-  );
+  const { userCredential } = useAuth();
+  const displayName = userCredential?.user.displayName;
 
   return (
     <Root>
@@ -133,7 +132,7 @@ function Home() {
         </Box>
         <Box id="new" className={classes.section}>
           <Typography variant="h3" className={classes.paragraph}>
-            What's new!
+            What&apos;s new!
           </Typography>
           <Typography variant="subtitle1" className={classes.paragraph}>
             Version 2.0

@@ -1,46 +1,56 @@
-import React from "react";
 import {
+  Button,
   Dialog,
-  DialogTitle,
+  DialogActions,
   DialogContent,
   DialogContentText,
-  DialogActions,
-  Button,
+  DialogTitle,
 } from "@mui/material";
+import React from "react";
 
-function CustomDialog(props) {
+interface CustomDialogProps {
+  onClose: () => void;
+  open: boolean;
+  title: string;
+  dismissText?: string;
+  description: string[];
+  footer?: string[];
+}
+
+const CustomDialog: React.FC<CustomDialogProps> = ({
+  onClose,
+  open,
+  title,
+  dismissText,
+  description,
+  footer,
+}) => {
   return (
-    <Dialog
-      onClose={props.onClose}
-      aria-labelledby="dialog-title"
-      open={props.open}
-    >
-      <DialogTitle id="dialog-title">{props.title}</DialogTitle>
+    <Dialog onClose={onClose} aria-labelledby="dialog-title" open={open}>
+      <DialogTitle id="dialog-title">{title}</DialogTitle>
       <DialogContent>
-        {props.description.map((text, i) => (
+        {description.map((text, i) => (
           <DialogContentText id={`dialog-description-${i}`}>
             {text}
           </DialogContentText>
         ))}
 
-        {props.footer
-          ? props.footer.map((text, i) => (
-              <DialogContentText
-                id={`dialog-footer-${i}`}
-                style={{ textAlign: "right" }}
-              >
-                {text}
-              </DialogContentText>
-            ))
-          : null}
+        {footer?.map((text, i) => (
+          <DialogContentText
+            id={`dialog-footer-${i}`}
+            style={{ textAlign: "right" }}
+          >
+            {text}
+          </DialogContentText>
+        ))}
       </DialogContent>
       <DialogActions>
-        <Button onClick={props.onClose} color="primary" size="large" autoFocus>
-          {props.dismissText || "Okay"}
+        <Button onClick={onClose} color="primary" size="large" autoFocus>
+          {dismissText || "Okay"}
         </Button>
       </DialogActions>
     </Dialog>
   );
-}
+};
 
 export default CustomDialog;

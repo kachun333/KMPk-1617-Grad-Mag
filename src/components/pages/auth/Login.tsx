@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import useAuth from "providers/auth/useAuth";
+import React, { useState } from "react";
 import GoogleButton from "react-google-button";
+import { Link, useNavigate } from "react-router-dom";
 import { FacebookLoginButton } from "react-social-login-buttons";
-import { useFirebase } from "react-redux-firebase";
-import { useNavigate, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import CustomDialog from "../../common/CustomDialog";
 import VerticalBanner from "../../common/VerticalBanner";
 
@@ -105,25 +104,9 @@ interface ReactReduxFirebaseCreateUserCredentials {
   signIn?: boolean; // default true
 }
 
-type ReactReduxFirebaseCredentials =
-  | {
-      provider:
-        | "facebook"
-        | "google"
-        | "twitter"
-        | "github"
-        | "microsoft.com"
-        | "apple.com"
-        | "yahoo.com";
-      type: "popup" | "redirect";
-      scopes?: string[];
-    }
-  | ReactReduxFirebaseCreateUserCredentials;
-
 function Login() {
   const navigate = useNavigate();
-  const isLoggedin = useSelector((state) => state.firebase.auth.uid);
-  const verified = useSelector((state) => state.firebase.profile.verified);
+  const { isLoggedin } = useAuth();
   if (isLoggedin) {
     navigate("/", { replace: true });
   }
@@ -135,47 +118,32 @@ function Login() {
       password: "",
     });
 
-  const firebase = useFirebase();
-  const handleLogin = (loginObject: ReactReduxFirebaseCredentials) => {
-    firebase
-      .login(loginObject)
-      .then(() => {
-        if (verified) {
-          navigate("/");
-        } else {
-          navigate("/auth/verify");
-        }
-      })
-      .catch(() => {
-        setDialog({
-          isOpen: true,
-          title: "Login Fail..",
-          description: ["Fail to login, please try again later"],
-        });
-      });
+  const handleLogin = () => {
+    // TODO fix login feature
+    alert(`login with is not available yet`);
   };
 
   return (
     <Root className={classes.container}>
       <Box>
-        <VerticalBanner banner="login" />
+        <VerticalBanner banner="login" alt="" />
       </Box>
       <Box className={classes.sidebox}>
         <Box id="social-login" className={classes.socialLogin}>
           <GoogleButton
             type="light"
             onClick={() => {
-              handleLogin({ provider: "google", type: "popup" });
+              handleLogin();
             }}
           />
           <FacebookLoginButton
             className={classes.facebookLogin}
             onClick={() => {
-              handleLogin({ provider: "facebook", type: "popup" });
+              handleLogin();
             }}
-          >
-            <span style={{ paddingLeft: "12px" }}>Sign in with Facebook</span>
-          </FacebookLoginButton>
+            style={{ paddingLeft: "12px" }}
+            text="Sign in with Facebook"
+          />
         </Box>
         <Box id="title" className={classes.title}>
           <Typography variant="h5" color="inherit" align="center">
@@ -206,7 +174,7 @@ function Login() {
           className={classes.form}
           onSubmit={(e) => {
             e.preventDefault();
-            handleLogin(credentials);
+            handleLogin();
           }}
         >
           <TextField
@@ -259,8 +227,8 @@ function Login() {
           onClose={() => {
             setDialog({ isOpen: false });
           }}
-          title={dialog.title}
-          description={dialog.description}
+          title={dialog.title ?? ""}
+          description={dialog.description ?? []}
         />
       ) : null}
     </Root>
