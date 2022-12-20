@@ -1,10 +1,9 @@
-import React from "react";
-import { styled } from "@mui/material/styles";
-import makeStyles from "@mui/material/styles/makeStyles";
+import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
+import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const PREFIX = "Unauthorized";
@@ -30,9 +29,13 @@ const StyledCard = styled(Card)(({ theme }) => ({
   },
 }));
 
-export default function Unauthorized(props) {
+interface UnauthorizedProps {
+  type: "login" | "verify";
+}
+
+const Unauthorized: React.FC<UnauthorizedProps> = ({ type }) => {
   let title = "";
-  const buttonTitle = props.type;
+  const buttonTitle = type;
   if (buttonTitle === "login") {
     title = "You are required to login & verify to view more content";
   } else if (buttonTitle === "verify") {
@@ -42,18 +45,19 @@ export default function Unauthorized(props) {
     <StyledCard className={classes.card}>
       <CardContent className={classes.cardContent}>
         <Typography variant="h6">{title}</Typography>
-        <Button
-          className={classes.button}
-          component={Link}
-          variant="contained"
-          color="primary"
-          size="medium"
-          exact
-          to={`/auth/${buttonTitle}`}
-        >
-          {buttonTitle}
-        </Button>
+        <Link to={`/auth/${buttonTitle}`}>
+          <Button
+            className={classes.button}
+            variant="contained"
+            color="primary"
+            size="medium"
+          >
+            {buttonTitle}
+          </Button>
+        </Link>
       </CardContent>
     </StyledCard>
   );
-}
+};
+
+export default Unauthorized;
