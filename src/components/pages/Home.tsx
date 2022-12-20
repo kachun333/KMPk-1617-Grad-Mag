@@ -138,8 +138,8 @@ function Home() {
             Version 2.0
           </Typography>
           <ul>
-            {features.map((feature, i) => (
-              <li key={i}>
+            {features.map((feature) => (
+              <li key={feature}>
                 <Typography variant="subtitle1">{feature}</Typography>
               </li>
             ))}
@@ -147,8 +147,8 @@ function Home() {
         </Box>
         <Box id="content-cards" className={classes.section}>
           <Grid container spacing={4}>
-            {cards.map((card, i) => (
-              <Grid item key={i} xs={12} md={6}>
+            {cards.map((card) => (
+              <Grid item key={card.title} xs={12} md={6}>
                 <Typography variant="subtitle1">{card.title}</Typography>
                 <Card>
                   <CardActionArea className={classes.card}>

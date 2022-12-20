@@ -1,5 +1,4 @@
 import ArrowForward from "@mui/icons-material/ArrowForward";
-import Book from "@mui/icons-material/Book";
 import ExitToApp from "@mui/icons-material/ExitToApp";
 import Group from "@mui/icons-material/Group";
 import LiveTv from "@mui/icons-material/LiveTv";
@@ -12,7 +11,7 @@ import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { styled } from "@mui/material/styles";
@@ -36,7 +35,7 @@ const classes = {
   avatar: `${PREFIX}-avatar`,
   login: `${PREFIX}-login`,
   drawerPaper: `${PREFIX}-drawerPaper`,
-  active: `${PREFIX}-active`,
+  listItem: `${PREFIX}-listItem`,
   icon: `${PREFIX}-icon`,
 };
 
@@ -72,7 +71,7 @@ const Root = styled("div")(({ theme }) => ({
     width: 220,
   },
 
-  [`& .${classes.active}`]: {
+  [`& .${classes.listItem}.active`]: {
     borderLeft: `3px solid ${theme.palette.primary.main}`,
   },
 
@@ -154,80 +153,59 @@ function NavbarMobile() {
           )}
         </Box>
         <List>
-          <ListItem
+          <ListItemButton
             component={NavLink}
-            exact
             to="/graduates"
-            activeClassName={classes.active}
+            className={classes.listItem}
             onClick={handleCloseMenu}
-            button
           >
             <ListItemIcon className={classes.icon}>
               <Person />
             </ListItemIcon>
             <ListItemText primary="Graduates" />
-          </ListItem>
-          <ListItem
+          </ListItemButton>
+          <ListItemButton
             component={NavLink}
-            exact
             to="/lecturers"
-            activeClassName={classes.active}
+            className={classes.listItem}
             onClick={handleCloseMenu}
-            button
           >
             <ListItemIcon className={classes.icon}>
               <Group />
             </ListItemIcon>
             <ListItemText primary="Lecturers" />
-          </ListItem>
-          <ListItem
+          </ListItemButton>
+          <ListItemButton
             component={NavLink}
-            exact
             to="/videos"
-            activeClassName={classes.active}
+            className={classes.listItem}
             onClick={handleCloseMenu}
-            button
           >
             <ListItemIcon className={classes.icon}>
               <LiveTv />
             </ListItemIcon>
             <ListItemText primary="KMPk TV" />
-          </ListItem>
-          <ListItem
-            component={NavLink}
-            exact
-            to="/magazine"
-            activeClassName={classes.active}
-            onClick={handleCloseMenu}
-            button
-          >
-            <ListItemIcon className={classes.icon}>
-              <Book />
-            </ListItemIcon>
-            <ListItemText primary="Magazine" />
-          </ListItem>
+          </ListItemButton>
           {!isVerified && isLoggedin ? (
-            <ListItem
+            <ListItemButton
               component={NavLink}
-              exact
               to="/auth/verify"
-              activeClassName={classes.active}
+              className={classes.listItem}
               onClick={handleCloseMenu}
-              button
             >
               <ListItemIcon className={classes.icon}>
                 <VerifiedUser />
               </ListItemIcon>
               <ListItemText primary="Verify" />
-            </ListItem>
+            </ListItemButton>
           ) : null}
           {isLoggedin ? (
-            <ListItem onClick={handleLogout} button>
+            <ListItemButton onClick={handleLogout}>
               <ListItemIcon className={classes.icon}>
                 <ExitToApp />
               </ListItemIcon>
               <ListItemText primary="Logout" />
-            </ListItem>
+            </ListItemButton>
           ) : null}
         </List>
       </Drawer>
