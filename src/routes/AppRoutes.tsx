@@ -3,7 +3,7 @@ import Login from "components/pages/auth/Login";
 import Reset from "components/pages/auth/Reset";
 import Verify from "components/pages/auth/Verify";
 import GraduateDetails from "components/pages/GraduateDetails";
-import Graduates from "components/pages/Graduates";
+import Graduates from "components/pages/graduates/Graduates";
 import Home from "components/pages/Home";
 import Lecturers from "components/pages/Lecturers";
 import Jpp from "components/pages/magazine/chap1/Jpp";

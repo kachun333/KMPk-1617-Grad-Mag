@@ -1,25 +1,25 @@
-import React, { useState, useCallback, useEffect } from "react";
-import { styled } from "@mui/material/styles";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
-import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import CircularProgress from "@mui/material/CircularProgress";
+import Container from "@mui/material/Container";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { styled } from "@mui/material/styles";
+import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import CircularProgress from "@mui/material/CircularProgress";
-// import Tune from '@mui/icons-material/Tune';
-import ExpandMore from "@mui/icons-material/ExpandMore";
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import AwesomeDebouncePromise from "awesome-debounce-promise";
 import axios from "axios";
-import CustomDialog from "../common/CustomDialog";
+import useAuth from "providers/auth/useAuth";
+import React, { useCallback, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { SORT_CRITERIA } from "./graduates.constants";
+import { filterItems, sortGraduates } from "./sort.utils";
 
 const PREFIX = "Graduates";
 
@@ -93,14 +93,44 @@ const Root = styled("div")(({ theme }) => ({
   },
 }));
 
-function Graduates(props) {
-  const verified = useSelector((state) => state.firebase.profile.verified);
-  const uid = useSelector((state) => state.firebase.auth.uid);
-  const [graduates, setGraduates] = useState({ data: null, ordered: null });
+export interface Data {
+  id: string;
+  image: string;
+  name: string;
+  name_ch: string;
+  gender: string;
+  birthday: string;
+  tutorial: string;
+}
+
+interface GraduatesData {
+  data: Data[] | null;
+  ordered: Data[] | null;
+}
+
+function Graduates() {
+  const [graduates, setGraduates] = useState<GraduatesData>({
+    data: null,
+    ordered: null,
+  });
+  const [sortBy, setSortBy] = useState<{
+    label: string;
+    value: string;
+    ascending: boolean;
+    anchorEl: (EventTarget & HTMLButtonElement) | null;
+  }>({
+    label: "Sort By",
+    value: "Default",
+    ascending: true,
+    anchorEl: null,
+  });
+
+  const { isVerified, userCredential } = useAuth();
+  const { uid } = userCredential?.user ?? {};
 
   useEffect(() => {
     let url = "https://us-central1-ourpromise.cloudfunctions.net/api/graduates";
-    if (verified) {
+    if (isVerified) {
       url += `?uid=${uid}`;
     }
     axios
@@ -114,27 +144,19 @@ function Graduates(props) {
       .catch((error) => {
         console.log(error);
       });
-  }, [verified, uid]);
+  }, [isVerified, uid]);
 
-  const searchAPI = (items, searchOptions) => {
-    if (searchOptions.searchTerm) {
-      if (items) {
-        return filterItems(items, searchOptions);
-      }
-    } else {
-      return items;
-    }
-  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const searchAPIDebounced = useCallback(
-    AwesomeDebouncePromise(searchAPI, 500),
+    AwesomeDebouncePromise((items: Data[], searchTerm: string) => {
+      if (!searchTerm) return items;
+      return filterItems(items, searchTerm);
+    }, 500),
     []
   );
 
-  const handleChange = async (text) => {
-    const searchOptions = {
-      searchTerm: text,
-    };
-    const result = await searchAPIDebounced(graduates.data, searchOptions);
+  const handleChange = async (text: string) => {
+    const result = await searchAPIDebounced(graduates.data ?? [], text);
     setGraduates({ ...graduates, ordered: result });
     setSortBy({
       label: "Sort By",
@@ -144,50 +166,29 @@ function Graduates(props) {
     });
   };
 
-  const filterItem = (item, searchOptions) => {
-    const searchTerm = searchOptions.searchTerm.toLowerCase();
-    if (
-      item.name.toLowerCase().includes(searchTerm) ||
-      item.name_ch.includes(searchTerm)
-    ) {
-      return item;
-    }
-    return null;
-  };
+  const handleSortByOpen = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      setSortBy({ ...sortBy, anchorEl: event.currentTarget });
+    },
+    [sortBy]
+  );
 
-  const filterItems = (items, searchOptions) =>
-    items.reduce((accumulator, currentItem) => {
-      const foundItem = filterItem(currentItem, searchOptions);
-      if (foundItem) {
-        accumulator.push(foundItem);
-      }
-      return accumulator;
-    }, []);
-
-  const [dialog, setDialog] = useState(null);
-
-  const [sortBy, setSortBy] = useState({
-    label: "Sort By",
-    value: "Default",
-    ascending: true,
-    anchorEl: null,
-  });
-  const handleSortByOpen = (event) => {
-    setSortBy({ ...sortBy, anchorEl: event.currentTarget });
-  };
-  const handleSortByClose = (sortCriteria) => {
+  function handleSortByClose(sortCriteria: keyof Data | null) {
     if (sortCriteria === null) {
       // did not select anything
       setSortBy({ ...sortBy, anchorEl: null });
     } else if (sortCriteria === sortBy.value) {
       // select the same sortCriteria
-      const sortedData = graduates.data.reverse();
-      const sortedOrdered = graduates.ordered.reverse();
+      const sortedData = graduates.data?.reverse() ?? null;
+      const sortedOrdered = graduates.ordered?.reverse() ?? null;
       setGraduates({ data: sortedData, ordered: sortedOrdered });
-      setSortBy({ ...sortBy, ascending: !sortBy.ascending, anchorEl: null });
+      setSortBy({ ...sortBy, ascending: sortBy.ascending, anchorEl: null });
     } else {
-      const sortedData = sortGraduates(graduates.data, sortCriteria);
-      const sortedOrdered = sortGraduates(graduates.ordered, sortCriteria);
+      const sortedData = sortGraduates(graduates.data ?? [], sortCriteria);
+      const sortedOrdered = sortGraduates(
+        graduates.ordered ?? [],
+        sortCriteria
+      );
       setGraduates({ data: sortedData, ordered: sortedOrdered });
       setSortBy({
         label: sortCriteria,
@@ -196,38 +197,6 @@ function Graduates(props) {
         anchorEl: null,
       });
     }
-  };
-
-  function sortGraduates(data, sortCriteria) {
-    let fieldName = null;
-    switch (sortCriteria) {
-      case "Name":
-        fieldName = "name";
-        break;
-      case "Gender":
-        fieldName = "gender";
-        break;
-      case "Tutorial Group":
-        fieldName = "tutorial";
-        break;
-      case "Birthday":
-        fieldName = "birthday";
-        break;
-      case "Default":
-      default:
-        fieldName = "id";
-        break;
-    }
-    return data.sort((a, b) => {
-      // if equal then comparison = 0
-      let comparison = 0;
-      if (a[fieldName] > b[fieldName]) {
-        comparison = 1;
-      } else if (b[fieldName] > a[fieldName]) {
-        comparison = -1;
-      }
-      return comparison;
-    });
   }
 
   return (
@@ -243,9 +212,6 @@ function Graduates(props) {
               handleChange(e.currentTarget.value);
             }}
           />
-          {/* <Button className={classes.advancedSearch} onClick={() => { setDialog({ title: "Oops.. Advanced Search Is Not For You", description: "You are required to login & verify before using this feature" }) }} >
-            <Tune />
-          </Button> */}
           <Button
             className={classes.sortBy}
             aria-controls="graduates-sortBy"
@@ -264,51 +230,26 @@ function Graduates(props) {
               handleSortByClose(null);
             }}
           >
-            <MenuItem
-              onClick={() => {
-                handleSortByClose("Default");
-              }}
-            >
-              Default
-            </MenuItem>
-            <MenuItem
-              onClick={() => {
-                handleSortByClose("Name");
-              }}
-            >
-              Name
-            </MenuItem>
-            <MenuItem
-              onClick={() => {
-                handleSortByClose("Gender");
-              }}
-            >
-              Gender
-            </MenuItem>
-            {verified ? (
-              <MenuItem
-                onClick={() => {
-                  handleSortByClose("Birthday");
-                }}
-              >
-                Birthday
-              </MenuItem>
-            ) : null}
-            {verified ? (
-              <MenuItem
-                onClick={() => {
-                  handleSortByClose("Tutorial Group");
-                }}
-              >
-                Tutorial Group
-              </MenuItem>
-            ) : null}
+            {SORT_CRITERIA.filter((sortCriteria) => {
+              return isVerified || sortCriteria.isPublic;
+            }).map((sortCriteria) => {
+              return (
+                <MenuItem
+                  key={sortCriteria.id}
+                  onClick={() => {
+                    handleSortByClose(sortCriteria.id);
+                  }}
+                >
+                  {sortCriteria.displayName}
+                </MenuItem>
+              );
+            })}
           </Menu>
         </Box>
 
         <Box id="graduates-images" className={classes.section}>
           {graduates.ordered ? (
-            graduates.ordered.map((graduate, index) => (
+            graduates.ordered.map((graduate) => (
               <Card key={graduate.id} className={classes.card}>
                 <CardActionArea>
                   <Link
@@ -317,7 +258,7 @@ function Graduates(props) {
                   >
                     <CardMedia
                       className={classes.cardMedia}
-                      image={graduate.image || null}
+                      image={graduate.image}
                       title={graduate.name}
                     />
                   </Link>
@@ -337,17 +278,6 @@ function Graduates(props) {
           )}
         </Box>
       </Container>
-      {/* Display if advanced search button is clicked */}
-      {dialog ? (
-        <CustomDialog
-          open={Boolean(dialog)}
-          onClose={() => {
-            setDialog(null);
-          }}
-          title={dialog.title}
-          description={dialog.description}
-        />
-      ) : null}
     </Root>
   );
 }
