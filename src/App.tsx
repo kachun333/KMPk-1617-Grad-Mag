@@ -18,43 +18,32 @@ import NavbarDesktop from "./components/NavbarDesktop";
 import NavbarMobile from "./components/NavbarMobile";
 import AppRoutes from "./routes/AppRoutes";
 
-const PREFIX = "App";
+const StyledFab = styled(Fab)({
+  position: "fixed",
+  top: "auto",
+  right: 20,
+  bottom: 20,
+  left: "auto",
+});
 
-const classes = {
-  root: `${PREFIX}-root`,
-  fab: `${PREFIX}-fab`,
-};
-
-const StyledRouter = styled(Router)(() => ({
-  [`& .${classes.root}`]: {
-    position: "relative",
-  },
-
-  [`& .${classes.fab}`]: {
-    position: "fixed",
-    top: "auto",
-    right: 20,
-    bottom: 20,
-    left: "auto",
-  },
-}));
-
-const HideOnScroll: React.FC<PropsWithChildren<{}>> = ({ children }) => {
+const HideOnScroll: React.FC<{ children: React.ReactElement }> = ({
+  children,
+}) => {
   const trigger = useScrollTrigger();
   return (
     <Slide appear={false} direction="down" in={!trigger}>
-      {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
-      <>{children}</>
+      {children}
     </Slide>
   );
 };
 
-const ShowOnScroll: React.FC<PropsWithChildren<{}>> = ({ children }) => {
+const ShowOnScroll: React.FC<
+  PropsWithChildren<{ children: React.ReactElement }>
+> = ({ children }) => {
   const trigger = useScrollTrigger();
   return (
     <Slide appear={false} direction="up" in={trigger}>
-      {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
-      <>{children}</>
+      {children}
     </Slide>
   );
 };
@@ -120,7 +109,7 @@ function App() {
   const muiTheme = createTheme(theme);
 
   return (
-    <StyledRouter>
+    <Router>
       <MuiThemeProvider theme={muiTheme}>
         <Suspense fallback={null}>
           <CssBaseline />
@@ -140,8 +129,7 @@ function App() {
           <AppRoutes />
           <Footer />
           <ShowOnScroll>
-            <Fab
-              className={classes.fab}
+            <StyledFab
               color="primary"
               aria-label="add"
               onClick={() => {
@@ -153,11 +141,11 @@ function App() {
               }}
             >
               <KeyboardArrowUp />
-            </Fab>
+            </StyledFab>
           </ShowOnScroll>
         </Suspense>
       </MuiThemeProvider>
-    </StyledRouter>
+    </Router>
   );
 }
 
