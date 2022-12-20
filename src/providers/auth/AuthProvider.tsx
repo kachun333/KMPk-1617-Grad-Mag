@@ -3,6 +3,7 @@ import AuthContext from "./AuthContext";
 
 // TODO: change to real value
 const DEFAULT_VALUE = {
+  userCredential: null,
   isVerified: false,
   isLoggedin: false,
   avatar: null,

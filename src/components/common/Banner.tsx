@@ -26,12 +26,11 @@ const Root = styled("div")(({ theme }) => ({
   },
 }));
 
-function Banner() {
-  /**
-   * TODO: add banner img to /src/assets
-   */
-  const banner = "";
+interface BannerProps {
+  banner: string;
+}
 
+const Banner: React.FC<BannerProps> = ({ banner }) => {
   return (
     <Root>
       {banner ? (
@@ -41,6 +40,6 @@ function Banner() {
       ) : null}
     </Root>
   );
-}
+};
 
 export default Banner;
