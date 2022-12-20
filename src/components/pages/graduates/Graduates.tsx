@@ -99,8 +99,13 @@ export interface Data {
   name: string;
   name_ch: string;
   gender: string;
-  birthday: string;
-  tutorial: string;
+  message: string;
+  one_liner: string;
+  describe_me?: string[];
+  birthday?: string;
+  tutorial?: string;
+  phone?: string;
+  email?: string;
 }
 
 interface GraduatesData {
