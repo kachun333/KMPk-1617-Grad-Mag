@@ -216,6 +216,8 @@ function GraduateDetails() {
           <List component="div" disablePadding>
             {graduate?.describe_me &&
               graduate.describe_me.map((description, i) => (
+                // there is a risk for key collision
+                // eslint-disable-next-line react/no-array-index-key
                 <ListItem key={`graduate-describe_me-${i}`}>
                   <ListItemText secondary={description} />
                 </ListItem>
