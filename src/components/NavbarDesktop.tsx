@@ -22,7 +22,6 @@ const classes = {
   appbar: `${PREFIX}-appbar`,
   logo: `${PREFIX}-logo`,
   appTitle: `${PREFIX}-appTitle`,
-  active: `${PREFIX}-active`,
   tab: `${PREFIX}-tab`,
   login: `${PREFIX}-login`,
 };
@@ -46,7 +45,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
     flexGrow: 1,
   },
 
-  [`& .${classes.active}`]: {
+  [`& .${classes.tab}.active`]: {
     color: theme.palette.primary.main,
     fontWeight: "bold",
   },
@@ -91,37 +90,14 @@ function NavbarDesktop() {
         justifyContent="flex-end"
       >
         <Box>
-          <Button
-            component={NavLink}
-            to="/graduates"
-            activeClassName={classes.active}
-            className={classes.tab}
-          >
+          <Button component={NavLink} to="/graduates" className={classes.tab}>
             graduates
           </Button>
-          <Button
-            component={NavLink}
-            to="/lecturers"
-            activeClassName={classes.active}
-            className={classes.tab}
-          >
+          <Button component={NavLink} to="/lecturers" className={classes.tab}>
             lecturers
           </Button>
-          <Button
-            component={NavLink}
-            to="/videos"
-            activeClassName={classes.active}
-            className={classes.tab}
-          >
+          <Button component={NavLink} to="/videos" className={classes.tab}>
             KMPk TV
-          </Button>
-          <Button
-            component={NavLink}
-            to="/magazine"
-            activeClassName={classes.active}
-            className={classes.tab}
-          >
-            Magazine
           </Button>
           {isLoggedin ? (
             <>
