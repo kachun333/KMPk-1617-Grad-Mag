@@ -6,9 +6,6 @@ import GraduateDetails from "components/pages/GraduateDetails";
 import Graduates from "components/pages/graduates/Graduates";
 import Home from "components/pages/Home";
 import Lecturers from "components/pages/Lecturers";
-import Jpp from "components/pages/magazine/chap1/Jpp";
-import ChapIntro from "components/pages/magazine/ChapIntro";
-import Magazine from "components/pages/magazine/Magazine";
 import PageNotFound from "components/pages/PageNotFound";
 import Videos from "components/pages/videos/Videos";
 import React from "react";
@@ -29,12 +26,6 @@ const AppRoutes: React.FC = () => {
       </Route>
       <Route path="Lecturers" element={<Lecturers />} />
       <Route path="videos" element={<Videos />} />
-      <Route path="magazine" element={<Magazine />}>
-        <Route path="chap" element={<Magazine />}>
-          <Route path=":chapId" element={<ChapIntro />} />
-          <Route path="1/jpp" element={<Jpp />} />
-        </Route>
-      </Route>
       <Route element={<PageNotFound />} />
     </Routes>
   );
