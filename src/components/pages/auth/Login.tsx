@@ -126,7 +126,7 @@ function Login() {
   return (
     <Root className={classes.container}>
       <Box>
-        <VerticalBanner banner="login" />
+        <VerticalBanner banner="login" alt="" />
       </Box>
       <Box className={classes.sidebox}>
         <Box id="social-login" className={classes.socialLogin}>

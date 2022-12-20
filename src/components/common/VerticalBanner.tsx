@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { styled } from "@mui/material/styles";
-import makeStyles from "@mui/material/styles/makeStyles";
 import Box from "@mui/material/Box";
-import { useFirebase } from "react-redux-firebase";
+import { styled } from "@mui/material/styles";
+import React from "react";
 
 const PREFIX = "VerticalBanner";
 
@@ -33,24 +31,17 @@ const StyledBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-function VerticalBanner(props) {
-  // get banner from firebase
-  const [banner, setBanner] = useState("");
-  const firebase = useFirebase();
-  const storageRef = firebase.storage().ref();
-  const fileRef = storageRef.child(`banners/${props.banner}.jpg`);
-  fileRef
-    .getDownloadURL()
-    .then((url) => setBanner(url))
-    .catch((err) => console.log("Fail to load banner: ", err));
+interface VerticalBannerProps {
+  banner: string;
+  alt: string;
+}
 
+const VerticalBanner: React.FC<VerticalBannerProps> = ({ banner, alt }) => {
   return (
     <StyledBox className={classes.imageBox}>
-      {banner ? (
-        <img className={classes.image} src={banner} alt="banner" />
-      ) : null}
+      <img className={classes.image} src={banner} alt={alt} />
     </StyledBox>
   );
-}
+};
 
 export default VerticalBanner;

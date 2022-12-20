@@ -94,7 +94,7 @@ function Create() {
 
   return (
     <Root className={classes.container}>
-      <VerticalBanner banner="login" />
+      <VerticalBanner banner="login" alt="" />
       <Box className={classes.sidebox}>
         <Box id="title" className={classes.title}>
           <Typography variant="h5" color="inherit" align="center">

@@ -125,7 +125,7 @@ function Verify() {
   return (
     <Root>
       <Box id="verify" className={classes.container}>
-        <VerticalBanner banner="verify" />
+        <VerticalBanner banner="verify" alt="" />
         <Box className={classes.sidebox}>
           <Box id="title" className={classes.title}>
             <Typography variant="h3" color="inherit">

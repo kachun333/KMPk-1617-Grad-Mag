@@ -62,7 +62,7 @@ function Reset() {
 
   return (
     <Root className={classes.container}>
-      <VerticalBanner banner="login" />
+      <VerticalBanner banner="login" alt="" />
       {/* <img className={classes.image} src={graduate.image || null} alt={graduate ? graduate.name : ""} /> */}
       <Box className={classes.sidebox}>
         <Box id="title" className={classes.title}>
