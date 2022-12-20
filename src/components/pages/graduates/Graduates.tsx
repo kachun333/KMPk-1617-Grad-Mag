@@ -93,7 +93,7 @@ const Root = styled("div")(({ theme }) => ({
   },
 }));
 
-export interface Data {
+export interface GraduateData {
   id: string;
   image: string;
   name: string;
@@ -109,8 +109,8 @@ export interface Data {
 }
 
 interface GraduatesData {
-  data: Data[] | null;
-  ordered: Data[] | null;
+  data: GraduateData[] | null;
+  ordered: GraduateData[] | null;
 }
 
 function Graduates() {
@@ -153,7 +153,7 @@ function Graduates() {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const searchAPIDebounced = useCallback(
-    AwesomeDebouncePromise((items: Data[], searchTerm: string) => {
+    AwesomeDebouncePromise((items: GraduateData[], searchTerm: string) => {
       if (!searchTerm) return items;
       return filterItems(items, searchTerm);
     }, 500),
@@ -178,7 +178,7 @@ function Graduates() {
     [sortBy]
   );
 
-  function handleSortByClose(sortCriteria: keyof Data | null) {
+  function handleSortByClose(sortCriteria: keyof GraduateData | null) {
     if (sortCriteria === null) {
       // did not select anything
       setSortBy({ ...sortBy, anchorEl: null });

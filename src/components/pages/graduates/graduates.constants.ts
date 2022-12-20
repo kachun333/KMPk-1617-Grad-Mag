@@ -1,7 +1,7 @@
-import { Data } from "./Graduates";
+import { GraduateData } from "./Graduates";
 
 export interface SortCriteria {
-  id: keyof Data;
+  id: keyof GraduateData;
   displayName: string;
 
   /**

@@ -22,7 +22,7 @@ import useAuth from "providers/auth/useAuth";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Unauthorized from "../common/Unauthorized";
-import { Data } from "./graduates/Graduates";
+import { GraduateData } from "./graduates/Graduates";
 
 const PREFIX = "GraduateDetails";
 
@@ -107,7 +107,7 @@ function GraduateDetails() {
   const { isVerified, userCredential } = useAuth();
   const { uid } = userCredential?.user ?? {};
 
-  const [graduate, setGraduate] = useState<Data | null>(null);
+  const [graduate, setGraduate] = useState<GraduateData | null>(null);
   useEffect(() => {
     let url = `https://us-central1-ourpromise.cloudfunctions.net/api/graduates/${id}`;
     if (isVerified) {
