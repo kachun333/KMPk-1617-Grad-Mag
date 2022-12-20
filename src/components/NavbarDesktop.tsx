@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import { useSelector, useDispatch } from "react-redux";
-import { useFirebase } from "react-redux-firebase";
-import { useLocation, useNavigate, NavLink } from "react-router-dom";
-import Logo from "../assets/images/logo.png";
+import MenuItem from "@mui/material/MenuItem";
+import { styled } from "@mui/material/styles";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import useAppTitle from "providers/app-title/useAppTitle";
+import useAuth from "providers/auth/useAuth";
+import useFirebase from "providers/firebase/useFirebase";
+import React, { useState } from "react";
+import { useSignOut } from "react-firebase-hooks/auth";
+import { NavLink, useNavigate } from "react-router-dom";
 import DefaultAvatar from "../assets/images/favicon.png";
-import { setAppTitle } from "../store/actions/appActions";
+import Logo from "../assets/images/logo.png";
 
 const PREFIX = "NavbarDesktop";
 
@@ -63,24 +64,17 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 function NavbarDesktop() {
   const navigate = useNavigate();
 
-  const isLoggedin = useSelector((state) => state.firebase.auth.uid);
-  const verified = useSelector((state) => state.firebase.profile.verified);
-  const avatar = useSelector((state) => state.firebase.profile.avatarUrl);
-  const [avatarMenu, setAvatarMenu] = useState(null);
-  // set AppBar Title
-  const dispatch = useDispatch();
-  const appTitle = useSelector((state) => state.app.appTitle);
-  const location = useLocation();
-  const currentUrl = location.pathname;
-  useEffect(() => {
-    dispatch(setAppTitle(currentUrl));
-  }, [currentUrl, dispatch]);
-  // Handle Logout
-  const firebase = useFirebase();
+  const [avatarMenu, setAvatarMenu] = useState<Element | null>(null);
+  const { auth } = useFirebase();
+  const [signOut] = useSignOut(auth);
+  const { isVerified, isLoggedin, avatar } = useAuth();
+  const { appTitle } = useAppTitle();
+
   const handleLogout = () => {
     setAvatarMenu(null);
-    firebase.logout();
+    signOut();
   };
+
   return (
     <StyledToolbar className={classes.appbar}>
       <Button id="logo" component={NavLink} to="/">
@@ -146,7 +140,7 @@ function NavbarDesktop() {
                   setAvatarMenu(null);
                 }}
               >
-                {verified ? null : (
+                {isVerified ? null : (
                   <MenuItem
                     component={Button}
                     onClick={() => {
