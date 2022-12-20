@@ -1,19 +1,17 @@
-import React, { useState, useCallback, useEffect } from "react";
-import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import CircularProgress from "@mui/material/CircularProgress";
-import { useSelector } from "react-redux";
-import AwesomeDebouncePromise from "awesome-debounce-promise";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import { styled } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
 import axios from "axios";
-import Unauthorized from "../common/Unauthorized";
+import useAuth from "providers/auth/useAuth";
+import React, { useEffect, useState } from "react";
 import CustomDialog from "../common/CustomDialog";
+import Unauthorized from "../common/Unauthorized";
 
 const PREFIX = "Lecturers";
 
@@ -117,92 +115,59 @@ const Root = styled("div")(({ theme }) => ({
   },
 }));
 
+interface Lecturer {
+  id: string;
+  name: string;
+  name_ch: string;
+  image: string;
+  message: string;
+  sign_off: string;
+}
+
+interface Department {
+  id: string;
+  department_name: string;
+  lecturers: Lecturer[];
+}
+
+interface LecturersData {
+  data: Department[] | null;
+  ordered: Department[] | null;
+}
+
 function Lecturers() {
-  const verified = useSelector((state) => state.firebase.profile.verified);
-  const uid = useSelector((state) => state.firebase.auth.uid);
-  const [lecturers, setLecturers] = useState({ data: null, ordered: null });
+  const [lecturers, setLecturers] = useState<LecturersData>({
+    data: null,
+    ordered: null,
+  });
+  const [dialog, setDialog] = useState<Lecturer | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const { isVerified, userCredential } = useAuth();
+  const { uid } = userCredential?.user ?? {};
 
   useEffect(() => {
-    if (verified && uid) {
-      const url = `https://us-central1-ourpromise.cloudfunctions.net/api/lecturers?uid=${uid}`;
-      axios
-        .get(url)
-        .then((res) => {
-          // to perform deepvalue copy instead of reference copy for Array Object
-          const lecturersData = JSON.parse(JSON.stringify(res.data));
-          const lecturersOrdered = JSON.parse(JSON.stringify(res.data));
-          setLecturers({ data: lecturersData, ordered: lecturersOrdered });
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    } else {
-      // to display login/verify message
-      setLecturers({ finishRendered: true });
-    }
-  }, [verified, uid]);
-
-  const searchAPI = (items, searchOptions) => {
-    if (searchOptions.searchTerm) {
-      if (items) {
-        return filterItems(items, searchOptions);
-      }
-    } else {
-      return items;
-    }
-  };
-  const searchAPIDebounced = useCallback(
-    AwesomeDebouncePromise(searchAPI, 500),
-    []
-  );
-
-  const handleChange = async (text) => {
-    const searchOptions = {
-      searchTerm: text,
-    };
-    const searchObject = JSON.parse(JSON.stringify(lecturers.data));
-    const result = await searchAPIDebounced(searchObject, searchOptions);
-    setLecturers({ ...lecturers, ordered: result });
-  };
-
-  const filterItem = (item, searchOptions) => {
-    const searchTerm = searchOptions.searchTerm.toLowerCase();
-    return item.filter(
-      (it) =>
-        it.name.toLowerCase().includes(searchTerm) ||
-        it.name_ch.includes(searchTerm)
-    );
-  };
-
-  const filterItems = (items, searchOptions) =>
-    items.reduce((accumulator, currentItem) => {
-      const foundItem = filterItem(currentItem.lecturers, searchOptions);
-      if (foundItem.length) {
-        currentItem.lecturers = foundItem;
-        accumulator.push(currentItem);
-      }
-      return accumulator;
-    }, []);
-
-  const [dialog, setDialog] = useState(null);
+    if (!isVerified || !uid) return;
+    const url = `https://us-central1-ourpromise.cloudfunctions.net/api/lecturers?uid=${uid}`;
+    axios
+      .get(url)
+      .then((res) => {
+        // to perform deepvalue copy instead of reference copy for Array Object
+        const lecturersData = JSON.parse(JSON.stringify(res.data));
+        const lecturersOrdered = JSON.parse(JSON.stringify(res.data));
+        setLecturers({ data: lecturersData, ordered: lecturersOrdered });
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => setIsLoading(false));
+  }, [isVerified, uid]);
 
   return (
     <Root>
       <Container className={classes.container}>
-        <Box id="lecturers-filterOption" className={classes.searchSection}>
-          <TextField
-            className={classes.searchBar}
-            label="Search"
-            margin="normal"
-            variant="outlined"
-            onChange={(e) => {
-              handleChange(e.currentTarget.value);
-            }}
-          />
-        </Box>
         <Box id="lecturers-images" className={classes.contentSection}>
           {lecturers.ordered ? (
-            lecturers.ordered.map((department, index) => (
+            lecturers.ordered.map((department) => (
               <div
                 key={`department-${department.id}`}
                 className={classes.department}
@@ -255,13 +220,11 @@ function Lecturers() {
           ) : (
             <CircularProgress className={classes.circularProgress} />
           )}
-          {lecturers.finishRendered ? (
-            <Unauthorized type={uid ? "verify" : "login"} />
-          ) : null}
+          {!isLoading && <Unauthorized type={uid ? "verify" : "login"} />}
         </Box>
       </Container>
-      {/* Display if advanced search button is clicked */}
-      {dialog ? (
+      {/* Display advanced search button on clicked */}
+      {!!dialog && (
         <CustomDialog
           open={Boolean(dialog)}
           onClose={() => {
@@ -272,7 +235,7 @@ function Lecturers() {
           footer={[dialog.sign_off]}
           dismissText="谢谢"
         />
-      ) : null}
+      )}
     </Root>
   );
 }
