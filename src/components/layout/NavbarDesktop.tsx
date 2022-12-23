@@ -7,14 +7,14 @@ import MenuItem from "@mui/material/MenuItem";
 import { styled } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import DefaultAvatar from "assets/images/favicon.png";
+import Logo from "assets/images/logo.png";
 import useAppTitle from "providers/app-title/useAppTitle";
 import useAuth from "providers/auth/useAuth";
 import useFirebase from "providers/firebase/useFirebase";
 import React, { useState } from "react";
 import { useSignOut } from "react-firebase-hooks/auth";
 import { NavLink, useNavigate } from "react-router-dom";
-import DefaultAvatar from "../assets/images/favicon.png";
-import Logo from "../assets/images/logo.png";
 
 const PREFIX = "NavbarDesktop";
 

@@ -13,7 +13,7 @@ import Toolbar from "@mui/material/Toolbar";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import React, { PropsWithChildren, Suspense, useEffect, useState } from "react";
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
-import Footer from "./components/Footer";
+import Footer from "./components/layout/Footer";
 import NavbarDesktop from "./components/NavbarDesktop";
 import NavbarMobile from "./components/NavbarMobile";
 import AppRoutes from "./routes/AppRoutes";
