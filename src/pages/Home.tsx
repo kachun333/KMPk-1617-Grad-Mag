@@ -6,10 +6,10 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import Banner from "components/common/Banner";
 import useAuth from "providers/auth/useAuth";
 import React from "react";
 import { Link } from "react-router-dom";
-import Banner from "../common/Banner";
 
 const PREFIX = "Home";
 

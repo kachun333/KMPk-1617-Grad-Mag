@@ -1,8 +1,8 @@
-import GraduateDetails from "components/pages/GraduateDetails";
-import Graduates from "components/pages/graduates/Graduates";
-import Home from "components/pages/Home";
-import PageNotFound from "components/pages/PageNotFound";
-import Videos from "components/pages/videos/Videos";
+import GraduateDetails from "pages/GraduateDetails";
+import Graduates from "pages/graduates/Graduates";
+import Home from "pages/Home";
+import PageNotFound from "pages/PageNotFound";
+import Videos from "pages/videos/Videos";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 

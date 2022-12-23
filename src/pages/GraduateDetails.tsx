@@ -18,10 +18,10 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import axios from "axios";
+import Unauthorized from "components/common/Unauthorized";
 import useAuth from "providers/auth/useAuth";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Unauthorized from "../common/Unauthorized";
 import { GraduateData } from "./graduates/Graduates";
 
 const PREFIX = "GraduateDetails";

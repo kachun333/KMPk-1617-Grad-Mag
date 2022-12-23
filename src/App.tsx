@@ -14,8 +14,8 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 import React, { PropsWithChildren, Suspense, useEffect, useState } from "react";
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
 import Footer from "./components/layout/Footer";
-import NavbarDesktop from "./components/NavbarDesktop";
-import NavbarMobile from "./components/NavbarMobile";
+import NavbarDesktop from "./components/layout/NavbarDesktop";
+import NavbarMobile from "./components/layout/NavbarMobile";
 import AppRoutes from "./routes/AppRoutes";
 
 const StyledFab = styled(Fab)({
