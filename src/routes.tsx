@@ -1,5 +1,5 @@
 import ErrorElement from "components/common/ErrorElement";
-import AppLayout from "components/layout/AppLayout";
+import AppLayout from "layout/AppLayout";
 import GraduateDetails from "pages/GraduateDetails";
 import Graduates from "pages/graduates/Graduates";
 import Home from "pages/Home";
