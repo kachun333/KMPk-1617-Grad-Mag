@@ -52,35 +52,6 @@ cd OurPromise/
 **Note:** If the process was successful, you would receive the following in your terminal
 
 ```
-Compiled with warnings.
-
-[eslint]
-src\components\pages\GraduateDetails.tsx
-  Line 122:9:  Unexpected console statement  no-console
-
-src\components\pages\Lecturers.tsx
-  Line 160:9:  Unexpected console statement  no-console
-
-src\components\pages\auth\Create.tsx
-  Line 92:5:  Unexpected alert  no-alert
-xt-line to the line before.
-
-WARNING in [eslint]
-src\components\pages\GraduateDetails.tsx
-  Line 122:9:  Unexpected console statement  no-console
-
-src\components\pages\Lecturers.tsx
-  Line 160:9:  Unexpected console statement  no-console
-
-src\components\pages\auth\Create.tsx
-  Line 92:5:  Unexpected alert  no-alert
-
-src\components\pages\auth\Login.tsx  Line 123:5:  Unexpected alert  no-alert
-
-src\components\pages\graduates\Graduates.tsx
-  Line 150:9:  Unexpected console statement  no-console
-
-webpack compiled with 1 warning
 No issues found.
 ```
 
