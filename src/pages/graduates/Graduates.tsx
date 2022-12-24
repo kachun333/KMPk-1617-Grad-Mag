@@ -14,9 +14,7 @@ import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import AwesomeDebouncePromise from "awesome-debounce-promise";
-import axios from "axios";
-import useAuth from "providers/auth/useAuth";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import { SORT_CRITERIA } from "./graduates.constants";
 import { filterItems, sortGraduates } from "./sort.utils";
@@ -114,6 +112,7 @@ interface GraduatesData {
 }
 
 function Graduates() {
+  const isVerified = false;
   const [graduates, setGraduates] = useState<GraduatesData>({
     data: null,
     ordered: null,
@@ -129,27 +128,6 @@ function Graduates() {
     ascending: true,
     anchorEl: null,
   });
-
-  const { isVerified, userCredential } = useAuth();
-  const { uid } = userCredential?.user ?? {};
-
-  useEffect(() => {
-    let url = "https://us-central1-ourpromise.cloudfunctions.net/api/graduates";
-    if (isVerified) {
-      url += `?uid=${uid}`;
-    }
-    axios
-      .get(url)
-      .then((res) => {
-        // to perform value copy instead of reference copy for Array Object
-        const graduatesData = res.data.slice();
-        const graduatesOrdered = res.data.slice();
-        setGraduates({ data: graduatesData, ordered: graduatesOrdered });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [isVerified, uid]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const searchAPIDebounced = useCallback(

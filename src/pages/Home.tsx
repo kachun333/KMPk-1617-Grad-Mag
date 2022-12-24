@@ -7,7 +7,6 @@ import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import Banner from "components/common/Banner";
-import useAuth from "providers/auth/useAuth";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -79,44 +78,18 @@ const cards = [
       "https://firebasestorage.googleapis.com/v0/b/ourpromise.appspot.com/o/banners%2Fgraduates.jpg?alt=media&token=602999e3-4041-4479-b74e-227752611dcf",
   },
   {
-    title: "Lecturers",
-    link: "lecturers",
-    image:
-      "https://firebasestorage.googleapis.com/v0/b/ourpromise.appspot.com/o/banners%2Flecturers.jpg?alt=media&token=f9d5dcf6-97b8-4500-8b5d-b155ecc813cf",
-  },
-  {
     title: "KMPk TV",
     link: "videos",
     image:
       "https://firebasestorage.googleapis.com/v0/b/ourpromise.appspot.com/o/banners%2Fvideos.jpg?alt=media&token=76c9abd3-2abf-45cd-80f1-d2e38032ef1a",
   },
-  {
-    title: "Magazine",
-    link: "magazine",
-    image:
-      "https://firebasestorage.googleapis.com/v0/b/ourpromise.appspot.com/o/banners%2Fmagazine.jpg?alt=media&token=77442387-c041-4c7b-ab1c-ab0a071cb72d",
-  },
 ];
-const features = [
-  "Lecturers: view and search lecturers",
-  "KMPk TV: watch videos about us",
-  "Magazine: migrating physical magazine",
-];
-function Home() {
-  const { userCredential } = useAuth();
-  const displayName = userCredential?.user.displayName;
 
+function Home() {
   return (
     <Root>
       <Banner banner="home" />
       <Container className={classes.container}>
-        {displayName ? (
-          <Box id="greet" className={classes.section}>
-            <Typography variant="h3" className={classes.paragraph}>
-              {displayName || "Hey guys"}, 别来无恙？
-            </Typography>
-          </Box>
-        ) : null}
         <Box id="about" className={classes.section}>
           <Typography variant="h3" className={classes.paragraph}>
             About
@@ -129,21 +102,6 @@ function Home() {
           <Typography variant="body1" className={classes.paragraph}>
             Stay tune for more interesting content and interactive features!
           </Typography>
-        </Box>
-        <Box id="new" className={classes.section}>
-          <Typography variant="h3" className={classes.paragraph}>
-            What&apos;s new!
-          </Typography>
-          <Typography variant="subtitle1" className={classes.paragraph}>
-            Version 2.0
-          </Typography>
-          <ul>
-            {features.map((feature) => (
-              <li key={feature}>
-                <Typography variant="subtitle1">{feature}</Typography>
-              </li>
-            ))}
-          </ul>
         </Box>
         <Box id="content-cards" className={classes.section}>
           <Grid container spacing={4}>

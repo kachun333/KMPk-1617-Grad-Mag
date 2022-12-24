@@ -1,11 +1,7 @@
 import ArrowForward from "@mui/icons-material/ArrowForward";
-import ExitToApp from "@mui/icons-material/ExitToApp";
-import Group from "@mui/icons-material/Group";
 import LiveTv from "@mui/icons-material/LiveTv";
 import MenuIcon from "@mui/icons-material/Menu";
 import Person from "@mui/icons-material/Person";
-import VerifiedUser from "@mui/icons-material/VerifiedUser";
-import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
@@ -17,13 +13,9 @@ import ListItemText from "@mui/material/ListItemText";
 import { styled } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import DefaultAvatar from "assets/images/favicon.png";
 import Logo from "assets/images/logo.png";
 import useAppTitle from "providers/app-title/useAppTitle";
-import useAuth from "providers/auth/useAuth";
-import useFirebase from "providers/firebase/useFirebase";
 import React, { useState } from "react";
-import { useSignOut } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
 
 const PREFIX = "NavbarMobile";
@@ -82,9 +74,6 @@ const Root = styled("div")(({ theme }) => ({
 
 function NavbarMobile() {
   const [isOpen, setIsOpen] = useState(false);
-  const { auth } = useFirebase();
-  const [signOut] = useSignOut(auth);
-  const { isVerified, isLoggedin, avatar } = useAuth();
   const { appTitle } = useAppTitle();
 
   const handleOpenMenu = () => {
@@ -92,11 +81,6 @@ function NavbarMobile() {
   };
 
   const handleCloseMenu = () => {
-    setIsOpen(false);
-  };
-
-  const handleLogout = () => {
-    signOut();
     setIsOpen(false);
   };
 
@@ -134,23 +118,6 @@ function NavbarMobile() {
           <IconButton onClick={handleCloseMenu} size="large">
             <ArrowForward />
           </IconButton>
-          {isLoggedin ? (
-            <Avatar
-              alt="me"
-              src={avatar || DefaultAvatar}
-              className={classes.avatar}
-            />
-          ) : (
-            <Button
-              className={classes.login}
-              component={NavLink}
-              to="/auth/login"
-              variant="contained"
-              color="primary"
-            >
-              Login
-            </Button>
-          )}
         </Box>
         <List>
           <ListItemButton
@@ -166,17 +133,6 @@ function NavbarMobile() {
           </ListItemButton>
           <ListItemButton
             component={NavLink}
-            to="/lecturers"
-            className={classes.listItem}
-            onClick={handleCloseMenu}
-          >
-            <ListItemIcon className={classes.icon}>
-              <Group />
-            </ListItemIcon>
-            <ListItemText primary="Lecturers" />
-          </ListItemButton>
-          <ListItemButton
-            component={NavLink}
             to="/videos"
             className={classes.listItem}
             onClick={handleCloseMenu}
@@ -186,27 +142,6 @@ function NavbarMobile() {
             </ListItemIcon>
             <ListItemText primary="KMPk TV" />
           </ListItemButton>
-          {!isVerified && isLoggedin ? (
-            <ListItemButton
-              component={NavLink}
-              to="/auth/verify"
-              className={classes.listItem}
-              onClick={handleCloseMenu}
-            >
-              <ListItemIcon className={classes.icon}>
-                <VerifiedUser />
-              </ListItemIcon>
-              <ListItemText primary="Verify" />
-            </ListItemButton>
-          ) : null}
-          {isLoggedin ? (
-            <ListItemButton onClick={handleLogout}>
-              <ListItemIcon className={classes.icon}>
-                <ExitToApp />
-              </ListItemIcon>
-              <ListItemText primary="Logout" />
-            </ListItemButton>
-          ) : null}
         </List>
       </Drawer>
     </Root>

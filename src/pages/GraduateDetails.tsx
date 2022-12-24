@@ -17,11 +17,8 @@ import {
   Typography,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import axios from "axios";
-import Unauthorized from "components/common/Unauthorized";
-import useAuth from "providers/auth/useAuth";
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import { GraduateData } from "./graduates/Graduates";
 
 const PREFIX = "GraduateDetails";
@@ -103,25 +100,9 @@ const StyledBox = styled(Box)(({ theme }) => ({
 }));
 
 function GraduateDetails() {
-  const { id } = useParams();
-  const { isVerified, userCredential } = useAuth();
-  const { uid } = userCredential?.user ?? {};
-
-  const [graduate, setGraduate] = useState<GraduateData | null>(null);
-  useEffect(() => {
-    let url = `https://us-central1-ourpromise.cloudfunctions.net/api/graduates/${id}`;
-    if (isVerified) {
-      url += `?uid=${uid}`;
-    }
-    axios
-      .get(url)
-      .then((res) => {
-        setGraduate(res.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [id, isVerified, uid]);
+  // TODO: refactor and fix this
+  const isVerified = false;
+  const graduate: GraduateData | null = null as GraduateData | null;
 
   return (
     <StyledBox className={classes.container}>
@@ -224,7 +205,6 @@ function GraduateDetails() {
               ))}
           </List>
         </List>
-        {!isVerified && <Unauthorized type={uid ? "verify" : "login"} />}
       </Box>
     </StyledBox>
   );
