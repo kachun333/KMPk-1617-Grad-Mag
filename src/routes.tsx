@@ -30,11 +30,11 @@ const routes: RouteObject[] = [
         path: "videos",
         element: <Videos />,
       },
+      {
+        path: "*",
+        element: <PageNotFound />,
+      },
     ],
-  },
-  {
-    path: "*",
-    element: <PageNotFound />,
   },
 ];
 
