@@ -49,7 +49,7 @@ cd OurPromise/
 
 **Step 2:** Run `npm start` to start the app. After successful compilation the app would be running in `http://localhost:3000/`.
 
-**Note:** If the process was successful, you would recieve the following in your terminal
+**Note:** If the process was successful, you would receive the following in your terminal
 
 ```
 Compiled with warnings.
@@ -84,7 +84,7 @@ webpack compiled with 1 warning
 No issues found.
 ```
 
-After recieving this, you can open [http://localhost:3000/](http://localhost:3000/) in your browser manually.
+After receiving this, you can open [http://localhost:3000/](http://localhost:3000/) in your browser manually.
 
 ## How Can You Contribute 📝
 
@@ -92,15 +92,15 @@ After recieving this, you can open [http://localhost:3000/](http://localhost:300
 
 This section guides you through submitting a bug report for this project. Following these guidelines helps maintainers and the community understand your report 📝, reproduce the behavior 💻, and find related reports 🔎.
 
-Before you create an issue, check if its existing or not. When creating one report include as many details as possible. The information you provide will help others to resolve it.
+Before you create an issue, check if it exists or not. When creating one report include as many details as possible. The information you provide will help others to resolve it.
 
 **Note:** If you find a Closed issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.
 
-**Note:** Before submiting a bug report make sure that you are on the latest commit.
+**Note:** Before submitting a bug report make sure that you are on the latest commit.
 
 **How to Submit A Good Bug Report**
 
-Bugs are tracked as [GitHub issues](https://guides.github.com/features/issues/). After figuring out the issue, create an issue on that repository and provide all the information, screen shot also if necessary.
+Bugs are tracked as [GitHub issues](https://guides.github.com/features/issues/). After figuring out the issue, create an issue on that repository and provide all the information, and screenshots if necessary.
 
 Explain the problem and include additional details to help maintainers reproduce the problem:
 
@@ -116,7 +116,7 @@ Explain the problem and include additional details to help maintainers reproduce
 
 This section guides you through submitting an enhancement suggestion for OurPromise, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion and find related suggestions 🔎.
 
-Before creating enhancement suggessions, please check if its already existing or not. When you are creating an enhancement suggestion, please include as many details as possible. Just include the steps that you imagine you would take if the feature you're requesting existed.
+Before creating enhancement suggestions, please check if it exists or not. When you are creating an enhancement suggestion, please include as many details as possible. Just include the steps that you imagine you would take if the feature you're requesting existed.
 
 **Before Submitting An Enhancement Suggestion**
 
@@ -137,7 +137,7 @@ Enhancement suggestions are tracked as [GitHub issues](https://guides.github.com
 
 ### **First Code Contribution 🥇**
 
-Unsure on where to begin your contribution? You can start by looking at issues having `Good First Issues`, `Documentation` or `Beginner` tags. You can fine theme [here](https://github.com/kachun333/OurPromise/issues)
+Unsure on where to begin your contribution? You can start by looking at issues having `Good First Issues`, `Documentation` or `Beginner` tags. You can find them [here](https://github.com/kachun333/OurPromise/issues)
 
 ### **Pull Request 🥳**
 
@@ -171,7 +171,7 @@ git add .              --> To stage all the modified files
 **Step 3:** Commit all the changes. The [commit message should be meaningful](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/), short and to the point.
 
 ```
-git commit -m "Write a meaningfull, small commit message"
+git commit -m "Write a meaningful, small commit message"
 ```
 
 **Step 4:** Now push the changes for review
