@@ -11,8 +11,8 @@ import * as serviceWorker from "./serviceWorker";
 const router = createBrowserRouter(routes);
 
 const container = document.getElementById("root");
-if (!container) throw new Error("root element not found");
-const root = createRoot(container); // createRoot(container!) if you use TypeScript
+if (!container) throw new Error("'root' element not found");
+const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
