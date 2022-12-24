@@ -1,12 +1,12 @@
-import React from "react";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
-import GitHub from "@mui/icons-material/GitHub";
 import Email from "@mui/icons-material/Email";
-import Bottle from "../assets/images/bottle.png";
-import FooterImg from "../assets/images/footer.png";
+import GitHub from "@mui/icons-material/GitHub";
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
+import { styled } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+import Bottle from "assets/images/bottle.png";
+import FooterImg from "assets/images/footer.png";
+import React from "react";
 
 const PREFIX = "Footer";
 
