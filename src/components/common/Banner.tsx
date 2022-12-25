@@ -28,14 +28,15 @@ const Root = styled("div")(({ theme }) => ({
 
 interface BannerProps {
   banner: string;
+  alt: string;
 }
 
-const Banner: React.FC<BannerProps> = ({ banner }) => {
+const Banner: React.FC<BannerProps> = ({ banner, alt }) => {
   return (
     <Root>
       {banner ? (
         <div className={classes.bannerBox}>
-          <img className={classes.banner} src={banner} alt="banner" />
+          <img className={classes.banner} src={banner} alt={alt} />
         </div>
       ) : null}
     </Root>
