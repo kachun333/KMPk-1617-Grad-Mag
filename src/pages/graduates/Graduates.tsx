@@ -95,7 +95,7 @@ const Root = styled("div")(({ theme }) => ({
 export interface GraduateData {
   id: number;
   name: string;
-  name_ch: string;
+  name_ch?: string;
   gender: string;
   message: string;
   one_liner?: string;
