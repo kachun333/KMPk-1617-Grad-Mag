@@ -5,129 +5,129 @@
       "矮矮的胖胖的香蕉人。有时候真的很kapsiao哈哈！很会讨讲师的心。真的真的很喜欢吃面包。他的口头禅已说明了一切^^",
       "刚认识时觉得很可爱xia XD but没讲到话只是在lecture偶尔kapsiao，过后才变熟。自从中秋晚会帮我换蜡烛后就觉得他是一个好人。"
     ],
-    "one_liner": "So……Do you like bread?",
+    "gender": "male",
+    "id": 1,
     "message": "首次到此，遇到一群同甘共苦，同舟共济的损友。说真的他们改变了我，愿我们在此的一切回忆永恒! 祝大家前程似锦! YOLO",
     "name": "Edmund Ung Eng Soon",
     "name_ch": "洪永顺",
-    "gender": "male",
-    "id": 1
+    "one_liner": "So……Do you like bread?"
   },
   {
-    "message": "懵懵懂懂之下，就来到了这森林，最初，原以为生活会枯燥乏味，哪知道却在这里过了没齿难忘的一年，无悔度之，万般感激。",
     "describe_me": [
       "有时他还挺小孩子的，看到soft toys就发疯。千万别被他外表骗了，他完全就一运动白痴啊。有领袖风范，但嘴巴拜托别那么贱啦！",
       "第一学期M1出了名上课睡觉的JPP，不过后来好像改善了，但绝对还是睡神无误！无比的嘴贱，看人家暴走他会莫名的开心。",
       "有时会怀疑是不是因为他的胸大，成就了敏锐的观察能力和果断的领导能力。好兄弟一个，无疑是被人酸的目标，'胸怀大志！"
     ],
     "gender": "male",
-    "one_liner": "",
-    "name_ch": "曾楷哲",
+    "id": 2,
+    "message": "懵懵懂懂之下，就来到了这森林，最初，原以为生活会枯燥乏味，哪知道却在这里过了没齿难忘的一年，无悔度之，万般感激。",
     "name": "Chan Kai Zhe",
-    "id": 2
+    "name_ch": "曾楷哲",
+    "one_liner": ""
   },
   {
-    "message": "十个月，从一开始踏进校园的嫌弃，到后来即将离别的不舍。感恩在这枯燥乏味的十个月遇见了不平凡的你们。",
-    "name": "Lim Sin Yin",
-    "name_ch": "林欣盈",
-    "one_liner": "妈的，喂啊，跟你讲蛤",
     "describe_me": [
       "吃货一枚，金句：我脸圆不是没原因的。享受睡到日上三竿，却为学业牺牲睡眠的乖仔，用食物提神。常seen人但仍有贴心的一面。",
       "万年秘书、最佳战友附加黑圆包。黑归黑，但还是很美啦。讲话有时冷冷的,K跟seen不出奇。大吃货，贪睡，kapsiao天后，黑毛猪！科科。",
       "她是黑夜的化身。手长脚长，别人的短裙是她的上衣。打羽毛球时定点不动。在讲堂上总爱盘腿，吃东西，坐在旁边的总有口福。"
     ],
     "gender": "female",
-    "id": 3
+    "id": 3,
+    "message": "十个月，从一开始踏进校园的嫌弃，到后来即将离别的不舍。感恩在这枯燥乏味的十个月遇见了不平凡的你们。",
+    "name": "Lim Sin Yin",
+    "name_ch": "林欣盈",
+    "one_liner": "妈的，喂啊，跟你讲蛤"
   },
   {
-    "name": "Goh Yan Jin",
     "describe_me": [
       "她有多种超能力：爱吃却不胖，爱睡上课却有本事准时到，爱当宅女却又没变白。李敏镐的死粉，劝绝不能在她面前说谁更帅。",
       "平时班上不多话，但绝对是个好闺蜜！脾气非常好，似乎没有看过她生气。典型的吃货，喜欢吃虾，房间总有吃不完的各种水果",
       "同是水瓶座，是一拍即合的姐妹。多愁善感，一紧张就失眠。吃货一枚，超爱半生熟蛋和日本餐。外表文静，实际笑点低，爱调侃人"
     ],
-    "name_ch": "吴彦瑾",
     "gender": "female",
-    "one_liner": "蛤？！哦是哦  去大便  sad life\"",
+    "id": 4,
     "message": "我们被缘分之绳牵引，从陌路直至相聚、相识、相惜......如今，我们即将毕业，各奔东西，但愿逝去的时光都化作美好回忆，永驻心房。",
-    "id": 4
+    "name": "Goh Yan Jin",
+    "name_ch": "吴彦瑾",
+    "one_liner": "蛤？！哦是哦  去大便  sad life\""
   },
   {
-    "gender": "female",
-    "one_liner": "",
-    "name_ch": "吴宇宣",
-    "message": "一年的时间，已到了尽头。纵然不舍，还是要翻开人生的另一页，各奔东西。让我们带着真挚的友情，美好的回忆，踏上新的征途",
     "describe_me": [
       "她善良、认真、爱干净、华语造诣高，头脑转得快，十分机灵。有时懒惰泡麦片喝，但又喜欢喝麦片。大方、和蔼，宣姐绝对是个好妻子。",
       "无时无刻都追着连载小说，故华文造诣不容小觑。有着超高的领悟力，科科都难不倒她。看似勤劳，其实连走去食堂吃都懒惰。",
       "第一眼就是好瘦，之后发觉不太爱吃饭，蛮懒惰的，看书好快，早睡早起的好宝宝，蛮勇敢说出自己的意见，对待朋友很坦诚…"
     ],
+    "gender": "female",
+    "id": 5,
+    "message": "一年的时间，已到了尽头。纵然不舍，还是要翻开人生的另一页，各奔东西。让我们带着真挚的友情，美好的回忆，踏上新的征途",
     "name": "Goh Yu Xian",
-    "id": 5
+    "name_ch": "吴宇宣",
+    "one_liner": ""
   },
   {
-    "message": "悄悄的我走了 正如我悄悄的来 我挥一挥衣袖 不带走一片云彩",
-    "name": "Cheng Ley Hang",
-    "one_liner": "忘记他 Forget about it lahhh!",
-    "gender": "male",
-    "name_ch": "曾筠恒",
     "describe_me": [
       "英俊潇洒，玉树临风，高大威猛，风流倜傥，年少多金，神勇威武，想必一定是人渣中的极品，禽兽中的禽兽。",
       "思想独特，与众不同，有点强迫症，但作为班长的他虽然有时有点拖泥带水，但基本上还算认真。完美主义者。Good luck in the future",
       "You are very talkative. Sometimes whatever you say makes sense, but most of the time it is illogical and makes no sense. You can be annoying at times. However, sometimes I find you entertaining and funny. You are smart but still you act stupid sometimes."
     ],
-    "id": 6
+    "gender": "male",
+    "id": 6,
+    "message": "悄悄的我走了 正如我悄悄的来 我挥一挥衣袖 不带走一片云彩",
+    "name": "Cheng Ley Hang",
+    "name_ch": "曾筠恒",
+    "one_liner": "忘记他 Forget about it lahhh!"
   },
   {
-    "gender": "male",
-    "message": "成为KMPk的一份子, 让我感恩与感到光荣。在这里遇到的你们给我留下许多美好的回忆, 有M1T2b的欢geng陪我上课时欢, 也有T1.12的campside让我瘋。",
-    "name": "Leong Weng Yip",
     "describe_me": [
       "是一个非常值得学习的bro。因为他，我知道了一些不曾听过的事物。虽然有时候嘴巴有点贱，但他还是有好的一面。嘴硬心软。",
       "冷笑话很冷，huan kia，对他来说睡眠、喝茶最重要。整天讲自己学渣（最好是！）对事情有一定的看法，有原则，负责任。韩国明星万岁！",
       "词语重组障碍症末期患者。著有《永业语录》。有标志性高音。人sot sot。"
     ],
-    "one_liner": "可废~~C你不会啊？酱容易罢了！ ~.~我不要骂粗话了，我F**king不要骂了",
+    "gender": "male",
+    "id": 7,
+    "message": "成为KMPk的一份子, 让我感恩与感到光荣。在这里遇到的你们给我留下许多美好的回忆, 有M1T2b的欢geng陪我上课时欢, 也有T1.12的campside让我瘋。",
+    "name": "Leong Weng Yip",
     "name_ch": "梁永业",
-    "id": 7
+    "one_liner": "可废~~C你不会啊？酱容易罢了！ ~.~我不要骂粗话了，我F**king不要骂了"
   },
   {
-    "name": "Leong Yong Jian",
-    "one_liner": "我fak你，“咩”，朋友，“咩咩”",
-    "gender": "male",
-    "name_ch": "梁永健",
-    "message": "再见朋友，虽然刚认识，但已成为知心知己。一眨眼，昨日的相聚，今天的离别，昨天的欢笑也成他日的回忆。珍重 咩咩~",
     "describe_me": [
       "是个huan kia，带动班上气氛的主要人物。班上没有他的日子，上课觉得非常沉闷。不过就因为他，每一天都和他一起huan！",
       "自high的领队，表情超多超智障，可令到身边人都捧腹大笑。很开朗，可以带high气氛。人也算蛮不错，可以参人。永远high，永远智障吧！",
       "觉得你像是个怪人，但是觉得你蛮可爱。有时候要接受现实，别一直生活在幻想世界里。珍惜眼前所拥有的。远在天边，近在眼前。"
     ],
-    "id": 8
+    "gender": "male",
+    "id": 8,
+    "message": "再见朋友，虽然刚认识，但已成为知心知己。一眨眼，昨日的相聚，今天的离别，昨天的欢笑也成他日的回忆。珍重 咩咩~",
+    "name": "Leong Yong Jian",
+    "name_ch": "梁永健",
+    "one_liner": "我fak你，“咩”，朋友，“咩咩”"
   },
   {
-    "name": "Ooi Yen Hoe",
-    "one_liner": "（……）,on去啦！（特高音）",
-    "name_ch": "黄彦豪",
-    "message": "刚到这片油棕园时，心里只想着快点毕业快点进大学，但跟大家相处一段日子后，确确实实感受到了一丝温暖。希望大家毕业后能友谊永固，保持联络。在此祝大家毕业快乐，前程似锦。",
-    "gender": "male",
     "describe_me": [
       "整天讲自己很noob，其实学霸一个，头脑转挺快的，讲话很欠打，但是人很好，乐于助人，却又爱逞强，不照顾自己。是值得交的朋友。",
       "喜欢shoot人，但事后总惭愧地道歉。外表看似爽朗，其实内心很纠结。能言善道，很能huan能riak！老弟，谢谢你出现在我回忆里的疯狂。",
       "四肢发达，头脑却不简单。他聪明伶俐，性格爽朗。嘴皮虽硬，但其实为人随和。能言善辩，声音洪亮，又欠打，这与其身型有所落差。"
     ],
-    "id": 9
+    "gender": "male",
+    "id": 9,
+    "message": "刚到这片油棕园时，心里只想着快点毕业快点进大学，但跟大家相处一段日子后，确确实实感受到了一丝温暖。希望大家毕业后能友谊永固，保持联络。在此祝大家毕业快乐，前程似锦。",
+    "name": "Ooi Yen Hoe",
+    "name_ch": "黄彦豪",
+    "one_liner": "（……）,on去啦！（特高音）"
   },
   {
-    "one_liner": "",
-    "name_ch": "黄耀锋",
-    "gender": "male",
-    "message": "短短几个月的时光就这样来到了尽头。虽然相处时间不长，但却感触良多。愿大家前程似锦，有缘再见。",
     "describe_me": [
       "OP学生，数理科里应该都是他的强项。有哪里不明白请教他，他也会不吝啬地去教别人。只是字体真的有待加强。",
       "看起来安静，其实可以玩得很疯很好的人，时常不厌其烦地教我这Physics痴。像我大哥一样一直帮我，挺我，支持我。希望友谊永固。",
       "以前没有机会熟识，来到这才变熟。现在依然和以前一样pro。虽然同龄，可是却像哥哥一样，一直帮我，教我。感恩有他。愿早日脱单。"
     ],
+    "gender": "male",
+    "id": 10,
+    "message": "短短几个月的时光就这样来到了尽头。虽然相处时间不长，但却感触良多。愿大家前程似锦，有缘再见。",
     "name": "Ooi Yao Feng",
-    "id": 10
+    "name_ch": "黄耀锋",
+    "one_liner": ""
   },
   {
     "describe_me": [
@@ -135,51 +135,51 @@
       "常把事情想得太复杂，为自己增添许多烦恼，但她的笑容依然很迷人。内向，缺乏自信。成熟的她能让人放心地倾诉问题、秘密。",
       "很拼，做事讲究效率，很勤劳。很有毅力，坚持不懈的态度肯定能引领她走向成功之路。很不错的聆听者。祝感情学业开花结果。"
     ],
-    "name": "Wong Kar Ni",
-    "message": "再次毕业，感触依然良多。每个人都在等待翱翔，都在追寻梦想的脚步。说好不哭，又有谁能守住约定？盼再见还能再次相遇。",
-    "name_ch": "黄嘉妮",
-    "one_liner": "Jiaksai啦！",
     "gender": "female",
-    "id": 11
+    "id": 11,
+    "message": "再次毕业，感触依然良多。每个人都在等待翱翔，都在追寻梦想的脚步。说好不哭，又有谁能守住约定？盼再见还能再次相遇。",
+    "name": "Wong Kar Ni",
+    "name_ch": "黄嘉妮",
+    "one_liner": "Jiaksai啦！"
   },
   {
-    "gender": "female",
-    "name_ch": "张伟静",
     "describe_me": [
       "她，睡眠时间很特别，特早睡，却是位公认的学霸。乐于助人，总能为他人解答学业上的问题。爱唱动漫歌，也是位不错的聆听者。",
       "她聪明，勤奋，从来不会拒绝帮助别人，是老师眼中的乖小孩。学习有问题，找她就对了！她是我的邻居，也是我的好朋友“静宝宝”！",
       "很勤劳，尽责，办事效率高。常帮人但却没照顾好自己。笑容灿烂，充满正能量，常支持，激励人。伟静，感谢你的帮助与鼓励。Arigatogozaimasu!"
     ],
-    "one_liner": "Aigoo/Hmm/Erm/Hopefully/Ha.Ha (Wei Jing,2016)",
-    "name": "Teoh Wei Jing",
+    "gender": "female",
+    "id": 12,
     "message": "在这里与你们相遇，是我的福气。感恩我们有机会相处，但愿日后有机会相聚。",
-    "id": 12
+    "name": "Teoh Wei Jing",
+    "name_ch": "张伟静",
+    "one_liner": "Aigoo/Hmm/Erm/Hopefully/Ha.Ha (Wei Jing,2016)"
   },
   {
-    "name_ch": "邓伟祥",
-    "name": "Teng Wei Siang",
-    "one_liner": "我靠！你的头！",
-    "gender": "male",
     "describe_me": [
       "他为人很好，刚认识他时看他的穿着像哪里来的大绅士。不过久了过后发现他也只不过如此。呵呵~品学兼优，值得交友。",
       "感觉很有生意头脑，绝对是合作投资的好对象。非常好奇sem1的vest去了哪？ 给我的感觉人间烟火。Btw觉得你的生活好像很dry。",
       "Dia seorang yang rajin dalam melaksanakan sesuatu tugasan yang diberikan pensyarah.Dia juga pandai membahagikan masa dengan bijak dan cermat untuk belajar dan menguruskan diri sendiri.Selain itu,dia adalah seorang yang yakin dalam membuat sesuatu keputusan terutamanya pelajaran.Walaupun dia berlainan bangsa dan agama tetapi dia tetap menghormati bangsa dan agama lain dan bersikap terbuka terhadap sesuatu perkara.Dia juga seorang yang peramah dan menyesuaikan diri dengan orang di sekeliling."
     ],
+    "gender": "male",
+    "id": 13,
     "message": "人生犹如一场戏，来匆匆，去忙忙，不知不觉地我们就这样毕业了。真的非常感谢在这段期间帮助过我的朋友，指导我的老师，感谢你们一路上的支持。",
-    "id": 13
+    "name": "Teng Wei Siang",
+    "name_ch": "邓伟祥",
+    "one_liner": "我靠！你的头！"
   },
   {
-    "name_ch": "张凯滨",
     "describe_me": [
       "做事怪，行动怪，讲话怪。做人太傻太天真，但好在有上进。过于注重他人看法，皱纹比80岁阿嬷还多。经常散发空虚寂寞冷的feel。",
       "人还不错，乐于助人。可是有时说话好像没经大脑，得罪人也不知。蛮特别的人，一直想办法要成为一个很好的领袖。时常寂寞。",
       "平常时想太多了，不要这样依莫。每一次都会来向我诉苦。还有喜欢人就勇敢去追啦！祝你早日找到幸福哈哈！"
     ],
-    "message": "甜中带苦, 苦中带甜, 只求无怨无悔。",
-    "one_liner": "喂 你不要这样啦！",
-    "name": "Andre Cheong Kai Bin",
     "gender": "male",
-    "id": 14
+    "id": 14,
+    "message": "甜中带苦, 苦中带甜, 只求无怨无悔。",
+    "name": "Andre Cheong Kai Bin",
+    "name_ch": "张凯滨",
+    "one_liner": "喂 你不要这样啦！"
   },
   {
     "describe_me": [
@@ -187,52 +187,52 @@
       "一开始不是很认识你，因为你是b class的，后来发现你和hooy ye酱好，才发现世界好小！Thank帮我check成绩，虽然不信，因为your face。xD",
       "你不笑的时候很像别人欠你几十百万酱。人不错，帮我找过几次东西，就是不爱笑。图书馆是你的家。爱打羽球，把球拍当宝贝。"
     ],
-    "lecture ": "M1",
-    "name_ch": "李展悦",
-    "one_liner": "zapzeng,sot的，因为我是zhan yuez",
-    "name": "Lee Zhan Yue",
     "gender": "male",
+    "id": 15,
+    "lecture ": "M1",
     "message": "人家说骗子永远都不能成功，可是我就快毕业了，真心感激那些每次帮我点名的同学 祝你们以后不要被骗，毕业快乐",
-    "id": 15
+    "name": "Lee Zhan Yue",
+    "name_ch": "李展悦",
+    "one_liner": "zapzeng,sot的，因为我是zhan yuez"
   },
   {
-    "one_liner": "okay！！！什么鬼",
-    "message": "在这十个月，认识了很多人，参与了很多活动，拥有了很多不一样的经验，也成长了自己，谢谢油棕园里所有人和事。毕业快乐!",
-    "name": "Tan Su Ru",
-    "name_ch": "陈锶铷",
     "describe_me": [
       "吃货。超爱韩国。每次纠正我的华语。3对1.有想法。好助手。美术强。笑声恐怖。找广告是个悲剧。懂得欣赏好音乐。希望旅游愉快！",
       "笑声大得惊人，是个很开朗的女生。虽然每次都先跟别人打招呼，但我原谅你！长得像韩国妹，可能有点慢热，但希望你爱上clubbing。",
       "超爱韩国餐。上次很可惜没得来我家。笑声超大声。表情丰富，有时很凶，但微笑时就很斯文又可爱。做事认真，也很有艺术天分。"
     ],
     "gender": "female",
-    "id": 16
+    "id": 16,
+    "message": "在这十个月，认识了很多人，参与了很多活动，拥有了很多不一样的经验，也成长了自己，谢谢油棕园里所有人和事。毕业快乐!",
+    "name": "Tan Su Ru",
+    "name_ch": "陈锶铷",
+    "one_liner": "okay！！！什么鬼"
   },
   {
-    "message": "在 KMPk 所做的一切都将变成了回忆。朋友们，毕业快乐，希望可在大学的生涯中再次相遇。",
     "describe_me": [
       "一开始以为他是书虫，相处久了过后才知道他是不一般的书虫，因为他不是每天读书的书虫，而是很好玩的书虫。",
       "他为人很好。认真的时候很认真，颠起来也可以很颠。唯二的弱点是怕鬼怕高。希望他可以找到一个保护他的女强人。",
       "帅气威风学霸可是却怕鬼畏高。还有一定12点前回房。马来妹的偶像也是huan到爆的鸟人，希望前程明亮。"
     ],
-    "one_liner": "Walao eh! Sohai! diao ni ah! Leh Mah Leh!",
     "gender": "male",
+    "id": 17,
+    "message": "在 KMPk 所做的一切都将变成了回忆。朋友们，毕业快乐，希望可在大学的生涯中再次相遇。",
     "name": "Soi Yih Leong",
     "name_ch": "徐溢隆",
-    "id": 17
+    "one_liner": "Walao eh! Sohai! diao ni ah! Leh Mah Leh!"
   },
   {
-    "name_ch": "符凯菱",
-    "name": "Foo Kae Lyn",
-    "message": "『天下无不散之筵席』再友好也免不了曲終人散。惟，毕业不代表結束，而是新里程碑之始。让我们勉励彼此，各自奔向光明前程！",
     "describe_me": [
       "她说话超级无敌搞笑，甚至偶尔有音效。每每回首看她脸时就会觉得好笑。天天上课在班上打瞌睡，却是位不可忽视的学霸。",
       "睡神的化身，bio节肯定会周公。典型的表情包，笑点简直是负数。每天都开心地喝各式自备的包装水，令人羡慕！公认为stitch狂粉。",
       "座右铭：睡觉大过天。除了会睡，还常喊饿。特挑食，爱吃辣，不吃水果。外人觉得她严肃，在熟人眼里是绝对的智障，专业小丑一位。"
     ],
-    "one_liner": "妈咧，哇老诶，siao arr",
     "gender": "female",
-    "id": 18
+    "id": 18,
+    "message": "『天下无不散之筵席』再友好也免不了曲終人散。惟，毕业不代表結束，而是新里程碑之始。让我们勉励彼此，各自奔向光明前程！",
+    "name": "Foo Kae Lyn",
+    "name_ch": "符凯菱",
+    "one_liner": "妈咧，哇老诶，siao arr"
   },
   {
     "describe_me": [
@@ -240,103 +240,103 @@
       "睡神的代表，周公的得意门生，看家本领：赖床，却没缺课记录，堪称奇迹。她有着突出的语文天赋，擅于交际，总能让人感觉自在。",
       "很谦虚的才女。很开朗，跟她做什么都很开心。她看到食物就开心到极致。勇于尝试新事物，毅力不简单。妩媚的笑容，多多笑哦！"
     ],
+    "gender": "female",
+    "id": 19,
     "message": "感谢每个支持、鼓励我的你们， 感谢每个陪我疯狂的你们。 18岁的盛夏遇见你们， 我好幸运。 若干年后，如能聚首， 但愿彼时，你我依然。",
     "name": "Tan Wan En",
     "name_ch": "陈婉恩",
-    "gender": "female",
-    "one_liner": "Aigoo, Araso ,Waleu ,Nae!",
-    "id": 19
+    "one_liner": "Aigoo, Araso ,Waleu ,Nae!"
   },
   {
-    "one_liner": "",
-    "name_ch": "杨竣杰",
     "describe_me": [
       "He’s a kind and caring guy. Not so friendly but really fun when you’re close to him.",
       "He is a good boy.",
       "He is intelligent and very disciplined guy."
     ],
+    "gender": "male",
+    "id": 20,
     "message": "我只想说，“成为你自己，做你想要做的事，说出你的心声，因为那些在乎的人都对你不重要，而对你重要的人都不会在乎。",
     "name": "Lorenz Yong Jun Jie",
-    "gender": "male",
-    "id": 20
+    "name_ch": "杨竣杰",
+    "one_liner": ""
   },
   {
-    "name_ch": "黄慧婷",
-    "gender": "female",
-    "name": "Gladys Ooi Hui Ting",
     "describe_me": [
       "自信心爆表，常常晒自己的自拍照，而且语不惊人死不休。说实在她真的单纯又勤劳。希望美丽又大方的婷姐找到高富帅啦！",
       "她自称美丽大方。外人眼中的她-文静沉稳。我眼中的她-开朗、负责任、爱唱歌。最爱老爸，想嫁给像她爸一样的绝世好男人。",
       "牛牛，不大善于打交道，会怕生，不过其实是个很好相处的人。认识后才发现她自恋到一种没药医的地步。大家可以多认识她！"
     ],
-    "one_liner": "",
+    "gender": "female",
+    "id": 21,
     "message": "当初的我们来自不同的地方，缘分把我们聚集到了一起，毕业后我们也将走向不同的方向，但是作为朋友的我会默默祝福你。",
-    "id": 21
+    "name": "Gladys Ooi Hui Ting",
+    "name_ch": "黄慧婷",
+    "one_liner": ""
   },
   {
-    "name": "Ong Chong Meng",
     "describe_me": [
       "SOHAI一个，聪铭就是聪明，说话就是屌。傻逼就是他，他就是傻逼。天真又可爱，天天晒恩爱，一百分的绝世好男人，好棒棒！",
       "无辜的眼神融化万千，做错事时会说不好意思，所以从未被骂。幸运的女友俘虏了这天真男生，让男女都蓝瘦香菇。呆萌帅",
       "聪铭，人如其名，聪明！姓王，人如其名，sohai！身高三尺，才高八斗，脑如诸葛，貌似潘安。随性如水，温柔如丝，暖如阳光，绅士如士。"
     ],
-    "name_ch": "王聪铭",
-    "one_liner": "屌！妈的  不好意思",
-    "message": "好快的 我又毕业了 那么就有缘再见吧!",
     "gender": "male",
-    "id": 22
+    "id": 22,
+    "message": "好快的 我又毕业了 那么就有缘再见吧!",
+    "name": "Ong Chong Meng",
+    "name_ch": "王聪铭",
+    "one_liner": "屌！妈的  不好意思"
   },
   {
-    "name": "Lim Wi Chung",
-    "name_ch": "林威仲",
-    "message": "时光流逝，我们抓不住的天意。 嘻嘻闹闹，我们欢着的时机。 酸甜苦辣，我们经历过的一一。 回忆烙印，我们永不褪色的记忆。 怀念过去，我们回不去的曾经",
-    "one_liner": "",
     "describe_me": [
       "临危冲，记得和你第一次见面后，你就把我加进一个全男的whatsapp组，气死姐姐了，重申，我是女的！",
       "在考PSPM中苦战的其中一名成员。很好奇为什么不喜欢bio的会在module 1.不过既来之，则安之。不要这么快从考场走出来了！",
       "看起来善良，但懂得还真不少啊！有时还挺可怜的，笔者与他同船，了解其处境。电子专业，多希望他可以做我的私人TNB"
     ],
     "gender": "male",
-    "id": 23
+    "id": 23,
+    "message": "时光流逝，我们抓不住的天意。 嘻嘻闹闹，我们欢着的时机。 酸甜苦辣，我们经历过的一一。 回忆烙印，我们永不褪色的记忆。 怀念过去，我们回不去的曾经",
+    "name": "Lim Wi Chung",
+    "name_ch": "林威仲",
+    "one_liner": ""
   },
   {
-    "message": "毕业快乐！前程似锦！！",
     "describe_me": [
       "真的是OP学生一个，有时傻，可以再好笑一点，祝可以拿到理想科目与大学，前程似锦。",
       "身材高大且智商爆表的学霸。请传授些常识于众人以惠及我们这些常识白痴。日后的squash大师，愿他能顺利圆他的医生梦。",
       "KMPk movie supplier。不到一个sem的时间就成功把房间变成厨房，柴米油盐酱醋茶都不缺。曾经被抓去捐血但成功逃命。名副其实的ampia kia"
     ],
-    "name_ch": "陈钧水",
-    "one_liner": "OP  我有很多戏lo",
-    "name": "Tan Kim Chui",
     "gender": "male",
-    "id": 24
+    "id": 24,
+    "message": "毕业快乐！前程似锦！！",
+    "name": "Tan Kim Chui",
+    "name_ch": "陈钧水",
+    "one_liner": "OP  我有很多戏lo"
   },
   {
-    "gender": "female",
-    "message": "珍重 再见",
-    "name_ch": "傅家欣",
-    "name": "Poh Jia Shin",
-    "one_liner": "没有~没有~",
     "describe_me": [
       "瘦小美丽可爱的教练，热情，开朗，爱笑，会华乐。乒乓又打得不错，是个不错的聆听者，但是她一坐下！按电话就可以按很久",
       "有自信，总是指着人说话。最拿手乒乓。一头天然的卷发下是单纯的脸庞。个性敢言敢讲，不拖泥带水。冰淇淋是她的唯一！",
       "与19岁女生不相称的可爱身高，身形，脸庞。爱吃，却永远吃不胖。关心朋友，凡事都为他人着想。碰上熟人又会疯起来，聊个不停。"
     ],
-    "id": 25
+    "gender": "female",
+    "id": 25,
+    "message": "珍重 再见",
+    "name": "Poh Jia Shin",
+    "name_ch": "傅家欣",
+    "one_liner": "没有~没有~"
   },
   {
-    "name": "Ng Yun Han",
-    "one_liner": "我叫xxx来抓你咯 Fxxx你 你要我吊你在风扇上面转吗？",
-    "name_ch": "黄韵涵",
-    "gender": "female",
     "describe_me": [
       "做事冷静而且又快、狠、准。班上的超级高材生。虽然上课睡觉，但成绩还是无人能比。呆又不呆，有时候看起来好像很凶但是……",
       "来lecture时kapsiao后才变熟的朋友，当我跟你讲话的时候就知道你是很酷而且很有爱心的人。你是所有学生ampia的OP例子。",
       "鄙视晒恩爱的couple，因而当了KMPk第一任木鱼学会主席。兴趣睡觉、爱翘课。常说讨厌OAT CRUNCH,又成了它的忠粉。没了“抱抱”休想她可睡着。"
     ],
+    "gender": "female",
+    "id": 26,
     "message": "毕业快乐",
-    "id": 26
+    "name": "Ng Yun Han",
+    "name_ch": "黄韵涵",
+    "one_liner": "我叫xxx来抓你咯 Fxxx你 你要我吊你在风扇上面转吗？"
   },
   {
     "describe_me": [
@@ -344,77 +344,77 @@
       "长得又高又瘦，理性实际的人，不懂花哨的言语，直截了当，但是其实内心很敏感，并害怕受伤。他希望能给她一个永远的未来。",
       "先酷，后嘴贱的M1T6a的班长。可以谈心事的说。在课业上也帮了不少。自己是学霸，也有不少的才华，打鼓、口才。对她好。为未来奋斗！"
     ],
-    "one_liner": "Ez啦，酱都不会？",
-    "name_ch": "纪延伸",
     "gender": "male",
+    "id": 27,
     "message": "时光转瞬即逝, 回想起踏入这里的陌生害怕, 离开时却伤心难过。感谢这里相遇的你们, 因为有你, 我才成今天的自己。下一回, 世界精彩处见。",
     "name": "Kee Yan Shen",
-    "id": 27
+    "name_ch": "纪延伸",
+    "one_liner": "Ez啦，酱都不会？"
   },
   {
-    "name": "Lee Kah Kheng",
-    "gender": "male",
     "describe_me": [
       "颜值偏高就在那边嘚瑟的M1男神，心中有个没有尔虞我诈的世界。每日日常除了卧床就是按电话。有兴趣者，心动不如行动。",
       "后宫佳丽三千。天天按电话，担心有天他和电话结婚去，伤心死很多爱慕他的少女。只要他不要开口讲话，我的命就可以长一点。",
       "学识样貌才艺兼无的痞子男，有着一副吸引异族同胞的可爱脸蛋。有空记得常打篮球，因为那汗珠特能激起女孩们的荷尔蒙。"
     ],
-    "name_ch": "李家庆",
+    "gender": "male",
+    "id": 28,
     "message": "十个月的生活，陌生到熟悉，厌恶到领悟。三分钱，万里长城，tr， 微波炉，从空荡荡到回忆满满。感谢你，妳，你们，还有我，来过这里。",
-    "one_liner": "差咯你   为什么我那么聪明的har？",
-    "id": 28
+    "name": "Lee Kah Kheng",
+    "name_ch": "李家庆",
+    "one_liner": "差咯你   为什么我那么聪明的har？"
   },
   {
-    "one_liner": "其实我觉得我长得不错看啦，做莫没有女朋友的har？",
-    "name_ch": "钟家辉",
-    "gender": "male",
     "describe_me": [
       "自称M1男神，完全诠释“没有脑”三个词。听说是个很好的emo友，得空可以去pm他，他会和你畅谈emo大小事。",
       "第一印象就是莫名其妙。每时每刻都讲自己帅，先酸人才叫你不要不开心。希望你少自恋，多开心。我们散了，但不会永远离开。",
       "同乡的猪友，他脑留在花生了。有莫名的亲切感，虽然嘴巴和脸长得超另类的。外星思想，是他的标签。体贴、但不甘寂寞。"
     ],
+    "gender": "male",
+    "id": 29,
     "message": "看似漫长的十个月 却又悄然流逝 感谢这路上爱我的和我爱的你们 如果没有你们 也不会有那么美好的那一段岁月 愿我们，始终18。",
     "name": "Chong Kar Fai",
-    "id": 29
+    "name_ch": "钟家辉",
+    "one_liner": "其实我觉得我长得不错看啦，做莫没有女朋友的har？"
   },
   {
-    "gender": "female",
     "describe_me": [
       "她只想用灿烂的笑容感染世界，成为大家的向日葵。她，是理性和感性最美好的混合体，不曾想要让别人失望，点燃自己，照亮四周。",
       "典型的自high女神，超热情，可爱，笑点超低，可以一起谈心的好朋友。聪明却有些智障，但这就是她的特征，庆幸有你当好朋友。",
       "从芭蕾到小提琴的文武双全，却又虚心的暴龙族族长，虽笑声大，喜欢尖叫，却是一位很好的聆听者、倾诉者，整副大姐大的范。"
     ],
+    "gender": "female",
+    "id": 30,
+    "message": "在这里很多东西都是短暂，只希望回忆、友情、学到的是永久。",
     "name": "Amelia Marie Theseira",
     "name_ch": "",
-    "one_liner": "哈 哈 哈 哈 哈 哈 哈 哈 哈  Sheit   什么你要  Walaoooooooooo",
-    "message": "在这里很多东西都是短暂，只希望回忆、友情、学到的是永久。",
-    "id": 30
+    "one_liner": "哈 哈 哈 哈 哈 哈 哈 哈 哈  Sheit   什么你要  Walaoooooooooo"
   },
   {
-    "gender": "female",
-    "message": "这是毕业刊，懂吗？是毕业刊，懂吗？毕业刊，懂吗？业刊，懂吗？刊，懂吗？懂吗？吗？",
     "describe_me": [
       "毛毛捧茶姐，一个100分的好朋友。开朗的doraemon，有时笑得像抽筋，KMPk motivator,脑已退化，疯起来没形象，时常不带脑，窝心，懒睡，偶尔会鱿鱼。",
       "看到食物跌地上内心会呐喊的典型吃货睡货。若和她聊天到一半没回复，别着急，她只不过是睡着了。一天到晚不顾形象大笑。",
       "个子小巧玲珑，属可爱型。此人犹如天气，低落与疯狂只在一线之间。KMPk之篮球公主，是一位同班男孩的最爱。祝早日修成正果！"
     ],
-    "name_ch": "詹宝琳",
+    "gender": "female",
+    "id": 31,
+    "message": "这是毕业刊，懂吗？是毕业刊，懂吗？毕业刊，懂吗？业刊，懂吗？刊，懂吗？懂吗？吗？",
     "name": "Ching Poh Ling",
-    "one_liner": "脑啊脑！没有脑！What the…!喂，肚子饿咧！sad die,五块钱",
-    "id": 31
+    "name_ch": "詹宝琳",
+    "one_liner": "脑啊脑！没有脑！What the…!喂，肚子饿咧！sad die,五块钱"
   },
   {
-    "one_liner": "我可以买水吗？",
-    "gender": "female",
-    "name_ch": "戴筠铭",
-    "message": "所有相遇都有它的意义。在 matriks 的一年对我是一种挑战，参与活动和熬夜做功课之外，最珍贵的莫过于建立每个友谊的惊喜和感动。",
-    "name": "Tai Yun Ming",
     "describe_me": [
       "时而狂野，时而内敛，不怎么酸人，一酸起头无人能敌。喜欢小碎步下斜坡的pizza stick女神，有把悦耳的声音，但却摸不透她的性情。",
       "表面内向内心外向的女孩，有着艺术与科学并强的细胞。热爱音乐及超强听力成了她的个人象征。粗暴，装温柔是她的强项。",
       "外表女神（吧），内心死神。脚能开多大就开多大，只有baju kurung能阻止她。每天一杯糖水，除非那天很累。音乐之路，好好上路，勿念，RIP。"
     ],
-    "id": 32
+    "gender": "female",
+    "id": 32,
+    "message": "所有相遇都有它的意义。在 matriks 的一年对我是一种挑战，参与活动和熬夜做功课之外，最珍贵的莫过于建立每个友谊的惊喜和感动。",
+    "name": "Tai Yun Ming",
+    "name_ch": "戴筠铭",
+    "one_liner": "我可以买水吗？"
   },
   {
     "describe_me": [
@@ -422,116 +422,116 @@
       "半动漫迷。认识后还会有中学共同朋友，强壮大只tanker，做事yolo，不给面子，招呼中指，音乐奇才，flute天才，操老师贤才，幹朋友人才。",
       "看起来很成熟，但还是有幼稚的时候。常说自己noob但事实上学霸af。办事能力强，但喜欢抄lab report。虽然喜欢shoot人但其实是很eh cham的。"
     ],
+    "gender": "male",
+    "id": 33,
     "message": "与大家相遇是种幸运, 一种福。短短的1年也到了尾声, 希望大家可以把1年里的回忆烙印在脑里。毕业快乐!",
     "name": "Alvin Tan Kai-Wen",
-    "one_liner": "xxx（R rated）",
-    "gender": "male",
     "name_ch": "陈凯文",
-    "id": 33
+    "one_liner": "xxx（R rated）"
   },
   {
-    "name": "Loe Pei Yu",
-    "gender": "female",
-    "name_ch": "罗佩瑜",
-    "message": "在这油棕园里，总算平安度过了一年。从备战到打战，我们经历了种种难关。很庆幸的，大家都幸存了下来。祝大家前程似锦！",
-    "one_liner": "我要哭了啦！  我要睡觉了。",
     "describe_me": [
       "认真起来比谁都严肃，音乐领域太专业了。刚认识有礼貌到要命，久了就不会客气了。感觉每次都在扮猪吃老虎，扮蠢的学霸。",
       "以前斯文得很，来了这里画风突然变得有点快，经常语出惊人。笑点很低，常常笑到飙泪。功课、字体那么多年还是那么的整齐。",
       "没对任何事情都能理智面对。是代言衣服柔软剂的最佳代言人。末期强迫症患者。艺术天分超强，更是令人仰慕的绝对音准。"
     ],
-    "id": 34
+    "gender": "female",
+    "id": 34,
+    "message": "在这油棕园里，总算平安度过了一年。从备战到打战，我们经历了种种难关。很庆幸的，大家都幸存了下来。祝大家前程似锦！",
+    "name": "Loe Pei Yu",
+    "name_ch": "罗佩瑜",
+    "one_liner": "我要哭了啦！  我要睡觉了。"
   },
   {
-    "gender": "male",
-    "name": "Tan Gim Shen",
-    "one_liner": "我要去set头发",
     "describe_me": [
       "刚认识时看似非常严肃，但实际上却是相反的。除了他在做功课时，其他时候应该都不正经过。四方脸就是他的典型标志。",
       "有女朋友就傲骄了咯！忘记什么叫朋友了！还欺善怕恶！set头发不要太久，没有人去看（除了她）。打羽毛球厉害也不要拿来shoot人。",
       "方方的脸带着帅帅的五官，爱打羽球的他早在sem1一开始就有了粉丝会，更在TOC时粉丝暴增！对朋友很细心，笑人功夫也很强^^"
     ],
+    "gender": "male",
+    "id": 35,
     "message": "不足一年的岁月承载了多少的点点滴滴 感谢北斗七星 六六大顺 怀念每一个你 更感恩生命中有一个独一无二的妳",
+    "name": "Tan Gim Shen",
     "name_ch": "陈锦圣",
-    "id": 35
+    "one_liner": "我要去set头发"
   },
   {
-    "name_ch": "林卉颉",
-    "gender": "female",
-    "one_liner": "直接……我吃饼干吃到很dry",
-    "message": "感恩在這裡的每一天，遇到的每個人。在這里走過的每一步累積的是一次次的蛻變，一點一滴的回憶。願之烙印於心；祝福。",
     "describe_me": [
       "暴走妹，大姐大，帅呆了。但愤世厌俗。脾气差但有进步，一副不好惹的面孔。讲话时一脸扭曲，脸臭到可以去演苦情媳妇。",
       "KMPk大姐大，严肃霸气，独懒时会屌人，10/10纪律组表情，cello根本适合她，声音沉重从不给面子，字体美时很美，丑时连God都看不懂。",
       "从一开始讨厌jungle，到现在的一点不舍；从一开始鄙视脑破，到现在渐脑破，也似乎该脱单了。兴趣：凌晨冲凉，清晨洗衣，沉迷梳头。"
     ],
+    "gender": "female",
+    "id": 36,
+    "message": "感恩在這裡的每一天，遇到的每個人。在這里走過的每一步累積的是一次次的蛻變，一點一滴的回憶。願之烙印於心；祝福。",
     "name": "Lim Wooi Jie",
-    "id": 36
+    "name_ch": "林卉颉",
+    "one_liner": "直接……我吃饼干吃到很dry"
   },
   {
-    "name_ch": "容家恒",
-    "name": "Yung Jia Heng",
-    "gender": "male",
-    "one_liner": "You can kill me, but you cannot fxck me",
-    "message": "离别将即，比起伤感更多的是遗憾。时间太快，谢谢这里的一切，让我开了眼界，让我认识了知心朋友，让我学会一个人生活。",
     "describe_me": [
       "很欢，像个长不大的孩子（褒贬自己想）。总是有许多奇奇怪怪的想法，和他不熟的人会觉得是个怪咖。总的来说，是个不错的人。",
       "叽喳、八婆、自恋的屁孩、脸皮比墙厚。班上的食物分享会创办者。Insta红人，拍了照，不要逼人去like。身型虽小，但小心他的毒舌，嘴贱。",
       "孤汗佬、变态、条脚细过6柴、口水多过茶、吹水唔抹嘴、吃饭超过1粒钟。"
     ],
-    "id": 37
+    "gender": "male",
+    "id": 37,
+    "message": "离别将即，比起伤感更多的是遗憾。时间太快，谢谢这里的一切，让我开了眼界，让我认识了知心朋友，让我学会一个人生活。",
+    "name": "Yung Jia Heng",
+    "name_ch": "容家恒",
+    "one_liner": "You can kill me, but you cannot fxck me"
   },
   {
-    "name_ch": "林培栋",
-    "name": "Lim Pei Thong",
-    "message": "感谢缘分让我们聚在这里，很幸运能够认识到你们这些朋友。珍贵的回忆有您们而温馨，谢谢您们出现在我的生命里。毕业快乐~",
     "describe_me": [
       "讲话无厘头，生气又会揍墙壁的怪咖，可是成绩顶呱呱。人是白的，整个心是“黑”的。祝前途一帆风顺，心想事成。",
       "非常可靠的同班！为人低调，表面是个好宝宝，但其实“摄影”功力一流。还有，明明长得高却驼背。祝你幸福胜意，平步青云。",
       "多才多艺；道歉，开玩笑样样精通，测试墙壁的硬度更是他毕生的宗旨。那锁海的性格换来许多回忆。如果能，希望不要再见。"
     ],
-    "one_liner": "sohai",
     "gender": "male",
-    "id": 38
+    "id": 38,
+    "message": "感谢缘分让我们聚在这里，很幸运能够认识到你们这些朋友。珍贵的回忆有您们而温馨，谢谢您们出现在我的生命里。毕业快乐~",
+    "name": "Lim Pei Thong",
+    "name_ch": "林培栋",
+    "one_liner": "sohai"
   },
   {
-    "message": "谢谢大家这一年的陪伴。这一年说长不长，说短不短，一眨眼我们都毕业了。祝大家能够得到自己心目中的大学和科系。爱吾kmpk 。",
-    "one_liner": "walao！",
-    "gender": "male",
     "describe_me": [
       "Typical乖乖仔，but是很eh cham的乖乖仔。以学业为第一的他，同时也喜欢运动，和朋友打成一片。是大家的好supporter！",
       "很ampia leh，Liverpool fan，是球好伴，运动佳，成绩好，人很好，随意，让他很容易跟大家参，话很多，很容易跟大家聊起来。",
       "最好的钟灵朋友，运动好伙伴，样样行，有点吝啬丑害羞。为什么那么多白头发？希望你和她能进一样的大学？"
     ],
-    "name_ch": "李孝靖",
+    "gender": "male",
+    "id": 39,
+    "message": "谢谢大家这一年的陪伴。这一年说长不长，说短不短，一眨眼我们都毕业了。祝大家能够得到自己心目中的大学和科系。爱吾kmpk 。",
     "name": "Brian Lee How Cheng",
-    "id": 39
+    "name_ch": "李孝靖",
+    "one_liner": "walao！"
   },
   {
-    "one_liner": "哈~哈~哈~",
-    "message": "不后悔来到这一个油棕园，经历了吃咖喱饭的九个月。毕业后我会记得这里的夕阳很美，这里的朋友很暖。",
-    "name": "Sim Wan Ting",
     "describe_me": [
       "外表文静却有点疯的小女孩。做事认真有责任感，但有时让人操心。人品好，笑声一流。别像金鱼嘟嘴了。祝前途似锦，笑口常开。",
       "她那可爱的脸颊，犹如月亮一样圆。“呵！呵! 呵！”的笑声极其独特。Sem 1时每月一书包。胆大包天的她，竟敢在讲师面前钓鱼，甚至酣睡！",
       "只有她，能让我无时无刻看见月亮的美。她微微一笑很倾城。她很体贴，懂得照顾别人。她的笑声也是无比地震撼人心。"
     ],
     "gender": "female",
+    "id": 40,
+    "message": "不后悔来到这一个油棕园，经历了吃咖喱饭的九个月。毕业后我会记得这里的夕阳很美，这里的朋友很暖。",
+    "name": "Sim Wan Ting",
     "name_ch": "沈琬婷",
-    "id": 40
+    "one_liner": "哈~哈~哈~"
   },
   {
-    "name_ch": "谢镐源",
-    "gender": "male",
-    "one_liner": "算了吧你~~~   你慢慢飞~~~",
-    "message": "如果说人生所经历的一切都只有一次，那么闭上眼睛，好好享受这段独一无二的旅程。",
-    "name": "Cheah Hao Yuan",
     "describe_me": [
       "啊校园，勒真係唔声唔声，赫我一驚，仙又仙过人，又幸福过人。勒间房係我geh好归宿。我会呱住勒噶！",
       "别人笑我太疯癫，我想笑你痴鬼线，成日净识仙，乱噏一通，车大炮啱啱你，所以要好好做人，唔好令爱你嘅人伤心蓝瘦香菇啊！",
       "同你做同学咗唫多年，同你比较熟係来开KMPk之后?我始终都係不想同你讲当初点解唫讨厌你。STAY SWEET with your亲爱的！"
     ],
-    "id": 41
+    "gender": "male",
+    "id": 41,
+    "message": "如果说人生所经历的一切都只有一次，那么闭上眼睛，好好享受这段独一无二的旅程。",
+    "name": "Cheah Hao Yuan",
+    "name_ch": "谢镐源",
+    "one_liner": "算了吧你~~~   你慢慢飞~~~"
   },
   {
     "describe_me": [
@@ -539,51 +539,51 @@
       "第一个认识的同班同学。认识时觉得超感动的，总算有一个同班的了。帮了我很多，很谢谢你！>3<!!",
       "缘分把我俩拉近，来自同一个州，于KMPk相遇，就读同一个科系，又是一样的lecture。哇 可爱、聪明的她，我铭记于心，我人生因她更精彩！"
     ],
-    "name": "Aiy Siew",
-    "one_liner": "笑一笑^_^!",
-    "message": "人生, 有聚必有散, 有散也才会有聚。毕业了。。。朋友们, 我们一起加油吧! 毕业不是一个结束, 而是一个新的开始。。。加油!!",
     "gender": "female",
+    "id": 42,
+    "message": "人生, 有聚必有散, 有散也才会有聚。毕业了。。。朋友们, 我们一起加油吧! 毕业不是一个结束, 而是一个新的开始。。。加油!!",
+    "name": "Aiy Siew",
     "name_ch": "爱秀",
-    "id": 42
+    "one_liner": "笑一笑^_^!"
   },
   {
-    "name_ch": "江国伟",
-    "gender": "male",
-    "name": "Kang Kok Wai",
     "describe_me": [
       "其实认识你之后觉得你蛮好的，很关心人，你给我的第一印象是做么这个人讲话酱像中国人的？希望毕业后能保持联络！",
       "相处久了，会发现你偶尔会幽默、风趣、还很关心人呢！做事很认真，井井有条，真心佩服你能把JPP的工作完美地解决。",
       "在我的眼里你永远都是短发的。有的时候你会很认真看待一件事情的人。最后，你真的蛮像一个中国人咯！"
     ],
+    "gender": "male",
+    "id": 43,
     "message": "有课快起床，假日就死睡。 天天冲冷水，天天都发抖。 功课做不完，还有extra class。 若cafe再多，食物都一样。 Outing快快回，生活多精彩。",
-    "one_liner": "“中国人” “A KANG” “爱笑的眼睛”^_^!",
-    "id": 43
+    "name": "Kang Kok Wai",
+    "name_ch": "江国伟",
+    "one_liner": "“中国人” “A KANG” “爱笑的眼睛”^_^!"
   },
   {
-    "name": "Wong Kok Yew",
     "describe_me": [
       "高大，帅气却是谐星一名。为人不错，从不生气却只傻笑。跟学霸同kuliah是荣幸！希望享受matrik生活，赶快找个伴呗 哈哈哈！",
       "Wong Kok Yew, one of my closest friend in class. A very smart in his appearance and also in his academic. He did not talk much in class neither he laugh at our jokes but as far as I know, he focus in class and hardworking in doing assignments brought him to success as he is now.",
       "Wong Kok Yew, one of my genius friend. He can solve math problem easily. He always smile and laugh randomly when he is at lecture hall. He is also a kind person because he always help me when I don’t know how to solve questions. His bright smile will make women’s heart melt."
     ],
-    "one_liner": " ",
-    "name_ch": "黄国耀",
     "gender": "male",
+    "id": 44,
     "message": "很感激我有机会能在这就读，认识大家，祝大家未来的大学生活也很愉快！",
-    "id": 44
+    "name": "Wong Kok Yew",
+    "name_ch": "黄国耀",
+    "one_liner": " "
   },
   {
-    "name_ch": "谢静莹",
-    "message": "谢谢我的朋友们和曾经帮助过我的人, 很开心这些日子有你们, 感恩缘分让我们相遇, 只恨时间太短, 但十月回忆, 永存心中。❤",
-    "gender": "female",
-    "name": "Chia Jing Ying",
     "describe_me": [
       "第一个认识的朋友！没想过我们会变得如此要好！一个很善良有很单纯的女孩但我会好好保护你。谁欺负你就告诉我~爱你❤",
       "缘，始于乒乓；谊，愈久愈和。人，又黑又瘦；格，外向开朗。性，热心助人；情，单纯可亲。爱，唱歌跳舞；好，参与群组。祝，前程似锦；愿，一生知己。",
       "瘦高黑，囔着吃不肥，很想巴她，戴耳机说话很大声，一脸女神样却是个女神经。愿，友谊小船永不停歇，感恩最美年华遇上了你。"
     ],
-    "one_liner": "做么诶？为什么nehh？谁哦？Walao 做么酱的你",
-    "id": 45
+    "gender": "female",
+    "id": 45,
+    "message": "谢谢我的朋友们和曾经帮助过我的人, 很开心这些日子有你们, 感恩缘分让我们相遇, 只恨时间太短, 但十月回忆, 永存心中。❤",
+    "name": "Chia Jing Ying",
+    "name_ch": "谢静莹",
+    "one_liner": "做么诶？为什么nehh？谁哦？Walao 做么酱的你"
   },
   {
     "describe_me": [
@@ -591,500 +591,500 @@
       "我们能在这边再次相聚，是缘分，很幸运。我会想念我们曾经拼命找讲师解答问题的日子。愿你这“风”一般的女子永远幸福 ><",
       "学霸，很努力，一直在努力的一位女生，数学问题问她就对了，我的火种，感情细腻，处处为别人着想，有她做依靠真的很安心 =)"
     ],
-    "message": "翼舞·憶留·懿霸",
-    "name_ch": "林靖宜",
-    "name": "Lim Jing Yi",
-    "one_liner": "你ask到了吗 \tBodoh \t美丽伽伽",
     "gender": "female",
-    "id": 46
+    "id": 46,
+    "message": "翼舞·憶留·懿霸",
+    "name": "Lim Jing Yi",
+    "name_ch": "林靖宜",
+    "one_liner": "你ask到了吗 \tBodoh \t美丽伽伽"
   },
   {
-    "name": "Loh Yee Ching",
-    "message": "很开心可以在这里求学。我认识了很多新朋友，尝试过了很多以前没有机会参加的活动。我快要解脱了，超开心的等了超久的 希望大家友谊永固。翼舞·憶留·懿霸",
-    "gender": "female",
-    "name_ch": "罗翊岑",
     "describe_me": [
       "一开始觉得她很娇，可是其实她只是一个超斯文，超文雅的人，而且她不会生气别人的。脾气真的超好的说，很开心认识她！",
       "蛮可爱的一位女生，可以有时小鸟依人，有时候超级38.一直提前做功课哦walao脾气真的好，很好欺负xD而且有一种隐藏的领导能力~",
       "第一位也是唯一同宗教的同班同学。为人很可爱又友善，也很亲切。认识了她我感到很兴奋。"
     ],
-    "one_liner": "求我啦~",
-    "id": 47
+    "gender": "female",
+    "id": 47,
+    "message": "很开心可以在这里求学。我认识了很多新朋友，尝试过了很多以前没有机会参加的活动。我快要解脱了，超开心的等了超久的 希望大家友谊永固。翼舞·憶留·懿霸",
+    "name": "Loh Yee Ching",
+    "name_ch": "罗翊岑",
+    "one_liner": "求我啦~"
   },
   {
-    "one_liner": "宝宝",
-    "name_ch": "梁祉玮",
-    "name": "Leong Chi Wey",
     "describe_me": [
       "一开始认识时很客气，觉得这女生很漂亮，结果熟了以后发现原来我们一样疯，哈哈！未来还要继续一起“为非作歹”，爱你哟！",
       "第一眼感觉冷冰冰，傲娇，相处下来会发现她时常忘了吃药。有她的地方，就有笑声感染的地方~小米忠实用者！！哈哈 =D",
       "第一眼评为高冷，后来译为智障。乐观开朗又带点情绪化的山洞女孩。她的房间是聚会最好地点因为藏有多种零食。"
     ],
-    "message": "感谢这一年来 身边有着你们 因为你们 山洞人也有出洞的一天 感谢从茫茫人海中认识你们 翼舞·憶留·懿霸",
     "gender": "female",
-    "id": 48
+    "id": 48,
+    "message": "感谢这一年来 身边有着你们 因为你们 山洞人也有出洞的一天 感谢从茫茫人海中认识你们 翼舞·憶留·懿霸",
+    "name": "Leong Chi Wey",
+    "name_ch": "梁祉玮",
+    "one_liner": "宝宝"
   },
   {
-    "name_ch": "林雪丽",
-    "one_liner": "Yang Itu (Malay) Well (English) La (华）",
-    "name": "Lim Shir Lee",
     "describe_me": [
       "Sense of humours/humorous – down-to-earth – beautiful – cheerful – supportive – 24/7 phone – anime lover – love to read novel – amazing – ambitious – hardworking – cute",
       "leadership – generous – brave – calm – talkative – friendly – milo lover – burger lover – sushi lover – apple lover – talented – tall – hygiene ",
       "loves music – passionate – helpful – adaptable – easy going – honest – independent – modesty – polite – rational – tidy – warm-hearted – loyal – loving"
     ],
-    "message": "感觉即将毕业的那个学期过得好快，好不容易才适应这里却又要离开了。",
     "gender": "female",
-    "id": 49
+    "id": 49,
+    "message": "感觉即将毕业的那个学期过得好快，好不容易才适应这里却又要离开了。",
+    "name": "Lim Shir Lee",
+    "name_ch": "林雪丽",
+    "one_liner": "Yang Itu (Malay) Well (English) La (华）"
   },
   {
-    "one_liner": "Har?",
-    "name": "Lim Hooi Jia",
-    "message": "终于毕业了，离梦想更近一步, 希望能如常所愿。",
-    "gender": "female",
     "describe_me": [
       "慧嘉乖巧可爱甜美型的女孩，声音也是甜甜滴❤AKAUN一级棒！看起来有点羞涩，但其实你很健谈。很幸运认识你 >,<",
       "斯文，可爱，笑容很好看的女孩。有一点娃娃音，很可爱，朋友圈不大，但其实很健谈，你应该认识多一点朋友。做事细心。",
       "小小子又甜美可爱的一位女生。希望我们以后多多接触，觉得你是一位值得交的朋友哦！以后有什么需要帮助的可以来找我哦~"
     ],
+    "gender": "female",
+    "id": 50,
+    "message": "终于毕业了，离梦想更近一步, 希望能如常所愿。",
+    "name": "Lim Hooi Jia",
     "name_ch": "林慧嘉 ",
-    "id": 50
+    "one_liner": "Har?"
   },
   {
-    "name_ch": "蒙国祖",
-    "name": "Kelvin Mong Kok Joe",
-    "gender": "male",
     "describe_me": [
       "虽然不同科系不过很合得来。为人善良优雅字美功课整齐，拥有很好的女人缘。喜欢分享好东西，爱听音乐，是林俊杰的粉丝。",
       "当初认识他时，还以为是转性的女生，适合当BL的男主角，为人彬彬有礼，整天被马来婆包围着，有喜欢的女生…珠宝",
       "帅气的脸蛋，滑滑的双手，超萌的身高，让某某男生从此走上了基佬的道路。ACCOUNT男神！！❤❤"
     ],
-    "one_liner": "walao！！姐姐 几猥啊！",
+    "gender": "male",
+    "id": 51,
     "message": "KMPK●人生的某一站●结束是另一个开始  毕业快乐，友谊永固~",
-    "id": 51
+    "name": "Kelvin Mong Kok Joe",
+    "name_ch": "蒙国祖",
+    "one_liner": "walao！！姐姐 几猥啊！"
   },
   {
-    "name_ch": "张招娣",
-    "message": "幸而数载寒窗苦，自此阡陌多暖春。 别怕吃苦，那是你通向世界的路。要相信，那些苦会成为你遨游天际的翅膀。翼舞·憶留·懿霸",
-    "gender": "female",
-    "name": "Chung Zhau Tee",
     "describe_me": [
       "贤妻良母，烫衣健康样样行，是一位很健康的美少女。不只身心，而且心态也很健康，人好相处，很容易被欺负的感觉 xD哈哈~",
       "贤妻良母，良师益友，每次忍受我的任性和幼稚，我不想做的事都会帮我，无时无刻都能爬上Kerian T4，简直对我太好了！爱你哟~",
       "善良可爱的斯文女孩，对每个人都很好，做事体贴入微，很会照顾别人，一举一动都很暖心。深谙烫衣和健康之道，贤妻良母型 ❤"
     ],
-    "one_liner": "健康 我要上厕所\t",
-    "id": 52
+    "gender": "female",
+    "id": 52,
+    "message": "幸而数载寒窗苦，自此阡陌多暖春。 别怕吃苦，那是你通向世界的路。要相信，那些苦会成为你遨游天际的翅膀。翼舞·憶留·懿霸",
+    "name": "Chung Zhau Tee",
+    "name_ch": "张招娣",
+    "one_liner": "健康 我要上厕所\t"
   },
   {
-    "gender": "female",
     "describe_me": [
       "ACC班的学霸，开朗的人，虽然整天嬉皮笑脸，但也有认真的时候，喜欢美术，喜欢做出出其不意的事，还有跳舞的你比较淑女 ",
       "皆是ex童军，所以格外有亲切感，特别爱耍智障，也很爱笑，却也是个很容易被感动很容易悲伤的人~！",
       "很喜欢美术，做事认真也很贴心，我生病时照顾我，还帮我打包，感动ing！总之呢伽伽绝对是一位人美心美的美丽伽伽啦！ >.<"
     ],
-    "name": "Lim Jia Jia",
+    "gender": "female",
+    "id": 53,
     "message": "缘分让我们在KMPk相识，一起经历了那么多东西，已是今生难忘。感恩照顾我的人，感恩一直在我身边的人，日后必定相逢。翼舞·憶留·懿霸❤",
-    "one_liner": "伽伽是美女，宝贝，亲爱的~",
+    "name": "Lim Jia Jia",
     "name_ch": "林伽伽",
-    "id": 53
+    "one_liner": "伽伽是美女，宝贝，亲爱的~"
   },
   {
-    "gender": "female",
-    "name_ch": "丽莎",
-    "name": "Tatha Risya",
     "describe_me": [
       "混血儿，蛮漂亮的，A1颜值代表，人亲切，好相处，好像蛮多粉丝的，处于sot sot的状态下XD 而且还是BANANA~~=P",
       "一开始就觉得好漂亮的女生哦，然后就慢慢认识了，人好好又很斯文，最近也常常聊天。第一次认识混血儿，很好相处",
       "开始时觉得是个漂亮的华人，过后才知道你是混血，挺惊讶的！很斯文、文静、很有淑女范！"
     ],
+    "gender": "female",
+    "id": 54,
     "message": "时间过得好快, 一转眼我们又要告别了! 很高兴能认识你们, 谢谢你们的陪伴, 让我在这片油棕园里度过了美好的一年! 爱你们!",
-    "id": 54
+    "name": "Tatha Risya",
+    "name_ch": "丽莎"
   },
   {
-    "name": "P'ng Chun Wei",
-    "message": "又来到人生之旅的分叉路口,与各位新旧狗逼的欢乐开心认真心累无奈兴奋幸福的日子, 要记得我的房间是这里的天堂。",
-    "name_ch": "方俊威",
     "describe_me": [
       "巧遇认识的知己。那huan的样子把这里的环境变得更美好！谢谢你的耳，言。为了见到笑容，帮了我的好友。多照顾自己。感恩。",
       "超high的过动儿，食物收回站，安静起来像忧郁症病人，不吃东菇和章鱼，善于照顾别人却不会照顾自己，感恩最美年华遇上了你。",
       "够huan，够乖懒，但却能谦顾别人的感受，很体贴，但生病了却不会照顾自己，有leadership，总是能带给一组欢笑。祝幸福快了。"
     ],
     "gender": "male",
-    "id": 55
+    "id": 55,
+    "message": "又来到人生之旅的分叉路口,与各位新旧狗逼的欢乐开心认真心累无奈兴奋幸福的日子, 要记得我的房间是这里的天堂。",
+    "name": "P'ng Chun Wei",
+    "name_ch": "方俊威"
   },
   {
-    "gender": "male",
     "describe_me": [
       "外表斯文，内心狂野，所谓人不可貌像。他是个有趣搞笑的人，时常逗人笑，是自high组合不可缺的成员。有病要治哦。友谊万岁！weed XD",
       "看他绝不能看外表因为内在的他是个鸡拜。能吸weed, 能吸烟，lala kid, 会突然讲出很所嗨的话。音乐天才。Never judge a book by its cover.",
       "人看起来真的很斯文，知道真面目之后有点吓到哈哈。人很瘦，声音也很低沉，每次讲话老师都听不到haha~希望你增肥成功。"
     ],
-    "one-liner": "You don’t cheebye  要吸weed吗？ 不要叻 lehma",
+    "gender": "male",
+    "id": 56,
+    "message": "畢業在即，大家將各散東西，心中自然是滿滿的不捨。雖然在這裡只有短短的十個月，但却充滿了美好的回憶，有緣再見 :）",
     "name": "Tan Jian Pin",
     "name_ch": "陈健槟",
-    "message": "畢業在即，大家將各散東西，心中自然是滿滿的不捨。雖然在這裡只有短短的十個月，但却充滿了美好的回憶，有緣再見 :）",
-    "id": 56
+    "one-liner": "You don’t cheebye  要吸weed吗？ 不要叻 lehma"
   },
   {
-    "one-liner": "不要欺负我啦！ 掉格    厉害咯（加上欠揍的表情）",
-    "gender": "male",
-    "name": "Chiang De Min",
-    "name_ch": "章狄明",
     "describe_me": [
       "Dmin，就是天生一个医生样。第一个印象一严肃，后来认识了一不想提。样子18岁，智商却8.每次都会给我忠告。同班一年，幸好有你。",
       "Riak 样。适合做小丑多过做医生。呆呆的样子却会思考很多东西。可怜每次被Jin Soon巴的他。没看过他生气。伪装成人类的章鱼。",
       "Playful yet steady person, know what has to be done at the appropriate time. He thinks maturely, but acts childishly at times. Free-spirited person. A real good friend and classmate. Constantly am grateful for his help."
     ],
+    "gender": "male",
+    "id": 57,
     "message": "时光飞逝，一切都会成为回忆永远藏在心中。祝大家前程似锦，往各自的梦想起飞吧! 有缘再见。",
-    "id": 57
+    "name": "Chiang De Min",
+    "name_ch": "章狄明",
+    "one-liner": "不要欺负我啦！ 掉格    厉害咯（加上欠揍的表情）"
   },
   {
-    "gender": "male",
-    "message": "在这里庆幸能认识了很多朋友。以后的路途遥远，大家各自追梦去，别忘了大家曾在一起的时光。祝大家毕业快乐，梦想成真！！",
-    "name": "Ang Zhen Yuan",
     "describe_me": [
       "记得你18岁生日吗？都是我们帮你庆祝的。你在这儿喜怒哀乐都愿意分享。你虽是JPP，但你内心脆弱，总希望好友陪伴你。",
       "成为了JPP后我才认识的朋友。为人开朗，豪爽的他天天笑容满面。有时也很幽默。他很乐于助人，是位值得深交的朋友。祝友谊万岁！",
       "超乐观的人，给人不少正能量。做事大胆，很有勇气尝试新东西。在 lecture hall 的好伴。（小心不要被我的virus感染 haha）祝你前程似锦！:)"
     ],
+    "gender": "male",
+    "id": 58,
+    "message": "在这里庆幸能认识了很多朋友。以后的路途遥远，大家各自追梦去，别忘了大家曾在一起的时光。祝大家毕业快乐，梦想成真！！",
+    "name": "Ang Zhen Yuan",
     "name_ch": "洪震袁",
-    "one-liner": "◊◊◊",
-    "id": 58
+    "one-liner": "◊◊◊"
   },
   {
-    "name": "Tan Zhi Han",
     "describe_me": [
       "人缘极广，总掏心掏肺地帮助朋友。热衷于摄影，虽忙于活动，却能兼顾学业，学霸一个。好动之于他还会出其不意嘟嘴卖萌。",
       "超好的人，总是有求必应。常对人笑，不会忽视任何人。跟他一起做事会很放心，感觉有人撑着，因为他会用心地做，并做到最好！",
       "总是会留给别人一个匆忙的背影，行为举止有时会突然搞笑。真的很乐于助人。是个nice and kind classmate. 好像天天都很累，睡神！多休息。:)"
     ],
-    "one-liner": "Aish…其实。。。",
-    "message": "毕业了，即将就在充满幻想，年少轻狂的时代画上句号。在这里充满了回忆，要离开 心情五味杂陈，兴奋，期待，同时悲伤又担心。",
     "gender": "male",
+    "id": 59,
+    "message": "毕业了，即将就在充满幻想，年少轻狂的时代画上句号。在这里充满了回忆，要离开 心情五味杂陈，兴奋，期待，同时悲伤又担心。",
+    "name": "Tan Zhi Han",
     "name_ch": "陈志翰",
-    "id": 59
+    "one-liner": "Aish…其实。。。"
   },
   {
-    "name_ch": "李诗绮",
-    "message": "在KMPk的这段时间,，我们都感受到上大学的起伏。虽然面对这繁忙的生活，很感激在这边认识的朋友，希望这友谊将持续一生。",
     "describe_me": [
       "KMPK 女神，班上最勤劳，功课全部有做，每科都很OP, 神一般的存在，OP 英文，MUET BAND 10。天天晒恩爱，好棒棒！ ",
       "可爱的女神，气质满满可是又有点女神经。性格开朗，努力学习，跟你的“他”很恩爱，羡慕死单身狗哦。放心吧，你的MUET 肯定Band 6 哦 :D",
       "很有气质，很勤劳，怀念我们的表演前一起试妆，试汉服，一起傻，很珍惜一起表演跳舞的时刻，谢谢你一个人帮我们全部人化妆。"
     ],
-    "name": "Manuela Lee Sze Chi",
     "gender": "female",
-    "id": 60
+    "id": 60,
+    "message": "在KMPk的这段时间,，我们都感受到上大学的起伏。虽然面对这繁忙的生活，很感激在这边认识的朋友，希望这友谊将持续一生。",
+    "name": "Manuela Lee Sze Chi",
+    "name_ch": "李诗绮"
   },
   {
-    "name_ch": "林芷君",
-    "name": "Cheryl Lim Tze Chwin",
-    "one-liner": "Oh! Shit!什么！！！",
     "describe_me": [
       "Cheryl, the one who will complete all the homeworks, score 48/50 in bio test, roti as meal. It’s so great to be your classmates even for one year. Four hydrocarbon chain! YOLO!-CH4-",
       "An intelligent and diligent person. The person who is a ‘homework supplier’ to all friends. Does not get angry easily but we always make her angry! XD. Always being caring and helpful towards other people. Really appreciate to have a good friend like her.-CH4-",
       "Hardworking and clever, pay attention in class. Abnormal daily routine: High amplitude and frequency of sound of anger nearly break a glass! So, don’t challenge her during class. Kind and helpful in many ways, especially homework. Can be a good future mother as she always care for her friends.A friend in need."
     ],
-    "message": "崎岖十月, 遇见 爱笑 乐于助人的你们; 短暂十月, 从陌生走到一颗心的距离, 匆匆十月的回忆, 将会是留在心房一辈子的记忆。",
     "gender": "female",
-    "id": 61
+    "id": 61,
+    "message": "崎岖十月, 遇见 爱笑 乐于助人的你们; 短暂十月, 从陌生走到一颗心的距离, 匆匆十月的回忆, 将会是留在心房一辈子的记忆。",
+    "name": "Cheryl Lim Tze Chwin",
+    "name_ch": "林芷君",
+    "one-liner": "Oh! Shit!什么！！！"
   },
   {
-    "name": "Chong Jia Yin",
-    "gender": "female",
-    "message": "务边之路，崎岖；精彩 十月之忆，拥挤；难忘  友谊之花，浇了感情， 施了回忆，愿不凋零 感恩美丽年华，遇真挚的你 待 •下个路口再• 续",
-    "name_ch": "张镓莹",
-    "one-liner": "打架，打架，打架!  Café B,Panai o  我饿了！",
     "describe_me": [
       "最过动的38女子，无药可救，喜欢唱歌，打羽球，吃美食大过天，会一直吵饿，只有在吃的时候是安静的，不喜欢吃菜，是肉食动物。",
       "是个非常友善的女孩，神经有些智障，但是人却很好。会陪我度过难关，逗我开心，陪我聊天。有时需要人照顾，感恩遇见你。",
       "Caring and helpful person. An active person. She is always cheerful,hardworking and soft-hearted. Her determination to succeed in her studies is admirable. She can be a little kiddish at times, but she knows when to focus and does her work. A friend worth cherishing."
     ],
-    "id": 62
+    "gender": "female",
+    "id": 62,
+    "message": "务边之路，崎岖；精彩 十月之忆，拥挤；难忘  友谊之花，浇了感情， 施了回忆，愿不凋零 感恩美丽年华，遇真挚的你 待 •下个路口再• 续",
+    "name": "Chong Jia Yin",
+    "name_ch": "张镓莹",
+    "one-liner": "打架，打架，打架!  Café B,Panai o  我饿了！"
   },
   {
-    "message": "照片很怪，真人很帅。来日有缘再相见，珍重。",
-    "name": "Leong Yu Hong",
-    "name_ch": "梁宇宏",
-    "one-liner": "我差嘛～  朋友罢了～ 她是我的妹妹来的～  那天你看到的是我妈妈～哇！学霸！ 我是你的忠臣 ～",
     "describe_me": [
       "欢咖，他讲的话有时真的不可信。可怜常被aluba的他。他欢起来不是人。刚认识时还ok,现在看他弄人也是一种乐趣。最后祝他ss。",
       "高，放远望去就是个眼睛小的瘦黑人。玩闹时放得很开，办起事来却很认真。脾气很好很幽默很搞笑，随时随地就能睡的人类。",
       "高，瘦，颈项很长，像个长颈鹿。刚开始以为是个很安静的人。但后来知道也是一个很欢的人。祝愿在考试上和感情上一切顺利。"
     ],
     "gender": "male",
-    "id": 63
+    "id": 63,
+    "message": "照片很怪，真人很帅。来日有缘再相见，珍重。",
+    "name": "Leong Yu Hong",
+    "name_ch": "梁宇宏",
+    "one-liner": "我差嘛～  朋友罢了～ 她是我的妹妹来的～  那天你看到的是我妈妈～哇！学霸！ 我是你的忠臣 ～"
   },
   {
-    "name": "Teh Chee Chia",
-    "gender": "male",
-    "name_ch": "郑祺嘉",
-    "one-liner": "哇老！欢啊！好笑！哈哈。。。不知道…….",
-    "message": "感恩匆匆的十个月里与每一个你相遇相识。我们将故事寄存在这，用笑与泪将它填满，待时光流逝后，仍能回首。愿大家后来都要好好的！",
     "describe_me": [
       "蛮滑与蛮近的好朋友，脑残月亮uncle。疯起来很恐怖的人类，人很nice,瘦得很像zombie,喜欢翻译lecturer的名，时常说些没脑的话。1个字，欢！",
       "刚认识时还好，熟了之后总想巴他，有时跟他讲话很累。是个欢kia，8挂仔，模仿别人的功力一流，他一天不笑人应该会生病吧～！",
       "在M2算是颜值高的男生，叫他卖东西绝对没错！他也是出名的“好好先生”，经常帮人买lecture notes,不过重点来说他是一个很欢的人！"
     ],
-    "id": 64
+    "gender": "male",
+    "id": 64,
+    "message": "感恩匆匆的十个月里与每一个你相遇相识。我们将故事寄存在这，用笑与泪将它填满，待时光流逝后，仍能回首。愿大家后来都要好好的！",
+    "name": "Teh Chee Chia",
+    "name_ch": "郑祺嘉",
+    "one-liner": "哇老！欢啊！好笑！哈哈。。。不知道……."
   },
   {
-    "message": "真的很高兴能认识你们。没有你们，我的青春拼图将不再完整。愿友谊长存，前程似锦，加油🙂！* 照片有点怪，但真人还不赖哦*",
-    "name": "Chan Jia Keat",
-    "name_ch": "曾加杰",
     "describe_me": [
       "食量大但又不会肥，很健康人生，不正常的11点多睡，有时很幼稚，会华乐,画功一流，又是kmpk乒乓界男神。",
       "气宇轩昂 ，高瘦帅又健壮，乒乓华乐，文武全却不傲，彬彬有礼，明是非懂对错；难能知己，愿相聚友谊长。",
       "Artistic and creative. Active. Can be serious, but often being playful and acts childishly. His words are difficult to differentiate between truth, lie and joke. Helpful. A good friend and classmate."
     ],
-    "one-liner": "walao eh Wtf,seriously?!!   我要睡觉了",
     "gender": "male",
-    "id": 65
+    "id": 65,
+    "message": "真的很高兴能认识你们。没有你们，我的青春拼图将不再完整。愿友谊长存，前程似锦，加油🙂！* 照片有点怪，但真人还不赖哦*",
+    "name": "Chan Jia Keat",
+    "name_ch": "曾加杰",
+    "one-liner": "walao eh Wtf,seriously?!!   我要睡觉了"
   },
   {
-    "gender": "female",
-    "name_ch": "钟彤彤",
     "describe_me": [
       "虽然样子高大健硕，但是内心温柔如羊，虽然外表平平无奇，但是心里充满各种色彩。很高兴认识你。",
       "看起来很凶因为妳很高大可是相处起来你人很好而且很爱笑。拍照时更是眯眼的哈哈希望你保持开朗，前程明亮吧！",
       "对你的第1印象就是“哇，这女生很高大又有气质”看似文静，其实超open的，疯起来没形象。很有大姐姐的feel。笑起来看不到眼睛。"
     ],
-    "name": "Shannon Chong Tong Tong",
+    "gender": "female",
+    "id": 66,
     "message": "我非常珍惜和你们在一起的时光， 希望我们毕业后还能继续保持联络，愿你们梦想成真！！有缘再见，珍重！！",
-    "id": 66
+    "name": "Shannon Chong Tong Tong",
+    "name_ch": "钟彤彤"
   },
   {
-    "message": "回想起当初的不情愿，现在换来的却是依依不舍。这十个月的日子将会成为我永生难忘的回忆。感恩与幸会大家的陪伴。",
-    "name": "Chloe Khoo Pin Han",
-    "gender": "female",
-    "one-liner": "喂！坏啊！。。。啦！",
-    "name_ch": "许品涵",
     "describe_me": [
       "超有气质又聪明的朱古咧。外表很文静，其实疯起来真的很恐怖。摄影技术nice. 笑起来看不到眼睛。常做超牛的丑样。一个字‘欢’",
       "气质美女。据说慢热。人很友善，脸上常挂住灿烂的笑容。熟起来可以很欢的人。有keat keat 相机和 keat keat 技术。祝早日遇见白马！",
       "高挑，美貌与智慧于一身的学霸大姐。超级爱狗人士，摄影一流。人本来斯斯文文的，在大家影响之下，逐渐huan 得不像人形了。"
     ],
-    "id": 67
+    "gender": "female",
+    "id": 67,
+    "message": "回想起当初的不情愿，现在换来的却是依依不舍。这十个月的日子将会成为我永生难忘的回忆。感恩与幸会大家的陪伴。",
+    "name": "Chloe Khoo Pin Han",
+    "name_ch": "许品涵",
+    "one-liner": "喂！坏啊！。。。啦！"
   },
   {
-    "gender": "female",
     "describe_me": [
       "KMPk稀有品种-六只鱼。大脑已退化，“看似”文静。喜欢偷拍人。拍照不开眼。人其实很nice。应该很独立。笑声惊人。偶尔会鱿鱼。愿多带脑！",
       "来到KMPk不敢吃鱼的原因，因为我怕6只鱼会变成5只，4只，3只。。。吃下吃下鱼就绝种了，毕竟爱护动物，人人有责。",
       "她是上帝赐我最好的礼物。虽说蛮没脑的，但是个自立，勤劳，开朗的大姐姐。很照顾，关心我。人很窝心。超级吸引我的双子女神。^3^"
     ],
-    "one-liner": "喂！滚！没有脑！坏到死！五块！牛到死，有还是没有？",
-    "name_ch": "刘芷妤",
+    "gender": "female",
+    "id": 68,
     "message": "不是在最好的时光遇见你们，而是遇见你们之后都是最好的时光。毕业了，我却不想毕业了。愿我身边那群没脑的，你们要幸福。",
     "name": "Low Zhi Yu",
-    "id": 68
+    "name_ch": "刘芷妤",
+    "one-liner": "喂！滚！没有脑！坏到死！五块！牛到死，有还是没有？"
   },
   {
-    "gender": "female",
-    "name_ch": "廖尉伊",
-    "name": "Lew Hooy Ye",
-    "one-liner": "真的很想丢他100个中指  最好是啦 什么鬼 爱睡",
     "describe_me": [
       "看起来神经大条，心思却细腻，人善良，是倾诉心事的好对象。终究是小孩，需要人疼。做正事不能坐在一起，话说不完，很欢乐！",
       "很开朗的人，讲话超大声，但总会让人很自在。KMPk 八卦女王。Nice and kind classmate, 让上课的时光更精彩。大咧咧，对朋友用心，会突然女神。",
       "开心可以遇到一个频道相符的人类。虽然不会讲很熟，但觉得你人真的很很不错。超看重你这个朋友的，肯做姐妹，给脸咯。哈！"
     ],
+    "gender": "female",
+    "id": 69,
     "message": "望十年后你还记得我 我们还能再相见 愿那时候的我们依旧无话不说 仍可相处自然",
-    "id": 69
+    "name": "Lew Hooy Ye",
+    "name_ch": "廖尉伊",
+    "one-liner": "真的很想丢他100个中指  最好是啦 什么鬼 爱睡"
   },
   {
-    "name": "Kh'ng Xin Yen",
-    "gender": "female",
-    "message": "从没想过我的18岁如此精彩！是你们的坚定，抛开顾虑，付出，让当初种种不可能变成让我引以为傲的回忆～小目标80%",
-    "name_ch": "康欣雁",
-    "one-liner": "坑我！坑我！！！Walao (翻白眼)  你这个死XX 我要把刀片拿出来了 你棒棒",
     "describe_me": [
       "在这里时代难得一见的文静甜美型女生，平时话不多个性低调不过私底下可以变得很调皮，好朋友圈里更是判若两人！",
       "很真诚而且做事很用心的妹妹。但是有时候也很blurblur的，很可爱haha。人格超好，很善良又无私。有点慢热但其实是满贪玩的人。",
       "一开始有点慢热。很文静，而且容易害羞加尴尬。人很好，好像没有发过脾气可是在我面前哭过几次。要勇敢点，别那么闷骚哦！"
     ],
-    "id": 70
+    "gender": "female",
+    "id": 70,
+    "message": "从没想过我的18岁如此精彩！是你们的坚定，抛开顾虑，付出，让当初种种不可能变成让我引以为傲的回忆～小目标80%",
+    "name": "Kh'ng Xin Yen",
+    "name_ch": "康欣雁",
+    "one-liner": "坑我！坑我！！！Walao (翻白眼)  你这个死XX 我要把刀片拿出来了 你棒棒"
   },
   {
-    "name": "Cheng Xiao Ge",
     "describe_me": [
       "一开始的印象是xiao ge cheng，后来慢慢变熟才发现channel 太对了！是个超级疯狂，敢爱敢恨的人。小提琴女神。你一定会找到你的白马。",
       "一开始看到这个人，有一点点RBF的面孔。Mcm scary. 认识了过后还蛮eh cham的leh。没有想象中的酱 gai. 小提琴拉到keat keat 咯！",
       "M2女神 哦。才女一位。好像容易紧张，紧张了会长高的人才。开始静静乖乖的，但应该是错觉。。。几次都合作得愉快。人亲切，好交谈。"
     ],
     "gender": "female",
-    "one-liner": "mai leh (麦叻)   直接gg",
+    "id": 71,
     "message": "感谢在最美的年华遇到了大家， 希望大家不要忘记这几个月的回忆 ，一定要保持联络哦^^ ",
+    "name": "Cheng Xiao Ge",
     "name_ch": "钟筱格",
-    "id": 71
+    "one-liner": "mai leh (麦叻)   直接gg"
   },
   {
-    "name": "Chuan Yeat Ying",
     "describe_me": [
       "小小的身躯里却装着满满的爆发力，意想不到的King Scout 是大家的开心果，令人惊叹的可以连续不停的笑声的鬼点色。",
       "一开始就想怎么有一个那么智障的人。哈哈，因为跳舞才知道我们都是同类的常常带给我们欢乐，是我们的开心果。",
       "超有正义感的女孩，直来直往，敢怒敢言，相处起来很舒服，没有心机，跟她在一起总是笑得很开心，因为笑声比笑话好笑XDD"
     ],
-    "one-liner": "你叫我做我就做，这样我嘛很没有面子!  你奶奶的熊啊！",
-    "name_ch": "全业莹",
     "gender": "female",
+    "id": 72,
     "message": "如果我们不曾相遇我会是在哪里？陌生的环境遇见陌生的你们，回忆，将永存于心，愿时光停留，只因害怕离去。翼舞·憶留·懿霸",
-    "id": 72
+    "name": "Chuan Yeat Ying",
+    "name_ch": "全业莹",
+    "one-liner": "你叫我做我就做，这样我嘛很没有面子!  你奶奶的熊啊！"
   },
   {
-    "name_ch": "江盈莹",
     "describe_me": [
       "缺乏自信，有点小自卑的潜力股，坚守原则，容易打抱不平看不惯偏心的善良好。认识8年了的过期牛叻，要幸福哟",
       "认识有6年了吧！是闺蜜，看起来傻里傻气的可是成绩却很不错，是位善良和可爱的人。",
       "眼睛大，性格像小绵羊，很好相处，漂亮的妹妹，有时候很傻逼。是我sot sot 的好伙伴，笑声很好听。"
     ],
     "gender": "female",
-    "name": "Kang Ying Ying",
+    "id": 73,
     "message": "这个地方，离开了会想念; 这群朋友，分开了会思念。 翼舞·憶留·懿霸",
-    "one-liner": "很sienz 咯！",
-    "id": 73
+    "name": "Kang Ying Ying",
+    "name_ch": "江盈莹",
+    "one-liner": "很sienz 咯！"
   },
   {
-    "gender": "female",
     "describe_me": [
       "乐观，开朗，脸上总是挂着笑容。有着一双爱笑的眼睛的她总会把大事化小，小事化无。但她其实也是一个胆小鬼，但爱装镇定。",
       "一双爱笑的眼睛加上迷人的笑容乐观积极的态度你一定会爱上这样的她。不仅拥有优秀的外貌她还有超凡的工作能力。",
       "人很好。参加了很多camp的她很懂得如何与人相处。笑起来很好看，想法挺成熟的。欣赏她跟别人相处很自然，镇定。做事也很systematic。"
     ],
+    "gender": "female",
+    "id": 74,
     "message": "故事的开头总是这样，擦肩回眸，驻足停留。故事的结局总是这样，花开两朵，天各一方。",
-    "one-liner": "jiaxuan~~",
     "name": "Ang Qiao Shan",
     "name_ch": "洪巧珊",
-    "id": 74
+    "one-liner": "jiaxuan~~"
   },
   {
-    "gender": "female",
-    "name_ch": "庄清雯",
     "describe_me": [
       "爽朗的笑声，大喇喇的动作，从来不在意别人异样的眼光，总是把快乐氛围传达给别人，但其实是很心思细腻，很少把心敞开。",
       "一开始就被她的疯狂感染到了，很搞笑的人，尤其是跳PPAP 舞时超到味的！跟她相处会笑声不停。人虽疯狂，但也有贤妻良母的一面。",
       "会很认真地听人倾诉。无论发生什么事，她都还是嘻嘻哈哈的。跳起舞来，全世界都输了。你应该要多学会依赖别人，沙漠女王！"
     ],
-    "one-liner": "cb xxxxx",
-    "name": "Choong Jing Wei",
+    "gender": "female",
+    "id": 75,
     "message": "当初的我们都来自不同的地方，但是缘分把我们聚集到了一起，毕业后我们也即将走向不同的方向，但是作为朋友的我会为你默默祝福。",
-    "id": 75
+    "name": "Choong Jing Wei",
+    "name_ch": "庄清雯",
+    "one-liner": "cb xxxxx"
   },
   {
-    "gender": "female",
-    "one-liner": "我觉得我的世界很黑暗……唉，XXX,可以问你一个问题吗？",
-    "name_ch": "骆雪敏",
-    "message": "进入KMPk是一种缘分，让来自不同地区的学子们聚在一起，相识相知。期待未来大家能够展翅高飞，找到属于自己的一片蓝天。",
-    "name": "Lok Xue Min",
     "describe_me": [
       "超级学霸。对待课业和功课特别认真。生活状态好像很紧张，可以尝试放松自己。=D人很好，会关心朋友，会帮我们买lecture notes. xD",
       "一开始见面就是一号特放松的人，过后‘病情’突然恶化，变得特紧张，不过没关系，无论什么事都没问题的！大丈夫。",
       "身为你的楼上邻居的我得空就去找你，只想告诉你，你的房间好stress啊! 不过你好像stress得还可以。希望能和你一直做朋友。"
     ],
-    "id": 76
+    "gender": "female",
+    "id": 76,
+    "message": "进入KMPk是一种缘分，让来自不同地区的学子们聚在一起，相识相知。期待未来大家能够展翅高飞，找到属于自己的一片蓝天。",
+    "name": "Lok Xue Min",
+    "name_ch": "骆雪敏",
+    "one-liner": "我觉得我的世界很黑暗……唉，XXX,可以问你一个问题吗？"
   },
   {
-    "name": "Ling Jia Sze",
-    "name_ch": "林佳希",
-    "gender": "female",
-    "message": "以为进不到这里，但还是进到了，还认识了一大班智障朋友(对，是一大班)经历过很多新事物，很难忘的经验。翼舞•憶留•懿霸",
-    "one-liner": "莫名其妙",
     "describe_me": [
       "典型的精神失常，老人痴呆，狂笑症，反应迟钝症。善良的我已在青山精神病院留了个位给你。别再熬夜看戏，或许有助于病情。",
       "健忘症一天比一天严重可能剪了头发记忆也剪了不少。像猫头鹰那样晚上不睡觉。",
       "神经病的一班。笑起来惊天动地，万分独特。但人还不错，乐于助人，开朗，聪明。别沉迷于戏剧啦，不好的。别放弃治疗呀孩子！"
     ],
-    "id": 77
+    "gender": "female",
+    "id": 77,
+    "message": "以为进不到这里，但还是进到了，还认识了一大班智障朋友(对，是一大班)经历过很多新事物，很难忘的经验。翼舞•憶留•懿霸",
+    "name": "Ling Jia Sze",
+    "name_ch": "林佳希",
+    "one-liner": "莫名其妙"
   },
   {
-    "name_ch": "陈紫盈",
     "describe_me": [
       "典型的智障儿，所谓不鸣则己，一鸣惊人。从文静变神经。认识了简直就脱胎换骨。但还是乐于助人，蛮聪明的。医院随时欢迎你。",
       "傻傻的傻婆，能开朗到极点，很贴心，常常都会想到别人，对你爱的一切，她都知道，很容易开心（一部戏已足够XD 笑声没人能比。）",
       "独行侠，走路走得很快，上课期间会很称职地做导游，会为了一点小事沉默一整天，会自动帮朋友买笔记，有这样的朋友太棒了。"
     ],
     "gender": "female",
-    "name": "Tan Zi Ying",
-    "one-liner": " 王八蛋",
+    "id": 78,
     "message": "在这里10个月的时光我会铭记在心。感谢在这里帮过我照顾我的人。也很高兴认识一帮美女们，翼舞·憶留·懿霸。",
-    "id": 78
+    "name": "Tan Zi Ying",
+    "name_ch": "陈紫盈",
+    "one-liner": " 王八蛋"
   },
   {
-    "message": "突如其来的加课，做不完的测验，还有不一样的华人炒饭，可能离开了会想念吧。感谢这年来陪伴帮助我的人，还有带我疯颠的美女们，完整了我人生的第十八年。翼舞•憶留•懿霸。",
     "describe_me": [
       "做功课一直快人家一步，人生渐渐变得有乐趣，自称三好学生但每次问哪三好就会说不止三好，一直教我做功课委屈你了。",
       "很搞怪，太勤劳了，虽然样子不像，哈哈哈 XD 最讨厌的是每次都会做完功课，虽然说过不想做，还有你这个星期到底要不要回家",
       "成绩超好，勤力得要命的疯子。脸看上去乖乖的，但说起话来可把你吓坏了。功课永远做完了，自称三好，我也是醉了。有缘再见。"
     ],
-    "name": "Tan Hui Xin",
     "gender": "female",
-    "name_ch": "陈卉欣",
-    "id": 79
+    "id": 79,
+    "message": "突如其来的加课，做不完的测验，还有不一样的华人炒饭，可能离开了会想念吧。感谢这年来陪伴帮助我的人，还有带我疯颠的美女们，完整了我人生的第十八年。翼舞•憶留•懿霸。",
+    "name": "Tan Hui Xin",
+    "name_ch": "陈卉欣"
   },
   {
-    "gender": "female",
-    "message": "感谢一大班智障朋友们给我带来了这18年来一生中最美好的回忆。我连梦也没想过会和你们混得这么亲密。老实说，我从你们身上学了很多，从以前没那么有自信心的我 成了今日的我。话不多说，希望你们都会过得幸福快乐。有缘再见！",
-    "one-liner": "XX什么来的？这什么意思？  恶心 P’ng 不是你啊 Sunitta",
-    "name_ch": "苏妮妲",
     "describe_me": [
       "算是正常的人类，偶尔会发发疯，容易紧张，但还蛮乐观，不容易自杀。人很随和容易相处。",
       "一起讲话有时候要有一个人来翻译才get到在讲什么。",
       "和蔼善良的女孩，还蛮单纯的。可是日子久了，被几位好友给教坏了。但在疯狂当中，还可以看出那天真。温柔的一面。有缘再见！"
     ],
+    "gender": "female",
+    "id": 80,
+    "message": "感谢一大班智障朋友们给我带来了这18年来一生中最美好的回忆。我连梦也没想过会和你们混得这么亲密。老实说，我从你们身上学了很多，从以前没那么有自信心的我 成了今日的我。话不多说，希望你们都会过得幸福快乐。有缘再见！",
     "name": "Sunitta",
-    "id": 80
+    "name_ch": "苏妮妲",
+    "one-liner": "XX什么来的？这什么意思？  恶心 P’ng 不是你啊 Sunitta"
   },
   {
-    "name": "Lee Ming Cher",
-    "message": "不要忘记自己的路，那些洒着汗珠、崎岖不平,自己走过的路，是自己最贵重的财富。只有记住这些路，才能走好以后的路。",
-    "name_ch": "李明哲",
-    "gender": "male",
     "describe_me": [
       "排球 KAKOM 的唯一希望，跳跃时的神情，迷倒万千。办事能力极强，名副其实的黄金单身汉，害羞时让人痒的不要不要的。",
       "超级op 的班长！排球达人，没有人能跟他比。物理讲师的最爱！万事都行，正真的MVP。",
       "M2 男神，人风趣健谈。排球神将，打球时简直帅爆了。聪明，谦虚。有空多聊吧！别戏弄我了，你才是男神啊！ ：）"
     ],
-    "id": 81
+    "gender": "male",
+    "id": 81,
+    "message": "不要忘记自己的路，那些洒着汗珠、崎岖不平,自己走过的路，是自己最贵重的财富。只有记住这些路，才能走好以后的路。",
+    "name": "Lee Ming Cher",
+    "name_ch": "李明哲"
   },
   {
-    "gender": "male",
     "describe_me": [
       "聪明伶俐，学霸一个。听说他是个很低调的人，少数人才知道他。他的愿望是成为一名药剂师，是pondok gang 的其中一名成员。",
       "天天都感觉很忙很紧张的校草级人物。正经人一个但被我传染了怪人病毒，我在KMPk最好的朋友爱你哦要永远记住我。科科",
       "每一天看到他都会叫‘华哥’。紧张的他让我看到都紧张。每次失望之际都会来希望。闺蜜毕业了不要忘记麦草哥我噢噢！！！"
     ],
-    "name": "Lai Jun Hua",
-    "one-liner": "Aiya! 随便啦！Hehehehehe",
+    "gender": "male",
+    "id": 82,
     "message": "时光匆匆，终于毕业了。让我们在未来自由地翱翔吧!",
+    "name": "Lai Jun Hua",
     "name_ch": "黎骏华",
-    "id": 82
+    "one-liner": "Aiya! 随便啦！Hehehehehe"
   },
   {
-    "name": "Ng Weiye",
-    "gender": "male",
-    "one-liner": "唉～～Chandelieeeeee   Cannot meh?",
-    "message": "一，只是数字   一年即是时间   时已逝，无法返   能回忆",
-    "name_ch": "伍湋葉",
     "describe_me": [
       "一开始识得你，感觉上你有点shy shy 地，不过后来熟咗之后，就发现你有点痴痴的！唉～～",
       "一开始见到你，谂住你係马来人，以为你好难相处，后来先知原来你份人好无聊，又某瘾，傻傻地，识到你其实都唔错嘅，唉～～",
       "学霸一个，总是喜欢纠结一个问题很久，可是又很聪明。跟很熟的朋友喜欢互相顶嘴。喜欢我们学校的大学霸一龙。"
     ],
-    "id": 83
+    "gender": "male",
+    "id": 83,
+    "message": "一，只是数字   一年即是时间   时已逝，无法返   能回忆",
+    "name": "Ng Weiye",
+    "name_ch": "伍湋葉",
+    "one-liner": "唉～～Chandelieeeeee   Cannot meh?"
   },
   {
-    "one-liner": "巴下去啊！",
     "describe_me": [
       "风度翩翩，英俊潇洒，看似高冷，其实是暖男。学业牛逼，天天讲fail，可是结果拿满分。壁球高手，武术大师，全能男神魅力无法挡！",
       "武术师父，班上的男神，人人都爱跟他拍照。讲会fail，没希望，可能以后必须卖面包，可是结果满分，拿到4flat。最op 的就是他了！",
       "Yan is one of the best student in my class. He is responsible and very cheerful. I like working with him in a same group. He tries his best to finish all of his work on time. He is also very helpful, caring and honest. He often helps me when I have problems in study. Sometimes he is also good in telling jokes."
     ],
-    "message": "再见了，给我友谊的好朋友！再见了，给我教诲的老师们！愿我的同学们永远快乐，愿我的同学们永远幸福。CY@",
-    "name_ch": "黄记彦",
-    "name": "Ng Jih Yann",
     "gender": "male",
-    "id": 84
+    "id": 84,
+    "message": "再见了，给我友谊的好朋友！再见了，给我教诲的老师们！愿我的同学们永远快乐，愿我的同学们永远幸福。CY@",
+    "name": "Ng Jih Yann",
+    "name_ch": "黄记彦",
+    "one-liner": "巴下去啊！"
   },
   {
     "describe_me": [
@@ -1092,50 +1092,50 @@
       "有着高大的身材，是运动的好对手，但却不爱社交。有着超强的羽球球技，但却被打败，希望你早日能找到你的“她”！",
       "自认高大威猛，人帅，羽球技术超好，无人能敌，学业优异，名副其实的威武双全猛男。不过人很好，常带新手去打羽球双打，传授球技。床是最好的朋友！"
     ],
-    "message": "毕业快乐！ 重新得到了最渴望的自由。。。",
-    "name_ch": "曾志荣",
-    "name": "Chang Chee Wing",
     "gender": "male",
-    "id": 85
+    "id": 85,
+    "message": "毕业快乐！ 重新得到了最渴望的自由。。。",
+    "name": "Chang Chee Wing",
+    "name_ch": "曾志荣"
   },
   {
-    "one-liner": "惨liao lah,这次test 我还不会，还没有读到",
-    "message": "褪去初至时的无知，丰盈成长的阅历。 用十月的时间换一个永远的回忆。 感恩相识的每一个人，遇到的每一件事。 愿友谊长存，珍重再见。",
     "describe_me": [
       "长得白白净净，千万不要以为他很斯文，其实就是一个超级kapsiao的人。很适合拿来当姐妹，虽然他很抗拒，但我们永远是好姐妹",
       "超级Faker,嘴巴讲不会，成绩出来却笑自认瘦就是任性，放肆地把burger当夜宵。擅长煮maggie,是回家巴士上最佳food supplier,祝早日恋爱。",
       "与他相处时感觉很自在，有点懒惰运动，每年新年衣的数量有点夸张。个性随和，爱帮助他人，有时还是个聆听者。有他真好。"
     ],
-    "name_ch": "张炯然 ",
-    "name": "Teoh Jiong Zan",
     "gender": "male",
-    "id": 86
+    "id": 86,
+    "message": "褪去初至时的无知，丰盈成长的阅历。 用十月的时间换一个永远的回忆。 感恩相识的每一个人，遇到的每一件事。 愿友谊长存，珍重再见。",
+    "name": "Teoh Jiong Zan",
+    "name_ch": "张炯然 ",
+    "one-liner": "惨liao lah,这次test 我还不会，还没有读到"
   },
   {
-    "gender": "male",
-    "name_ch": "黎力仁",
-    "name": "Lizen Lai",
-    "message": "这监狱时而成了交友平台，挑战的平台，刑场，它是同时兼附着许多意义的存在。回忆与朋友是我在这最珍贵的收获。毕业快乐!",
     "describe_me": [
       "是个善良到天地不容的人！总是无条件地帮助别人，真的很感谢在这里遇见你。虽然总叫你姐姐，但其实你更像个哥哥啦！",
       "头脑是黄的，智障是对的，善良是真的，不聪明是假的！",
       "幻想家。超爱胡思乱想，却想有的没的。街舞表演者。超厉害跳舞。倒立？行！！！一起看动漫，吃laksa,打bowling,看电影，想script很开心。谢谢你！"
     ],
-    "one-liner": "男主角把手指画下，女主角把手指画下，搜索自己的名字。食指                           相碰，转身相望，含情默默。我比较喜欢有交代完的结局。",
-    "id": 87
+    "gender": "male",
+    "id": 87,
+    "message": "这监狱时而成了交友平台，挑战的平台，刑场，它是同时兼附着许多意义的存在。回忆与朋友是我在这最珍贵的收获。毕业快乐!",
+    "name": "Lizen Lai",
+    "name_ch": "黎力仁",
+    "one-liner": "男主角把手指画下，女主角把手指画下，搜索自己的名字。食指                           相碰，转身相望，含情默默。我比较喜欢有交代完的结局。"
   },
   {
-    "name": "Ng Pei Chi",
-    "one-liner": "吵死了  讨厌我的人可多了，你算老几？",
-    "message": "谢谢和再见！",
-    "name_ch": "黄珮慈",
     "describe_me": [
       "烦的时候喜欢静静。静静是谁？以上诉说的只是为了形容她的智障。",
       "嗜睡",
       "蛮叽喳一下"
     ],
     "gender": "female",
-    "id": 88
+    "id": 88,
+    "message": "谢谢和再见！",
+    "name": "Ng Pei Chi",
+    "name_ch": "黄珮慈",
+    "one-liner": "吵死了  讨厌我的人可多了，你算老几？"
   },
   {
     "describe_me": [
@@ -1143,218 +1143,218 @@
       "白白净净的正统学霸姐。有时候曼联严肃又凶巴巴，有时候又特搞笑像个小孩的性格。有目标有决心，在课业上是绝佳的好战友。",
       "一个直率的女孩。超级学霸。很勤力而且很有责任心。做起来会很认真，但也可以很疯。对时间观念很好，很会照顾自己的女生。"
     ],
-    "one-liner": "够了哦 xxx!",
+    "gender": "female",
+    "id": 89,
+    "message": "虽然离毕业还有几个月的时间, 不过已经开始感觉依依不舍, 在此感谢所有帮助过我的人, 还有陪我一起度过各种艰难时光, 一起创造回忆, 一起努力达到各自目标的各位人类。谢谢你们让我的人生过得精彩!",
     "name": "Chang Min Chyi",
     "name_ch": "曾敏慈",
-    "gender": "female",
-    "message": "虽然离毕业还有几个月的时间, 不过已经开始感觉依依不舍, 在此感谢所有帮助过我的人, 还有陪我一起度过各种艰难时光, 一起创造回忆, 一起努力达到各自目标的各位人类。谢谢你们让我的人生过得精彩!",
-    "id": 89
+    "one-liner": "够了哦 xxx!"
   },
   {
-    "name_ch": "许舒琪",
-    "name": "Khor Shu Chyi",
-    "one-liner": "哎呀，不要这样啦！",
     "describe_me": [
       "每个人都说你很单纯，看上去呆呆的，但是我知道你都是有自己的考量。你在这里都收了几个孩子，我只想说：“棒棒哒”。",
       "我的妈咪应该和我一样都喜欢往外跑。很忙的一个人。加油吧，注意身体。",
       "你真的很有妈妈的感觉，和你team building的日子，很开心，很庆幸能够认识你，也谢谢你帮我找了一个好爸爸。祝你和他幸福快乐."
     ],
-    "message": "在每个人生的里程碑，都有彼此注定会遇见的人。缘分让我们在这里相聚相识。一生的朋友们，祝前程似锦，珍重。",
     "gender": "female",
-    "id": 90
+    "id": 90,
+    "message": "在每个人生的里程碑，都有彼此注定会遇见的人。缘分让我们在这里相聚相识。一生的朋友们，祝前程似锦，珍重。",
+    "name": "Khor Shu Chyi",
+    "name_ch": "许舒琪",
+    "one-liner": "哎呀，不要这样啦！"
   },
   {
-    "message": "不留恋这里的一切，除了你们。在这里的回忆,将成为成长历程中的经典。就一年，就一次，就此别过。",
-    "name": "Koay Yu Jia",
     "describe_me": [
       "一个人面对别人很正经，面对熟的朋友却超疯的男孩。挺有责任心的，总是认真对待工作.一听到音乐，他的身体就会不知不觉摇摆！",
       "名字看似文艺女，结果却是山寨版的都敏俊。大家欢笑的泉源，总是丑化自己娱乐大家。暖男心地善良，是个不会瑜伽的瑜嘉。",
       "一个看上去精明但实际上很呆的人，是我们班“神奇组合”之一。看起来很羞涩但超级地欢。对自己要多一点信心，你可以的"
     ],
-    "name_ch": "郭瑜嘉",
-    "one-liner": "死了咯",
     "gender": "male",
-    "id": 91
+    "id": 91,
+    "message": "不留恋这里的一切，除了你们。在这里的回忆,将成为成长历程中的经典。就一年，就一次，就此别过。",
+    "name": "Koay Yu Jia",
+    "name_ch": "郭瑜嘉",
+    "one-liner": "死了咯"
   },
   {
-    "one-liner": "这个星期可以回呀～喂，等下xxx点来找我。。。。",
-    "name": "Chong Xin Qin",
-    "gender": "female",
-    "name_ch": "锺欣芩",
-    "message": "一年，很短。 感谢在这短短一年遇到的人，惜缘。",
     "describe_me": [
       "不认识她的人会以为她很严肃，但其实她是一个很“废”的人！有她在，功课可以不用做，听她讲笑话。她也是个黏人的人哟！",
       "一个很用功努力的女孩。省吃俭用，为人幽默，喜欢把眼睛瞪大。跟她在一起会有很多的笑点，很舒服，给人一种被信赖的感觉。",
       "你让我见识到“省吃俭用”的最高境界。但这不是最重要的，你对饼干的反应更棒，我还不明白吃饼干如何让你可以解决问题。"
     ],
-    "id": 92
+    "gender": "female",
+    "id": 92,
+    "message": "一年，很短。 感谢在这短短一年遇到的人，惜缘。",
+    "name": "Chong Xin Qin",
+    "name_ch": "锺欣芩",
+    "one-liner": "这个星期可以回呀～喂，等下xxx点来找我。。。。"
   },
   {
-    "message": "离歌放飞理想的翅膀， 逃不过毕业的牵绊； 曲终人散 ，但却魂牵梦绕， 舞步轻盈 ; 唯有脑海中轻轻吟唱： 初次见面 —— 你的羞涩微笑。",
-    "name_ch": "胡嘉瑜",
-    "gender": "female",
     "describe_me": [
       "不笑时气质过人，笑时可爱迷人：有毅力但不失温柔，学业佳又积极于课外活动，大家心目中的女神！很遗憾她没交男朋友。",
       "做事有决心，常要自我挑战，却苦了自己，只要是朋友就会义气相挺的人想要做的事会千方百计地去做，还有她不爱洗澡。",
       "她是女中豪杰，学业，运动样样行，是演讲的奇才，更是设计鬼才，总有各种方案解决各种问题。她麻雀虽小，但足以让人崇拜她"
     ],
-    "one-liner": "唉….",
+    "gender": "female",
+    "id": 93,
+    "message": "离歌放飞理想的翅膀， 逃不过毕业的牵绊； 曲终人散 ，但却魂牵梦绕， 舞步轻盈 ; 唯有脑海中轻轻吟唱： 初次见面 —— 你的羞涩微笑。",
     "name": "Foo Jia Yee",
-    "id": 93
+    "name_ch": "胡嘉瑜",
+    "one-liner": "唉…."
   },
   {
-    "message": "十九年了,写了三次毕业感言,越来越难写,但回忆越来越多。开心伤心兴奋期待忧愁欢乐生气难过纠结无奈心累。。。全在一起🙄",
-    "name_ch": "黎宪明",
-    "name": "Nicholas Lai Jian Ming",
-    "gender": "male",
     "describe_me": [
       "M3 “男神”，觉得自己脱眼镜就变帅的奇葩。喜欢上课时唱歌，同时也是睡神。调皮捣蛋，但在面对爱情却异常羞涩。最爱大张伟。",
       "听到名字是NICK 时觉得有点神奇，后来觉得人高，黑，英语好像geng,kapsiao是专长。追求幸福太no gutz 了，剩下四个月。好组长！谢谢！合作愉快！",
       "除了呆，就是萌，上课永远都是迷迷茫茫的样子。永远神奇的班长。其实人挺好的。脸常常看起来很“香”，可是看到她就笑容满面。"
     ],
-    "one-liner": "Lehma",
-    "id": 94
+    "gender": "male",
+    "id": 94,
+    "message": "十九年了,写了三次毕业感言,越来越难写,但回忆越来越多。开心伤心兴奋期待忧愁欢乐生气难过纠结无奈心累。。。全在一起🙄",
+    "name": "Nicholas Lai Jian Ming",
+    "name_ch": "黎宪明",
+    "one-liner": "Lehma"
   },
   {
-    "name": "Ong Jing Han",
-    "gender": "female",
-    "name_ch": "王靖涵",
     "describe_me": [
       "不苟小节，大咧咧的女孩。上课不专心，成绩还很好，很steady,有时比男生还男生。与静颖是毒舌二人组。滑板鞋是最爱，科科。",
       "玩game总是认真过上课，却考出一鸣惊人的成绩，是个直率坦诚的女孩，对朋友很有义气，常常会莫名其妙地把自己变尴尬。科科。",
       "脑洞大又毒舌的女孩，是个电影百科全书。喜欢吹冷笑话，八卦，讲笑话。博学多才，喜欢去图书馆因为不曾整理自己的书桌。科科。"
     ],
-    "one-liner": "Har momomomomomomomo, 哼哼哼哼哼….蛤？",
+    "gender": "female",
+    "id": 95,
     "message": "刚来KMPk时巴不得早点走，可当真要走时，又急切的希望能多留一两天的那种矛盾感触，一走，就是永远。珍重 再见。",
-    "id": 95
+    "name": "Ong Jing Han",
+    "name_ch": "王靖涵",
+    "one-liner": "Har momomomomomomomo, 哼哼哼哼哼….蛤？"
   },
   {
-    "message": "毕业在即，许多感触涌上心头。还记得当初不想读这里的念头，在这一刻都成了难分难舍。这里的人，事，物都烙印在心里。珍重。",
-    "gender": "male",
     "describe_me": [
       "有责任感，能说笑，思考能力佳，非常能保守秘密的好兄弟，能倾诉的对象；人缘好，有幽默感，运动佳，特别是篮球，能为他人着想。",
       "头发像gina,很乖……懒！！！演技爆表的他，表面看起来机灵古怪，但其实心思细腻。健谈，幽默，八卦的supplier，有他在的地方就有笑声。",
       "讲话有时很艺术，让你开心，再補一刀。好像懂很多八卦。幽默，是指讲话不是样子（开玩笑）。把妹招数很多，做Yu Hong 的爱情顾问。"
     ],
-    "name_ch": "温子奕",
+    "gender": "male",
+    "id": 96,
+    "message": "毕业在即，许多感触涌上心头。还记得当初不想读这里的念头，在这一刻都成了难分难舍。这里的人，事，物都烙印在心里。珍重。",
     "name": "Won Zhi Yih",
-    "id": 96
+    "name_ch": "温子奕"
   },
   {
-    "name": "Khor Zhi Ying",
-    "message": "朋友珍重，有缘再见。👋",
-    "gender": "female",
     "describe_me": [
       "瘦到可以被风吹走的女孩。喜欢spam反义词的她，私底下是歌神，偶像是杨丞琳。是个能守秘密的人，谈心之友。外号可爱的萤火虫。",
       "杨丞琳终极粉丝，笑点非常低，讲的笑话也很low,有非礼人的坏习惯。有事没事到处selfie,脸不红。不吃大番茄却又红番茄。",
       "外冷内热，看起来斯斯文文，相处后，原形毕露，是个段子手，比男人更会撩人。她说的“笑话”有待加强，每次只有自己在笑，好尴尬……"
     ],
+    "gender": "female",
+    "id": 97,
+    "message": "朋友珍重，有缘再见。👋",
+    "name": "Khor Zhi Ying",
     "name_ch": "许可楹",
-    "one-liner": "Liaoball, Bet is",
-    "id": 97
+    "one-liner": "Liaoball, Bet is"
   },
   {
-    "message": "18歲， 就是在這兒度過的。十年後，我應該会想念這裡吧！",
     "describe_me": [
       "独侠非自愿，舍左以护右，饥渴不积极，论才不输俺，为余心而恋，此寒境呆转，巧言不好向，岂言不想思，默默无语向，现实献为恋。",
       "一个人不错的人，朋友有难会拔刀相助。脸上总会有那阴险的笑容，看了都会毛骨悚然。他有个外号，是“背书机人”，超会背书。",
       "很有责任感的人，做事都很认真。（效率也满高的），超孝顺的，而且心里也很善良，很乐意帮助朋友的人。有时很悲观，乐观一点."
     ],
     "gender": "male",
-    "name_ch": "吕祐吉",
+    "id": 98,
+    "message": "18歲， 就是在這兒度過的。十年後，我應該会想念這裡吧！",
     "name": "Loo You Ji",
-    "id": 98
+    "name_ch": "吕祐吉"
   },
   {
-    "message": "缘分把从五湖四海来的我们聚集到了一起，在这里充满酸甜苦辣的日子是我们日后在天南地北值得缅怀的回忆。翼舞·憶留·懿霸",
-    "name_ch": "张婧贤",
     "describe_me": [
       "其实没想到会在KMPK遇到你，很感谢你让我认识了一班智障的朋友，outing常打包食物回来给我们，需要帮忙时也常帮助我，爱你。",
       "KMPK移动电话簿和八卦收集器。要找到不认识她的人应该挺难的。为人开朗热情，音域之高阔无人能及……永远都在做MATHS。",
       "第一印象是很像大家姐。这样，然后也很友善跟我打招呼,结果也因为她认识很多智障的朋友，是一个不错相处的朋友。"
     ],
-    "one-liner": "心累 x100",
-    "name": "Chang Qing Xian",
     "gender": "female",
-    "id": 99
+    "id": 99,
+    "message": "缘分把从五湖四海来的我们聚集到了一起，在这里充满酸甜苦辣的日子是我们日后在天南地北值得缅怀的回忆。翼舞·憶留·懿霸",
+    "name": "Chang Qing Xian",
+    "name_ch": "张婧贤",
+    "one-liner": "心累 x100"
   },
   {
-    "name": "Loh Wei Xing",
-    "message": "来到这里真是个新的体验，有很多的第一次，有很多回忆，快乐的，悲伤的，也交了不少朋友，认识不少好老师。我想说，此行不枉。",
     "describe_me": [
       "常用一脸傻笑掩饰尴尬，没脾气到爆。科科优越，脑力一流，绝对是PAL的BOSS。虽然积极打游戏，但功课总都完成。难道一天有72小时？",
       "超级无敌好人，凡在课业上遇到问题找他都能解决。内心脆弱，易受感情影响。活跃参与活动，善于沟通。文武双全，是个天才。",
       "傻笑是专长，其他的都不敢不敢，叫他打个电话都可以从café逃到Iskandar。智商很高，脚毛很多，样子也很龌龊。加油，找个女友，然后滚。"
     ],
     "gender": "male",
+    "id": 100,
+    "message": "来到这里真是个新的体验，有很多的第一次，有很多回忆，快乐的，悲伤的，也交了不少朋友，认识不少好老师。我想说，此行不枉。",
+    "name": "Loh Wei Xing",
     "name_ch": "罗伟轩",
-    "one-liner": "RANJITHA～～～",
-    "id": 100
+    "one-liner": "RANJITHA～～～"
   },
   {
-    "name": "Tham Chi Cheng",
-    "gender": "female",
-    "name_ch": "譚芷晴",
-    "one-liner": "喂呀！没有脑！滚!好笑吗？诶，没有啊！坏到死！哇老！你厉害！",
     "describe_me": [
       "具有人类长颈鹿，气质的女神。是个有义气，对人又nice的傻B.笑声恐怖到让建筑物倒，处于脑残状态，没形象，窝心，开心果。",
       "打嗝声笑声永远都比其他人大。不少在意他人的看法。你就是你，不用着急。因为最好的已在前方屹立等待璀璨的你。",
       "很好聊天的女孩，人很善良，美若天仙，活痨，弱不禁风，刻苦耐劳，拍照时那双手总比个招牌动作。颈长的，没脑的M3女强人。"
     ],
+    "gender": "female",
+    "id": 101,
     "message": "在最美麗的年華里, 能認識到你們😂這麼瘋狂這麼神經, 也算是彌补了我中學的遺憾。回憶永遠都會存在我心裡, 因為我是沒有腦的 😂😂",
-    "id": 101
+    "name": "Tham Chi Cheng",
+    "name_ch": "譚芷晴",
+    "one-liner": "喂呀！没有脑！滚!好笑吗？诶，没有啊！坏到死！哇老！你厉害！"
   },
   {
-    "one-liner": "我都醉了！屌爆天了！sorry lo,我错！我错！",
-    "name_ch": "郑文豪",
     "describe_me": [
       "看起来弱弱斯文，怎知不好欺负，原来有练gym。很有纪律，也是个可以聊心事的对象，很挑食，每个星期都回家，非好汉的行为。加油！",
       "超爱家的小男孩，外表斯文，干净整齐，有洁癖，但满满惊人的牛话。完全没有keratin,但有很牛的stickersss。瘦得像支柴，超级白，好相处的兄弟。",
       "日夜行者，连夜王者，看似高冷，时则逗逼，外白内黄，更甚辉煌，笑迎春风，逆迎冬风，有家不归，日向东归，鲜肉文豪，千金一克。"
     ],
+    "gender": "male",
+    "id": 102,
     "message": "向这段充满欢笑，充满活力，也充满功课的日子，似乎真的要说再见了。。。希望毕业后大家还会保持联络，友谊长存!!",
     "name": "Teh Boon Hao",
-    "gender": "male",
-    "id": 102
+    "name_ch": "郑文豪",
+    "one-liner": "我都醉了！屌爆天了！sorry lo,我错！我错！"
   },
   {
-    "name": "Cheng Chu Ling",
     "describe_me": [
       "Sex Ling~ 开朗，看似不苟小节，几乎不管什么时候都可以开玩笑。脑子好，数理科样样精通。人机方面有待加强。那个经典的笑容… 呵呵",
       "Sex Ling~ 一个DOTA狂，头脑聪明，体能爆表的屌丝。平时不笑很扑克，微微一笑很 “ 日本” 。平时衣服无所谓的样子，该认真时会认真。呵呵~",
       "很聪明，但整天开开玩笑，刚开始还以为是书呆子，冷漠又ambia的人。认识你后，就是不同。你应该很dry的，因为常说我dry~"
     ],
-    "message": "母吁勿相好，令郎何其好，铅笔买二逼，浅笑何岂逼，碧池当格格，亏脸不定格，面具配伪人，逆行为异人，水火不相生，才似学院生。",
-    "one-liner": "你要屌谁？",
     "gender": "male",
+    "id": 103,
+    "message": "母吁勿相好，令郎何其好，铅笔买二逼，浅笑何岂逼，碧池当格格，亏脸不定格，面具配伪人，逆行为异人，水火不相生，才似学院生。",
+    "name": "Cheng Chu Ling",
     "name_ch": "钟楚翎",
-    "id": 103
+    "one-liner": "你要屌谁？"
   },
   {
-    "one-liner": "哈哈哈哈哈，翻白眼",
-    "gender": "female",
-    "name": "Foo Yue Ying",
-    "message": "有你们的日子我才不留遗憾。朋友， 珍重再见。",
     "describe_me": [
       "打牌痴，笑点低，在LH喷水。画工一流，外表文静。静也不到一分钟。脸突白突红，容易害羞。丑照一摞摞，Stalk人一级棒，追剧比天还大。",
       "经典的洁癖处女，宁可追剧也不愿做功课，认真不过3分钟，经常嫌东嫌西，浮夸，自称幽默爱八卦，脸部表情满分。翻白眼一流。",
       "大爱她的字体。看似斯文的外表下，藏着神经大条的慢递。人美美哒。老实说对人很亲切，极少生气。班上最佳拍档，脾气超好的。"
     ],
+    "gender": "female",
+    "id": 104,
+    "message": "有你们的日子我才不留遗憾。朋友， 珍重再见。",
+    "name": "Foo Yue Ying",
     "name_ch": "傅羽莹",
-    "id": 104
+    "one-liner": "哈哈哈哈哈，翻白眼"
   },
   {
-    "name_ch": "李明蔚",
-    "name": "Lee Ming Wei",
-    "message": "毕业近在咫尺，迎新日却还历历在目，难免有点不舍。很开心结识到许多朋友。希望毕业后，大家都朝各自的梦想展翅翱翔。",
     "describe_me": [
       "有一个美丽的小女孩~她听到exo和食物，双眼会发光。高额加短发让人怀疑她是清朝人。还穿着湿衣服在晒衣？蔚蔚快点！",
       "多愁善感的巨蟹女孩，总是被生活上的小事感动。十足的韩迷，听韩国歌就发疯。别被她柔弱的外表给骗了，她可是武术高手！",
       "小名——小明，是个无比斯文，且清声细语的人。她心思细腻，是个完美主义者。武术，唱歌，画画是她的专长。她还是“爱屎欧”的粉丝。"
     ],
-    "one-liner": "吃剩的丢掉很浪费，为什么今天饭那么少",
     "gender": "female",
-    "id": 105
+    "id": 105,
+    "message": "毕业近在咫尺，迎新日却还历历在目，难免有点不舍。很开心结识到许多朋友。希望毕业后，大家都朝各自的梦想展翅翱翔。",
+    "name": "Lee Ming Wei",
+    "name_ch": "李明蔚",
+    "one-liner": "吃剩的丢掉很浪费，为什么今天饭那么少"
   },
   {
     "describe_me": [
@@ -1362,25 +1362,25 @@
       "相当严肃，相当认真的学霸。声音很沉，大男人注意，但说话十分鸡。",
       "十分佩服你在讲堂睡觉，但都考很好。很为他人着想。摇头时双脥肥肉抖动时最好笑。如果有一天能把身高分一半给我就好。"
     ],
-    "name": "Soo Yih Ying",
-    "one-liner": "gg",
-    "name_ch": "朱毅穎",
     "gender": "male",
+    "id": 106,
     "message": "这一年来过得很充实，学到很多，也认识很多种人。这里可能不是我人生中最美丽的篇章，但会是我最难忘的篇章，谢谢大家!",
-    "id": 106
+    "name": "Soo Yih Ying",
+    "name_ch": "朱毅穎",
+    "one-liner": "gg"
   },
   {
-    "gender": "female",
-    "one-liner": "我就是宝宝©",
-    "name_ch": "崔嘉颖",
     "describe_me": [
       "一个活泼积极的女孩，外表独立，很好说话，有自己的想法，也很努力，有上进心。偶尔的傻大姐风范。做起事来很认真和投入。",
       "你是一个外表乐观但有自己那小小的忧郁的人。开心固然重要，但若没有时不时发泄悲伤可不行！有烦恼时就来找我吧！",
       "“自虐狂!”这是我认识她不为人知的一面。每天晚睡早起，但我知道她是在努力。我不会忘记她的好，让我在这里不再寂寞孤单。"
     ],
-    "name": "Chui Jia Ying",
+    "gender": "female",
+    "id": 107,
     "message": "不知不觉我们又要毕业了 想起第一天到kmpk 的情景 一切好像才刚开始 离开kmpk 后希望 大家一切顺利",
-    "id": 107
+    "name": "Chui Jia Ying",
+    "name_ch": "崔嘉颖",
+    "one-liner": "我就是宝宝©"
   },
   {
     "describe_me": [
@@ -1388,12 +1388,12 @@
       "此人非凡人也，真佩服你有超强的理解能力和记忆力。说话风趣幽默，人格豪爽，整天说我黄，但自己是最黄的，很高兴认识你！",
       "You are cute.You are funny and you make people to laugh all the time. Your haircut is very nice and cute like a small boy and please thank me for giving me you a place to sleep."
     ],
+    "gender": "male",
+    "id": 108,
+    "message": "人生中有许多感人的缘，有时会随风而去，有时会令你我感伤，无论你随风而去，我独自在这里感伤，都是缘。",
     "name": "Ong Yong Jian",
     "name_ch": "王永健",
-    "one-liner": "你都痴痴地嘅，你屎忽",
-    "gender": "male",
-    "message": "人生中有许多感人的缘，有时会随风而去，有时会令你我感伤，无论你随风而去，我独自在这里感伤，都是缘。",
-    "id": 108
+    "one-liner": "你都痴痴地嘅，你屎忽"
   },
   {
     "describe_me": [
@@ -1401,37 +1401,37 @@
       "认真努力，对自己要求高，有时蛮严肃，偶尔有点急躁，但我挺钦佩你的高效率，任何事都快完成！",
       "一个很勤劳努力的女孩。感觉24小时在做功课，但又有时间看戏。时间管理得很好。很喜欢吃寿司。为人很亲切，长得可爱。"
     ],
-    "message": "别了依然相信， 以后有缘再聚。",
-    "name_ch": "张琪云",
-    "name": "Teoh Qi Yin",
     "gender": "female",
-    "id": 109
+    "id": 109,
+    "message": "别了依然相信， 以后有缘再聚。",
+    "name": "Teoh Qi Yin",
+    "name_ch": "张琪云"
   },
   {
-    "message": "谢谢动物们在我孤单时的陪伴，还有我的同班同学们对我那么好。最后，感恩MNMen，我不敢想象没你们的我。翼舞·憶留·懿霸❤",
-    "one-liner": "“我饿了！” , “是meh?”",
-    "name_ch": "郑洁盈",
-    "name": "Chang Kit Ying",
     "describe_me": [
       "一个超级有艺术感的好朋友！一个笑容很甜美的麻吉。吃一块肉却可以慢慢一块一块切，我还是建议你去当医生吧！:) ",
       "善良又认真的吃货学霸！做事认真细心，要求完美，勤劳的程度已可以影响他人比如我哈哈。感谢我们在这里相遇，未来一起加油！",
       "很愿意帮助朋友，所以才会一通电话被骗去四楼 XD 很好相处，因为不会找我，你一直都是我的终极目标，最大的Boss ©"
     ],
     "gender": "female",
-    "id": 110
+    "id": 110,
+    "message": "谢谢动物们在我孤单时的陪伴，还有我的同班同学们对我那么好。最后，感恩MNMen，我不敢想象没你们的我。翼舞·憶留·懿霸❤",
+    "name": "Chang Kit Ying",
+    "name_ch": "郑洁盈",
+    "one-liner": "“我饿了！” , “是meh?”"
   },
   {
-    "message": "为期一年的奇幻漂流，虽短暂却充满着新尝试和体验，感恩所有在这里遇见的人，未来也要一起全力以赴，翼舞·憶留·懿霸！",
-    "name_ch": "涂瑜娢",
-    "one-liner": "“心塞！”，“我想睡觉。。。”",
     "describe_me": [
       "傻乎乎的女孩，让我超级想保护的感觉。从来不吝啬自己的知识，是个超级学霸！我很开心因为让你爱上乒乓！爱你多多©",
       "一个可爱，善良，谦虚的学生，能遇到你很幸运，陪我在这森林并肩作战 >_< 我们要一起加油，毕业后一起旅行吧 J",
       "貌美如花的植物系女子，爱笑白净乐意助人漂亮的美女子，还是名副其实的学霸。忠实五迷，嬌小的短腿选手。"
     ],
-    "name": "Toh Yee Han",
     "gender": "female",
-    "id": 111
+    "id": 111,
+    "message": "为期一年的奇幻漂流，虽短暂却充满着新尝试和体验，感恩所有在这里遇见的人，未来也要一起全力以赴，翼舞·憶留·懿霸！",
+    "name": "Toh Yee Han",
+    "name_ch": "涂瑜娢",
+    "one-liner": "“心塞！”，“我想睡觉。。。”"
   },
   {
     "describe_me": [
@@ -1439,129 +1439,129 @@
       "异性恋超好，短短时间就几乎认识完KMPK的女生。快去认识个女友，情绪低落时让她开导，安慰你。是个会关心人的朋友。珍重。",
       "认识他后就觉得他为人特好，蛮关心朋友。有时情绪低落时过几天就ok了。他妈妈煮的爱心食物超好吃，还想吃！祝友谊万岁！"
     ],
+    "gender": "male",
+    "id": 112,
+    "message": "真的不敢想毕业了会怎样。我觉得肯定会哭吧，毕竟我们一起经历了那么多事伤心或开心事。只能说我没后悔选择来这里。",
     "name": "Soo Kiem Eng",
     "name_ch": "苏金榮",
-    "gender": "male",
-    "one-liner": "哇老伟！My FM on AIR ~",
-    "message": "真的不敢想毕业了会怎样。我觉得肯定会哭吧，毕竟我们一起经历了那么多事伤心或开心事。只能说我没后悔选择来这里。",
-    "id": 112
+    "one-liner": "哇老伟！My FM on AIR ~"
   },
   {
-    "name_ch": "杨秀蓉",
-    "name": "Yong Xiu Rong",
     "describe_me": [
       "傻傻，天真，可爱的好朋友，羡慕你会说一口流利的英文哦！我懂你很期待我去找你玩，到时我们一起拍美照和吃美食　：）",
       "初次见面就晓得你是乐观，热情，善良的女孩，很开心可以在这里遇见你！羡慕你学业和运动都很优秀，愿以后还常联络！",
       "第一个认识的朋友，一个活跃又３８的人，能疯在运动和学业都很不错，喜欢做嘟嘟嘴，拍照大过天，有点任性，乒乓界的“女神经”。"
     ],
-    "message": "转眼间，我们即将毕业。记忆中有太多留念，太多不舍，太多片段。现在毕业了，不舍的心情才涌出来，让我真正眷恋的是我这里的朋友还有回忆 。这一年，谢谢你们陪我走过。",
     "gender": "female",
-    "one-liner": "“我也是醉了！”",
-    "id": 113
+    "id": 113,
+    "message": "转眼间，我们即将毕业。记忆中有太多留念，太多不舍，太多片段。现在毕业了，不舍的心情才涌出来，让我真正眷恋的是我这里的朋友还有回忆 。这一年，谢谢你们陪我走过。",
+    "name": "Yong Xiu Rong",
+    "name_ch": "杨秀蓉",
+    "one-liner": "“我也是醉了！”"
   },
   {
-    "one-liner": "呵呵呵呵",
-    "message": "88",
-    "name_ch": "郭欣雁",
-    "gender": "female",
-    "name": "Kok Xin Yean",
     "describe_me": [
       "“高冷，孤僻，奇葩。”这可能是你对她的第一个印象，但相处起来才发现她其实很健谈，心地善良，勤劳向上，缺点就是吃不胖。　",
       "初次见面时觉得她挺高冷，不易亲近。同班之后发现她特别勤力，不怕辛苦。很少参加团队活动，常一个人在房间。人很好。",
       "你太瘦了，骑摩托车有点快。你很用功读书，也很紧张你课业上的东西。考试前有点过度压力。你蛮可以给人开玩笑，性格很不错。"
     ],
-    "id": 114
+    "gender": "female",
+    "id": 114,
+    "message": "88",
+    "name": "Kok Xin Yean",
+    "name_ch": "郭欣雁",
+    "one-liner": "呵呵呵呵"
   },
   {
-    "gender": "female",
-    "name_ch": "陈静颖",
-    "one-liner": "什么毛，掰啦＝＝",
-    "name": "Tan Ching Ying",
-    "message": "梦想不必伟大, 心跳必须炽热! 🔥",
     "describe_me": [
       "一位有自信的女孩，加上学生代表的身份，让人有种大姐大的ｆｅｅｌ。讲话有点让人吐血，是个善良的人（因为喜欢ｓｔｉｔｃｈ）美若天仙？呸。",
       "奇葩有洁癖，喜欢找人吵架，但其实很单纯。可爱直率，有气质。前任黄晓明，梦想是嫁个高富帅，当个全职家庭主妇。萌萌？呸",
       "刚开始认识的时候还以为她是个正常人。后来才发现是高冷的美女子，M3T23的学霸一名。之前和她谈天时常会冷场，但现在不会了。"
     ],
-    "id": 115
+    "gender": "female",
+    "id": 115,
+    "message": "梦想不必伟大, 心跳必须炽热! 🔥",
+    "name": "Tan Ching Ying",
+    "name_ch": "陈静颖",
+    "one-liner": "什么毛，掰啦＝＝"
   },
   {
-    "name_ch": "张子轩",
-    "name": "Chang Zi Xuan",
-    "one-liner": "Shiet",
-    "gender": "male",
-    "message": "黄昏的夕阳，不再无限好 嘉年华的人潮，已退去 泥里的莲花，依然不染 我不舍 爱或恨都得毕业 你我虽不认识，但祝前程似锦。",
     "describe_me": [
       "外表虽酷酷既不爱笑，但非常体贴也很懂得照顾他人。他擅长打篮球，弹琴，也有一副好桑子。爱说废话，却也是位很好的聆听者。",
       "第一个印象：脚坏了。很多话，很在意别人，有点罗嗦，运动不错下，有点自恋，认识不久，但还好不迟，阴差阳错下组合了KMPK３加２。",
       "玩世不恭，却对某人情有独钟，身形娇小，却打得一手好球。爱调侃，却总是默默给予帮助与支持。唱歌，弹琴，作词，钓鱼样样通。"
     ],
-    "id": 116
+    "gender": "male",
+    "id": 116,
+    "message": "黄昏的夕阳，不再无限好 嘉年华的人潮，已退去 泥里的莲花，依然不染 我不舍 爱或恨都得毕业 你我虽不认识，但祝前程似锦。",
+    "name": "Chang Zi Xuan",
+    "name_ch": "张子轩",
+    "one-liner": "Shiet"
   },
   {
-    "message": "人生终须有别，只盼别后莫淡忘。 此生能与你们相识，已了无遗憾。 今后各分东西，愿大家前程似锦，毕业快乐！",
-    "name_ch": "马彦琛",
-    "gender": "female",
-    "one-liner": "机智如我",
     "describe_me": [
       "神经病＋学霸＋变态",
       "有点变态的学霸，很讲义气，每次一封信息过去诉苦就打电话过来，让我超感动的，一个特别“爱护”小动物的人。",
       "为人有点心理变态，喜欢欺负虐待小动物（包括我），画画很恶心，很怕她翻眼皮，眼神很杀，随时会杀死人，值得深交的朋友。"
     ],
+    "gender": "female",
+    "id": 117,
+    "message": "人生终须有别，只盼别后莫淡忘。 此生能与你们相识，已了无遗憾。 今后各分东西，愿大家前程似锦，毕业快乐！",
     "name": "Beh Yan Chen",
-    "id": 117
+    "name_ch": "马彦琛",
+    "one-liner": "机智如我"
   },
   {
-    "name_ch": "陈铭仪",
-    "message": "一年的时光转眼即逝。感觉尚未开始，就已结束。感谢在这里遇见的每一个人，为我的青春增添光彩。祝福即将走向不同方向的大伙儿。今日乐相乐，别后莫相忘。",
-    "name": "Tan Min Yi",
-    "gender": "female",
-    "one-liner": "蓝瘦香菇（难受想哭）  这个世界变了",
     "describe_me": [
       "她是我在KMPK里最谈得来的朋友，有点神经质，老是被我鄙视，做事效率高（尤其是抄功课），有时候想法也很独特，为人没话说。",
       "第一个印象是美美哒女神，认识后发现你是女神经。对拍照很讲究，很努力学习，要对自己有自信心，你其实棒棒哒。PSPM２　４.０哦！",
       "女神外表下藏着一颗女神经的心。缺乏自信，向往药剂系的山洞面包人。专业的心理分析员及良好的情感聆听者。"
     ],
-    "id": 118
+    "gender": "female",
+    "id": 118,
+    "message": "一年的时光转眼即逝。感觉尚未开始，就已结束。感谢在这里遇见的每一个人，为我的青春增添光彩。祝福即将走向不同方向的大伙儿。今日乐相乐，别后莫相忘。",
+    "name": "Tan Min Yi",
+    "name_ch": "陈铭仪",
+    "one-liner": "蓝瘦香菇（难受想哭）  这个世界变了"
   },
   {
-    "message": "致美女们，虽然只相识短短几个月，但我会记得你们每一个人及我们所做过的所有蠢事。有缘再见。翼舞·憶留·懿霸❤",
-    "gender": "female",
     "describe_me": [
       "很特别，感觉的他人不一样的女孩。总是默默关心别人，贴心又细心。有时候是有ｑｕａｌｉｔｙ的朋友，但有时候很欠打，而且很好打。",
       "可靠，有品质的保镖对叻沙情有独钟，谢谢你总是给我们带来欢笑，有时觉得你蛮傻（尤其是１０ｓｅｎ的故事），我会成功影响你的。",
       "待长发及腰，君子娶她可好？要她留长发？休想！她可是以这头狗毛感到骄傲的！她是ＫＬＩＡ（自己猜吧）"
     ],
-    "name_ch": "吴淑菁",
+    "gender": "female",
+    "id": 119,
+    "message": "致美女们，虽然只相识短短几个月，但我会记得你们每一个人及我们所做过的所有蠢事。有缘再见。翼舞·憶留·懿霸❤",
     "name": "Goh Sook Jing",
-    "one-liner": "我很饿。不想上课。",
-    "id": 119
+    "name_ch": "吴淑菁",
+    "one-liner": "我很饿。不想上课。"
   },
   {
-    "message": "能在如同监狱般的这里遇见你们真是太好了。疯疯癫癫的你们感染了我 太感谢你们了。 希望毕业后我们还会一起癫XD ",
     "describe_me": [
       "短暂健忘症超严重又爱笑的加味。也是一个越来越没脑的人类，常说出惊人的牛话。体贴，人超ｎｉｃｅ，有义气。日本女生。偶尔超傻。",
       "名副其实的傻大姐，被调教得越来越没有脑了。笑声容易感染身边的人。发生难过的事都不会往心里去。体贴，贤惠的日本姐。©",
       "同样是第一个ｂａｔｃｈ的，本来感觉你是一个很文静的人，可是笑起来像疯疯癫癫的。一个蛮有体贴心的人，每天也开开心心的。赞！"
     ],
     "gender": "female",
-    "one-liner": "喂呀！哟！没有脑！干！Dry!顶他的肺啊！",
+    "id": 120,
+    "message": "能在如同监狱般的这里遇见你们真是太好了。疯疯癫癫的你们感染了我 太感谢你们了。 希望毕业后我们还会一起癫XD ",
     "name": "Kok Jia Wei",
     "name_ch": "郭佳蔚",
-    "id": 120
+    "one-liner": "喂呀！哟！没有脑！干！Dry!顶他的肺啊！"
   },
   {
-    "name": "Teh Keng Hoong",
-    "one-liner": "Ｄｉｕ，操，干，香蕉皮，大妈，小鬼，三十三",
-    "name_ch": "郑庆鸿",
-    "gender": "male",
-    "message": "在这里的生活 一开始我还以为会很寂寞，可是我却认识了你们。每次我伤心的时候却安慰我， 我寂寞的时候陪着我。谢谢你们 陪伴着我 让我感觉这里的生活是多么精彩的。 有你们所以我快乐！",
     "describe_me": [
       "人超好的！很照顾别人。每次心情不好时，都是他第一个发现，虽然口上说没事可是心里却很感激的一个朋友。谢谢你！",
       "应该是ｏｒｉｅｎｔａｔｉｏｎ　ｗｅｅｋ前后认识的，为人也挺好，为人爽快。感激你父母给我们带饭，真是感动。每次都彼此关心，安慰。真的希望友谊永恒，＾＿＾！",
       "很会酸人，但却酸得很搞笑，幽默。人也挺好的，会关心别人。三个月过去了，别忘了你我之间的羽球对战。期待下次的出游旅行。"
     ],
-    "id": 121
+    "gender": "male",
+    "id": 121,
+    "message": "在这里的生活 一开始我还以为会很寂寞，可是我却认识了你们。每次我伤心的时候却安慰我， 我寂寞的时候陪着我。谢谢你们 陪伴着我 让我感觉这里的生活是多么精彩的。 有你们所以我快乐！",
+    "name": "Teh Keng Hoong",
+    "name_ch": "郑庆鸿",
+    "one-liner": "Ｄｉｕ，操，干，香蕉皮，大妈，小鬼，三十三"
   },
   {
     "describe_me": [
@@ -1569,38 +1569,38 @@
       "活跃好动、侃侃而谈、能够炒热气氛、喜欢找插、笑容满面、性格爽朗、但非一般的笑声、华文造诣高、慧淇“会骑”，其实不“会骑”。",
       "性格开朗，无时无刻都是在excited state。她的antenna特别长，宇宙里发生的任何大小事都逃不出她的手掌。像只大头虾，总是丢三落四。"
     ],
-    "one-liner": "狗咯你，我真的是醉了",
-    "name_ch": "陈慧淇",
     "gender": "female",
+    "id": 122,
     "message": "缘分让我们在这片油棕园里遇见彼此 也许只是彼此生命中的过客 但你我的友谊会成为最美好的回忆 毕业快乐 朋友",
     "name": "Tan Hui Chee",
-    "id": 122
+    "name_ch": "陈慧淇",
+    "one-liner": "狗咯你，我真的是醉了"
   },
   {
-    "gender": "male",
-    "name_ch": "陈勇昌",
-    "name": "Tan Yoong Chang",
-    "one-liner": "哪里可以这样的…你还没有请吃！x1000  我什么都不知道，我什么都没听到！",
-    "message": "时光荏苒，无论你我有多少眷念、不舍，都无法唤回逝去的时光。毕业、离别，或许是无可奈何的必然，只愿我留给你的，是美丽的记忆。",
     "describe_me": [
       "摸不透的一个人，从表面上有着完全看不懂的感觉。以前不熟时，以为你很木讷，后来才懂你思想那么“开放”。看脸就知道是学霸。",
       "让人舒服放轻松的一个人，可随心随意让我放肆说话但不会真正放心底的人。性格随和但有原则，有套路的腹黑狡黠家伙。",
       "刚认识的你高深莫测，却常设身处地。不久后，你是我们的百科全书，常助人为乐。经常雪中送炭，感谢你无私建议与劝告。"
     ],
-    "id": 123
+    "gender": "male",
+    "id": 123,
+    "message": "时光荏苒，无论你我有多少眷念、不舍，都无法唤回逝去的时光。毕业、离别，或许是无可奈何的必然，只愿我留给你的，是美丽的记忆。",
+    "name": "Tan Yoong Chang",
+    "name_ch": "陈勇昌",
+    "one-liner": "哪里可以这样的…你还没有请吃！x1000  我什么都不知道，我什么都没听到！"
   },
   {
-    "name_ch": "张宝琳",
-    "name": "Teoh Poh Lin",
-    "one-liner": "diam啦你，什么（somok）",
-    "message": "这趟油棕园之时光快铁已到站了，愿大家顺利各自搭上下一班梦想列车。98们，缘聚缘散，毕业快乐。",
-    "gender": "female",
     "describe_me": [
       "开朗、阳光、大方随和、想象力丰富。喜欢明朗的人际关系，不愿负上无谓的责任。大咧咧，单纯不做作，可以很自在地和她相处。",
       "直率、坦白、天马行空的想象。对摄影有甚高的要求、特别喜欢偷拍他人丑照、美术造诣高、不认识人面前蛮害羞、喜欢嘲笑人。",
       "对着外人总是摆着一副羞涩的面具，但只要和她混熟就会看到她疯狂的一面。爱搞鬼，总是想出很多的鬼点子来捉弄别人。"
     ],
-    "id": 124
+    "gender": "female",
+    "id": 124,
+    "message": "这趟油棕园之时光快铁已到站了，愿大家顺利各自搭上下一班梦想列车。98们，缘聚缘散，毕业快乐。",
+    "name": "Teoh Poh Lin",
+    "name_ch": "张宝琳",
+    "one-liner": "diam啦你，什么（somok）"
   },
   {
     "describe_me": [
@@ -1608,227 +1608,227 @@
       "他乐于助人，善于社交，喜欢参与各项大大小小的活动。属于那种宁愿独自承受伤害也不露出柔弱一面的双鱼男。",
       "平时看起来吊儿郎当，但只要认真做起事来就会变了个人，责任感很强。看起来很乐观，但只是习惯隐藏自己懦弱一面。"
     ],
-    "name_ch": "谢锦顺",
     "gender": "male",
-    "one-liner": "lol,haha没有用的  没有脑的",
+    "id": 125,
     "message": "来自不同地方的我们，拥有不同性格的我们，冥冥中在此相遇，是缘分，是巧合，是命中注定。只愿我们日后相遇还能有一丝的招呼，哪怕是点个头都好。",
     "name": "Chia Jin Soon",
-    "id": 125
+    "name_ch": "谢锦顺",
+    "one-liner": "lol,haha没有用的  没有脑的"
   },
   {
-    "message": "天下无不散之宴席，让我们挥手而去，愿在未来的人生旅途中，有缘相聚。",
-    "gender": "female",
     "describe_me": [
       "恬静犹如一面，即使有风情绪無，湖面倒映洋洋图，宝剑出鞘搅心湖。Steady La！",
       "初次印象，口冷心热，实际上，爽朗直率的妹纸一枚，很有自己的个性，且待人真诚。",
       "就像树上的苹果，刚认识就是青苹果，带着青涩陌生；熟了后就是红苹果，回味无穷！且行且珍惜。"
     ],
-    "one-liner": "可以不要酱吗？？？",
-    "name_ch": "黄敬欢",
+    "gender": "female",
+    "id": 126,
+    "message": "天下无不散之宴席，让我们挥手而去，愿在未来的人生旅途中，有缘相聚。",
     "name": "Ng Chin Huan",
-    "id": 126
+    "name_ch": "黄敬欢",
+    "one-liner": "可以不要酱吗？？？"
   },
   {
-    "name": "Ng Yan Jia",
-    "message": "时间是单程路，你买不到返程票。但有些面孔不会随时间的消磨而模糊，愿这短短的一年能成为你们永恒的美好回忆！",
-    "name_ch": "黄妍佳",
-    "gender": "female",
-    "one-liner": "猫！！！！",
     "describe_me": [
       "总是对外人摆出一副冷酷的脸，让人敬而远之。但只要和她混熟就会发现她可爱的一面。怕猫，想家，想吃时就会莫名撒起娇。",
       "性格外向，健谈，多才多艺，积极参与社团活动，但对猫产生余悸。",
       "猫之猎物，Aminah之爱“徒”。是为cubicle的摄影师，为我们减轻不少的负担。冷漠的外表下，是为琴“骑”书画样样精通的热血才女。"
     ],
-    "id": 127
+    "gender": "female",
+    "id": 127,
+    "message": "时间是单程路，你买不到返程票。但有些面孔不会随时间的消磨而模糊，愿这短短的一年能成为你们永恒的美好回忆！",
+    "name": "Ng Yan Jia",
+    "name_ch": "黄妍佳",
+    "one-liner": "猫！！！！"
   },
   {
-    "name": "Teoh Yong Kean",
-    "one-liner": "wooohooowww,wtf",
-    "name_ch": "张湧坚",
-    "gender": "male",
-    "message": "四季转瞬流逝, 无数个纵情欢乐的白天, 无数个熬夜书写的夜晚, 无数个绚烂而单纯的时刻, 是你我相遇的印迹。愿, 精彩无限!",
     "describe_me": [
       "六六大顺的大哥大，无时无刻都在听歌的学霸。擅长打鼓的男高音，虽然一直被欺负，却证明了他的好人缘。",
       "打鼓男神！打起鼓来魅力惊动鬼神！很关心朋友，会花时间去了解大家的现况。谢谢你一直给我们欺负，期待你往后lactate的日子！^^",
       "他，是我心中的大哥，总在需要帮助时出现，是个值得深交、信任、依赖的人。虽常被玩弄，但他的性格很好，和个子相反，非常大气。"
     ],
-    "id": 128
+    "gender": "male",
+    "id": 128,
+    "message": "四季转瞬流逝, 无数个纵情欢乐的白天, 无数个熬夜书写的夜晚, 无数个绚烂而单纯的时刻, 是你我相遇的印迹。愿, 精彩无限!",
+    "name": "Teoh Yong Kean",
+    "name_ch": "张湧坚",
+    "one-liner": "wooohooowww,wtf"
   },
   {
-    "gender": "male",
     "describe_me": [
       "一位篮球技术高超的绝世huan男！上课时的50%除了huan，就是看手机，和她chat！在LH吃东西是他的专长，在班上则受人爱慕。",
       "很好的聆听者，一个我很欣赏的领导人，欢得了，也认真得了，蛮street smart的，判断能力尚好，待我不薄，前程似锦，爱情美满幸福！",
       "看起来很geng，但认识后觉得是蛮sohai的。学业活动方面都很优秀。有点不正常，觉得自己很帅，有喜欢比中指，够huan，我喜欢。"
     ],
-    "one-liner": "可。以。不。要。吗？ （直）接OP，（直）接geng，接…",
+    "gender": "male",
+    "id": 129,
     "message": "良师益友没几个, 欢友风油辣椒粉 时光匆匆不回头, 要疯就要无厘头 感叹时间不够用, 不能永远一起疯 分开是为了再相聚",
-    "name_ch": "柯壬丰",
     "name": "Alfred Kuan Ren Hong",
-    "id": 129
+    "name_ch": "柯壬丰",
+    "one-liner": "可。以。不。要。吗？ （直）接OP，（直）接geng，接…"
   },
   {
-    "name_ch": "周子麟",
-    "gender": "male",
-    "name": "Chew Zi Lin",
-    "message": "感恩“缘分”把我们凝聚在这座森林。感恩在这里所认识的每一个人。虽然时间短暂，但创造的回忆却是永恒的。愿未来有缘再见！ ",
     "describe_me": [
       "善良若他，是个乐于助人的人。他很能倾听别人的心事，常常成为人家的“垃圾筒”，绝对是个能守秘密的人。",
       "性格成熟稳重，处事低调，也很有风度。他细心体贴，善解人意，能处处体谅别人。认真的他，做任何事都瞻前顾后，绝对值得信任！",
       "从小学就huan到现在。很好的朋友，虽然平时有点天然呆，但时常把欢乐带给身边的人。很刻苦，时常能苦中作乐，给人正能量。"
     ],
-    "one-liner": "ada discount tak?",
-    "id": 130
+    "gender": "male",
+    "id": 130,
+    "message": "感恩“缘分”把我们凝聚在这座森林。感恩在这里所认识的每一个人。虽然时间短暂，但创造的回忆却是永恒的。愿未来有缘再见！ ",
+    "name": "Chew Zi Lin",
+    "name_ch": "周子麟",
+    "one-liner": "ada discount tak?"
   },
   {
-    "name_ch": "陈芊颖",
-    "gender": "female",
     "describe_me": [
       "优雅端庄的淑女，有坐不摇牌，笑不露齿的气质。为人善良单纯，是个好相处的人。",
       "热心助人，善良。有个性并拥有独特的气质。非常刻苦，勤劳，所以学业成绩都相当优异。加上她的好嗓子，真是多才多艺！",
       "A very humble person.Pretty in appearance.Gentle and kind.Multi-talented and have a very sweet voice.A chemistry genius and an understanding friend.Doesn’t hurt anyone.A reliable person whom anyone can share their feeling with.Also,a girl with huge amount of patience."
     ],
+    "gender": "female",
+    "id": 131,
     "message": "非常荣幸能够在这里就读， 让我学会独立生活和与人相处之道， 让我从温室小花变成茁壮大树! 感恩所有帮助我的同学们和教导我的老师!",
     "name": "Tan Qian Ying",
-    "id": 131
+    "name_ch": "陈芊颖"
   },
   {
-    "name": "Chin Sin Chee",
-    "gender": "male",
     "describe_me": [
       "从外观上看起来笨拙，可却是一个学识渊博的人。为人乐于助人，是个会为兄弟两肋插刀的好朋友。他本着“人不犯我，我不犯人”的心态对待众人。",
       "不论身形，一副学霸的风范，是班上的“小老师”。虽然欠打，但其实挺热心助人，拔刀相助。最近桃花运不错，期待收到他的请柬。",
       "班上的数理天王，他认第二，没人敢认第一！活泼好动，爱逗人开心，是典型的“气氛制造者”。有他在的地方肯定笑声连连！"
     ],
-    "name_ch": "陈新志",
-    "one-liner": "走，要去kedai siswa吗？",
+    "gender": "male",
+    "id": 132,
     "message": "谢谢你們的陪伴, 这十个月是我人生中的光辉历史。命运把我们放在这里, 时间强制性地把我們分开。大家有缘再会！",
-    "id": 132
+    "name": "Chin Sin Chee",
+    "name_ch": "陈新志",
+    "one-liner": "走，要去kedai siswa吗？"
   },
   {
-    "name": "Teh Le Ni",
     "describe_me": [
       "她精明能干，才智过人，能有效率且认真地处理一切任务。坚强的她，总是笑着面对任何挫折，是有潜质的女强人。",
       "看似严肃，但其实是个疯子。不只学术精通，多才多艺，还十分讲义气，热心助人。虽然是女中豪杰，但不难发现其感性的一面。",
       "疯婆一个，但是一个可以共处的人。"
     ],
     "gender": "female",
+    "id": 133,
     "message": "相逢又告别，归帆又离岸，既是往日欢乐的终结，又是未来幸福的开端。相逢是问候，分离是祝福！毕业快乐！",
-    "name_ch": "郑乐妮",
-    "id": 133
+    "name": "Teh Le Ni",
+    "name_ch": "郑乐妮"
   },
   {
-    "message": "妇产科谁特懒趴仔。 10个月，老了5年。 肝都爆了，菊花还没爆。 拿过4张笛，也拿过4个A。 右手只能牵着左手，肉干也变肉丝了。",
     "describe_me": [
       "能和他一起熬过这里的生活，是我最大的荣幸。他，是我心目中的男神。有他，我才能坚持。感谢他给予的一切与爱。继续前进！一起加油！",
       "当椅子碰到冷耙子，当冷角提提神到我家门口，当彼此在东南相遇，印地重逢，到这里续缘，从丢操到sheit到咩咩。妇产科bro一个。",
       "思考型人物，但狂欢不可少了他。一切病毒又他传播，一切疯点子又他开始。感谢缘分让我们相识。"
     ],
-    "name_ch": "王志凯",
     "gender": "male",
-    "one-liner": "sheit , 大日子，一个好开始",
+    "id": 134,
+    "message": "妇产科谁特懒趴仔。 10个月，老了5年。 肝都爆了，菊花还没爆。 拿过4张笛，也拿过4个A。 右手只能牵着左手，肉干也变肉丝了。",
     "name": "Wan Zhi Kai",
-    "id": 134
+    "name_ch": "王志凯",
+    "one-liner": "sheit , 大日子，一个好开始"
   },
   {
-    "name": "Yiew Kah Ling",
-    "gender": "female",
-    "name_ch": "游家玲",
-    "message": "时间不留人，仿佛才熟悉这里的环境，就要说再见😢。从来没后悔进KMPk，是它让我遇见一群知心朋友❤。感谢你们的出现，我们有缘再见，爱你们❤.",
     "describe_me": [
       "有耐心有毅力又很善良的一个人。不知为什么，她就是有本事把朋友的坏情绪一扫而空，也能让朋友在心情好时加倍开心。",
       "是个很喜欢户外活动的美女。为人很善良也很乐于助人。她懂得如何安慰及鼓励别人。她有一种怪习惯，就是不喜欢吃白饭。",
       "The first time I met her,she was such a quiet girl but never expect her to be a funny one when I got to know her really well.Calling her a sports girl suits her though.She has an amazing personalities and not to forget her punctuality in anything she does was perfect."
     ],
-    "id": 135
+    "gender": "female",
+    "id": 135,
+    "message": "时间不留人，仿佛才熟悉这里的环境，就要说再见😢。从来没后悔进KMPk，是它让我遇见一群知心朋友❤。感谢你们的出现，我们有缘再见，爱你们❤.",
+    "name": "Yiew Kah Ling",
+    "name_ch": "游家玲"
   },
   {
-    "one-liner": "应该是……watak",
-    "message": "短暂却充实的一年，感谢互相扶持的朋友们，放肆疯狂的T1.07。今后我们将分道扬镳，但愿大家前程似锦。珍重，后会有期！",
-    "name_ch": "杨沅欣",
     "describe_me": [
       "聪明，机灵，huan起来简直不是人，随和，样样精通。总是向人伸出援手，帮助别人，无论课业或私事，可以谈心。感恩在青春里遇见你。",
       "他时常以不同角度理性看待事情，喜欢沉默，也喜欢发表自己的评论，可说他是个内向兼外的人。",
       "KMPk最高男神，戴上眼镜后像博士。读书，运动，打game…全部都强，没有不会的，讲话屌人酸人到无话可说的程度，就只输健槟罢了！"
     ],
     "gender": "male",
+    "id": 136,
+    "message": "短暂却充实的一年，感谢互相扶持的朋友们，放肆疯狂的T1.07。今后我们将分道扬镳，但愿大家前程似锦。珍重，后会有期！",
     "name": "Elvan Yeoh Yan Shin",
-    "id": 136
+    "name_ch": "杨沅欣",
+    "one-liner": "应该是……watak"
   },
   {
-    "name_ch": "张涵彬",
-    "one-liner": "Walao，你们不要坏啦   够了咯 ei 我的水罐leh  我抓你啊",
-    "message": "我想 我会想念这片油棕园 想念 这里遇见的每一个人 想念 这里发生的每一件事 回忆已烙印在心 愿大家一切安好 ",
     "describe_me": [
       "她是人类界里的扩音器，能震撼全场。与她无所不谈，非常“疗心”。怕肥但就是爱吃。对每件事情都要求完美。超级可爱的小女孩。",
       "从一开始看一些奇怪脑破的戏到现在看清一点的人生百态，白活了18年终于长大了。吊衣technique十分OP。总是喜欢让衣服生蘑菇。",
       "她是个非常单纯可爱的女孩。智障第一，高音让我耳疼。很好的朋友，认识了她，生活多了一些乐趣。麻雀虽小，五脏俱全的高材生。"
     ],
     "gender": "female",
+    "id": 137,
+    "message": "我想 我会想念这片油棕园 想念 这里遇见的每一个人 想念 这里发生的每一件事 回忆已烙印在心 愿大家一切安好 ",
     "name": "Teoh Han Pinn",
-    "id": 137
+    "name_ch": "张涵彬",
+    "one-liner": "Walao，你们不要坏啦   够了咯 ei 我的水罐leh  我抓你啊"
   },
   {
-    "name": "Chew Li May",
-    "gender": "female",
-    "one-liner": "叫他走开   叫他走开+1   叫他走开+2    ",
     "describe_me": [
       "对我来说，她对我非常好。其实，我自己也忘记了我们几时变得很亲密。在班上，她是最勤劳的人。",
       "她非常文静，但其实很有自己独特的思想。她很慢热，在陌生人面前容易脸红害羞。她也是个很有上进心的女生。",
       "容易害羞，尤其是在“他”的面前。自尊心很强，有原则且要求甚高，但稍嫌矜持保守。看似文静，但有时会有歇斯底里的一面。"
     ],
-    "name_ch": "周丽美",
+    "gender": "female",
+    "id": 138,
     "message": "一眨眼就要毕业了，回首这一年，我觉得自己过得很失败。如果再给我一次重来的机会，我一定会好好珍惜，让自己的生活更精彩。",
-    "id": 138
+    "name": "Chew Li May",
+    "name_ch": "周丽美",
+    "one-liner": "叫他走开   叫他走开+1   叫他走开+2    "
   },
   {
-    "name": "Ooi Jun Hao",
     "describe_me": [
       "他乐于助人，琴棋书画样样精，被友族誉为韩国小帅哥。为人执着，常人无法改变他的想法。虽然表面冰山，但也又疯狂的一面。",
       "喜欢拍人睡觉的照片的学霸。是一只敢爱敢恨的经典填写。一开始打算一起专心上课读书，结果却变成一起“犯罪”的死党。",
       "Sarjan就是sarjan，样样手艺精通，一有问题，第一个想到的肯定是你。最佳保“父”非你莫属。花自飘零水自流，一种固执，两处魅力。"
     ],
-    "name_ch": "黄君豪",
-    "message": "感謝在我最痛苦最難受的那一刻讓我遇見了你們,你們的陪伴制止了我想恢復獨行者的念頭,有你們,我,不孤單,謝謝你們。",
     "gender": "male",
-    "id": 139
+    "id": 139,
+    "message": "感謝在我最痛苦最難受的那一刻讓我遇見了你們,你們的陪伴制止了我想恢復獨行者的念頭,有你們,我,不孤單,謝謝你們。",
+    "name": "Ooi Jun Hao",
+    "name_ch": "黄君豪"
   },
   {
-    "one-liner": "等到妈妈的孩子都出世了/sheit",
     "describe_me": [
       "吃吃吃，睡睡睡，传说中的猪霸，吃饭吃两碗，上课常跟周公下棋，可是学业却跟得上，天理何在？他有着别人听后也会笑的鸡笑",
       "椅子拿到登加拉，去两个体育节撕下水果，中柱久点double都没这样蓝耙。仔子到了kmpk，发现道具组变猫就去kyochon唱Happy Birthday。妇产科诺噢噢吧。#tenggarawhostartsohai",
       "把?@#&$!当标点符号用的他，练就了不开口都能射人的本领。人称emo鹏，嘴巴小坏，但其实内心柔软，为人体贴。帅哥学霸一枚。"
     ],
-    "name": "Ooi Tze P'ng",
-    "message": "远别桃境容滔荆，乳壳腐朽棱愈圆；自存于骊山背景，故友相持换珍缘；定其心，养其性，长而惜福继情愿。",
     "gender": "male",
+    "id": 140,
+    "message": "远别桃境容滔荆，乳壳腐朽棱愈圆；自存于骊山背景，故友相持换珍缘；定其心，养其性，长而惜福继情愿。",
+    "name": "Ooi Tze P'ng",
     "name_ch": "黄子鹏",
-    "id": 140
+    "one-liner": "等到妈妈的孩子都出世了/sheit"
   },
   {
-    "name_ch": "陈莹珊",
-    "message": "能在18岁这年认识到你们真好",
-    "name": "Tan Ying Shan",
-    "gender": "female",
     "describe_me": [
       "个性虽和，乐观，爽快，说走就走！喜欢社交说话，，也是位小说迷。CSW狂饭，手机，电脑锁屏，壁纸处处可见其踪影。",
       "一个很活泼的女孩。性格开朗直爽。学霸一枚。学习力超强的。喜欢小说，偶尔一起打球。是少数在这我觉得在一起舒服的伙伴。",
       "就算韩流不再韩，她依然是崔始源的死粉。爱说话，热爱参与活动，个性十分活泼。无聊时有她就行了。"
     ],
-    "id": 141
+    "gender": "female",
+    "id": 141,
+    "message": "能在18岁这年认识到你们真好",
+    "name": "Tan Ying Shan",
+    "name_ch": "陈莹珊"
   },
   {
-    "name_ch": "黄燕婷",
-    "gender": "",
-    "message": "很开心能认识很多新朋友，包括异族同胞。因为离家远，开始学会如何自立，懂得容忍谦让等等。愿所有人前程似锦，健康快乐。",
     "describe_me": [
       "你看起来就是个宅女，知道你不喜欢出门。你也是很聪明，很厉害的。以后教我数学吧！",
       "所谓的神童指的就是她。她是一个会深入研究事物的人，学术上做什么都行。偶尔娱乐圈八卦也可以找她询问哦！",
       "一个喜欢安静，看起来很斯文的女孩。超级的学霸但也很宅。蛮单纯的一个人。学习力太强，偶尔会搞笑。谈得来的朋友。"
     ],
+    "gender": "",
+    "id": 142,
+    "message": "很开心能认识很多新朋友，包括异族同胞。因为离家远，开始学会如何自立，懂得容忍谦让等等。愿所有人前程似锦，健康快乐。",
     "name": "Ng Yen Ting",
-    "id": 142
+    "name_ch": "黄燕婷"
   },
   {
     "describe_me": [
@@ -1836,25 +1836,25 @@
       "不认识她的人会觉得她很冷酷。变熟后你就会发现她疯狂的程度肯定超乎你想像。虽不怎么会安慰人，但是很好的倾诉对象。",
       "对着外人总是一副冷酷羞涩的表情，对周遭的是物总是不闻不问，但和她熟了起来就会看透她那疯狂好玩，自恋的那一面。"
     ],
-    "one-liner": "社长还是会爱你的/社长脱裤给你看",
-    "name_ch": "李舒淇",
     "gender": "",
+    "id": 143,
     "message": "岁月只能带走我们夏花一样绚烂的青春，却驱不散留在我们记忆深处那漫山遍野的芬芳",
     "name": "Lee Su Khee",
-    "id": 143
+    "name_ch": "李舒淇",
+    "one-liner": "社长还是会爱你的/社长脱裤给你看"
   },
   {
-    "one-liner": "Diu！！！/几“七”sohai！",
-    "name_ch": "叶启裕",
-    "name": "Yah Qi Yu",
-    "message": "即将毕业了 舍不得大家 转眼间就10个月 感谢朋友们一路的陪伴 让我度过这艰苦的日子 有你 有我 有大家 ! ! !",
     "describe_me": [
       "他是名副其实的比sohai还更sohai的sohai神，每天露出底裤在iskandar跑来跑去，爱好是在厕所喊歌，是kmpk最骄傲的kakom player。",
       "刚认识他时觉得他人友善慷慨久而久之发现他更加sohai人也变得更幽默讽刺不过他为人真的很好人缘不错值得称友。",
       "第一天认识就是一直握手可是久了发现其实人品不错而且做事很有自己想法。最强运动细胞搞笑猥琐的裸男。"
     ],
     "gender": "male",
-    "id": 144
+    "id": 144,
+    "message": "即将毕业了 舍不得大家 转眼间就10个月 感谢朋友们一路的陪伴 让我度过这艰苦的日子 有你 有我 有大家 ! ! !",
+    "name": "Yah Qi Yu",
+    "name_ch": "叶启裕",
+    "one-liner": "Diu！！！/几“七”sohai！"
   },
   {
     "describe_me": [
@@ -1863,101 +1863,101 @@
       "个子很高，样子像马来人，有时候被人搞错。性格很随和，有时会开玩笑，射人很强。会打球，玩牌，玩足球游戏特别厉害，不需要controlle。"
     ],
     "gender": "male",
+    "id": 145,
     "message": "这短短的10个月,转眼间又要过了。很高兴能够在这地方认识大家,也希望大家以后都会有明亮并无限的前途。有缘再见。",
-    "name_ch": "郑凯杨",
     "name": "Gabriel Teh Khai Yang",
-    "id": 145
+    "name_ch": "郑凯杨"
   },
   {
-    "name": "Tan Shu Chuan",
-    "one-liner": "我要KC",
-    "name_ch": "陈仕川",
-    "message": "能和大家相遇在这片森林里，确实不容易。感谢大家一起创造了美好的回忆，更感谢我那班死党，让我拥有深刻的集体回忆。",
     "describe_me": [
       "去过中国四川吗？去过的人肯定认识他。他为人开淡定且幽默。他也是一位羽球健将，请多多指教。希望我们的友谊永固yo！",
       "四川四川。一叫人都知道。一开始来到这里的朋友，脸傻傻的可是却是一个羽毛球高手。其实你蛮帅的只是书我一点点咯！",
       "为人超怪懒的！每次在认真时做出怪懒的事。有时觉得他蛮孤僻的，什么事都不说。要记得有我们这班朋友可分担你的心事。"
     ],
     "gender": "male",
-    "id": 146
+    "id": 146,
+    "message": "能和大家相遇在这片森林里，确实不容易。感谢大家一起创造了美好的回忆，更感谢我那班死党，让我拥有深刻的集体回忆。",
+    "name": "Tan Shu Chuan",
+    "name_ch": "陈仕川",
+    "one-liner": "我要KC"
   },
   {
-    "one-liner": "两位大神，教我一下",
-    "message": "虽然在这里只是短短的一年，不过无论是在lecture hall、宿舍、球场都已创下许多毕生难忘的美好回忆。祝大家毕业快乐，梦想成真，前程似锦。",
-    "name_ch": "林威任",
-    "gender": "male",
-    "name": "Dominic Lim Wei Ren",
     "describe_me": [
       "个子不高，但颜值稍高，又莫名其妙当上TB副主席的F2男神，生病时有着把性感的噪音。无论如何，请保持你一如既往的微笑。",
       "颜值高运动细胞强驾车技术猛男神。一名常带着迷人的微笑而且是爱笑的眼睛。Dom，我们并肩作战一起奋斗吧！",
       "阳光男孩。人超奸讲话，乐于助人。上课时，多吃点零食，不用酱专心上课。Ponteng的时候，谢谢你帮忙签名。老师们的宝贝就是不一样。"
     ],
-    "id": 147
+    "gender": "male",
+    "id": 147,
+    "message": "虽然在这里只是短短的一年，不过无论是在lecture hall、宿舍、球场都已创下许多毕生难忘的美好回忆。祝大家毕业快乐，梦想成真，前程似锦。",
+    "name": "Dominic Lim Wei Ren",
+    "name_ch": "林威任",
+    "one-liner": "两位大神，教我一下"
   },
   {
-    "name_ch": "袁维康",
-    "name": "Yuen Wei Hong",
-    "gender": "male",
     "describe_me": [
       "超开朗的疯子，有着辨识度超高的嗓子，笑声也别有一凡风味。样子超屌，有他在的地方一定超high。孩子有病记得要医哦！操！",
       "厉害游泳游泳，很多鬼点子，很多话，很照顾队友，很开朗，没有看你生气过的样子，看起来不正经，但其实做起事情来还是蛮认真的。",
       "sipek siao 的吊子。笑声真让人笑破肚皮。挺能干的一个臭小子。Chelsea fans & 三个组长。和他讲话要隔一段距离，abo 会kena他的口水哦^^"
     ],
-    "one-liner": "为什么你酱慢的/不要weyyyyyy~/直接（straight）",
+    "gender": "male",
+    "id": 148,
     "message": "懒惰却能4.0的奇迹，当三个组长的忙碌，在T①零⑦的欢乐，看平凡的毕业感言，逃课被捉后的光荣，你们的十个月还算精彩？",
-    "id": 148
+    "name": "Yuen Wei Hong",
+    "name_ch": "袁维康",
+    "one-liner": "为什么你酱慢的/不要weyyyyyy~/直接（straight）"
   },
   {
-    "gender": "male",
-    "name_ch": "陈嘉骏",
-    "name": "Chan Ka Chun",
     "describe_me": [
       "讲话音不准却有很多话讲。很多朋友尤其是异性XDD。容易弄不见东西，很好的classmate，很好的partner，一起ponteng，一起上课讲老师。感谢有你。",
       "是做好朋友的料，为人很不错，有热诚，有想法，有胆识，有要求，唯一缺点就是太黑！是个我很看重的朋友和你“这类人”合作很爽。",
       "整天迟到，整天不见东西的人。第一眼看不出你是华人，好男生一位，好朋友一位，好classmate一位。"
     ],
+    "gender": "male",
+    "id": 149,
     "message": "生活是人们最好的老师。在这里与你们一起经历的事物，克服的困难都在有意无意间，让我成为更好的我。祝大家前程似锦!",
-    "one-liner": "做么你酱专业的/我觉得我要credit你一下",
-    "id": 149
+    "name": "Chan Ka Chun",
+    "name_ch": "陈嘉骏",
+    "one-liner": "做么你酱专业的/我觉得我要credit你一下"
   },
   {
-    "name": "Loh Jing En",
-    "one-liner": "what the…/mader!/又是我？！",
-    "message": "没想过自己会来到这片油棕园，也没想过会遇见一群这么huan的奇怪人类，更没想过这短短一年会因你们而精彩。爱你们哟!",
-    "gender": "",
     "describe_me": [
       "她性格开朗善良，脸微圆又不错能唱歌，但是个披羊皮的狼无比乖懒又爱捉弄人。被激怒时最爱眼睛连成线，比小指。",
       "人缘超好，跟什么人都可以聊上几句，办事能力佳的她可是TOC的重点人物。有时疯有时傻有时呆萌。祝她智商和身高一样高。",
       "初次见面有点女侠的风范，认识后好像从山里出来的小姑娘。天真的被人酸是种天赋，没看过酱会为人着想的大家姐。"
     ],
+    "gender": "",
+    "id": 150,
+    "message": "没想过自己会来到这片油棕园，也没想过会遇见一群这么huan的奇怪人类，更没想过这短短一年会因你们而精彩。爱你们哟!",
+    "name": "Loh Jing En",
     "name_ch": "骆净恩",
-    "id": 150
+    "one-liner": "what the…/mader!/又是我？！"
   },
   {
-    "name": "Goh Su Teng",
-    "gender": "",
-    "message": "虽我们身处这片荒山野林里, 但这里的温情却深深感动我。每天上演的一幕幕让人难以忘怀,尤其是我们十五一家。",
-    "name_ch": "吴舒婷",
-    "one-liner": "walao ehh/jilakak/WTF",
     "describe_me": [
       "虽一脸傻样但上得厨房吓得厅堂，未来绝对是一位贤妻良母。为朋友两肋插刀，是个值得深交的朋友。对事物的看法独到。",
       "嘿，舒小姐！一位贤妻良母的楷模！订Tr是她的支长，节俭的美德助她成为TOC的核心。大喇喇的性子造就了她成为F2的女神经。",
       "除了疯狂大笑时就是呆萌傻逼样，是一个正典的女神经乐于助人的她总是能为朋友上山下海，对非正义的是很之有恨。"
     ],
-    "id": 151
+    "gender": "",
+    "id": 151,
+    "message": "虽我们身处这片荒山野林里, 但这里的温情却深深感动我。每天上演的一幕幕让人难以忘怀,尤其是我们十五一家。",
+    "name": "Goh Su Teng",
+    "name_ch": "吴舒婷",
+    "one-liner": "walao ehh/jilakak/WTF"
   },
   {
-    "gender": "",
-    "one-liner": "唔怪你無知，唔怪你低B/真系冇相干嘎！/你的字可以写好来吗？你看我的字写到酱美",
-    "name_ch": "梁荔滎",
-    "name": "Leong Lei Yeng",
-    "message": "花若盛开 蝴蝶自来 人若精彩 天自安排",
     "describe_me": [
       "独特的想法造就了优秀强悍的她。爱家人爱朋友，对外人保有神秘的一面而内心世界的精彩只留给她所珍惜的人。",
       "你真系好man啊！不过我钟意！我其实好仰慕你嘎！你嘅笑声系我喺哩喥最美嘅回忆囖！咪挂住我哋啊！",
       "学霸。数学op！动作快。一下课就不见人影。在LH时，每次‘高高在上’，自己做自己的功课。其实人很好，每次借我功课抄，教我广东话！"
     ],
-    "id": 152
+    "gender": "",
+    "id": 152,
+    "message": "花若盛开 蝴蝶自来 人若精彩 天自安排",
+    "name": "Leong Lei Yeng",
+    "name_ch": "梁荔滎",
+    "one-liner": "唔怪你無知，唔怪你低B/真系冇相干嘎！/你的字可以写好来吗？你看我的字写到酱美"
   },
   {
     "describe_me": [
@@ -1965,50 +1965,50 @@
       "高富衰有点乖懒有点所嗨有点智障，不爽每一个老师，喜欢很sang的老师，很喜欢玩电话，钟是对爱情有一丝希望。",
       "IT OP！Study week 的时候超sang。但问他问题时却会回答。人看起来随便。有钱。但常说自己没钱。请不要跟我叫一样的名字。很sien的lehhh。"
     ],
-    "name_ch": "洪嘉骏",
-    "name": "Ang Jia Jun",
-    "one-liner": "diam la 你！/汪汪汪！",
     "gender": "male",
+    "id": 153,
     "message": "虽然刚开始根本没考虑进来，可在许多事影响下还是到这里了，真的并不后悔。最后一句，别看我照片有点怪，真人还是不赖的。",
-    "id": 153
+    "name": "Ang Jia Jun",
+    "name_ch": "洪嘉骏",
+    "one-liner": "diam la 你！/汪汪汪！"
   },
   {
-    "message": "逝去的青春，留不住的年华，放不下的回忆，专属你我的美好，谢谢你们陪我写下18岁这一年，祝:前程似锦，友谊长存。",
     "describe_me": [
       "人际关系很好，可当兄弟，上课特别专心，不耻下问，有典型的笑声，一“笑”惊人，做人有他原则，值得学习，唱歌打球自“嗨”，热爱华乐。",
       "很好的跟随者，若当领导，尚有进步空间，笑声惊人，有时觉得烦躁喜爱唱歌，懂得弹奏乐器，建议多，效率高，事事尽心尽力。",
       "具有不耻下问的美德，是老师们的爱徒。办事能力强，是个好搭档。印象深刻非那典型的笑声莫属了，超级可怕，相当爱家乡的。"
     ],
     "gender": "male",
-    "one-liner": "他娘的几也XP",
-    "name_ch": "许鹤议",
+    "id": 154,
+    "message": "逝去的青春，留不住的年华，放不下的回忆，专属你我的美好，谢谢你们陪我写下18岁这一年，祝:前程似锦，友谊长存。",
     "name": "Khor Heh Yih",
-    "id": 154
+    "name_ch": "许鹤议",
+    "one-liner": "他娘的几也XP"
   },
   {
-    "name": "Seow Yi Zhuo",
-    "gender": "male",
-    "message": "我真的很感激在这里可以认识到你们。我希望我们的友情可以持续一生。",
-    "one-liner": "亲爱的~~~~",
-    "name_ch": "萧乙卓",
     "describe_me": [
       "屎忽鬼，有钱仔，去马六甲一定要jio嘅好拍档，揾日，我哋再去搞大雪糕！你间房係我最好的嘅归宿！",
       "好拍档，毕业后不要忘记我啊！谢谢你帮我那么多，我会好好记住的！未来加油哦！祝福你前程似锦",
       "阁下莫非就是玉树凌风，风流倜傥，英俊潇洒，号称一朵梨花压海棠人送绰号上天下地无所不能玉面小飞龙，唐伯虎，嘅马仔？"
     ],
-    "id": 155
+    "gender": "male",
+    "id": 155,
+    "message": "我真的很感激在这里可以认识到你们。我希望我们的友情可以持续一生。",
+    "name": "Seow Yi Zhuo",
+    "name_ch": "萧乙卓",
+    "one-liner": "亲爱的~~~~"
   },
   {
-    "name": "Kang Pin Jen",
-    "name_ch": "江秉谦",
     "describe_me": [
       "高！每次一起share用洗衣机，MU fans，羽球强，一起参加过乒乓比赛，但3-0被淘汰，petanque比赛，第一round被你的组淘汰。那场比赛超激烈的！！",
       "高！sipek高！太高了！不知道你做么那么高。很少的朋友，虽然看起来单纯，说起话来吓死人。他说话直接，为人随便，挺好相处的朋友。",
       "从小学认识你，你真的是一个很谦虚又真诚的朋友。比起，你成长了不少(而且越来越高)你变了更成熟，更有责任，更强haha。"
     ],
-    "message": "转眼间我们就要毕业了！在预科班那绚丽和多彩的时光是我们一生不能忘却的。大家一起加油为自己的理想而奋斗吧！",
-    "one-liner": "Eh，zomok有好心人帮我们拿衣服的！？",
     "gender": "male",
-    "id": 156
+    "id": 156,
+    "message": "转眼间我们就要毕业了！在预科班那绚丽和多彩的时光是我们一生不能忘却的。大家一起加油为自己的理想而奋斗吧！",
+    "name": "Kang Pin Jen",
+    "name_ch": "江秉谦",
+    "one-liner": "Eh，zomok有好心人帮我们拿衣服的！？"
   }
 ]
