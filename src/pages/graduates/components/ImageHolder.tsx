@@ -1,4 +1,4 @@
-import { Skeleton } from "@mui/material";
+import Skeleton from "@mui/material/Skeleton";
 import GraduatesPortrait from "pages/graduates/portraits/graduates-portrait.constants";
 import React, { useEffect, useState, useTransition } from "react";
 
