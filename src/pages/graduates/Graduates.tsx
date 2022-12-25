@@ -5,7 +5,6 @@ import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import CircularProgress from "@mui/material/CircularProgress";
 import Container from "@mui/material/Container";
 import Menu from "@mui/material/Menu";
@@ -13,9 +12,11 @@ import MenuItem from "@mui/material/MenuItem";
 import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import graduatesData from "assets/json/graduates_public.json";
 import AwesomeDebouncePromise from "awesome-debounce-promise";
 import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
+import ImageHolder from "./components/ImageHolder";
 import { SORT_CRITERIA } from "./graduates.constants";
 import { filterItems, sortGraduates } from "./sort.utils";
 
@@ -92,14 +93,13 @@ const Root = styled("div")(({ theme }) => ({
 }));
 
 export interface GraduateData {
-  id: string;
-  image: string;
+  id: number;
   name: string;
-  name_ch: string;
+  name_ch?: string;
   gender: string;
   message: string;
-  one_liner: string;
-  describe_me?: string[];
+  one_liner?: string;
+  describe_me: string[];
   birthday?: string;
   tutorial?: string;
   phone?: string;
@@ -107,15 +107,15 @@ export interface GraduateData {
 }
 
 interface GraduatesData {
-  data: GraduateData[] | null;
-  ordered: GraduateData[] | null;
+  data: GraduateData[];
+  ordered: GraduateData[];
 }
 
 function Graduates() {
   const isVerified = false;
   const [graduates, setGraduates] = useState<GraduatesData>({
-    data: null,
-    ordered: null,
+    data: graduatesData,
+    ordered: graduatesData,
   });
   const [sortBy, setSortBy] = useState<{
     label: string;
@@ -239,10 +239,9 @@ function Graduates() {
                     className={classes.link}
                     to={`/graduates/${graduate.id}`}
                   >
-                    <CardMedia
+                    <ImageHolder
                       className={classes.cardMedia}
-                      image={graduate.image}
-                      title={graduate.name}
+                      graduateName={graduate.name}
                     />
                   </Link>
                 </CardActionArea>

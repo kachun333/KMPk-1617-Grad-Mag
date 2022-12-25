@@ -30,7 +30,7 @@ export function filterItems(
   items.forEach((item) => {
     const shouldAdd =
       item.name.toLowerCase().includes(lowercaseSearchTerm) ||
-      item.name_ch.includes(searchTerm);
+      !!item.name_ch?.includes(searchTerm);
     if (shouldAdd) res.push(item);
   });
   return res;

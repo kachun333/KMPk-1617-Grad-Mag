@@ -6,6 +6,9 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import GraduatesImage from "assets/images/banner/graduates.jpg";
+import HomeImage from "assets/images/banner/home.jpg";
+import VideosImage from "assets/images/banner/videos.jpg";
 import Banner from "components/common/Banner";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -74,21 +77,22 @@ const cards = [
   {
     title: "Graduates",
     link: "graduates",
-    image:
-      "https://firebasestorage.googleapis.com/v0/b/ourpromise.appspot.com/o/banners%2Fgraduates.jpg?alt=media&token=602999e3-4041-4479-b74e-227752611dcf",
+    image: GraduatesImage,
   },
   {
     title: "KMPk TV",
     link: "videos",
-    image:
-      "https://firebasestorage.googleapis.com/v0/b/ourpromise.appspot.com/o/banners%2Fvideos.jpg?alt=media&token=76c9abd3-2abf-45cd-80f1-d2e38032ef1a",
+    image: VideosImage,
   },
 ];
 
 function Home() {
   return (
     <Root>
-      <Banner banner="home" />
+      <Banner
+        banner={HomeImage}
+        alt="A heartwarming group photo of KMPk 16/17 students"
+      />
       <Container className={classes.container}>
         <Box id="about" className={classes.section}>
           <Typography variant="h3" className={classes.paragraph}>
