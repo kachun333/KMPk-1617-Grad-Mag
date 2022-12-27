@@ -2,6 +2,7 @@ name: 🐛 Bug
 description: Report an issue to help improve the project.
 labels: ["🛠 goal: fix"]
 body:
+
   - type: textarea
     id: description
     attributes:
@@ -9,6 +10,7 @@ body:
       description: A brief description of the question or issue, also include what you tried and what didn't work
     validations:
       required: true
+      
   - type: textarea
     id: reproduce
     attributes:
@@ -20,8 +22,9 @@ body:
         3. Scroll down to '....'
         4. See error
       render: bash
+      
   - type: textarea
-    id: expected behavior
+    id: expected-behavior
     attributes:
       label: "Expected behavior"
       description: Please enter an expected behavior of code
