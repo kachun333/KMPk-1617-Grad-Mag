@@ -1,6 +1,6 @@
 name: 🐛 Bug
 description: Report an issue to help improve the project.
-labels: ["🛠 goal: fix"]
+labels: ["bug"]
 body:
 
   - type: textarea
@@ -28,8 +28,6 @@ body:
     attributes:
       label: "Expected behavior"
       description: Please enter an expected behavior of code
-    validations:
-      required: true
       
   - type: textarea
     id: screenshots
