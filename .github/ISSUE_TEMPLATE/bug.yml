@@ -5,7 +5,6 @@ description: Report an issue to help improve the project.
 labels: ["🛠 goal: fix"]
 
 body:
-
   - type: textarea
     id: description
     attributes:
@@ -13,7 +12,6 @@ body:
       description: A brief description of the question or issue, also include what you tried and what didn't work
     validations:
       required: true
-    
   - type: textarea
     id: reprod
     attributes:
@@ -25,7 +23,6 @@ body:
         3. Scroll down to '....'
         4. See error
       render: bash
-      
   - type: textarea
     id: expected behavior
     attributes:
@@ -41,7 +38,7 @@ body:
       description: Please add screenshots if applicable
     validations:
       required: false
-      
+    
   - type: dropdown
     id: os
     attributes:
