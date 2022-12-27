@@ -7,20 +7,13 @@ labels: ["🛠 goal: fix"]
 body:
 
   - type: textarea
-
     id: description
-
     attributes:
-
       label: Description
-
       description: A brief description of the question or issue, also include what you tried and what didn't work
-
     validations:
-
       required: true
-      
-  
+    
   - type: textarea
     id: reprod
     attributes:
@@ -33,7 +26,6 @@ body:
         4. See error
       render: bash
       
-  
   - type: textarea
     id: expected behavior
     attributes:
@@ -43,17 +35,11 @@ body:
       required: true
       
   - type: textarea
-
     id: screenshots
-
     attributes:
-
       label: Screenshots
-
       description: Please add screenshots if applicable
-
     validations:
-
       required: false
       
   - type: dropdown
@@ -70,16 +56,10 @@ body:
       required: false
       
   - type: textarea
-
     id: extrainfo
-
     attributes:
-
       label: Additional information
-
       description: Is there anything else we should know about this bug?
-
     validations:
-
       required: false
 
