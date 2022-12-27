@@ -10,9 +10,9 @@ body:
     validations:
       required: true
   - type: textarea
-    id: reprod
+    id: reproduce
     attributes:
-      label: "Reproduction steps"
+      label: Reproduction steps
       description: Please enter an explicit description of your issue
       value: |
         1. Go to '...'
