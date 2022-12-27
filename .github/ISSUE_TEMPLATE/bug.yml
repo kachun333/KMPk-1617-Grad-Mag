@@ -19,7 +19,29 @@ body:
     validations:
 
       required: true
-
+      
+  
+  - type: textarea
+    id: reprod
+    attributes:
+      label: "Reproduction steps"
+      description: Please enter an explicit description of your issue
+      value: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+      render: bash
+      
+  
+  - type: textarea
+    id: expected behavior
+    attributes:
+      label: "Expected behavior"
+      description: Please enter an expected behavior of code
+    validations:
+      required: true
+      
   - type: textarea
 
     id: screenshots
@@ -33,7 +55,20 @@ body:
     validations:
 
       required: false
-
+      
+  - type: dropdown
+    id: os
+    attributes:
+      label: "OS"
+      description: What is the impacted environment ?
+      multiple: true
+      options:
+        - Windows
+        - Linux
+        - Mac
+    validations:
+      required: false
+      
   - type: textarea
 
     id: extrainfo
@@ -48,8 +83,3 @@ body:
 
       required: false
 
-  - type: markdown
-
-    attributes:
-
-      value: |
