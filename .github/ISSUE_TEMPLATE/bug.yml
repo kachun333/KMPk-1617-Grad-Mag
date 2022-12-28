@@ -27,7 +27,7 @@ body:
     id: expected-behavior
     attributes:
       label: "Expected behavior"
-      description: Please enter an expected behavior of code
+      description: Please describe the expected behavior
       
   - type: textarea
     id: screenshots
