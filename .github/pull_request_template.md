@@ -4,21 +4,9 @@
 
 - resolved 
 
-## Changes proposed
+## Describe Your Changes
 
-<!-- List all the proposed changes in your PR -->
-
-<!-- Mark all the applicable boxes. To mark the box as done follow the following conventions -->
-
-<!--
-
-[x] - Correct; marked as done
-
-[X] - Correct; marked as done
-
-[ ] - Not correct; marked as **not** done
-
--->
+-
 
 
 ## Screenshots
