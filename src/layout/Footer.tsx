@@ -4,8 +4,8 @@ import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import Bottle from "assets/images/bottle.png";
-import FooterImg from "assets/images/footer.png";
+import Bottle from "assets/images/bottle.webp";
+import FooterImg from "assets/images/footer.webp";
 import React from "react";
 
 const PREFIX = "Footer";

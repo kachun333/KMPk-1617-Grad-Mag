@@ -13,7 +13,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { styled } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Logo from "assets/images/logo.png";
+import Logo from "assets/images/logo.webp";
 import useAppTitle from "providers/app-title/useAppTitle";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
