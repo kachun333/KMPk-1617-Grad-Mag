@@ -1,8 +1,14 @@
 import Skeleton from "@mui/material/Skeleton";
+import { styled } from "@mui/material/styles";
 import { ref as storageRef } from "firebase/storage";
 import useFirebase from "providers/firebase/useFirebase";
 import React from "react";
 import { useDownloadURL } from "react-firebase-hooks/storage";
+
+const ErrorText = styled("div")(() => ({
+  textAlign: "center",
+  marginTop: 20,
+}));
 
 interface ImageHolderProps {
   className?: string;
@@ -19,12 +25,16 @@ const ImageHolder: React.FC<ImageHolderProps> = ({
     `webp/graduates/${graduateName}.webp`
   );
   const [srcUrl, loading, error] = useDownloadURL(storageReference);
-  if (error) {
-    // TODO: better error UI
-    return <>Error!</>;
-  }
-  if (loading || !srcUrl) {
+  if (loading) {
     return <Skeleton className={className} variant="rectangular" />;
+  }
+  if (error || !srcUrl) {
+    return (
+      <div className={className}>
+        <ErrorText>Failed to load image!</ErrorText>
+        <ErrorText>Please contact administrator for more information</ErrorText>
+      </div>
+    );
   }
   return (
     <img
