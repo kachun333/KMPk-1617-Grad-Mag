@@ -1,9 +1,6 @@
-import { GraduateData } from "./Graduates";
+import { Graduate } from "./graduates.interface";
 
-export function sortGraduates(
-  data: GraduateData[],
-  fieldName: keyof GraduateData
-) {
+export function sortGraduates(data: Graduate[], fieldName: keyof Graduate) {
   return data.sort((a, b) => {
     const aValue = a[fieldName];
     const bValue = b[fieldName];
@@ -21,11 +18,8 @@ export function sortGraduates(
   });
 }
 
-export function filterItems(
-  items: GraduateData[],
-  searchTerm: string
-): GraduateData[] {
-  const res: GraduateData[] = [];
+export function filterItems(items: Graduate[], searchTerm: string): Graduate[] {
+  const res: Graduate[] = [];
   const lowercaseSearchTerm = searchTerm.toLowerCase();
   items.forEach((item) => {
     const shouldAdd =
