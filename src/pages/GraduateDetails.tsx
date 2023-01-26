@@ -19,7 +19,7 @@ import {
 import { styled } from "@mui/material/styles";
 import React from "react";
 import { Link } from "react-router-dom";
-import ImageHolder from "./graduates/components/ImageHolder";
+import ImageHolder from "./graduates/components/card/ImageHolder";
 import { GraduateData } from "./graduates/Graduates";
 
 const PREFIX = "GraduateDetails";
@@ -116,7 +116,12 @@ function GraduateDetails() {
           </IconButton>
         </Toolbar>
         {graduate?.name && (
-          <ImageHolder className={classes.image} graduateName={graduate.name} />
+          <ImageHolder
+            // TODO
+            imgHeight={0}
+            imgWidth={0}
+            graduateName={graduate.name}
+          />
         )}
       </Box>
       <Box className={classes.list}>

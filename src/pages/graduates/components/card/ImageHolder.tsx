@@ -11,12 +11,23 @@ const ErrorText = styled("div")(() => ({
 }));
 
 interface ImageHolderProps {
-  className?: string;
+  /**
+   * height of <img />, helps improve render performance
+   */
+  imgHeight: string | number;
+  /**
+   * width of <img />, helps improve render performance
+   */
+  imgWidth: string | number;
+  /**
+   * will not fetch image yet if true
+   */
   graduateName: string;
 }
 
 const ImageHolder: React.FC<ImageHolderProps> = ({
-  className,
+  imgHeight,
+  imgWidth,
   graduateName,
 }) => {
   const { storage } = useFirebase();
@@ -26,11 +37,11 @@ const ImageHolder: React.FC<ImageHolderProps> = ({
   );
   const [srcUrl, loading, error] = useDownloadURL(storageReference);
   if (loading) {
-    return <Skeleton className={className} variant="rectangular" />;
+    return <Skeleton height="100%" variant="rectangular" />;
   }
   if (error || !srcUrl) {
     return (
-      <div className={className}>
+      <div>
         <ErrorText>Failed to load image!</ErrorText>
         <ErrorText>Please contact administrator for more information</ErrorText>
       </div>
@@ -38,7 +49,9 @@ const ImageHolder: React.FC<ImageHolderProps> = ({
   }
   return (
     <img
-      className={className}
+      width={imgWidth}
+      height={imgHeight}
+      loading="lazy"
       src={srcUrl}
       alt={`Freestyle Graduate Portrait of ${graduateName}`}
     />
