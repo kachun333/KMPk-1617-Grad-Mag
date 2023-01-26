@@ -15,7 +15,8 @@ interface GraduateCardProps {
 
 const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
   const { ref, inView } = useInView({
-    rootMargin: "100% 0px",
+    triggerOnce: true,
+    rootMargin: "50% 0px",
   });
 
   return (
@@ -39,7 +40,12 @@ const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
               },
             })}
           >
-            <ImageHolder hide={!inView} graduateName={graduate.name} />
+            <ImageHolder
+              imgWidth="282"
+              imgHeight="188"
+              lazyLoading={!inView}
+              graduateName={graduate.name}
+            />
           </Box>
         </S.Link>
       </CardActionArea>

@@ -11,43 +11,51 @@ const ErrorText = styled("div")(() => ({
 }));
 
 interface ImageHolderProps {
-  hide?: boolean;
-  className?: string;
+  /**
+   * height of <img />, helps improve render performance
+   */
+  imgHeight: string | number;
+  /**
+   * width of <img />, helps improve render performance
+   */
+  imgWidth: string | number;
+  /**
+   * will not fetch image yet if true
+   */
+  lazyLoading?: boolean;
   graduateName: string;
 }
 
 const ImageHolder: React.FC<ImageHolderProps> = ({
-  hide,
-  className,
+  imgHeight,
+  imgWidth,
+  lazyLoading,
   graduateName,
 }) => {
   const { storage } = useFirebase();
-  const storageReference = storageRef(
-    storage,
-    `webp/graduates/${graduateName}.webp`
-  );
+  const storageReference = !lazyLoading
+    ? storageRef(storage, `webp/graduates/${graduateName}.webp`)
+    : null;
   const [srcUrl, loading, error] = useDownloadURL(storageReference);
-  if (loading) {
+  if (lazyLoading || loading) {
     return <Skeleton height="100%" variant="rectangular" />;
   }
   if (error || !srcUrl) {
     return (
-      <div className={className}>
+      <div>
         <ErrorText>Failed to load image!</ErrorText>
         <ErrorText>Please contact administrator for more information</ErrorText>
       </div>
     );
   }
   return (
-    !hide && (
-      <img
-        height="100%"
-        width="100%"
-        loading="lazy"
-        src={srcUrl}
-        alt={`Freestyle Graduate Portrait of ${graduateName}`}
-      />
-    )
+    <img
+      width={imgWidth}
+      height={imgHeight}
+      loading="lazy"
+      src={srcUrl}
+      alt={`Freestyle Graduate Portrait of ${graduateName}`}
+    />
   );
 };
 
