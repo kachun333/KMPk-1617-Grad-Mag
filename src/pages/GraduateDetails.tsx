@@ -116,7 +116,12 @@ function GraduateDetails() {
           </IconButton>
         </Toolbar>
         {graduate?.name && (
-          <ImageHolder className={classes.image} graduateName={graduate.name} />
+          <ImageHolder
+            // TODO
+            imgHeight={0}
+            imgWidth={0}
+            graduateName={graduate.name}
+          />
         )}
       </Box>
       <Box className={classes.list}>
