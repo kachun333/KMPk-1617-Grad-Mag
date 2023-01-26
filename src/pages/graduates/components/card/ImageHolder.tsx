@@ -11,11 +11,13 @@ const ErrorText = styled("div")(() => ({
 }));
 
 interface ImageHolderProps {
+  hide?: boolean;
   className?: string;
   graduateName: string;
 }
 
 const ImageHolder: React.FC<ImageHolderProps> = ({
+  hide,
   className,
   graduateName,
 }) => {
@@ -26,7 +28,7 @@ const ImageHolder: React.FC<ImageHolderProps> = ({
   );
   const [srcUrl, loading, error] = useDownloadURL(storageReference);
   if (loading) {
-    return <Skeleton className={className} variant="rectangular" />;
+    return <Skeleton height="100%" variant="rectangular" />;
   }
   if (error || !srcUrl) {
     return (
@@ -37,11 +39,15 @@ const ImageHolder: React.FC<ImageHolderProps> = ({
     );
   }
   return (
-    <img
-      className={className}
-      src={srcUrl}
-      alt={`Freestyle Graduate Portrait of ${graduateName}`}
-    />
+    !hide && (
+      <img
+        height="100%"
+        width="100%"
+        loading="lazy"
+        src={srcUrl}
+        alt={`Freestyle Graduate Portrait of ${graduateName}`}
+      />
+    )
   );
 };
 
