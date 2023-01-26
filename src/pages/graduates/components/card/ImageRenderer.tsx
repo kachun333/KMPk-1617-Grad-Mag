@@ -10,7 +10,7 @@ const ErrorText = styled("div")(() => ({
   marginTop: 20,
 }));
 
-interface ImageHolderProps {
+interface ImageRendererProps {
   /**
    * height of <img />, helps improve render performance
    */
@@ -25,7 +25,7 @@ interface ImageHolderProps {
   graduateName: string;
 }
 
-const ImageHolder: React.FC<ImageHolderProps> = ({
+const ImageRenderer: React.FC<ImageRendererProps> = ({
   imgHeight,
   imgWidth,
   graduateName,
@@ -58,4 +58,4 @@ const ImageHolder: React.FC<ImageHolderProps> = ({
   );
 };
 
-export default ImageHolder;
+export default ImageRenderer;

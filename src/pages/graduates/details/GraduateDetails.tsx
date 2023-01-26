@@ -17,7 +17,7 @@ import {
   Typography,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import ImageHolder from "pages/graduates/components/card/ImageHolder";
+import ImageRenderer from "pages/graduates/components/card/ImageRenderer";
 import { Graduate } from "pages/graduates/graduates.interface";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -116,7 +116,7 @@ function GraduateDetails() {
           </IconButton>
         </Toolbar>
         {graduate?.name && (
-          <ImageHolder
+          <ImageRenderer
             // TODO
             imgHeight={0}
             imgWidth={0}
