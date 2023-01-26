@@ -40,12 +40,13 @@ const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
               },
             })}
           >
-            <ImageHolder
-              imgWidth="282"
-              imgHeight="188"
-              lazyLoading={!inView}
-              graduateName={graduate.name}
-            />
+            {inView && (
+              <ImageHolder
+                imgWidth="282"
+                imgHeight="188"
+                graduateName={graduate.name}
+              />
+            )}
           </Box>
         </S.Link>
       </CardActionArea>

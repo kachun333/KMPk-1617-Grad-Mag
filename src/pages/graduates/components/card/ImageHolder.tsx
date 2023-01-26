@@ -22,22 +22,21 @@ interface ImageHolderProps {
   /**
    * will not fetch image yet if true
    */
-  lazyLoading?: boolean;
   graduateName: string;
 }
 
 const ImageHolder: React.FC<ImageHolderProps> = ({
   imgHeight,
   imgWidth,
-  lazyLoading,
   graduateName,
 }) => {
   const { storage } = useFirebase();
-  const storageReference = !lazyLoading
-    ? storageRef(storage, `webp/graduates/${graduateName}.webp`)
-    : null;
+  const storageReference = storageRef(
+    storage,
+    `webp/graduates/${graduateName}.webp`
+  );
   const [srcUrl, loading, error] = useDownloadURL(storageReference);
-  if (lazyLoading || loading) {
+  if (loading) {
     return <Skeleton height="100%" variant="rectangular" />;
   }
   if (error || !srcUrl) {
