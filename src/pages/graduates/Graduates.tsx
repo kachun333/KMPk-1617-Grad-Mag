@@ -2,21 +2,15 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
-import CardActionArea from "@mui/material/CardActionArea";
-import CardContent from "@mui/material/CardContent";
-import CircularProgress from "@mui/material/CircularProgress";
 import Container from "@mui/material/Container";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
 import graduatesData from "assets/json/graduates_public.json";
 import AwesomeDebouncePromise from "awesome-debounce-promise";
 import React, { useCallback, useState } from "react";
-import { Link } from "react-router-dom";
-import ImageHolder from "./components/ImageHolder";
+import GraduateCard from "./components/card/GraduateCard";
 import { SORT_CRITERIA } from "./graduates.constants";
 import { filterItems, sortGraduates } from "./sort.utils";
 
@@ -28,10 +22,6 @@ const classes = {
   searchBar: `${PREFIX}-searchBar`,
   advancedSearch: `${PREFIX}-advancedSearch`,
   sortBy: `${PREFIX}-sortBy`,
-  card: `${PREFIX}-card`,
-  cardMedia: `${PREFIX}-cardMedia`,
-  link: `${PREFIX}-link`,
-  cardContent: `${PREFIX}-cardContent`,
 };
 
 // TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
@@ -64,31 +54,6 @@ const Root = styled("div")(({ theme }) => ({
 
   [`& .${classes.sortBy}`]: {
     marginTop: theme.spacing(1),
-  },
-
-  [`& .${classes.card}`]: {
-    margin: "4px",
-    width: "43.2vw",
-    [theme.breakpoints.up("md")]: {
-      width: "282px",
-    },
-  },
-
-  [`& .${classes.cardMedia}`]: {
-    height: "28.8vw",
-    [theme.breakpoints.up("md")]: {
-      height: "188px",
-    },
-  },
-
-  [`& .${classes.link}`]: {
-    textDecoration: "none",
-    color: "inherit",
-  },
-
-  [`& .${classes.cardContent}`]: {
-    padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
-    paddingBottom: `${theme.spacing(1)} !important`,
   },
 }));
 
@@ -229,35 +194,10 @@ function Graduates() {
             })}
           </Menu>
         </Box>
-
         <Box id="graduates-images" className={classes.section}>
-          {graduates.ordered ? (
-            graduates.ordered.map((graduate) => (
-              <Card key={graduate.id} className={classes.card}>
-                <CardActionArea>
-                  <Link
-                    className={classes.link}
-                    to={`/graduates/${graduate.id}`}
-                  >
-                    <ImageHolder
-                      className={classes.cardMedia}
-                      graduateName={graduate.name}
-                    />
-                  </Link>
-                </CardActionArea>
-                <CardContent className={classes.cardContent}>
-                  <Typography variant="subtitle1">
-                    {graduate.name_ch}
-                  </Typography>
-                  <Typography variant="subtitle1" component="div">
-                    {graduate.name}
-                  </Typography>
-                </CardContent>
-              </Card>
-            ))
-          ) : (
-            <CircularProgress />
-          )}
+          {graduates.ordered.map((graduate) => (
+            <GraduateCard key={graduate.id} graduate={graduate} />
+          ))}
         </Box>
       </Container>
     </Root>
