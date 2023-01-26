@@ -19,7 +19,7 @@ import {
 import { styled } from "@mui/material/styles";
 import React from "react";
 import { Link } from "react-router-dom";
-import ImageHolder from "./graduates/components/ImageHolder";
+import ImageHolder from "./graduates/components/card/ImageHolder";
 import { GraduateData } from "./graduates/Graduates";
 
 const PREFIX = "GraduateDetails";
