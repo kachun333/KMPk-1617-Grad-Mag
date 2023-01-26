@@ -17,10 +17,10 @@ import {
   Typography,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import ImageHolder from "pages/graduates/components/card/ImageHolder";
+import { Graduate } from "pages/graduates/graduates.interface";
 import React from "react";
 import { Link } from "react-router-dom";
-import ImageHolder from "./graduates/components/card/ImageHolder";
-import { GraduateData } from "./graduates/Graduates";
 
 const PREFIX = "GraduateDetails";
 
@@ -103,7 +103,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
 function GraduateDetails() {
   // TODO: refactor and fix this
   const isVerified = false;
-  const graduate: GraduateData | null = null as GraduateData | null;
+  const graduate: Graduate | null = null as Graduate | null;
 
   return (
     <StyledBox className={classes.container}>

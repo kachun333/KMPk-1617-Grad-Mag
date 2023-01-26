@@ -1,6 +1,6 @@
 import ErrorElement from "components/common/ErrorElement";
 import AppLayout from "layout/AppLayout";
-import GraduateDetails from "pages/GraduateDetails";
+import GraduateDetails from "pages/graduates/details/GraduateDetails";
 import Graduates from "pages/graduates/Graduates";
 import Home from "pages/Home";
 import PageNotFound from "pages/PageNotFound";
