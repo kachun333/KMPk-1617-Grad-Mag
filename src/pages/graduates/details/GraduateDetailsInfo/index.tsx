@@ -26,6 +26,10 @@ const GraduateDetailsInfo: React.FC<GraduateDetailsInfoProps> = ({
       <main>
         <List>
           {GRADUATE_INFO_CONFIG_LIST.map((config) => {
+            if (typeof graduate[config.key] === "undefined") {
+              // show nothing if no data (e.g. one_liner)
+              return null;
+            }
             return (
               <div key={config.key}>
                 <ListItem>
@@ -41,7 +45,7 @@ const GraduateDetailsInfo: React.FC<GraduateDetailsInfoProps> = ({
                       secondaryTypographyProps={{
                         sx: { fontSize: config.fontSize },
                       }}
-                      secondary={graduate[config.key] ?? "-"}
+                      secondary={graduate[config.key]}
                     />
                   )}
                   {config.childType === "list" && (
