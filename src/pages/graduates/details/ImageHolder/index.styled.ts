@@ -5,6 +5,8 @@ import ImageRenderer from "pages/graduates/components/card/ImageRenderer";
 export const ImageToolbar = styled(Toolbar)({
   position: "absolute",
   top: 0,
+  left: 0,
+  right: 0,
 });
 
 export const ImageHolder = styled(ImageRenderer)(({ theme }) => ({
@@ -15,7 +17,7 @@ export const ImageHolder = styled(ImageRenderer)(({ theme }) => ({
   /* vertical & horizontal align */
   margin: "auto",
   [theme.breakpoints.down("md")]: {
-    /* vertical align only */
+    /* horizontal align only */
     margin: "0 auto",
   },
 }));
