@@ -11,14 +11,15 @@ const ErrorText = styled("div")(() => ({
 }));
 
 interface ImageRendererProps {
+  className?: string;
   /**
    * height of <img />, helps improve render performance
    */
-  imgHeight: string | number;
+  imgHeight?: string | number;
   /**
    * width of <img />, helps improve render performance
    */
-  imgWidth: string | number;
+  imgWidth?: string | number;
   /**
    * will not fetch image yet if true
    */
@@ -26,6 +27,7 @@ interface ImageRendererProps {
 }
 
 const ImageRenderer: React.FC<ImageRendererProps> = ({
+  className,
   imgHeight,
   imgWidth,
   graduateName,
@@ -49,6 +51,7 @@ const ImageRenderer: React.FC<ImageRendererProps> = ({
   }
   return (
     <img
+      className={className}
       width={imgWidth}
       height={imgHeight}
       loading="lazy"

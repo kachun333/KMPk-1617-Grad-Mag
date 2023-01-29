@@ -15,6 +15,8 @@ export const GraduateDetailsPaper = styled(Paper)(({ theme }) => ({
 }));
 
 export const GraduateDetailsImageBox = styled("div")(({ theme }) => ({
+  position: "relative",
+  height: "100%",
   [theme.breakpoints.up("md")]: {
     flexGrow: 1,
   },
