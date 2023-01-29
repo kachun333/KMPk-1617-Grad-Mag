@@ -1,6 +1,4 @@
 import {
-  Box,
-  Divider,
   List,
   ListItem,
   ListItemIcon,
@@ -20,12 +18,13 @@ const GraduateDetailsInfo: React.FC<GraduateDetailsInfoProps> = ({
   graduate,
 }) => {
   return (
-    <Box>
-      <S.Header>
-        <Typography variant="h4">{graduate.name_ch}</Typography>
-        <Typography variant="subtitle1">{graduate.name}</Typography>
+    <>
+      <S.Header elevation={0}>
+        <Typography variant="h2" gutterBottom>
+          {graduate.name_ch}
+        </Typography>
+        <Typography variant="h5">{graduate.name}</Typography>
       </S.Header>
-      <Divider variant="middle" />
       <main>
         <List>
           {GRADUATE_INFO_CONFIG_LIST.map((config) => {
@@ -33,11 +32,19 @@ const GraduateDetailsInfo: React.FC<GraduateDetailsInfoProps> = ({
               <div key={config.key}>
                 <ListItem>
                   <ListItemIcon>{config.icon}</ListItemIcon>
-                  <ListItemText primary={config.label} />
+                  <ListItemText
+                    primary={config.primaryLabel}
+                    secondary={config.secondaryLabel}
+                  />
                 </ListItem>
                 <ListItem>
                   {config.childType === "text" && (
-                    <ListItemText secondary={graduate[config.key]} />
+                    <ListItemText
+                      secondaryTypographyProps={{
+                        sx: { fontSize: config.fontSize },
+                      }}
+                      secondary={graduate[config.key] ?? "-"}
+                    />
                   )}
                   {config.childType === "list" && (
                     <List component="div" disablePadding>
@@ -46,7 +53,12 @@ const GraduateDetailsInfo: React.FC<GraduateDetailsInfoProps> = ({
                           // there is a risk for key collision
                           // eslint-disable-next-line react/no-array-index-key
                           <ListItem key={i}>
-                            <ListItemText secondary={description} />
+                            <ListItemText
+                              secondaryTypographyProps={{
+                                sx: { fontSize: config.fontSize },
+                              }}
+                              secondary={description}
+                            />
                           </ListItem>
                         )
                       )}
@@ -58,7 +70,7 @@ const GraduateDetailsInfo: React.FC<GraduateDetailsInfoProps> = ({
           })}
         </List>
       </main>
-    </Box>
+    </>
   );
 };
 

@@ -6,28 +6,36 @@ import React from "react";
 
 interface GraduateInfoConfig {
   icon: React.ReactElement;
-  label: React.ReactNode;
+  primaryLabel: React.ReactNode;
+  secondaryLabel?: React.ReactNode;
   key: keyof Graduate;
   childType: "text" | "list";
+  fontSize: string;
 }
 
 export const GRADUATE_INFO_CONFIG_LIST: GraduateInfoConfig[] = [
   {
     icon: <Sms />,
-    label: "毕业留言 · Message",
+    primaryLabel: "毕业留言",
+    secondaryLabel: "Message",
     key: "message",
     childType: "text",
+    fontSize: "1.5rem",
   },
   {
     icon: <FormatQuote />,
-    label: "口头禅 · One Liner",
+    primaryLabel: "口头禅",
+    secondaryLabel: "One Liner",
     key: "one_liner",
     childType: "text",
+    fontSize: "1.2rem",
   },
   {
     icon: <Hail />,
-    label: "描述我 · Describe me",
+    primaryLabel: "描述我",
+    secondaryLabel: "Describe me",
     key: "describe_me",
     childType: "list",
+    fontSize: "1rem",
   },
 ];
