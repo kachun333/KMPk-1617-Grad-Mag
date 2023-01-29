@@ -10,4 +10,8 @@ export const Link = styled(ReactRouterLink)({
 export const ContainedIconButton = styled(IconButton)(({ theme }) => ({
   boxShadow: theme.shadows[1],
   backgroundColor: theme.palette.background.paper,
+  "&:hover": {
+    color: theme.palette.text.primary,
+    backgroundColor: theme.palette.background.paper,
+  },
 }));
