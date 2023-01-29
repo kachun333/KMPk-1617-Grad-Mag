@@ -17,7 +17,7 @@ export const GRADUATE_INFO_CONFIG_LIST: GraduateInfoConfig[] = [
   {
     icon: <Sms />,
     primaryLabel: "毕业留言",
-    secondaryLabel: "Message",
+    secondaryLabel: "Graduation Message",
     key: "message",
     childType: "text",
     fontSize: "1.5rem",
@@ -33,7 +33,7 @@ export const GRADUATE_INFO_CONFIG_LIST: GraduateInfoConfig[] = [
   {
     icon: <Hail />,
     primaryLabel: "描述我",
-    secondaryLabel: "Describe me",
+    secondaryLabel: "Describe Me",
     key: "describe_me",
     childType: "list",
     fontSize: "1rem",

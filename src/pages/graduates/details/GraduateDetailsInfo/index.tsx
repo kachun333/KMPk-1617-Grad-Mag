@@ -20,7 +20,7 @@ const GraduateDetailsInfo: React.FC<GraduateDetailsInfoProps> = ({
   return (
     <>
       <S.Header>
-        <Typography variant="h2">{graduate.name_ch}</Typography>
+        <Typography variant="h3">{graduate.name_ch}</Typography>
         <Typography variant="h5">{graduate.name}</Typography>
       </S.Header>
       <main>
