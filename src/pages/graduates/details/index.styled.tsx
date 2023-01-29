@@ -14,12 +14,16 @@ export const GraduateDetailsPaper = styled(Paper)(({ theme }) => ({
   },
 }));
 
-export const GraduateDetailsImageBox = styled("div")({
-  flexGrow: 1,
-});
+export const GraduateDetailsImageBox = styled("div")(({ theme }) => ({
+  [theme.breakpoints.up("md")]: {
+    flexGrow: 1,
+  },
+}));
 
 export const GraduateDetailsInfoBox = styled("div")(({ theme }) => ({
   maxWidth: 360,
+  height: "100%",
+  overflowY: "auto",
   [theme.breakpoints.down("md")]: {
     minWidth: "100%",
   },
