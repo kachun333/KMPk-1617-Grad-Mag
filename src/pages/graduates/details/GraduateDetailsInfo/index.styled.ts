@@ -9,6 +9,7 @@ export const Header = styled(Paper)(({ theme }) => ({
   rowGap: theme.spacing(1),
   columnGap: theme.spacing(2),
   [theme.breakpoints.up("md")]: {
+    flexDirection: "column",
     /* header will be sticky only when md up */
     position: "sticky",
     top: 0,

@@ -1,5 +1,5 @@
 import ArrowBack from "@mui/icons-material/ArrowBack";
-import { IconButton, Toolbar } from "@mui/material";
+import { IconButton } from "@mui/material";
 import { Graduate } from "pages/graduates/graduates.interface";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -12,13 +12,13 @@ interface ImageHolderProps {
 const ImageHolder: React.FC<ImageHolderProps> = ({ graduate }) => {
   return (
     <>
-      <Toolbar>
+      <S.ImageToolbar>
         <IconButton edge="start" aria-label="close" size="large">
           <Link to="/graduates">
             <ArrowBack />
           </Link>
         </IconButton>
-      </Toolbar>
+      </S.ImageToolbar>
       <S.ImageHolder graduateName={graduate.name} />
     </>
   );

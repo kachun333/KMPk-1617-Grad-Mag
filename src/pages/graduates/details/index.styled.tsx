@@ -15,8 +15,14 @@ export const GraduateDetailsPaper = styled(Paper)(({ theme }) => ({
 }));
 
 export const GraduateDetailsImageBox = styled("div")(({ theme }) => ({
+  /* graduate image can align center */
+  display: "flex",
+  /* image control will `absolute` reference here */
   position: "relative",
-  height: "100%",
+  [theme.breakpoints.down("md")]: {
+    /* so that details info have sufficient space to scroll */
+    maxHeight: "40vh",
+  },
   [theme.breakpoints.up("md")]: {
     flexGrow: 1,
   },
@@ -24,6 +30,7 @@ export const GraduateDetailsImageBox = styled("div")(({ theme }) => ({
 
 export const GraduateDetailsInfoBox = styled("div")(({ theme }) => ({
   maxWidth: 360,
+  /* allow overflow */
   height: "100%",
   overflowY: "auto",
   [theme.breakpoints.down("md")]: {
