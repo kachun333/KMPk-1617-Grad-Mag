@@ -19,7 +19,7 @@ const StyledContainer = styled(Container)(() => ({
   },
 }));
 
-function Login() {
+function PageNotFound() {
   return (
     <StyledContainer className={classes.container}>
       <Typography variant="h4">Error 404</Typography>
@@ -30,4 +30,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default PageNotFound;
