@@ -19,10 +19,8 @@ const GraduateDetailsInfo: React.FC<GraduateDetailsInfoProps> = ({
 }) => {
   return (
     <>
-      <S.Header elevation={0}>
-        <Typography variant="h2" gutterBottom>
-          {graduate.name_ch}
-        </Typography>
+      <S.Header>
+        <Typography variant="h2">{graduate.name_ch}</Typography>
         <Typography variant="h5">{graduate.name}</Typography>
       </S.Header>
       <main>
