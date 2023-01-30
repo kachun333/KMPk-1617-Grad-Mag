@@ -20,7 +20,7 @@ const AppLayout: React.FC = () => {
       <ScrollRestoration />
       <HideOnScroll>
         <AppBar color="inherit">
-          <Hidden smDown>
+          <Hidden mdDown>
             <NavbarDesktop />
           </Hidden>
           <Hidden mdUp>
