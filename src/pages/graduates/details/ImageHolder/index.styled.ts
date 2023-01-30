@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
-import ImageRenderer from "pages/graduates/components/card/ImageRenderer";
+import ImageRenderer from "pages/graduates/components/ImageRenderer";
 
 export const ImageToolbar = styled(Toolbar)({
   position: "absolute",
