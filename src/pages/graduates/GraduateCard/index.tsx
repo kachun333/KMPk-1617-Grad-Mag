@@ -4,10 +4,10 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import * as S from "components/styled";
+import ImageRenderer from "pages/graduates/components/ImageRenderer";
 import { Graduate } from "pages/graduates/graduates.interface";
 import React from "react";
 import { useInView } from "react-intersection-observer";
-import ImageRenderer from "./ImageRenderer";
 
 interface GraduateCardProps {
   graduate: Graduate;
