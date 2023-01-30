@@ -49,7 +49,7 @@ const GraduateDetailsInfo: React.FC<GraduateDetailsInfoProps> = ({
                     />
                   )}
                   {config.childType === "list" && (
-                    <List component="div" disablePadding>
+                    <List disablePadding>
                       {(graduate[config.key] as string[]).map(
                         (description, i) => (
                           // there is a risk for key collision
