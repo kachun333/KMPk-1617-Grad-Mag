@@ -4,13 +4,13 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import * as S from "components/styled";
-import { GraduateData } from "pages/graduates/Graduates";
+import { Graduate } from "pages/graduates/graduates.interface";
 import React from "react";
 import { useInView } from "react-intersection-observer";
-import ImageHolder from "./ImageHolder";
+import ImageRenderer from "./ImageRenderer";
 
 interface GraduateCardProps {
-  graduate: GraduateData;
+  graduate: Graduate;
 }
 
 const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
@@ -41,7 +41,7 @@ const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
             })}
           >
             {inView && (
-              <ImageHolder
+              <ImageRenderer
                 imgWidth="282"
                 imgHeight="188"
                 graduateName={graduate.name}

@@ -12,6 +12,7 @@ import AwesomeDebouncePromise from "awesome-debounce-promise";
 import React, { useCallback, useState } from "react";
 import GraduateCard from "./components/card/GraduateCard";
 import { SORT_CRITERIA } from "./graduates.constants";
+import { Graduate } from "./graduates.interface";
 import { filterItems, sortGraduates } from "./sort.utils";
 
 const PREFIX = "Graduates";
@@ -57,23 +58,9 @@ const Root = styled("div")(({ theme }) => ({
   },
 }));
 
-export interface GraduateData {
-  id: number;
-  name: string;
-  name_ch?: string;
-  gender: string;
-  message: string;
-  one_liner?: string;
-  describe_me: string[];
-  birthday?: string;
-  tutorial?: string;
-  phone?: string;
-  email?: string;
-}
-
 interface GraduatesData {
-  data: GraduateData[];
-  ordered: GraduateData[];
+  data: Graduate[];
+  ordered: Graduate[];
 }
 
 function Graduates() {
@@ -96,7 +83,7 @@ function Graduates() {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const searchAPIDebounced = useCallback(
-    AwesomeDebouncePromise((items: GraduateData[], searchTerm: string) => {
+    AwesomeDebouncePromise((items: Graduate[], searchTerm: string) => {
       if (!searchTerm) return items;
       return filterItems(items, searchTerm);
     }, 500),
@@ -121,7 +108,7 @@ function Graduates() {
     [sortBy]
   );
 
-  function handleSortByClose(sortCriteria: keyof GraduateData | null) {
+  function handleSortByClose(sortCriteria: keyof Graduate | null) {
     if (sortCriteria === null) {
       // did not select anything
       setSortBy({ ...sortBy, anchorEl: null });
