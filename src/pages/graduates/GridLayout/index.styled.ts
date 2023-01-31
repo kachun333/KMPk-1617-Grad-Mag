@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles";
 
 export const GridContainer = styled("div")(({ theme }) => ({
-  marginTop: 20,
+  margin: theme.spacing(2),
   display: "flex",
   flexWrap: "wrap",
   justifyContent: "center",
