@@ -4,13 +4,14 @@ import Hidden from "@mui/material/Hidden";
 import Toolbar from "@mui/material/Toolbar";
 import HideOnScroll from "components/common/HideOnScroll";
 import ShowOnScroll from "components/common/ShowOnScroll";
+import AppFab from "layout/AppFab";
+import Footer from "layout/Footer";
+import NavbarDesktop from "layout/NavbarDesktop";
+import NavbarMobile from "layout/NavbarMobile";
 import AppProvider from "providers/AppProvider";
 import React from "react";
 import { Outlet, ScrollRestoration } from "react-router-dom";
-import AppFab from "./AppFab";
-import Footer from "./Footer";
-import NavbarDesktop from "./NavbarDesktop";
-import NavbarMobile from "./NavbarMobile";
+import * as S from "./index.styled";
 
 const AppLayout: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ const AppLayout: React.FC = () => {
       <ScrollRestoration />
       <HideOnScroll>
         <AppBar color="inherit">
-          <Hidden smDown>
+          <Hidden mdDown>
             <NavbarDesktop />
           </Hidden>
           <Hidden mdUp>
@@ -29,7 +30,9 @@ const AppLayout: React.FC = () => {
       </HideOnScroll>
       {/* blank space under appbar & above banner */}
       <Toolbar />
-      <Outlet />
+      <S.OutletContainer>
+        <Outlet />
+      </S.OutletContainer>
       <Footer />
       <ShowOnScroll>
         <AppFab />

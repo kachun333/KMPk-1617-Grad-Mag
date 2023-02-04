@@ -60,7 +60,7 @@ function NavbarDesktop() {
       <Button id="logo" component={NavLink} to="/">
         <img alt="logo" src={Logo} className={classes.logo} />
       </Button>
-      <Typography variant="h6" className={classes.appTitle}>
+      <Typography noWrap variant="h6" className={classes.appTitle}>
         {appTitle}
       </Typography>
       <Box
