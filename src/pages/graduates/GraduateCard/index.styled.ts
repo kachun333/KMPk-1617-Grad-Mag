@@ -1,7 +1,7 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { styled } from "@mui/material/styles";
-import ImageRenderer from "pages/graduates/components/ImageRenderer";
+import GraduateImage from "pages/graduates/components/ImageRenderer";
 
 export const StyledCard = styled(Card)(({ theme }) => ({
   margin: theme.spacing(1),
@@ -23,7 +23,7 @@ export const StyledImageContainer = styled("div")(({ theme }) => {
   };
 });
 
-export const StyledImageRenderer = styled(ImageRenderer)({
+export const StyledGraduateImage = styled(GraduateImage)({
   height: "100%",
   width: "100%",
 });
