@@ -14,16 +14,17 @@ const GraduateImage: React.FC<GraduateImageProps> = ({
   className,
   imgProps,
 }) => {
+  const uriEncodedGraduateName = encodeURI(graduateName);
   return (
     <img
       className={className}
-      src={`https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/300x200/${graduateName}.webp`}
+      src={`https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/300x200/${uriEncodedGraduateName}.webp`}
       srcSet={`
-        https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/300x200/${graduateName}.webp 300w,
-        https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/600x400/${graduateName}.webp 600w,
-        https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/900x600/${graduateName}.webp 900w,
-        https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/1200x800/${graduateName}.webp 1200w,
-        https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/2400x1600/${graduateName}.webp 2400w
+        https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/300x200/${uriEncodedGraduateName}.webp 300w,
+        https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/600x400/${uriEncodedGraduateName}.webp 600w,
+        https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/900x600/${uriEncodedGraduateName}.webp 900w,
+        https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/1200x800/${uriEncodedGraduateName}.webp 1200w,
+        https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/2400x1600/${uriEncodedGraduateName}.webp 2400w
       `}
       alt={graduateName}
       {...imgProps}
