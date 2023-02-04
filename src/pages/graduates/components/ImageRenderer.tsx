@@ -1,64 +1,34 @@
-import Skeleton from "@mui/material/Skeleton";
-import { styled } from "@mui/material/styles";
-import { ref as storageRef } from "firebase/storage";
-import useFirebase from "providers/firebase/useFirebase";
 import React from "react";
-import { useDownloadURL } from "react-firebase-hooks/storage";
 
-const ErrorText = styled("div")(() => ({
-  textAlign: "center",
-  marginTop: 20,
-}));
-
-interface ImageRendererProps {
-  className?: string;
-  /**
-   * height of <img />, helps improve render performance
-   */
-  imgHeight?: string | number;
-  /**
-   * width of <img />, helps improve render performance
-   */
-  imgWidth?: string | number;
-  /**
-   * will not fetch image yet if true
-   */
+interface GraduateImageProps {
   graduateName: string;
+  className?: string;
+  imgProps?: React.DetailedHTMLProps<
+    React.ImgHTMLAttributes<HTMLImageElement>,
+    HTMLImageElement
+  >;
 }
 
-const ImageRenderer: React.FC<ImageRendererProps> = ({
-  className,
-  imgHeight,
-  imgWidth,
+const GraduateImage: React.FC<GraduateImageProps> = ({
   graduateName,
+  className,
+  imgProps,
 }) => {
-  const { storage } = useFirebase();
-  const storageReference = storageRef(
-    storage,
-    `webp/graduates/${graduateName}.webp`
-  );
-  const [srcUrl, loading, error] = useDownloadURL(storageReference);
-  if (loading) {
-    return <Skeleton height="100%" variant="rectangular" />;
-  }
-  if (error || !srcUrl) {
-    return (
-      <div>
-        <ErrorText>Failed to load image!</ErrorText>
-        <ErrorText>Please contact administrator for more information</ErrorText>
-      </div>
-    );
-  }
   return (
     <img
       className={className}
-      width={imgWidth}
-      height={imgHeight}
-      loading="lazy"
-      src={srcUrl}
-      alt={`Freestyle Graduate Portrait of ${graduateName}`}
+      src={`https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/300x200/${graduateName}.webp`}
+      srcSet={`
+        https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/300x200/${graduateName}.webp 300w,
+        https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/600x400/${graduateName}.webp 600w,
+        https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/900x600/${graduateName}.webp 900w,
+        https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/1200x800/${graduateName}.webp 1200w,
+        https://storage.googleapis.com/ourpromise.appspot.com/webp/graduates/2400x1600/${graduateName}.webp 2400w
+      `}
+      alt={graduateName}
+      {...imgProps}
     />
   );
 };
 
-export default ImageRenderer;
+export default GraduateImage;
