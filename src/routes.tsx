@@ -17,9 +17,9 @@ const routes: RouteObject[] = [
       { index: true, element: <Home /> },
       {
         path: "graduates",
+        element: <Graduates />,
         errorElement: <ErrorElement />,
         children: [
-          { index: true, element: <Graduates /> },
           {
             path: ":graduateId",
             element: <GraduateDetails />,

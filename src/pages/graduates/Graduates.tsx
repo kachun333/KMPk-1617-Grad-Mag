@@ -2,6 +2,7 @@ import { CircularProgress, Typography } from "@mui/material";
 import graduatesData from "assets/json/graduates_public.json";
 import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { Outlet } from "react-router-dom";
 import { Graduate } from "./graduates.interface";
 import GridLayout from "./GridLayout";
 
@@ -24,20 +25,23 @@ function Graduates() {
   });
 
   return (
-    <section style={{ margin: 16 }}>
-      <main>
-        <GridLayout graduates={graduates} />
-      </main>
-      <footer ref={ref}>
-        {canScrollFurther ? (
-          <div style={{ textAlign: "center" }}>
-            <CircularProgress />
-          </div>
-        ) : (
-          <Typography align="right">{`${graduates.length} graduate(s)`}</Typography>
-        )}
-      </footer>
-    </section>
+    <>
+      <section style={{ margin: 16 }}>
+        <main>
+          <GridLayout graduates={graduates} />
+        </main>
+        <footer ref={ref}>
+          {canScrollFurther ? (
+            <div style={{ textAlign: "center" }}>
+              <CircularProgress />
+            </div>
+          ) : (
+            <Typography align="right">{`${graduates.length} graduate(s)`}</Typography>
+          )}
+        </footer>
+      </section>
+      <Outlet />
+    </>
   );
 }
 
