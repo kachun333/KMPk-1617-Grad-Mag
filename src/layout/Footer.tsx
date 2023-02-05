@@ -81,6 +81,7 @@ function Footer() {
           醇忆 Grad Mag
         </Typography>
         <Link
+          target="_blank"
           href="mailto: gmagazinekmpk@gmail.com"
           className={classes.boxItem}
           color="inherit"
@@ -89,6 +90,7 @@ function Footer() {
           <Typography variant="overline">gmagazinekmpk@gmail.com</Typography>
         </Link>
         <Link
+          target="_blank"
           href="https://github.com/kachun333/KMPk-1617-Grad-Mag"
           className={classes.boxItem}
           color="inherit"
@@ -97,14 +99,16 @@ function Footer() {
           <Typography variant="overline">Github</Typography>
         </Link>
         <Link
-          href="https://www.privacypolicygenerator.info/live.php?token=12TSXce3RJFkpRpBfiN3kOLlK0Jz1kWt"
+          target="_blank"
+          href="https://www.privacypolicygenerator.info/live.php?token=rAkMG1L25IRAE3OiH9OKyjpxUyKtaPMb"
           className={classes.boxItem}
           color="inherit"
         >
           <Typography variant="overline">Privacy Policy</Typography>
         </Link>
         <Link
-          href="https://www.termsandconditionsgenerator.com/live.php?token=CRsPFRs0oVlHD9hs1EYvWE0KEnQdLph9"
+          target="_blank"
+          href="https://www.termsandconditionsgenerator.com/live.php?token=EpWXudbdmqfkg27d75wMJ4HzcZslq9Ig"
           className={classes.boxItem}
           color="inherit"
         >
