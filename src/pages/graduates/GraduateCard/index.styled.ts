@@ -29,6 +29,8 @@ export const StyledGraduateImage = styled(GraduateImage)({
 });
 
 export const StyledCardContent = styled(CardContent)(({ theme }) => ({
-  padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
-  paddingBottom: `${theme.spacing(1)} !important`,
+  padding: `${theme.spacing(1)} ${theme.spacing(2)}`,
+  "&:last-child": {
+    paddingBottom: theme.spacing(1),
+  },
 }));
