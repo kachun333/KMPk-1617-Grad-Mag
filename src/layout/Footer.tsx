@@ -89,7 +89,7 @@ function Footer() {
           <Typography variant="overline">gmagazinekmpk@gmail.com</Typography>
         </Link>
         <Link
-          href="https://github.com/1998chun/OurPromise"
+          href="https://github.com/kachun333/KMPk-1617-Grad-Mag"
           className={classes.boxItem}
           color="inherit"
         >

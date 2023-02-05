@@ -1,4 +1,4 @@
-# Contributing to OurPromise 🤝🏻
+# Contributing to KMPk 16/17 Grad Mag🤝🏻
 
 🎊If you're reading this, you're probably creating a Pull Request or planning to do so and that's great!🎊
 
@@ -32,7 +32,7 @@ Everyone participating in this project is requested to practice decent behaviour
 
 ## Before You Contribute 🏁
 
-Welcome to [OurPromise](https://ourpromise.web.app/). Before you send the pull request make sure that you read the whole guidelines.
+Welcome to [KMPk 16/17 Grad Mag](https://ourpromise.web.app/). Before you send the pull request make sure that you read the whole guidelines.
 If you have any doubts relating to an issue, comment under it and tag members if needed.
 Please don't file an issue to ask a question.
 
@@ -41,8 +41,8 @@ Please don't file an issue to ask a question.
 **Step 0:** Clone the forked repo and cd into it
 
 ```
-git clone https://github.com/<Your username>/OurPromise.git
-cd OurPromise/
+git clone https://github.com/<Your username>/KMPk-1617-Grad-Mag.git
+cd KMPk-1617-Grad-Mag/
 ```
 
 **Step 1:** To install all the required packages run `npm install`.
@@ -85,7 +85,7 @@ Explain the problem and include additional details to help maintainers reproduce
 
 ### **Suggesting Enhancements ✨**
 
-This section guides you through submitting an enhancement suggestion for OurPromise, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion and find related suggestions 🔎.
+This section guides you through submitting an enhancement suggestion for KMPk 16/17 Grad Mag, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion and find related suggestions 🔎.
 
 Before creating enhancement suggestions, please check if it exists or not. When you are creating an enhancement suggestion, please include as many details as possible. Just include the steps that you imagine you would take if the feature you're requesting existed.
 
@@ -108,7 +108,7 @@ Enhancement suggestions are tracked as [GitHub issues](https://guides.github.com
 
 ### **First Code Contribution 🥇**
 
-Unsure on where to begin your contribution? You can start by looking at issues having `Good First Issues`, `Documentation` or `Beginner` tags. You can find them [here](https://github.com/kachun333/OurPromise/issues)
+Unsure on where to begin your contribution? You can start by looking at issues having `Good First Issues`, `Documentation` or `Beginner` tags. You can find them [here](https://github.com/kachun333/KMPk-1617-Grad-Mag/issues)
 
 ### **Pull Request 🥳**
 
@@ -120,8 +120,8 @@ Following are the steps to guide you:
 **Step 0:** Clone the forked repo and cd into it
 
 ```
-git clone https://github.com/<Your username>/OurPromise.git
-cd OurPromise/
+git clone https://github.com/<Your username>/KMPk-1617-Grad-Mag.git
+cd KMPk-1617-Grad-Mag/
 ```
 
 **Step 1:** To begin, create a new branch, give a good [branch name](https://codingsight.com/git-branching-naming-convention-best-practices/). You usually create a branch like so:
