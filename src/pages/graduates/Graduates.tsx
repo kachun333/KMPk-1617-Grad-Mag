@@ -15,6 +15,7 @@ function Graduates() {
   const canScrollFurther = graduates.length !== graduatesData.length;
 
   const { ref } = useInView({
+    rootMargin: "400px 0px",
     skip: !canScrollFurther,
     onChange: (inView) => {
       if (inView)
