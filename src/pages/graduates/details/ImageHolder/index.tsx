@@ -18,7 +18,12 @@ const ImageHolder: React.FC<ImageHolderProps> = ({ graduate }) => {
           </ContainedIconButton>
         </Link>
       </S.ImageToolbar>
-      <S.ImageHolder graduateName={graduate.name} />
+      <S.StyledGraduateImage
+        graduateName={graduate.name}
+        imgProps={{
+          sizes: "(min-width 600px) calc(100vw - 360px), 100vw",
+        }}
+      />
     </>
   );
 };
