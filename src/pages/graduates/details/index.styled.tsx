@@ -19,9 +19,11 @@ export const GraduateDetailsImageBox = styled("div")(({ theme }) => ({
   display: "flex",
   /* image control will `absolute` reference here */
   position: "relative",
+  /* never shrink image, to avoid flickering */
+  flexShrink: 0,
   [theme.breakpoints.down("md")]: {
     /* so that details info have sufficient space to scroll */
-    maxHeight: "40vh",
+    height: "min(calc((100vw / 3) * 2), 40vh)",
   },
   [theme.breakpoints.up("md")]: {
     flexGrow: 1,
@@ -30,6 +32,7 @@ export const GraduateDetailsImageBox = styled("div")(({ theme }) => ({
 
 export const GraduateDetailsInfoBox = styled("div")(({ theme }) => ({
   maxWidth: 360,
+  paddingBottom: theme.spacing(1),
   /* allow overflow */
   height: "100%",
   overflowY: "auto",

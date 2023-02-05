@@ -21,7 +21,15 @@ const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
       <CardActionArea>
         <SS.Link to={`/graduates/${graduate.id}`}>
           <S.StyledImageContainer>
-            {inView && <S.StyledImageRenderer graduateName={graduate.name} />}
+            {inView && (
+              <S.StyledGraduateImage
+                graduateName={graduate.name}
+                imgProps={{
+                  loading: "lazy",
+                  sizes: "(max-width 600px) 100vw, 300px",
+                }}
+              />
+            )}
           </S.StyledImageContainer>
         </SS.Link>
       </CardActionArea>

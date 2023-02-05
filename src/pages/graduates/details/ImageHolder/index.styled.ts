@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
-import ImageRenderer from "pages/graduates/components/ImageRenderer";
+import GraduateImage from "pages/graduates/components/ImageRenderer";
 
 export const ImageToolbar = styled(Toolbar)({
   position: "absolute",
@@ -9,7 +9,7 @@ export const ImageToolbar = styled(Toolbar)({
   right: 0,
 });
 
-export const ImageHolder = styled(ImageRenderer)(({ theme }) => ({
+export const StyledGraduateImage = styled(GraduateImage)(({ theme }) => ({
   alignItems: "center",
   /* preserve aspect ratio */
   maxWidth: "100%",
