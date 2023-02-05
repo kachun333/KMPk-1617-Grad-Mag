@@ -78,7 +78,7 @@ function Footer() {
       <div className={classes.overlay} />
       <Box id="footer-content" className={classes.box}>
         <Typography variant="h6" gutterBottom>
-          三年之约 Our Promise
+          醇忆 Grad Mag
         </Typography>
         <Link
           href="mailto: gmagazinekmpk@gmail.com"
