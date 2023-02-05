@@ -26,7 +26,10 @@ const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
         </SS.Link>
       </CardActionArea>
       <S.StyledCardContent>
-        <Typography variant="subtitle1">{graduate.name_ch}</Typography>
+        <Typography variant="h5">
+          {/* added a fallback "--" so that grid layout is tidy */}
+          {graduate.name_ch ?? "--"}
+        </Typography>
         <Typography variant="subtitle1" component="div">
           {graduate.name}
         </Typography>

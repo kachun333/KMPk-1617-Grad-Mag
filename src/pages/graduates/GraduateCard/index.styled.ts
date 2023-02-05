@@ -1,7 +1,7 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { styled } from "@mui/material/styles";
-import GraduateImage from "pages/graduates/components/ImageRenderer";
+import GraduateImage from "pages/graduates/components/GraduateImage";
 
 export const StyledCard = styled(Card)(({ theme }) => ({
   margin: theme.spacing(1),
@@ -29,6 +29,8 @@ export const StyledGraduateImage = styled(GraduateImage)({
 });
 
 export const StyledCardContent = styled(CardContent)(({ theme }) => ({
-  padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
-  paddingBottom: `${theme.spacing(1)} !important`,
+  padding: `${theme.spacing(1)} ${theme.spacing(2)}`,
+  "&:last-child": {
+    paddingBottom: theme.spacing(1),
+  },
 }));
