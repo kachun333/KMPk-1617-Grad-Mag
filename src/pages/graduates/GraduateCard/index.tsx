@@ -13,7 +13,7 @@ const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
   return (
     <S.StyledCard>
       <CardActionArea>
-        <SS.Link to={`/graduates/${graduate.id}`}>
+        <SS.Link to={`/graduates/${graduate.id}`} preventScrollReset>
           <S.StyledImageContainer>
             <S.StyledGraduateImage
               graduateName={graduate.name}
