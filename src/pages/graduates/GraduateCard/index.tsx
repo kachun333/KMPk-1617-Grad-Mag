@@ -3,7 +3,6 @@ import Typography from "@mui/material/Typography";
 import * as SS from "components/styled";
 import { Graduate } from "pages/graduates/graduates.interface";
 import React from "react";
-import { useInView } from "react-intersection-observer";
 import * as S from "./index.styled";
 
 interface GraduateCardProps {
@@ -11,25 +10,18 @@ interface GraduateCardProps {
 }
 
 const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    rootMargin: "50% 0px",
-  });
-
   return (
-    <S.StyledCard ref={ref}>
+    <S.StyledCard>
       <CardActionArea>
         <SS.Link to={`/graduates/${graduate.id}`}>
           <S.StyledImageContainer>
-            {inView && (
-              <S.StyledGraduateImage
-                graduateName={graduate.name}
-                imgProps={{
-                  loading: "lazy",
-                  sizes: "(max-width 600px) 100vw, 300px",
-                }}
-              />
-            )}
+            <S.StyledGraduateImage
+              graduateName={graduate.name}
+              imgProps={{
+                loading: "lazy",
+                sizes: "(max-width 600px) 100vw, 300px",
+              }}
+            />
           </S.StyledImageContainer>
         </SS.Link>
       </CardActionArea>
