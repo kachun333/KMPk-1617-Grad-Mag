@@ -12,7 +12,7 @@ const ImageHolder: React.FC<ImageHolderProps> = ({ graduate }) => {
   return (
     <>
       <S.ImageToolbar>
-        <Link to="/graduates">
+        <Link to="/graduates" preventScrollReset>
           <ContainedIconButton edge="start" aria-label="close" size="small">
             <ArrowBack />
           </ContainedIconButton>
