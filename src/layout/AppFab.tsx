@@ -5,17 +5,15 @@ import React, { forwardRef } from "react";
 
 const StyledFab = styled(Fab)({
   position: "fixed",
-  top: "auto",
   right: 20,
   bottom: 20,
-  left: "auto",
 });
 
 interface AppFabProps {
   forwardedRef: React.Ref<HTMLButtonElement>;
 }
 
-// mui.com/material-ui/guides/composition/#caveat-with-strictmode
+// https://www.mui.com/material-ui/guides/composition/#caveat-with-strictmode
 // eslint-disable-next-line react/prefer-stateless-function
 class AppFab extends React.Component<AppFabProps> {
   render() {
@@ -24,7 +22,7 @@ class AppFab extends React.Component<AppFabProps> {
       <StyledFab
         ref={forwardedRef}
         color="primary"
-        aria-label="add"
+        aria-label="back to top"
         onClick={() => {
           window.scroll({
             top: 0,
