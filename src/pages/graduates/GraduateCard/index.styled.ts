@@ -1,7 +1,7 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { styled } from "@mui/material/styles";
-import GraduateImage from "pages/graduates/components/ImageRenderer";
+import GraduateImage from "pages/graduates/components/GraduateImage";
 
 export const StyledCard = styled(Card)(({ theme }) => ({
   margin: theme.spacing(1),
