@@ -1,14 +1,15 @@
 import { CircularProgress, Typography } from "@mui/material";
 import graduatesData from "assets/json/graduates_public.json";
+import usePreventBodyScrollOutlet from "hooks/usePreventBodyScrollOutlet";
 import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { Outlet } from "react-router-dom";
 import { Graduate } from "./graduates.interface";
 import GridLayout from "./GridLayout";
 
 const pageSize = 20;
 
 function Graduates() {
+  const outletElement = usePreventBodyScrollOutlet();
   const [graduates, setGraduates] = useState<Graduate[]>(() =>
     graduatesData.slice(0, pageSize)
   );
@@ -40,7 +41,7 @@ function Graduates() {
           )}
         </footer>
       </section>
-      <Outlet />
+      {outletElement}
     </>
   );
 }
