@@ -32,6 +32,7 @@ export const GraduateDetailsImageBox = styled("div")(({ theme }) => ({
 
 export const GraduateDetailsInfoBox = styled("div")(({ theme }) => ({
   maxWidth: 360,
+  paddingBottom: theme.spacing(1),
   /* allow overflow */
   height: "100%",
   overflowY: "auto",
