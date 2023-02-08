@@ -36,6 +36,8 @@ Welcome to [KMPk 16/17 Grad Mag](https://ourpromise.web.app/). Before you send t
 If you have any doubts relating to an issue, comment under it and tag members if needed.
 Please don't file an issue to ask a question.
 
+We have two parallel states for our project, named `main` branch and a `dev` branch. All the pull requests related to documentations or `.github` folder, should be merged directly to the `main` branch, and all the changes which involves code, should be targeted and merged to the `dev` branch.
+
 ## Local Setup 💻
 
 **Step 0:** Clone the forked repo and cd into it
@@ -43,13 +45,16 @@ Please don't file an issue to ask a question.
 ```
 git clone https://github.com/<Your username>/KMPk-1617-Grad-Mag.git
 cd KMPk-1617-Grad-Mag/
+
+# If you are making any changes to the codebase, change your branch
+git checkout dev
 ```
 
 **Step 1:** To install all the required packages run `npm install`.
 
 **Step 2:** Run `npm start` to start the app. After successful compilation the app would be running in `http://localhost:3000/`.
 
-**Note:** If the process was successful, you would receive the following in your terminal
+**Note:** If the process was successful, you would receive the following at the end of your terminal
 
 ```
 No issues found.
@@ -124,10 +129,19 @@ git clone https://github.com/<Your username>/KMPk-1617-Grad-Mag.git
 cd KMPk-1617-Grad-Mag/
 ```
 
-**Step 1:** To begin, create a new branch, give a good [branch name](https://codingsight.com/git-branching-naming-convention-best-practices/). You usually create a branch like so:
+**Step 1:** To begin, create a new branch, give a good [branch name](https://codingsight.com/git-branching-naming-convention-best-practices/).
+Note: If you are making changes to the codebase, first `checkout` the `dev` branch, else if you are making changes to the documentation or to the `.github` folder, then `checkout` the `main` branch. After this create your desired branch.
+
+You usually create a branch like so:
 
 ```
-git checkout master
+# If changes are related to .github folder or documentation, do:
+git checkout main
+
+# If changes are related to the codebase, do:
+git checkout dev
+
+# After any of the above, create a branch for your changes.
 git checkout -b [name_of_your_new_branch]
 ```
 
@@ -151,7 +165,9 @@ git commit -m "Write a meaningful, small commit message"
 git push origin <name_of_your_new_branch>
 ```
 
-**Step 5:** After you push your code, github would detect the new branch and an option would be there to create a pull request.
+**Step 5:** After you push your code, github would detect the new branch and an option would be there to create a pull request. While in this step make sure you are in the right base branch, as shown below:
+
+Changes to documentation or `.github` folder | Changes to the codebase
 
 **Step 6:** The last step is to give a detailed description and short title in your pull request.
 
@@ -170,8 +186,8 @@ Reviewers may request you to rephrase or adjust things before they allow the cha
 
 ## Pull Request Reviewers Guide 🦮
 
-If someone requests your review on a pull request, read the title and description and assign any other collaborators who would want to know about the proposed change. If the reporter is interested then assign it to them.
+If someone requests your review on a pull request, read the title and description, also verify whether the base branch is correct or not, then assign any other collaborators who would want to know about the proposed change. If the reporter is qualified & interested then assign it to them.
 
 Decide whether you think that your input is needed, and that the PR should wait for your further review before being merged. If not, un-assign yourself as a reviewer and leave a comment.
 
-Happy hacking...!
+Happy hacking😇...!
