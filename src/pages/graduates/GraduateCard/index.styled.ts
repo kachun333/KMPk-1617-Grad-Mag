@@ -1,6 +1,7 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { styled } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
 import GraduateImage from "pages/graduates/components/GraduateImage";
 
 export const StyledCard = styled(Card)(({ theme }) => ({
@@ -34,3 +35,13 @@ export const StyledCardContent = styled(CardContent)(({ theme }) => ({
     paddingBottom: theme.spacing(1),
   },
 }));
+
+/**
+ * innerHTML will be hidden
+ * but this element still occupies space
+ */
+export const PlaceholderTypography = styled(Typography)({
+  textIndent: "100%",
+  whiteSpace: "nowrap",
+  overflow: "hidden",
+});

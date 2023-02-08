@@ -1,5 +1,7 @@
 import CardActionArea from "@mui/material/CardActionArea";
+import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import * as SS from "components/styled";
 import { Graduate } from "pages/graduates/graduates.interface";
 import React from "react";
@@ -10,6 +12,8 @@ interface GraduateCardProps {
 }
 
 const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
+  const theme = useTheme();
+  const showNameChPlaceholder = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <S.StyledCard>
       <CardActionArea>
@@ -26,10 +30,11 @@ const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
         </SS.Link>
       </CardActionArea>
       <S.StyledCardContent>
-        <Typography variant="h5">
-          {/* added a fallback "--" so that grid layout is tidy */}
-          {graduate.name_ch ?? "--"}
-        </Typography>
+        {!graduate.name_ch && showNameChPlaceholder ? (
+          <S.PlaceholderTypography variant="h5">--</S.PlaceholderTypography>
+        ) : (
+          <Typography variant="h5">{graduate.name_ch}</Typography>
+        )}
         <Typography variant="subtitle1" component="div">
           {graduate.name}
         </Typography>
