@@ -130,6 +130,7 @@ cd KMPk-1617-Grad-Mag/
 ```
 
 **Step 1:** To begin, create a new branch, give a good [branch name](https://codingsight.com/git-branching-naming-convention-best-practices/).
+
 Note: If you are making changes to the codebase, first `checkout` the `dev` branch, else if you are making changes to the documentation or to the `.github` folder, then `checkout` the `main` branch. After this create your desired branch.
 
 You usually create a branch like so:
@@ -168,6 +169,10 @@ git push origin <name_of_your_new_branch>
 **Step 5:** After you push your code, github would detect the new branch and an option would be there to create a pull request. While in this step make sure you are in the right base branch, as shown below:
 
 Changes to documentation or `.github` folder | Changes to the codebase
+---|---
+![image](https://user-images.githubusercontent.com/72661784/217595158-e1532cc6-8c83-4292-b2e3-55eda6d2598b.png) | ![image](https://user-images.githubusercontent.com/72661784/217595004-f253842b-81f2-419e-b56b-f993e0a7a2b1.png)
+
+
 
 **Step 6:** The last step is to give a detailed description and short title in your pull request.
 
