@@ -1,18 +1,17 @@
-name: Deploy to Firebase Hosting Live on Release
+name: Deploy to Firebase Hosting Staging on Labeled
 on:
-  push:
-    tags:
-      - "v*"
+  pull_request:
+    types:
+      - labeled
 jobs:
-  deploy_to_live:
-    name: Deploy prod hosting
+  deploy_staging_preview:
+    if: "${{ github.event.label.name == 'need-preview' }}"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_OURPROMISE }}"
           projectId: ourpromise
-          channelId: live
