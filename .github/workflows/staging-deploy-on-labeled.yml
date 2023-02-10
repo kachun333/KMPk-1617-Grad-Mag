@@ -5,9 +5,7 @@ on:
       - labeled
 jobs:
   deploy_staging_preview:
-    if: |
-      github.event.pull_request.head.repo.full_name == github.repository &&
-      github.event.label.name == 'need-preview'
+    if: "${{ github.event.label.name == 'need-preview' }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
