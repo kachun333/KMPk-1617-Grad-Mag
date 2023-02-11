@@ -14,3 +14,8 @@ export const HeroContainer = styled("div")(({ theme }) => ({
 export const HeroImg = styled(BannerImage)({
   width: "100%",
 });
+
+export const AboutBox = styled("div")(({ theme }) => ({
+  marginTop: theme.spacing(2),
+  marginBottom: theme.spacing(3),
+}));
