@@ -29,7 +29,7 @@ const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
           </S.StyledImageContainer>
         </SS.Link>
       </CardActionArea>
-      <S.StyledCardContent>
+      <SS.StyledCardContent>
         {!graduate.name_ch && showNameChPlaceholder ? (
           <S.PlaceholderTypography variant="h5">--</S.PlaceholderTypography>
         ) : (
@@ -38,7 +38,7 @@ const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
         <Typography variant="subtitle1" component="div">
           {graduate.name}
         </Typography>
-      </S.StyledCardContent>
+      </SS.StyledCardContent>
     </S.StyledCard>
   );
 };

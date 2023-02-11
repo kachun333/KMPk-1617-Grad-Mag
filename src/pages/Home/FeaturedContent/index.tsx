@@ -1,10 +1,5 @@
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Card, CardActionArea, Grid, Typography } from "@mui/material";
+import * as SS from "components/styled";
 import React from "react";
 import { Link } from "react-router-dom";
 import { FEAT_CARDS } from "./index.constants";
@@ -27,9 +22,11 @@ const FeaturedContent = () => {
                 />
               </Link>
             </CardActionArea>
-            <CardContent>
-              <Typography variant="h6">{card.title}</Typography>
-            </CardContent>
+            <SS.StyledCardContent>
+              <Typography variant="h6" gutterBottom>
+                {card.title}
+              </Typography>
+            </SS.StyledCardContent>
           </Card>
         </Grid>
       ))}
