@@ -10,8 +10,7 @@ interface CloudResponsiveImgProps {
   >;
 }
 
-export const STORAGE_HOST =
-  "https://storage.googleapis.com/ourpromise.appspot.com";
+const STORAGE_HOST = "https://storage.googleapis.com/ourpromise.appspot.com";
 
 const CloudResponsiveImg: React.FC<CloudResponsiveImgProps> = ({
   folderPath,

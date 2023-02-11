@@ -17,7 +17,7 @@ const FeaturedContent = () => {
                   fileName={card.imgFileName}
                   imgProps={{
                     sizes:
-                      " (min-width: 1536px) 768px, (min-width: 1200px) 600px, (min-width: 900px) 450px, (min-width: 600px) 300px, 100vw",
+                      "(min-width: 1536px) 768px, (min-width: 1200px) 600px, (min-width: 900px) 450px, (min-width: 600px) 300px, 100vw",
                   }}
                 />
               </Link>
