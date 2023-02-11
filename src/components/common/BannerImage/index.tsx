@@ -1,8 +1,8 @@
 import CloudResponsiveImg from "components/common/CloudResponsiveImg";
 import React from "react";
 
-interface GraduateImageProps {
-  graduateName: string;
+interface BannerImageProps {
+  fileName: string;
   className?: string;
   imgProps?: React.DetailedHTMLProps<
     React.ImgHTMLAttributes<HTMLImageElement>,
@@ -10,19 +10,19 @@ interface GraduateImageProps {
   >;
 }
 
-const GraduateImage: React.FC<GraduateImageProps> = ({
-  graduateName,
+const BannerImage: React.FC<BannerImageProps> = ({
+  fileName,
   className,
   imgProps,
 }) => {
   return (
     <CloudResponsiveImg
-      folderPath="webp/graduates"
-      fileName={graduateName}
+      folderPath="webp/banners"
+      fileName={fileName}
       className={className}
       imgProps={imgProps}
     />
   );
 };
 
-export default GraduateImage;
+export default BannerImage;

@@ -23,13 +23,13 @@ const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
               graduateName={graduate.name}
               imgProps={{
                 loading: "lazy",
-                sizes: "(max-width 600px) 100vw, 300px",
+                sizes: "(max-width: 600px) 100vw, 300px",
               }}
             />
           </S.StyledImageContainer>
         </SS.Link>
       </CardActionArea>
-      <S.StyledCardContent>
+      <SS.StyledCardContent>
         {!graduate.name_ch && showNameChPlaceholder ? (
           <S.PlaceholderTypography variant="h5">--</S.PlaceholderTypography>
         ) : (
@@ -38,7 +38,7 @@ const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
         <Typography variant="subtitle1" component="div">
           {graduate.name}
         </Typography>
-      </S.StyledCardContent>
+      </SS.StyledCardContent>
     </S.StyledCard>
   );
 };

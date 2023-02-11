@@ -22,7 +22,7 @@ const classes = {
 const Root = styled("footer")(({ theme }) => ({
   [`&.${classes.footer}`]: {
     position: "relative",
-    marginTop: "64px",
+    marginTop: 80,
     height: "256px",
     maxWidth: "100vw",
     backgroundImage: `url(${FooterImg})`,
