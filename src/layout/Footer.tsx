@@ -78,7 +78,7 @@ function Footer() {
       <div className={classes.overlay} />
       <Box id="footer-content" className={classes.box}>
         <Typography variant="h6" gutterBottom>
-          醇忆 Grad Mag
+          醇憶 Grad Mag
         </Typography>
         <Link
           target="_blank"
