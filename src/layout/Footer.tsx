@@ -22,7 +22,7 @@ const classes = {
 const Root = styled("footer")(({ theme }) => ({
   [`&.${classes.footer}`]: {
     position: "relative",
-    marginTop: "64px",
+    marginTop: 80,
     height: "256px",
     maxWidth: "100vw",
     backgroundImage: `url(${FooterImg})`,
@@ -78,7 +78,7 @@ function Footer() {
       <div className={classes.overlay} />
       <Box id="footer-content" className={classes.box}>
         <Typography variant="h6" gutterBottom>
-          醇忆 Grad Mag
+          醇憶 Grad Mag
         </Typography>
         <Link
           target="_blank"
