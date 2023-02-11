@@ -7,11 +7,10 @@ import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import GraduatesImage from "assets/images/banner/graduates.webp";
-import HomeImage from "assets/images/banner/home.webp";
 import VideosImage from "assets/images/banner/videos.webp";
-import Banner from "components/common/Banner";
 import React from "react";
 import { Link } from "react-router-dom";
+import * as S from "./index.styled";
 
 const PREFIX = "Home";
 
@@ -89,10 +88,14 @@ const cards = [
 function Home() {
   return (
     <Root>
-      <Banner
-        banner={HomeImage}
-        alt="A heartwarming group photo of KMPk 16/17 students"
-      />
+      <S.HeroContainer>
+        <S.HeroImg
+          fileName="home"
+          imgProps={{
+            alt: "A group photo of KMPk 16/17 students",
+          }}
+        />
+      </S.HeroContainer>
       <Container className={classes.container}>
         <Box id="about" className={classes.section}>
           <Typography variant="h3" className={classes.paragraph}>
