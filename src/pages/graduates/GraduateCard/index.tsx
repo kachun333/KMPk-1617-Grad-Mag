@@ -23,7 +23,7 @@ const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
               graduateName={graduate.name}
               imgProps={{
                 loading: "lazy",
-                sizes: "(max-width 600px) 100vw, 300px",
+                sizes: "(max-width: 600px) 100vw, 300px",
               }}
             />
           </S.StyledImageContainer>
