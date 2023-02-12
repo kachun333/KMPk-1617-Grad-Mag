@@ -39,6 +39,9 @@ function registerValidSW(swUrl: string, config?: Config) {
         // The page has been loaded when there's already a waiting and active SW.
         // This would happen if skipWaiting() isn't being called, and there are
         // still old tabs open.
+        console.log(
+          "Please close all tabs to get updates. Alternatively, click the update prompt"
+        );
         if (config && config.onHasWaiting) {
           config.onHasWaiting(registration);
         }
