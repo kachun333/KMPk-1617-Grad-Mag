@@ -27,12 +27,22 @@ interface Config {
   onSuccess?: (registration: ServiceWorkerRegistration) => void;
   // eslint-disable-next-line no-unused-vars
   onUpdate?: (registration: ServiceWorkerRegistration) => void;
+  // eslint-disable-next-line no-unused-vars
+  onHasWaiting?: (registration: ServiceWorkerRegistration) => void;
 }
 
 function registerValidSW(swUrl: string, config?: Config) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
+      if (registration.waiting && registration.active) {
+        // The page has been loaded when there's already a waiting and active SW.
+        // This would happen if skipWaiting() isn't being called, and there are
+        // still old tabs open.
+        if (config && config.onHasWaiting) {
+          config.onHasWaiting(registration);
+        }
+      }
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         if (installingWorker == null) {

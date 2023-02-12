@@ -13,11 +13,14 @@ function useServiceWorker(): UseServiceWorkerRes {
   const serviceWorkerRef = useRef<ServiceWorker | null>(null);
 
   useEffect(() => {
+    function onHasUpdate(registration: ServiceWorkerRegistration) {
+      serviceWorkerRef.current = registration.waiting;
+      setHasUpdate(true);
+    }
+
     serviceWorkerRegistration.register({
-      onUpdate: (registration) => {
-        serviceWorkerRef.current = registration.waiting;
-        setHasUpdate(true);
-      },
+      onUpdate: onHasUpdate,
+      onHasWaiting: onHasUpdate,
     });
   }, []);
 
