@@ -8,6 +8,7 @@ import AppFab from "layout/AppFab";
 import Footer from "layout/Footer";
 import NavbarDesktop from "layout/NavbarDesktop";
 import NavbarMobile from "layout/NavbarMobile";
+import ServiceWorker from "layout/ServiceWorker";
 import AppProvider from "providers/AppProvider";
 import React from "react";
 import { Outlet, ScrollRestoration } from "react-router-dom";
@@ -37,6 +38,7 @@ const AppLayout: React.FC = () => {
       <ShowOnScroll>
         <AppFab />
       </ShowOnScroll>
+      <ServiceWorker />
     </AppProvider>
   );
 };
