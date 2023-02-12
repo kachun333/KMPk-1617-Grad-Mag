@@ -5,7 +5,7 @@ export interface AppTitleContextValue {
 }
 
 const AppTitleContext = createContext<AppTitleContextValue>({
-  appTitle: "醇忆 Grad Mag",
+  appTitle: "醇憶 Grad Mag",
 });
 
 export default AppTitleContext;
