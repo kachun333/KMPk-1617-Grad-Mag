@@ -16,6 +16,7 @@ export const StyledPaper = styled(Paper, {
   };
 
   return {
+    zIndex: 2000, // highest in App
     cursor: "pointer",
     width: 320,
     padding: `${theme.spacing(1.5)} ${theme.spacing(2)}`,
