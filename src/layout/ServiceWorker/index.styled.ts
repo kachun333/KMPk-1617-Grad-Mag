@@ -8,8 +8,9 @@ const marginTopFAB = 8;
 const translateY = marginTopFAB + FABHeight;
 
 export const StyledPaper = styled(Paper, {
-  shouldForwardProp: (prop) => prop !== "hasFAB",
-})<{ hasFAB: boolean; show: boolean }>(({ theme, hasFAB, show }) => {
+  shouldForwardProp: (prop) => prop !== "show" && prop !== "hasFAB",
+})<{ show: boolean; hasFAB: boolean }>(({ theme, show, hasFAB }) => {
+  const opacity = show ? 1 : 0;
   const styleWithFAB = hasFAB && {
     transform: `translate(-50%, -${translateY}px)`,
     transition: `transform ${theme.transitions.duration.leavingScreen}ms ${theme.transitions.easing.sharp}`,
@@ -23,7 +24,7 @@ export const StyledPaper = styled(Paper, {
     position: "fixed",
     bottom: initialBottom,
     left: "50%",
-    opacity: show ? 1 : 0,
+    opacity,
     transform: "translate(-50%)",
     transition: `
       opacity ${theme.transitions.duration.enteringScreen}ms ${theme.transitions.easing.easeIn},
@@ -39,7 +40,6 @@ export const StyledPaper = styled(Paper, {
 
 export const StyledContainer = styled("div")({
   display: "flex",
-  columnGap: 16,
   alignItems: "center",
 });
 

@@ -15,8 +15,8 @@ function useServiceWorker(): UseServiceWorkerRes {
   useEffect(() => {
     serviceWorkerRegistration.register({
       onUpdate: (registration) => {
-        setHasUpdate(true);
         serviceWorkerRef.current = registration.waiting;
+        setHasUpdate(true);
       },
     });
   }, []);
