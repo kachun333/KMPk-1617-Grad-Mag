@@ -6,7 +6,6 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import routes from "routes";
-import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 const router = createBrowserRouter(routes);
 
@@ -18,8 +17,3 @@ root.render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorkerRegistration.register();
