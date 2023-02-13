@@ -20,7 +20,11 @@ function GraduateDetails() {
   }
 
   return (
-    <GraduateDetailsPaper graduateId={graduateId} graduates={graduatesData}>
+    <GraduateDetailsPaper
+      key={graduateId} // reset scroll position & state when change
+      graduateId={graduateId}
+      graduates={graduatesData}
+    >
       <S.GraduateDetailsImageBox>
         <ImageHolder graduate={graduate} />
       </S.GraduateDetailsImageBox>
