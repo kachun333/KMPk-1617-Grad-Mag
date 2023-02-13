@@ -45,6 +45,8 @@ const GraduateDetailsPaper: React.FC<
 
   useEffect(() => {
     if (!ref.current) return () => undefined;
+    // @ts-expect-error https://github.com/hammerjs/hammerjs.github.io/blob/master/tips.md#i-cant-select-my-text-anymore
+    delete Hammer.defaults.cssProps.userSelect;
     const mc = new Hammer.Manager(ref.current);
     mc.add(
       new Hammer.Swipe({
