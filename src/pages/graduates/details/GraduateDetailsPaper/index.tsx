@@ -51,7 +51,7 @@ const GraduateDetailsPaper: React.FC<
     mc.add(
       new Hammer.Swipe({
         direction: Hammer.DIRECTION_HORIZONTAL,
-        threshold: 5,
+        threshold: 2,
         velocity: 0.1,
       })
     );
