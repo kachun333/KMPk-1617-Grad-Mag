@@ -26,13 +26,21 @@ const GraduateDetailsPaper: React.FC<
   const goPrev = useCallback(() => {
     const prevGraduate = graduates[currIndex - 1];
     const hasPrev = !!prevGraduate;
-    if (hasPrev) navigate(`/graduates/${prevGraduate.id}`);
+    if (hasPrev) {
+      navigate(`/graduates/${prevGraduate.id}`, {
+        preventScrollReset: true,
+      });
+    }
   }, [currIndex, graduates, navigate]);
 
   const goNext = useCallback(() => {
     const nextGraduate = graduates[currIndex + 1];
     const hasNext = !!nextGraduate;
-    if (hasNext) navigate(`/graduates/${nextGraduate.id}`);
+    if (hasNext) {
+      navigate(`/graduates/${nextGraduate.id}`, {
+        preventScrollReset: true,
+      });
+    }
   }, [currIndex, graduates, navigate]);
 
   useEffect(() => {
