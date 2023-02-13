@@ -19,6 +19,7 @@ const GraduateDetailsPaper: React.FC<
 > = ({ graduateId, graduates, children }) => {
   const navigate = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
+  const hammerManagerRef = useRef<HammerManager | null>(null);
 
   const currIndex = graduateId - 1;
 
@@ -35,14 +36,27 @@ const GraduateDetailsPaper: React.FC<
   }, [currIndex, graduates, navigate]);
 
   useEffect(() => {
-    if (!ref.current) return () => null;
-    const hammer = new Hammer(ref.current);
-    hammer.on("swipeleft", () => goNext());
-    hammer.on("swiperight", () => goPrev());
+    if (!ref.current) return () => undefined;
+    const mc = new Hammer.Manager(ref.current);
+    mc.add(
+      new Hammer.Swipe({
+        direction: Hammer.DIRECTION_HORIZONTAL,
+        threshold: 5,
+        velocity: 0.1,
+      })
+    );
+    hammerManagerRef.current = mc;
+    return () => hammerManagerRef.current?.destroy();
+  }, []);
+
+  useEffect(() => {
+    if (!hammerManagerRef.current) return () => null;
+    const hammer = hammerManagerRef.current;
+    hammer.on("swipeleft", (e) => e.pointerType !== "mouse" && goNext());
+    hammer.on("swiperight", (e) => e.pointerType !== "mouse" && goPrev());
     return () => {
       hammer.off("swipeleft");
       hammer.off("swiperight");
-      hammer.destroy();
     };
   }, [goNext, goPrev]);
 
