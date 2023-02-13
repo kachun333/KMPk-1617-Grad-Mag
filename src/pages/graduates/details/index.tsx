@@ -3,6 +3,7 @@ import PageNotFound from "pages/PageNotFound";
 import React from "react";
 import { useParams } from "react-router-dom";
 import GraduateDetailsInfo from "./GraduateDetailsInfo";
+import GraduateDetailsPaper from "./GraduateDetailsPaper";
 import ImageHolder from "./ImageHolder";
 import * as S from "./index.styled";
 
@@ -19,14 +20,14 @@ function GraduateDetails() {
   }
 
   return (
-    <S.GraduateDetailsPaper>
+    <GraduateDetailsPaper graduateId={graduateId} graduates={graduatesData}>
       <S.GraduateDetailsImageBox>
         <ImageHolder graduate={graduate} />
       </S.GraduateDetailsImageBox>
       <S.GraduateDetailsInfoBox>
         <GraduateDetailsInfo graduate={graduate} />
       </S.GraduateDetailsInfoBox>
-    </S.GraduateDetailsPaper>
+    </GraduateDetailsPaper>
   );
 }
 
