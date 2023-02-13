@@ -17,6 +17,7 @@
     "react/prop-types": "off",
     "react/require-default-props": "off",
     "react/jsx-no-bind": "off",
+    "no-undef": "off", // https://stackoverflow.com/a/67018836
     "react/no-array-index-key": "warn",
     "react/jsx-filename-extension": [
       2,

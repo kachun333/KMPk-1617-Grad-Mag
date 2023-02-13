@@ -1,18 +1,4 @@
-import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
-
-export const GraduateDetailsPaper = styled(Paper)(({ theme }) => ({
-  position: "fixed",
-  left: 0,
-  top: 0,
-  right: 0,
-  bottom: 0,
-  zIndex: 1101, // higher than AppBar
-  display: "flex",
-  [theme.breakpoints.down("md")]: {
-    flexDirection: "column",
-  },
-}));
 
 export const GraduateDetailsImageBox = styled("div")(({ theme }) => ({
   /* graduate image can align center */
@@ -36,6 +22,8 @@ export const GraduateDetailsInfoBox = styled("div")(({ theme }) => ({
   /* allow overflow */
   height: "100%",
   overflowY: "auto",
+  /* allow swipe left & right to navigate */
+  touchAction: "pan-y",
   [theme.breakpoints.down("md")]: {
     minWidth: "100%",
   },
