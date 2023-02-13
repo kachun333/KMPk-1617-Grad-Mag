@@ -19,7 +19,7 @@ const ImageHolder: React.FC<ImageHolderProps> = ({ graduate }) => {
     const mc = new Hammer.Manager(ref.current);
     mc.add(new Hammer.Swipe({ direction: Hammer.DIRECTION_DOWN }));
     hammerManagerRef.current = mc;
-    return () => hammerManagerRef.current?.destroy();
+    return () => mc.destroy();
   }, []);
 
   useEffect(() => {

@@ -54,7 +54,7 @@ const GraduateDetailsPaper: React.FC<
       })
     );
     hammerManagerRef.current = mc;
-    return () => hammerManagerRef.current?.destroy();
+    return () => mc.destroy();
   }, []);
 
   useEffect(() => {
