@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
 export interface AppTitleContextValue {
-  appTitle: string;
+  appTitle: string | null;
 }
 
 const AppTitleContext = createContext<AppTitleContextValue>({

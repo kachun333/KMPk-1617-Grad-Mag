@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
-import { getAppTitle } from "./app-title.utils";
+import { getAppTitle, setDocumentTitle } from "./app-title.utils";
 import AppTitleContext, { AppTitleContextValue } from "./AppTitleContext";
 
 const AppTitleProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
@@ -13,7 +13,7 @@ const AppTitleProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   }, [location.pathname]);
 
   useEffect(() => {
-    document.title = appTitleContextValue.appTitle;
+    setDocumentTitle(appTitleContextValue.appTitle);
   }, [appTitleContextValue.appTitle]);
 
   return (
