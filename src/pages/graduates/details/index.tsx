@@ -1,8 +1,7 @@
 import graduatesData from "assets/json/graduates_public.json";
-import PageNotFound from "pages/PageNotFound";
 import { setDocumentTitle } from "providers/app-title/app-title.utils";
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import GraduateDetailsInfo from "./GraduateDetailsInfo";
 import GraduateDetailsPaper from "./GraduateDetailsPaper";
 import ImageHolder from "./ImageHolder";
@@ -27,7 +26,7 @@ function GraduateDetails() {
   }, [graduate]);
 
   if (!graduate) {
-    return <PageNotFound />;
+    return <Navigate to="/404" replace />;
   }
 
   return (

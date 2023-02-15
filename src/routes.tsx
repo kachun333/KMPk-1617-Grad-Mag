@@ -6,7 +6,7 @@ import Home from "pages/Home";
 import PageNotFound from "pages/PageNotFound";
 import Videos from "pages/videos/Videos";
 import React from "react";
-import { RouteObject } from "react-router-dom";
+import { Navigate, RouteObject } from "react-router-dom";
 
 const routes: RouteObject[] = [
   {
@@ -31,8 +31,12 @@ const routes: RouteObject[] = [
         element: <Videos />,
       },
       {
-        path: "*",
+        path: "/404",
         element: <PageNotFound />,
+      },
+      {
+        path: "*",
+        element: <Navigate to="/404" replace />,
       },
     ],
   },
