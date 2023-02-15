@@ -1,6 +1,7 @@
 import graduatesData from "assets/json/graduates_public.json";
 import PageNotFound from "pages/PageNotFound";
-import React from "react";
+import { setDocumentTitle } from "providers/app-title/app-title.utils";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import GraduateDetailsInfo from "./GraduateDetailsInfo";
 import GraduateDetailsPaper from "./GraduateDetailsPaper";
@@ -15,6 +16,16 @@ function GraduateDetails() {
   const params = useParams<GraduateDetailsParams>();
   const graduateId = parseInt(params.graduateId ?? "", 10);
   const graduate = graduatesData[graduateId - 1];
+
+  useEffect(() => {
+    if (graduate) {
+      const newTitle = graduate.name_ch
+        ? `${graduate.name_ch} ${graduate.name}`
+        : graduate.name;
+      setDocumentTitle(newTitle);
+    }
+  }, [graduate]);
+
   if (!graduate) {
     return <PageNotFound />;
   }
