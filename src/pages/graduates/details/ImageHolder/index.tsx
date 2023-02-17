@@ -30,6 +30,11 @@ const ImageHolder: React.FC<ImageHolderProps> = ({ graduate }) => {
         <ShareButton
           graduateUrl={toSharableGraduateUrl(graduate.id)}
           graduateText={toGraduateTitle(graduate)}
+          iconBtnProps={{
+            edge: "end",
+            "aria-label": "share",
+            size: "large",
+          }}
         />
       </S.ImageToolbar>
       <S.StyledGraduateImage
