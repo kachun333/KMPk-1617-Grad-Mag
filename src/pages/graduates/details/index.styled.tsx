@@ -1,6 +1,7 @@
 import { styled } from "@mui/material/styles";
 
 export const GraduateDetailsImageBox = styled("div")(({ theme }) => ({
+  backgroundColor: theme.palette.common.black,
   /* graduate image can align center */
   display: "flex",
   /* image control will `absolute` reference here */
