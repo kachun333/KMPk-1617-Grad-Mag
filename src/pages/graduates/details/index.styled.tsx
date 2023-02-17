@@ -1,6 +1,7 @@
 import { styled } from "@mui/material/styles";
 
 export const GraduateDetailsImageBox = styled("div")(({ theme }) => ({
+  backgroundColor: theme.palette.common.black,
   /* graduate image can align center */
   display: "flex",
   /* image control will `absolute` reference here */
@@ -13,18 +14,5 @@ export const GraduateDetailsImageBox = styled("div")(({ theme }) => ({
   },
   [theme.breakpoints.up("md")]: {
     flexGrow: 1,
-  },
-}));
-
-export const GraduateDetailsInfoBox = styled("div")(({ theme }) => ({
-  maxWidth: 360,
-  paddingBottom: theme.spacing(1),
-  /* allow overflow */
-  height: "100%",
-  overflowY: "auto",
-  /* allow swipe left & right to navigate */
-  touchAction: "pan-y",
-  [theme.breakpoints.down("md")]: {
-    minWidth: "100%",
   },
 }));

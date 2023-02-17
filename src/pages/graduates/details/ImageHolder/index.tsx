@@ -1,46 +1,41 @@
 import ArrowBack from "@mui/icons-material/ArrowBack";
-import { ContainedIconButton, Link } from "components/styled";
+import { Link } from "components/styled";
+import ShareButton from "pages/graduates/details/ImageHolder/Share";
 import { Graduate } from "pages/graduates/graduates.interface";
-import React, { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import useScrollDown from "./hooks/useScrollDown";
 import * as S from "./index.styled";
+import { toGraduateTitle, toSharableGraduateUrl } from "./Share/index.utils";
 
 interface ImageHolderProps {
   graduate: Graduate;
 }
 
 const ImageHolder: React.FC<ImageHolderProps> = ({ graduate }) => {
-  const navigate = useNavigate();
-  const ref = useRef<HTMLImageElement>(null);
-  const hammerManagerRef = useRef<HammerManager | null>(null);
-
-  useEffect(() => {
-    if (!ref.current) return () => undefined;
-    const mc = new Hammer.Manager(ref.current);
-    mc.add(new Hammer.Swipe({ direction: Hammer.DIRECTION_DOWN }));
-    hammerManagerRef.current = mc;
-    return () => mc.destroy();
-  }, []);
-
-  useEffect(() => {
-    if (!hammerManagerRef.current) return () => undefined;
-    const hammer = hammerManagerRef.current;
-    hammer.on("swipedown", (e) => {
-      if (e.pointerType !== "mouse") {
-        navigate(`/graduates`, { preventScrollReset: true });
-      }
-    });
-    return () => hammer.off("swipedown");
-  }, [navigate]);
+  const ref = useScrollDown<HTMLImageElement>();
 
   return (
     <>
       <S.ImageToolbar>
         <Link to="/graduates" preventScrollReset>
-          <ContainedIconButton edge="start" aria-label="close" size="small">
+          <S.ImageToolbarIconButton
+            edge="start"
+            aria-label="close"
+            size="large"
+          >
             <ArrowBack />
-          </ContainedIconButton>
+          </S.ImageToolbarIconButton>
         </Link>
+        <S.ImageToolbarTitle />
+        <ShareButton
+          graduateUrl={toSharableGraduateUrl(graduate.id)}
+          graduateText={toGraduateTitle(graduate)}
+          iconBtnProps={{
+            edge: "end",
+            "aria-label": "share",
+            size: "large",
+          }}
+        />
       </S.ImageToolbar>
       <S.StyledGraduateImage
         graduateName={graduate.name}
