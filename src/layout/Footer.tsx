@@ -6,6 +6,7 @@ import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import Bottle from "assets/images/bottle.webp";
 import FooterImg from "assets/images/footer.webp";
+import { APP_NAME } from "global.constants";
 import React from "react";
 
 const PREFIX = "Footer";
@@ -78,7 +79,7 @@ function Footer() {
       <div className={classes.overlay} />
       <Box id="footer-content" className={classes.box}>
         <Typography variant="h6" gutterBottom>
-          醇憶 Grad Mag
+          {APP_NAME}
         </Typography>
         <Link
           target="_blank"

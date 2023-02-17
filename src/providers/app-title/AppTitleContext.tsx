@@ -1,3 +1,4 @@
+import { APP_NAME } from "global.constants";
 import { createContext } from "react";
 
 export interface AppTitleContextValue {
@@ -5,7 +6,7 @@ export interface AppTitleContextValue {
 }
 
 const AppTitleContext = createContext<AppTitleContextValue>({
-  appTitle: "醇憶 Grad Mag",
+  appTitle: APP_NAME,
 });
 
 export default AppTitleContext;
