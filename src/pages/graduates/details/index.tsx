@@ -37,9 +37,7 @@ function GraduateDetails() {
       <S.GraduateDetailsImageBox>
         <ImageHolder graduate={graduate} />
       </S.GraduateDetailsImageBox>
-      <S.GraduateDetailsInfoBox>
-        <GraduateDetailsInfo graduate={graduate} />
-      </S.GraduateDetailsInfoBox>
+      <GraduateDetailsInfo graduate={graduate} />
     </GraduateDetailsPaper>
   );
 }
