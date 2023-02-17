@@ -5,6 +5,7 @@ import { Navigate, useParams } from "react-router-dom";
 import GraduateDetailsInfo from "./GraduateDetailsInfo";
 import GraduateDetailsPaper from "./GraduateDetailsPaper";
 import ImageHolder from "./ImageHolder";
+import { toGraduateTitle } from "./ImageHolder/Share/index.utils";
 import * as S from "./index.styled";
 
 type GraduateDetailsParams = {
@@ -18,10 +19,8 @@ function GraduateDetails() {
 
   useEffect(() => {
     if (graduate) {
-      const newTitle = graduate.name_ch
-        ? `${graduate.name_ch} ${graduate.name}`
-        : graduate.name;
-      setDocumentTitle(newTitle);
+      const graduateTitle = toGraduateTitle(graduate);
+      setDocumentTitle(graduateTitle);
     }
   }, [graduate]);
 
