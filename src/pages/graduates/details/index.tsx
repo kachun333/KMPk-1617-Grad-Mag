@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import GraduateDetailsInfo from "./GraduateDetailsInfo";
 import GraduateDetailsPaper from "./GraduateDetailsPaper";
+import useNavigateGraduate from "./hooks/useNavigateGraduate";
 import ImageHolder from "./ImageHolder";
 import { toGraduateTitle } from "./ImageHolder/Share/index.utils";
 import * as S from "./index.styled";
@@ -14,30 +15,41 @@ type GraduateDetailsParams = {
 
 function GraduateDetails() {
   const params = useParams<GraduateDetailsParams>();
-  const graduateId = parseInt(params.graduateId ?? "", 10);
-  const graduate = graduatesData[graduateId - 1];
+  const currentGraduateId = parseInt(params.graduateId ?? "", 10);
 
+  const { goPrevGraduate, goNextGraduate, goShowAllGraduates } =
+    useNavigateGraduate({
+      graduates: graduatesData,
+      currentGraduateId,
+    });
+
+  const currentGraduate = graduatesData[currentGraduateId - 1];
   useEffect(() => {
-    if (graduate) {
-      const graduateTitle = toGraduateTitle(graduate);
+    if (currentGraduate) {
+      const graduateTitle = toGraduateTitle(currentGraduate);
       setDocumentTitle(graduateTitle);
     }
-  }, [graduate]);
+  }, [currentGraduate]);
 
-  if (!graduate) {
+  if (!currentGraduate) {
     return <Navigate to="/404" replace />;
   }
 
   return (
     <GraduateDetailsPaper
-      key={graduateId} // reset scroll position & state when change
-      graduateId={graduateId}
-      graduates={graduatesData}
+      goPrevGraduate={goPrevGraduate}
+      goNextGraduate={goNextGraduate}
     >
       <S.GraduateDetailsImageBox>
-        <ImageHolder graduate={graduate} />
+        <ImageHolder
+          graduate={currentGraduate}
+          goShowAllGraduates={goShowAllGraduates}
+        />
       </S.GraduateDetailsImageBox>
-      <GraduateDetailsInfo graduate={graduate} />
+      <GraduateDetailsInfo
+        key={currentGraduateId} // reset scroll position when change
+        graduate={currentGraduate}
+      />
     </GraduateDetailsPaper>
   );
 }

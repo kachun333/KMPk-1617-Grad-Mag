@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import * as SS from "components/styled";
 import { Graduate } from "pages/graduates/graduates.interface";
-import React from "react";
+import React, { memo } from "react";
 import * as S from "./index.styled";
 
 interface GraduateCardProps {
@@ -43,4 +43,8 @@ const GraduateCard: React.FC<GraduateCardProps> = ({ graduate }) => {
   );
 };
 
-export default GraduateCard;
+/**
+ * memo for performance cause
+ * when all graduates are shown, goNextGraduate/goPrevGraduate is slow
+ */
+export default memo(GraduateCard);
