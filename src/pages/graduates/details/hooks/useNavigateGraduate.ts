@@ -20,11 +20,11 @@ function useNavigateGraduate(
   const navigate = useNavigate();
 
   const currIndex = currentGraduateId - 1;
-  const prevGraduate = useMemo(
+  const prevGraduate: Graduate | undefined = useMemo(
     () => graduates[currIndex - 1],
     [currIndex, graduates]
   );
-  const nextGraduate = useMemo(
+  const nextGraduate: Graduate | undefined = useMemo(
     () => graduates[currIndex + 1],
     [currIndex, graduates]
   );
@@ -35,12 +35,12 @@ function useNavigateGraduate(
   const goPrevGraduate = useCallback(() => {
     if (hasPrev)
       navigate(`/graduates/${prevGraduate.id}`, { preventScrollReset: true });
-  }, [hasPrev, navigate, prevGraduate.id]);
+  }, [hasPrev, navigate, prevGraduate?.id]);
 
   const goNextGraduate = useCallback(() => {
     if (hasNext)
       navigate(`/graduates/${nextGraduate.id}`, { preventScrollReset: true });
-  }, [hasNext, navigate, nextGraduate.id]);
+  }, [hasNext, navigate, nextGraduate?.id]);
 
   const goShowAllGraduates = useCallback(() => {
     navigate(`/graduates`, { preventScrollReset: true });
