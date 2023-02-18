@@ -1,8 +1,13 @@
 import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 
-function useScrollDown<T extends Element>(): React.RefObject<T> {
-  const navigate = useNavigate();
+interface useSwipeDownProps {
+  onSwipeDown: () => void;
+}
+
+function useSwipeDown<T extends Element>(
+  props: useSwipeDownProps
+): React.RefObject<T> {
+  const { onSwipeDown } = props;
   const ref = useRef<T | null>(null);
   const hammerManagerRef = useRef<HammerManager | null>(null);
 
@@ -18,14 +23,12 @@ function useScrollDown<T extends Element>(): React.RefObject<T> {
     if (!hammerManagerRef.current) return () => undefined;
     const hammer = hammerManagerRef.current;
     hammer.on("swipedown", (e) => {
-      if (e.pointerType !== "mouse") {
-        navigate(`/graduates`, { preventScrollReset: true });
-      }
+      if (e.pointerType !== "mouse") onSwipeDown();
     });
     return () => hammer.off("swipedown");
-  }, [navigate]);
+  }, [onSwipeDown]);
 
   return ref;
 }
 
-export default useScrollDown;
+export default useSwipeDown;
