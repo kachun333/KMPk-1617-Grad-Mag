@@ -37,7 +37,6 @@ function GraduateDetails() {
 
   return (
     <GraduateDetailsPaper
-      key={currentGraduateId} // reset scroll position & state when change
       goPrevGraduate={goPrevGraduate}
       goNextGraduate={goNextGraduate}
     >
@@ -47,7 +46,10 @@ function GraduateDetails() {
           goShowAllGraduates={goShowAllGraduates}
         />
       </S.GraduateDetailsImageBox>
-      <GraduateDetailsInfo graduate={currentGraduate} />
+      <GraduateDetailsInfo
+        key={currentGraduateId} // reset scroll position & state when change
+        graduate={currentGraduate}
+      />
     </GraduateDetailsPaper>
   );
 }
