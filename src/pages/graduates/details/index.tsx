@@ -47,7 +47,7 @@ function GraduateDetails() {
         />
       </S.GraduateDetailsImageBox>
       <GraduateDetailsInfo
-        key={currentGraduateId} // reset scroll position & state when change
+        key={currentGraduateId} // reset scroll position when change
         graduate={currentGraduate}
       />
     </GraduateDetailsPaper>
