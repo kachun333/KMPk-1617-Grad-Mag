@@ -3,16 +3,22 @@ import { Link } from "components/styled";
 import ShareButton from "pages/graduates/details/ImageHolder/Share";
 import { Graduate } from "pages/graduates/graduates.interface";
 import React from "react";
-import useScrollDown from "./hooks/useScrollDown";
+import useSwipeDown from "./hooks/useSwipeDown";
 import * as S from "./index.styled";
 import { toGraduateTitle, toSharableGraduateUrl } from "./Share/index.utils";
 
 interface ImageHolderProps {
   graduate: Graduate;
+  goShowAllGraduates: () => void;
 }
 
-const ImageHolder: React.FC<ImageHolderProps> = ({ graduate }) => {
-  const ref = useScrollDown<HTMLImageElement>();
+const ImageHolder: React.FC<ImageHolderProps> = ({
+  graduate,
+  goShowAllGraduates,
+}) => {
+  const ref = useSwipeDown<HTMLImageElement>({
+    onSwipeDown: goShowAllGraduates,
+  });
 
   return (
     <>
