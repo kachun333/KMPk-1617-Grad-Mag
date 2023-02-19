@@ -44,6 +44,8 @@ function GraduateDetails() {
       <S.GraduateDetailsImageBox>
         <ImageHolder
           graduate={currentGraduate}
+          goPrevGraduate={goPrevGraduate}
+          goNextGraduate={goNextGraduate}
           goShowAllGraduates={goShowAllGraduates}
         />
       </S.GraduateDetailsImageBox>
