@@ -8,6 +8,8 @@ interface UseNavigateGraduateProps {
 }
 
 interface UseNavigateGraduateRes {
+  hasPrevGraduate: boolean;
+  hasNextGraduate: boolean;
   goPrevGraduate: () => void;
   goNextGraduate: () => void;
   goShowAllGraduates: () => void;
@@ -29,24 +31,26 @@ function useNavigateGraduate(
     [currIndex, graduates]
   );
 
-  const hasPrev = !!prevGraduate;
-  const hasNext = !!nextGraduate;
+  const hasPrevGraduate = !!prevGraduate;
+  const hasNextGraduate = !!nextGraduate;
 
   const goPrevGraduate = useCallback(() => {
-    if (hasPrev)
+    if (hasPrevGraduate)
       navigate(`/graduates/${prevGraduate.id}`, { preventScrollReset: true });
-  }, [hasPrev, navigate, prevGraduate?.id]);
+  }, [hasPrevGraduate, navigate, prevGraduate?.id]);
 
   const goNextGraduate = useCallback(() => {
-    if (hasNext)
+    if (hasNextGraduate)
       navigate(`/graduates/${nextGraduate.id}`, { preventScrollReset: true });
-  }, [hasNext, navigate, nextGraduate?.id]);
+  }, [hasNextGraduate, navigate, nextGraduate?.id]);
 
   const goShowAllGraduates = useCallback(() => {
     navigate(`/graduates`, { preventScrollReset: true });
   }, [navigate]);
 
   return {
+    hasPrevGraduate,
+    hasNextGraduate,
     goPrevGraduate,
     goNextGraduate,
     goShowAllGraduates,

@@ -12,6 +12,8 @@ import SidePanel from "./SidePanel";
 
 interface ImageHolderProps {
   graduate: Graduate;
+  hasPrevGraduate: boolean;
+  hasNextGraduate: boolean;
   goPrevGraduate: () => void;
   goNextGraduate: () => void;
   goShowAllGraduates: () => void;
@@ -19,6 +21,8 @@ interface ImageHolderProps {
 
 const ImageHolder: React.FC<ImageHolderProps> = ({
   graduate,
+  hasPrevGraduate,
+  hasNextGraduate,
   goPrevGraduate,
   goNextGraduate,
   goShowAllGraduates,
@@ -29,16 +33,20 @@ const ImageHolder: React.FC<ImageHolderProps> = ({
 
   return (
     <>
-      <SidePanel
-        onClick={goPrevGraduate}
-        fabIcon={<ChevronLeft />}
-        direction="left"
-      />
-      <SidePanel
-        onClick={goNextGraduate}
-        fabIcon={<ChevronRight />}
-        direction="right"
-      />
+      {hasPrevGraduate && (
+        <SidePanel
+          onClick={goPrevGraduate}
+          fabIcon={<ChevronLeft />}
+          direction="left"
+        />
+      )}
+      {hasNextGraduate && (
+        <SidePanel
+          onClick={goNextGraduate}
+          fabIcon={<ChevronRight />}
+          direction="right"
+        />
+      )}
       <S.ImageToolbar>
         <Link to="/graduates" preventScrollReset>
           <S.ImageToolbarIconButton
