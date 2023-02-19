@@ -32,7 +32,6 @@ export const ModalTable = styled(Table)({
 });
 
 export const ModalTableRow = styled(TableRow)({
-  minWidth: 300,
   "&:last-child td, &:last-child th": {
     border: 0,
   },
