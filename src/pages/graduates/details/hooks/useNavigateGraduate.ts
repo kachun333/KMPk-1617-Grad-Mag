@@ -8,6 +8,8 @@ interface UseNavigateGraduateProps {
 }
 
 interface UseNavigateGraduateRes {
+  hasPrevGraduate: boolean;
+  hasNextGraduate: boolean;
   goPrevGraduate: () => void;
   goNextGraduate: () => void;
   goShowAllGraduates: () => void;
@@ -20,33 +22,35 @@ function useNavigateGraduate(
   const navigate = useNavigate();
 
   const currIndex = currentGraduateId - 1;
-  const prevGraduate: Graduate | undefined = useMemo(
-    () => graduates[currIndex - 1],
+  const prevGraduate = useMemo(
+    () => graduates[currIndex - 1] as Graduate | undefined,
     [currIndex, graduates]
   );
-  const nextGraduate: Graduate | undefined = useMemo(
-    () => graduates[currIndex + 1],
+  const nextGraduate = useMemo(
+    () => graduates[currIndex + 1] as Graduate | undefined,
     [currIndex, graduates]
   );
 
-  const hasPrev = !!prevGraduate;
-  const hasNext = !!nextGraduate;
+  const hasPrevGraduate = !!prevGraduate;
+  const hasNextGraduate = !!nextGraduate;
 
   const goPrevGraduate = useCallback(() => {
-    if (hasPrev)
+    if (hasPrevGraduate)
       navigate(`/graduates/${prevGraduate.id}`, { preventScrollReset: true });
-  }, [hasPrev, navigate, prevGraduate?.id]);
+  }, [hasPrevGraduate, navigate, prevGraduate?.id]);
 
   const goNextGraduate = useCallback(() => {
-    if (hasNext)
+    if (hasNextGraduate)
       navigate(`/graduates/${nextGraduate.id}`, { preventScrollReset: true });
-  }, [hasNext, navigate, nextGraduate?.id]);
+  }, [hasNextGraduate, navigate, nextGraduate?.id]);
 
   const goShowAllGraduates = useCallback(() => {
     navigate(`/graduates`, { preventScrollReset: true });
   }, [navigate]);
 
   return {
+    hasPrevGraduate,
+    hasNextGraduate,
     goPrevGraduate,
     goNextGraduate,
     goShowAllGraduates,

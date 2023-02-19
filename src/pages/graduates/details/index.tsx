@@ -18,11 +18,16 @@ function GraduateDetails() {
   const params = useParams<GraduateDetailsParams>();
   const currentGraduateId = parseInt(params.graduateId ?? "", 10);
 
-  const { goPrevGraduate, goNextGraduate, goShowAllGraduates } =
-    useNavigateGraduate({
-      graduates: graduatesData,
-      currentGraduateId,
-    });
+  const {
+    hasPrevGraduate,
+    hasNextGraduate,
+    goPrevGraduate,
+    goNextGraduate,
+    goShowAllGraduates,
+  } = useNavigateGraduate({
+    graduates: graduatesData,
+    currentGraduateId,
+  });
 
   const currentGraduate = graduatesData[currentGraduateId - 1];
   useEffect(() => {
@@ -44,6 +49,10 @@ function GraduateDetails() {
       <S.GraduateDetailsImageBox>
         <ImageHolder
           graduate={currentGraduate}
+          hasPrevGraduate={hasPrevGraduate}
+          hasNextGraduate={hasNextGraduate}
+          goPrevGraduate={goPrevGraduate}
+          goNextGraduate={goNextGraduate}
           goShowAllGraduates={goShowAllGraduates}
         />
       </S.GraduateDetailsImageBox>
