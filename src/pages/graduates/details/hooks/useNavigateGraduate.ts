@@ -22,12 +22,12 @@ function useNavigateGraduate(
   const navigate = useNavigate();
 
   const currIndex = currentGraduateId - 1;
-  const prevGraduate: Graduate | undefined = useMemo(
-    () => graduates[currIndex - 1],
+  const prevGraduate = useMemo(
+    () => graduates[currIndex - 1] as Graduate | undefined,
     [currIndex, graduates]
   );
-  const nextGraduate: Graduate | undefined = useMemo(
-    () => graduates[currIndex + 1],
+  const nextGraduate = useMemo(
+    () => graduates[currIndex + 1] as Graduate | undefined,
     [currIndex, graduates]
   );
 
