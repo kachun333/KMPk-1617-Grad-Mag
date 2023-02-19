@@ -1,6 +1,22 @@
 import Close from "@mui/icons-material/Close";
-import { IconButton, Modal, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import {
+  IconButton,
+  Modal,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from "@mui/material";
+import React, { useEffect, useMemo, useState } from "react";
+import * as S from "./index.styled";
+
+interface Shortcut {
+  id: string;
+  keyboardKey: string | string[];
+  handler: () => void;
+  keyboardIcon: string | string[];
+  descr: string;
+}
 
 interface KeyboardNavigationProps {
   goPrevGraduate: () => void;
@@ -15,44 +31,110 @@ const KeyboardNavigation: React.FC<KeyboardNavigationProps> = ({
 }) => {
   const [showModal, setShowModal] = useState(false);
 
+  const shortcuts: Shortcut[] = useMemo(() => {
+    return [
+      {
+        id: "back",
+        keyboardKey: "Escape",
+        handler: goShowAllGraduates,
+        keyboardIcon: "Esc",
+        descr: "Back or close",
+      },
+      {
+        id: "prev",
+        keyboardKey: ["ArrowLeft", "k"],
+        handler: goPrevGraduate,
+        keyboardIcon: ["🡄", "k"],
+        descr: "Previous graduate",
+      },
+      {
+        id: "next",
+        keyboardKey: ["ArrowRight", "j"],
+        handler: goNextGraduate,
+        keyboardIcon: ["🡆", "j"],
+        descr: "Next graduate",
+      },
+      {
+        id: "help",
+        keyboardKey: "?",
+        handler: () => setShowModal(true),
+        keyboardIcon: "?",
+        descr: "Show all keyboard shortcuts",
+      },
+    ];
+  }, [goNextGraduate, goPrevGraduate, goShowAllGraduates]);
+
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") goShowAllGraduates();
-      else if (e.key === "?") setShowModal(true);
+      shortcuts
+        .find(({ keyboardKey }) => {
+          if (Array.isArray(keyboardKey)) return keyboardKey.includes(e.key);
+          return e.key === keyboardKey;
+        })
+        ?.handler();
     }
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [goShowAllGraduates]);
+  }, [shortcuts]);
 
-  useEffect(() => {
-    function onKeyboardNavigate(e: KeyboardEvent) {
-      if (e.key === "ArrowLeft" || e.key === "k") goPrevGraduate();
-      else if (e.key === "ArrowRight" || e.key === "j") goNextGraduate();
-    }
-    window.addEventListener("keydown", onKeyboardNavigate);
-    return () => window.removeEventListener("keydown", onKeyboardNavigate);
-  }, [goNextGraduate, goPrevGraduate]);
+  function onClose() {
+    setShowModal(false);
+  }
 
   return (
     <Modal
-      style={{ zIndex: 5000 }}
       open={showModal}
-      onClose={() => setShowModal(false)}
+      onClose={onClose}
       aria-labelledby="keyboard-shortcuts"
-      aria-describedby="list-of-keyboard-shortcuts"
+      aria-describedby="table-of-keyboard-shortcuts"
     >
-      <section style={{ background: "white" }}>
-        <header>
-          <Typography id="keyboard-shortcuts" variant="h6" component="h2">
-            Keyboard shortcuts
-          </Typography>
-          <IconButton>
-            {/* TODO: auto focus when open, so that user can press enter to close modal */}
+      <S.ModalPaper>
+        <S.ModalHeader>
+          <S.ModalHeaderTitle id="keyboard-shortcuts" variant="h6">
+            Keyboard Shortcuts
+          </S.ModalHeaderTitle>
+          <IconButton onClick={onClose}>
             <Close />
           </IconButton>
-        </header>
-        <main id="list-of-keyboard-shortcuts">hello world</main>
-      </section>
+        </S.ModalHeader>
+        <S.ModalTableContainer>
+          <S.ModalTable
+            id="table-of-keyboard-shortcuts"
+            aria-label="table-of-keyboard-shortcuts"
+          >
+            <TableHead>
+              <TableRow>
+                <TableCell>Keyboard Key(s)</TableCell>
+                <TableCell>Action</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {shortcuts.map((shortcut) => (
+                <S.ModalTableRow key={shortcut.id}>
+                  <TableCell component="th" scope="row">
+                    {(Array.isArray(shortcut.keyboardIcon)
+                      ? shortcut.keyboardIcon
+                      : [shortcut.keyboardIcon]
+                    )
+                      .map<React.ReactNode>((icon) => (
+                        // @ts-expect-error component doesn't exists in type
+                        <S.ShortcutIcon component="span">{icon}</S.ShortcutIcon>
+                      ))
+                      .reduce((prev, curr) => [
+                        prev,
+                        <S.ShortcutIconDelimiter>
+                          {" or "}
+                        </S.ShortcutIconDelimiter>,
+                        curr,
+                      ])}
+                  </TableCell>
+                  <TableCell>{shortcut.descr}</TableCell>
+                </S.ModalTableRow>
+              ))}
+            </TableBody>
+          </S.ModalTable>
+        </S.ModalTableContainer>
+      </S.ModalPaper>
     </Modal>
   );
 };
