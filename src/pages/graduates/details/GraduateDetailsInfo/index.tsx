@@ -1,4 +1,5 @@
 import {
+  Divider,
   List,
   ListItem,
   ListItemIcon,
@@ -18,11 +19,12 @@ const GraduateDetailsInfo: React.FC<GraduateDetailsInfoProps> = ({
   graduate,
 }) => {
   return (
-    <>
+    <S.GraduateDetailsInfoPaper>
       <S.Header>
         <Typography variant="h3">{graduate.name_ch}</Typography>
         <Typography variant="h5">{graduate.name}</Typography>
       </S.Header>
+      <Divider variant="middle" />
       <main>
         <List>
           {GRADUATE_INFO_CONFIG_LIST.map((config) => {
@@ -32,16 +34,16 @@ const GraduateDetailsInfo: React.FC<GraduateDetailsInfoProps> = ({
             }
             return (
               <div key={config.key}>
-                <ListItem>
+                <S.StyledListItemWithIcon>
                   <ListItemIcon>{config.icon}</ListItemIcon>
                   <ListItemText
                     primary={config.primaryLabel}
                     secondary={config.secondaryLabel}
                   />
-                </ListItem>
+                </S.StyledListItemWithIcon>
                 <ListItem>
                   {config.childType === "text" && (
-                    <ListItemText
+                    <S.StyledListItemText
                       secondaryTypographyProps={{
                         sx: { fontSize: config.fontSize },
                       }}
@@ -72,7 +74,7 @@ const GraduateDetailsInfo: React.FC<GraduateDetailsInfoProps> = ({
           })}
         </List>
       </main>
-    </>
+    </S.GraduateDetailsInfoPaper>
   );
 };
 

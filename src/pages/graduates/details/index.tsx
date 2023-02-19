@@ -1,10 +1,14 @@
 import graduatesData from "assets/json/graduates_public.json";
-import PageNotFound from "pages/PageNotFound";
-import React from "react";
-import { useParams } from "react-router-dom";
+import { setDocumentTitle } from "providers/app-title/app-title.utils";
+import React, { useEffect } from "react";
+import { Navigate, useParams } from "react-router-dom";
 import GraduateDetailsInfo from "./GraduateDetailsInfo";
+import GraduateDetailsPaper from "./GraduateDetailsPaper";
+import useNavigateGraduate from "./hooks/useNavigateGraduate";
 import ImageHolder from "./ImageHolder";
+import { toGraduateTitle } from "./ImageHolder/Share/index.utils";
 import * as S from "./index.styled";
+import KeyboardNavigation from "./KeyboardNavigation";
 
 type GraduateDetailsParams = {
   graduateId?: string;
@@ -12,21 +16,56 @@ type GraduateDetailsParams = {
 
 function GraduateDetails() {
   const params = useParams<GraduateDetailsParams>();
-  const graduateId = parseInt(params.graduateId ?? "", 10);
-  const graduate = graduatesData[graduateId - 1];
-  if (!graduate) {
-    return <PageNotFound />;
+  const currentGraduateId = parseInt(params.graduateId ?? "", 10);
+
+  const {
+    hasPrevGraduate,
+    hasNextGraduate,
+    goPrevGraduate,
+    goNextGraduate,
+    goShowAllGraduates,
+  } = useNavigateGraduate({
+    graduates: graduatesData,
+    currentGraduateId,
+  });
+
+  const currentGraduate = graduatesData[currentGraduateId - 1];
+  useEffect(() => {
+    if (currentGraduate) {
+      const graduateTitle = toGraduateTitle(currentGraduate);
+      setDocumentTitle(graduateTitle);
+    }
+  }, [currentGraduate]);
+
+  if (!currentGraduate) {
+    return <Navigate to="/404" replace />;
   }
 
   return (
-    <S.GraduateDetailsPaper>
+    <GraduateDetailsPaper
+      goPrevGraduate={goPrevGraduate}
+      goNextGraduate={goNextGraduate}
+    >
       <S.GraduateDetailsImageBox>
-        <ImageHolder graduate={graduate} />
+        <ImageHolder
+          graduate={currentGraduate}
+          hasPrevGraduate={hasPrevGraduate}
+          hasNextGraduate={hasNextGraduate}
+          goPrevGraduate={goPrevGraduate}
+          goNextGraduate={goNextGraduate}
+          goShowAllGraduates={goShowAllGraduates}
+        />
       </S.GraduateDetailsImageBox>
-      <S.GraduateDetailsInfoBox>
-        <GraduateDetailsInfo graduate={graduate} />
-      </S.GraduateDetailsInfoBox>
-    </S.GraduateDetailsPaper>
+      <GraduateDetailsInfo
+        key={currentGraduateId} // reset scroll position when change
+        graduate={currentGraduate}
+      />
+      <KeyboardNavigation
+        goPrevGraduate={goPrevGraduate}
+        goNextGraduate={goNextGraduate}
+        goShowAllGraduates={goShowAllGraduates}
+      />
+    </GraduateDetailsPaper>
   );
 }
 
