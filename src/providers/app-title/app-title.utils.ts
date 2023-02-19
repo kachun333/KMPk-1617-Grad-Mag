@@ -8,12 +8,12 @@ export function getAppTitle(url: string): string | null {
   return APP_NAME;
 }
 
-function computeDocumentTitle(newTitle: string | null): string {
-  if (!newTitle) return "";
+function computeDocumentTitle(newTitle: string): string {
   if (newTitle !== APP_NAME) return `${newTitle} - ${APP_NAME}`;
   return APP_NAME;
 }
 
 export function setDocumentTitle(newTitle: string | null): void {
+  if (newTitle === null) return; // ignored, remain current title
   document.title = computeDocumentTitle(newTitle);
 }
