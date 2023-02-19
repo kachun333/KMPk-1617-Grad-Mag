@@ -8,6 +8,7 @@ import useNavigateGraduate from "./hooks/useNavigateGraduate";
 import ImageHolder from "./ImageHolder";
 import { toGraduateTitle } from "./ImageHolder/Share/index.utils";
 import * as S from "./index.styled";
+import KeyboardNavigation from "./KeyboardNavigation";
 
 type GraduateDetailsParams = {
   graduateId?: string;
@@ -49,6 +50,11 @@ function GraduateDetails() {
       <GraduateDetailsInfo
         key={currentGraduateId} // reset scroll position when change
         graduate={currentGraduate}
+      />
+      <KeyboardNavigation
+        goPrevGraduate={goPrevGraduate}
+        goNextGraduate={goNextGraduate}
+        goShowAllGraduates={goShowAllGraduates}
       />
     </GraduateDetailsPaper>
   );
