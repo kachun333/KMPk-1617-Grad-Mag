@@ -43,7 +43,8 @@ const Root = styled("div")(({ theme }) => ({
   },
 
   [`& .${classes.logo}`]: {
-    height: "40px",
+    height: 40,
+    width: 71.141,
   },
 
   [`& .${classes.appTitle}`]: {
