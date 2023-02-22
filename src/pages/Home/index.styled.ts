@@ -12,7 +12,8 @@ export const HeroContainer = styled("div")(({ theme }) => ({
 }));
 
 export const HeroImg = styled(BannerImage)({
-  width: "100%",
+  width: "100vw",
+  height: "calc((100vw / 3) * 2)",
 });
 
 export const AboutBox = styled("div")(({ theme }) => ({
