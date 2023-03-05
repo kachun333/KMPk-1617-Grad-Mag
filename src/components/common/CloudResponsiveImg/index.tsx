@@ -8,6 +8,10 @@ interface CloudResponsiveImgProps {
     React.ImgHTMLAttributes<HTMLImageElement>,
     HTMLImageElement
   >;
+  pictureProps?: React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLElement>,
+    HTMLElement
+  >;
 }
 
 const STORAGE_HOST = "https://storage.googleapis.com/ourpromise.appspot.com";
@@ -17,23 +21,40 @@ const CloudResponsiveImg: React.FC<CloudResponsiveImgProps> = ({
   fileName,
   className,
   imgProps,
+  pictureProps,
 }) => {
   const uriEncodedFileName = encodeURI(fileName);
-  const path = `${STORAGE_HOST}/${folderPath}`;
+  const jpgPath = `${STORAGE_HOST}/jpg/${folderPath}`;
+  const webpPath = `${STORAGE_HOST}/webp/${folderPath}`;
   return (
-    <img
-      className={className}
-      src={`${path}/300x200/${uriEncodedFileName}.webp`}
-      srcSet={`
-        ${path}/300x200/${uriEncodedFileName}.webp 300w,
-        ${path}/600x400/${uriEncodedFileName}.webp 600w,
-        ${path}/900x600/${uriEncodedFileName}.webp 900w,
-        ${path}/1200x800/${uriEncodedFileName}.webp 1200w,
-        ${path}/2400x1600/${uriEncodedFileName}.webp 2400w
+    <picture {...pictureProps}>
+      <source
+        type="image/webp"
+        sizes={imgProps?.sizes}
+        srcSet={`
+        ${webpPath}/300x200/${uriEncodedFileName}.webp 300w,
+        ${webpPath}/600x400/${uriEncodedFileName}.webp 600w,
+        ${webpPath}/900x600/${uriEncodedFileName}.webp 900w,
+        ${webpPath}/1200x800/${uriEncodedFileName}.webp 1200w,
+        ${webpPath}/2400x1600/${uriEncodedFileName}.webp 2400w
       `}
-      alt={fileName}
-      {...imgProps}
-    />
+      />
+      <source
+        type="image/jpeg"
+        sizes={imgProps?.sizes}
+        srcSet={`
+        ${jpgPath}/600x400/${uriEncodedFileName}.webp 600w,
+        ${jpgPath}/1200x800/${uriEncodedFileName}.webp 1200w,
+        ${jpgPath}/2400x1600/${uriEncodedFileName}.webp 2400w
+      `}
+      />
+      <img
+        className={className}
+        src={`${jpgPath}/600x400/${uriEncodedFileName}.jpg`}
+        alt={fileName}
+        {...imgProps}
+      />
+    </picture>
   );
 };
 
