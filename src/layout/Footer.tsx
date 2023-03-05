@@ -4,8 +4,8 @@ import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import Bottle from "assets/images/bottle.webp";
-import FooterImg from "assets/images/footer.webp";
+import Bottle from "assets/images/bottle.png";
+import FooterImg from "assets/images/footer.png";
 import { APP_NAME } from "global.constants";
 import React from "react";
 
