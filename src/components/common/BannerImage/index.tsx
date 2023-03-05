@@ -17,7 +17,7 @@ const BannerImage: React.FC<BannerImageProps> = ({
 }) => {
   return (
     <CloudResponsiveImg
-      folderPath="webp/banners"
+      folderPath="banners"
       fileName={fileName}
       className={className}
       imgProps={imgProps}
