@@ -8,19 +8,25 @@ interface GraduateImageProps {
     React.ImgHTMLAttributes<HTMLImageElement>,
     HTMLImageElement
   >;
+  pictureProps?: React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLElement>,
+    HTMLElement
+  >;
 }
 
 const GraduateImage: React.FC<GraduateImageProps> = ({
   graduateName,
   className,
   imgProps,
+  pictureProps,
 }) => {
   return (
     <CloudResponsiveImg
-      folderPath="webp/graduates"
+      folderPath="graduates"
       fileName={graduateName}
       className={className}
       imgProps={imgProps}
+      pictureProps={pictureProps}
     />
   );
 };

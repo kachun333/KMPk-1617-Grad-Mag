@@ -72,7 +72,14 @@ const ImageHolder: React.FC<ImageHolderProps> = ({
         graduateName={graduate.name}
         imgProps={{
           ref,
-          sizes: "(min-width: 600px) calc(100vw - 360px), 100vw",
+          sizes: "(min-width: 900px) calc(100vw - 360px), 100vw",
+        }}
+        pictureProps={{
+          style: {
+            height: "100%",
+            width: "100%",
+            display: "flex",
+          },
         }}
       />
     </>
