@@ -43,9 +43,9 @@ const CloudResponsiveImg: React.FC<CloudResponsiveImgProps> = ({
         type="image/jpeg"
         sizes={imgProps?.sizes}
         srcSet={`
-        ${jpgPath}/600x400/${uriEncodedFileName}.webp 600w,
-        ${jpgPath}/1200x800/${uriEncodedFileName}.webp 1200w,
-        ${jpgPath}/2400x1600/${uriEncodedFileName}.webp 2400w
+        ${jpgPath}/600x400/${uriEncodedFileName}.jpg 600w,
+        ${jpgPath}/1200x800/${uriEncodedFileName}.jpg 1200w,
+        ${jpgPath}/2400x1600/${uriEncodedFileName}.jpg 2400w
       `}
       />
       <img
