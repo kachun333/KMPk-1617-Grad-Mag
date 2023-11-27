@@ -12,6 +12,9 @@ export const StyledImageContainer = styled("div")(({ theme }) => {
   const graduateCardMargin = theme.spacing(1);
   const margin = `${gridLayoutMargin} * 2 + ${graduateCardMargin} * 2`;
   return {
+    "&:hover": {
+      background: `linear-gradient(to right, ${theme.palette.secondary.light}, ${theme.palette.primary.light})`,
+    },
     [theme.breakpoints.up("sm")]: {
       width: 282,
       height: 188,
@@ -23,10 +26,14 @@ export const StyledImageContainer = styled("div")(({ theme }) => {
   };
 });
 
-export const StyledGraduateImage = styled(GraduateImage)({
+export const StyledGraduateImage = styled(GraduateImage)(() => ({
   height: "100%",
   width: "100%",
-});
+  opacity: 1,
+  "&:hover": {
+    opacity: 0.95
+  },
+}));
 
 /**
  * innerHTML will be hidden

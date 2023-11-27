@@ -3,8 +3,8 @@ import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import React from "react";
-import YouTube, { YouTubeEvent } from "react-youtube";
 import { videosData } from "./videos.constants";
+import WrappedVideo from "./WrappedVideo";
 
 const PREFIX = "Videos";
 
@@ -36,16 +36,6 @@ const Root = styled("div")(({ theme }) => ({
 }));
 
 function Videos() {
-  const onReady = (event: YouTubeEvent<any>) => {
-    // access to player in all event handlers via event.target
-    event.target.pauseVideo();
-  };
-
-  const opts = {
-    height: "195",
-    width: "320",
-  };
-
   return (
     <Container className={classes.container}>
       {videosData.map((video) => (
@@ -62,7 +52,7 @@ function Videos() {
                 xs={iframe.xs || 12}
                 md={iframe.md || 4}
               >
-                <YouTube videoId={iframe.id} opts={opts} onReady={onReady} />
+                <WrappedVideo videoId={iframe.id} />
               </Grid>
             ))}
           </Grid>
