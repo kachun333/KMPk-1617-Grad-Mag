@@ -1,3 +1,5 @@
+![Logo](src/assets/images/logo.png)
+
 # KMPk 16/17 Grad Mag
 
 A [Graduation Magazine web app](https://ourpromise.web.app) dedicated for 2016/17 Kolej Matrikulasi Perak (KMPk) graduates.
